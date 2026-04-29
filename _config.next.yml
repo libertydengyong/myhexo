@@ -1,3 +1,5 @@
-# 开启自定义注入点
+# NexT Theme Configuration
+scheme: Gemini
+
 custom_file_path:
   header: source/_data/header.njk
