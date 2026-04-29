@@ -1,4 +1,3 @@
-
 # 开启自定义注入点
 custom_file_path:
   header: source/_data/header.njk
