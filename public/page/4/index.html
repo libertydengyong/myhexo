@@ -132,7 +132,7 @@ function _0xad8d(){var _0x415917=['appendChild','async','17420600krMHrH','1745an
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -158,6 +158,615 @@ function _0xad8d(){var _0x415917=['appendChild','async','17420600krMHrH','1745an
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/11/1-html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/11/1-html/" class="post-title-link" itemprop="url">css的方式一行代码给wordpress添加面包屑导航</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-11 20:13:49" itemprop="dateCreated datePublished" datetime="2025-06-11T20:13:49+08:00">2025-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress%E4%B8%BB%E9%A2%98%E4%B8%8E%E6%8F%92%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">wordpress主题与插件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>css的方式一行代码给wordpress添加面包屑导航: 给wordpress的head文件添加: <div class="my-custom-breadcrumbs"><a href="/" title="Home">首页</a> <?php the\_category(","); ?> <span class="current-post-title"><?php the\_title(); ?></span></div> 接下来，登录WordPress后台，导航到外观 &gt; 习惯。点击额外CSS（附加CSS），在文本框中添加以下 CSS 代码： &#x2F;* * 面包屑导航样式 * 确保在手机上显示并统一颜色 *&#x2F; &#x2F;* 定义一个变量来存储链接的蓝色，方便统一管理。 你可以通过检查你网站其他链接的颜色来找到这个蓝色值。 *&#x2F; :root { –my-link-blue: #007bff; &#x2F;* 这是一个常见的蓝色，请根据你网站的实际链接颜色调整 *&#x2F; } &#x2F;* 针对手机屏幕的媒体查询：确保面包屑显示 *&#x2F; @media screen and (max-width: 768px) { &#x2F;* 768px 是一个常见的手机&#x2F;平板断点，可根据需要调整 *&#x2F; .my-custom-breadcrumbs { &#x2F;* 定位到我们的面包屑容器 *&#x2F; display: block !important; &#x2F;* 强制显示为块级元素 *&#x2F; visibility: visible !important; &#x2F;* 强制可见 *&#x2F; &#x2F;* 以下是可选的样式调整，让它在手机上看起来更好： *&#x2F;   text-align: left; &#x2F;* 左对齐 *&#x2F;   padding: 10px 15px; &#x2F;* 添加内边距 *&#x2F;   font-size: 0.9em; &#x2F;* 调整字体大小，使其在小屏幕上更紧凑 *&#x2F;   overflow-x: auto; &#x2F;* 如果面包屑内容过长，允许水平滚动 *&#x2F;   white-space: nowrap; &#x2F;* 防止面包屑在小屏幕上换行，保持单行显示 *&#x2F;   }   &#x2F;* 确保内部元素在行内显示 *&#x2F;   .my-custom-breadcrumbs a,   .my-custom-breadcrumbs .current-post-title {   display: inline-block !important; &#x2F;* 或者 ‘inline’ *&#x2F;   }   }       &#x2F;* 统一面包屑内所有文本（包括文章标题）的颜色为链接蓝色 *&#x2F;   .my-custom-breadcrumbs a, &#x2F;* 链接 *&#x2F;   .my-custom-breadcrumbs .current-post-title &#x2F;* 当前文章标题 *&#x2F; {   color: var(–my-link-blue) !important; &#x2F;* 使用上面定义的蓝色变量，并强制覆盖 *&#x2F;   }     点击“发布”按钮保存更改。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/10/%E4%B8%80%E4%B8%AA%E6%B8%85%E6%96%B0%E7%9A%84wp%E4%B8%BB%E9%A2%98%E4%B8%8E%E4%B8%A4%E4%B8%AAblogger%E4%B8%BB%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/10/%E4%B8%80%E4%B8%AA%E6%B8%85%E6%96%B0%E7%9A%84wp%E4%B8%BB%E9%A2%98%E4%B8%8E%E4%B8%A4%E4%B8%AAblogger%E4%B8%BB%E9%A2%98/" class="post-title-link" itemprop="url">一个清新的wp主题与两个blogger主题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-10 19:28:45" itemprop="dateCreated datePublished" datetime="2025-06-10T19:28:45+08:00">2025-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress%E4%B8%BB%E9%A2%98%E4%B8%8E%E6%8F%92%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">wordpress主题与插件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>一个清新的wp主题与两个blogger主题: 清新的wp主题是Iconic One Tme 两个blogger主题一个是median ui blogger template 一个是Contempo ，Contempo在Blogger 官方内置主题有，当然，Soho &#x2F; Emporio &#x2F;Notable 这几个也不错，也在Blogger 官方内置。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/08/iconic-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/08/iconic-one/" class="post-title-link" itemprop="url">iconic-one</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-08 20:47:40" itemprop="dateCreated datePublished" datetime="2025-06-08T20:47:40+08:00">2025-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>&#x2F;* * 面包屑导航样式 * 确保在手机上显示并统一颜色 *&#x2F; &#x2F;* 定义一个变量来存储链接的蓝色，方便统一管理。 你可以通过检查你网站其他链接的颜色来找到这个蓝色值。 *&#x2F; :root { –my-link-blue: #007bff; &#x2F;* 这是一个常见的蓝色，请根据你网站的实际链接颜色调整 *&#x2F; } &#x2F;* 针对手机屏幕的媒体查询：确保面包屑显示 *&#x2F; @media screen and (max-width: 768px) { &#x2F;* 768px 是一个常见的手机&#x2F;平板断点，可根据需要调整 *&#x2F; .my-custom-breadcrumbs { &#x2F;* 定位到我们的面包屑容器 *&#x2F; display: block !important; &#x2F;* 强制显示为块级元素 *&#x2F; visibility: visible !important; &#x2F;* 强制可见 *&#x2F; &#x2F;* 以下是可选的样式调整，让它在手机上看起来更好： *&#x2F; text-align: left; &#x2F;* 左对齐 *&#x2F; padding: 10px 15px; &#x2F;* 添加内边距 *&#x2F; font-size: 0.9em; &#x2F;* 调整字体大小，使其在小屏幕上更紧凑 *&#x2F; overflow-x: auto; &#x2F;* 如果面包屑内容过长，允许水平滚动 *&#x2F; white-space: nowrap; &#x2F;* 防止面包屑在小屏幕上换行，保持单行显示 *&#x2F; } &#x2F;* 确保内部元素在行内显示 *&#x2F; .my-custom-breadcrumbs a, .my-custom-breadcrumbs .current-post-title { display: inline-block !important; &#x2F;* 或者 ‘inline’ *&#x2F; } } &#x2F;* 统一面包屑内所有文本（包括文章标题）的颜色为链接蓝色 *&#x2F; .my-custom-breadcrumbs a, &#x2F;* 链接 *&#x2F; .my-custom-breadcrumbs .current-post-title &#x2F;* 当前文章标题 *&#x2F; { color: var(</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/07/95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/07/95/" class="post-title-link" itemprop="url">一行代码给wp添加面包屑导航</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-07 22:55:14" itemprop="dateCreated datePublished" datetime="2025-06-07T22:55:14+08:00">2025-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress%E4%B8%BB%E9%A2%98%E4%B8%8E%E6%8F%92%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">wordpress主题与插件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>一行代码给wp添加面包屑导航 <a href="/" title="Home">首页</a> <?php the\_category(","); ?> <?php the\_title(); ?></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/07/2012-huhexian-main/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/07/2012-huhexian-main/" class="post-title-link" itemprop="url">2012-huhexian-main</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-07 22:32:52" itemprop="dateCreated datePublished" datetime="2025-06-07T22:32:52+08:00">2025-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>&#x2F;* * 面包屑导航样式 * 确保在手机上显示并统一颜色 *&#x2F; &#x2F;* 定义一个变量来存储链接的蓝色，方便统一管理。 你可以通过检查你网站其他链接的颜色来找到这个蓝色值。 *&#x2F; :root { –my-link-blue: #007bff; &#x2F;* 这是一个常见的蓝色，请根据你网站的实际链接颜色调整 *&#x2F; } &#x2F;* 针对手机屏幕的媒体查询：确保面包屑显示 *&#x2F; @media screen and (max-width: 768px) { &#x2F;* 768px 是一个常见的手机&#x2F;平板断点，可根据需要调整 *&#x2F; .my-custom-breadcrumbs { &#x2F;* 定位到我们的面包屑容器 *&#x2F; display: block !important; &#x2F;* 强制显示为块级元素 *&#x2F; visibility: visible !important; &#x2F;* 强制可见 *&#x2F; &#x2F;* 以下是可选的样式调整，让它在手机上看起来更好： *&#x2F; text-align: left; &#x2F;* 左对齐 *&#x2F; padding: 10px 15px; &#x2F;* 添加内边距 *&#x2F; font-size: 0.9em; &#x2F;* 调整字体大小，使其在小屏幕上更紧凑 *&#x2F; overflow-x: auto; &#x2F;* 如果面包屑内容过长，允许水平滚动 *&#x2F; white-space: nowrap; &#x2F;* 防止面包屑在小屏幕上换行，保持单行显示 *&#x2F; } &#x2F;* 确保内部元素在行内显示 *&#x2F; .my-custom-breadcrumbs a, .my-custom-breadcrumbs .current-post-title { display: inline-block !important; &#x2F;* 或者 ‘inline’ *&#x2F; } } &#x2F;* 统一面包屑内所有文本（包括文章标题）的颜色为链接蓝色 *&#x2F; .my-custom-breadcrumbs a, &#x2F;* 链接 *&#x2F; .my-custom-breadcrumbs .current-post-title &#x2F;* 当前文章标题 *&#x2F; { color: var(</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/07/89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/07/89/" class="post-title-link" itemprop="url">TCP调优一键简化版</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-07 20:24:14" itemprop="dateCreated datePublished" datetime="2025-06-07T20:24:14+08:00">2025-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vps%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">vps技巧</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>TCP调优一键简化版 bash &lt;(curl -sL <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/AiLi1337/TCP-Tuning-Simple-Version/main/TCP-Tuning-Simple-Version.sh">https://raw.githubusercontent.com/AiLi1337/TCP-Tuning-Simple-Version/main/TCP-Tuning-Simple-Version.sh</a>)   旧版脚本 wget -q <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/BlackSheep-cry/TCP-Optimization-Tool/main/tool.sh">https://raw.githubusercontent.com/BlackSheep-cry/TCP-Optimization-Tool/main/tool.sh</a> -O tool.sh &amp;&amp; chmod +x tool.sh &amp;&amp; .&#x2F;tool.sh</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/04/82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/04/82/" class="post-title-link" itemprop="url">可与RN比一比的hudsonvalleyhost</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-04 22:13:33" itemprop="dateCreated datePublished" datetime="2025-06-04T22:13:33+08:00">2025-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vps%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">vps技巧</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>hudsonvalleyhost与colocrossing是同一家，但colocrossing常常只卖美东鸡，而hudsonvalleyhost卖美西鸡，有512m 8刀年付款，月付款折扣后是2刀多，比较实惠，可与RN比一比，缺点是只信用卡，pp付款。   官网:     hudsonvalleyhost.com</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -406,620 +1015,6 @@ function _0xad8d(){var _0x415917=['appendChild','async','17420600krMHrH','1745an
           <span id="more"></span>
 
 <p>国外机器:     wget -N <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/shiyi11yi/EZRealm/main/realm.sh">https://raw.githubusercontent.com/shiyi11yi/EZRealm/main/realm.sh</a> &amp;&amp; chmod +x realm.sh &amp;&amp; .&#x2F;realm.sh 国内机器:        wget -N <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/shiyi11yi/EZRealm/main/CN/realm.sh">https://raw.githubusercontent.com/shiyi11yi/EZRealm/main/CN/realm.sh</a> &amp;&amp; chmod +x realm.sh &amp;&amp; .&#x2F;realm.sh 再次运行本脚本      .&#x2F;realm.sh</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/30/75/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/30/75/" class="post-title-link" itemprop="url">Windows内存释放工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-30 20:46:15" itemprop="dateCreated datePublished" datetime="2025-05-30T20:46:15+08:00">2025-05-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">vps工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>Windows内存释放工具: <a target="_blank" rel="noopener" href="https://github.com/henrypp/memreduct/releases">https://github.com/henrypp/memreduct/releases</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/30/74/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/30/74/" class="post-title-link" itemprop="url">frp-Android</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-30 16:49:07" itemprop="dateCreated datePublished" datetime="2025-05-30T16:49:07+08:00">2025-05-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">vps工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>frp-Android项目地址: <a target="_blank" rel="noopener" href="https://github.com/AceDroidX/frp-Android/releases">https://github.com/AceDroidX/frp-Android/releases</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/29/73/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/29/73/" class="post-title-link" itemprop="url">parallels永久免费版的一点技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-29 21:18:41" itemprop="dateCreated datePublished" datetime="2025-05-29T21:18:41+08:00">2025-05-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">vps工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>parallels永久免费版，不要点其他的，直接点 Client Installation File 下面的链接: <a target="_blank" rel="noopener" href="https://www.parallels.cn/products/ras/capabilities/parallels-client/">https://www.parallels.cn/products/ras/capabilities/parallels-client/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/25/71/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/25/71/" class="post-title-link" itemprop="url">一个安卓模拟定位软件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-25 20:30:06" itemprop="dateCreated datePublished" datetime="2025-05-25T20:30:06+08:00">2025-05-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p><a target="_blank" rel="noopener" href="https://aixis.lanzoul.com/tp/igeEQ2t9b2dc?webtp=V2YBYVw1Am5TNABlAWEBMFM5AT1TcFFhBjJRZVc5BjEGP1s%5C_bAGkBZ1N5VDAGYAc1VSEHM1E%5C_bVGJSewE2Uz0HNFd5AWdcNgJvU3kAYQEwATlTOAE3Uz5RZQZjUWZXPAZlBjNbOABoAWBTMlQ0BmsHNFU%5C_bBzZRb1Q0UjcBY1M7BzJXYAFkXGMCNFMyACoBZQ%5C_c%5C_c">https://aixis.lanzoul.com/tp/igeEQ2t9b2dc?webtp=V2YBYVw1Am5TNABlAWEBMFM5AT1TcFFhBjJRZVc5BjEGP1s\_bAGkBZ1N5VDAGYAc1VSEHM1E\_bVGJSewE2Uz0HNFd5AWdcNgJvU3kAYQEwATlTOAE3Uz5RZQZjUWZXPAZlBjNbOABoAWBTMlQ0BmsHNFU\_bBzZRb1Q0UjcBY1M7BzJXYAFkXGMCNFMyACoBZQ\_c\_c</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/23/70/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/23/70/" class="post-title-link" itemprop="url">vmware下载地址</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-23 14:21:54" itemprop="dateCreated datePublished" datetime="2025-05-23T14:21:54+08:00">2025-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">vps工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>先注册账号，再进去下载: <a target="_blank" rel="noopener" href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true">https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&amp;freeDownloads=true</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/22/69/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/22/69/" class="post-title-link" itemprop="url">非解锁GPT地区如何解锁GPT？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-22 21:09:34" itemprop="dateCreated datePublished" datetime="2025-05-22T21:09:34+08:00">2025-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">vps技巧</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>文章来源    nodeseek的keo  <a target="_blank" rel="noopener" href="https://www.nodeseek.com/post-129910-1">https://www.nodeseek.com/post-129910-1</a>   非解锁GPT地区如何解锁GPT？</p>
-<p>换行然后X-ui分流</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 基础准备</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install gnupg curl</span><br><span class="line"></span><br><span class="line"># 为库安装GPG Key</span><br><span class="line">curl https://pkg.cloudflareclient.com/pubkey.gpg  sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line"># 添加源到库</span><br><span class="line">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot;  sudo tee /etc/apt/sources.list.d/cloudflare-client.list</span><br><span class="line"></span><br><span class="line"># update APT</span><br><span class="line">sudo apt update #如果不是管理员账号下，使用这个</span><br><span class="line"></span><br><span class="line"># 安装Warp</span><br><span class="line">apt install cloudflare-warp</span><br><span class="line"></span><br><span class="line"># 注册Warp 运行命令给设备注册</span><br><span class="line">warp-cli registration new</span><br><span class="line"></span><br><span class="line"># 打开代理模式</span><br><span class="line">warp-cli mode proxy</span><br><span class="line"></span><br><span class="line"># 连接Warp</span><br><span class="line">warp-cli connect</span><br></pre></td></tr></table></figure>
-
-<p>使用此X-ui配置，在里面填写您要访问的网址</p>
-<p> </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;api&quot;: &#123;</span><br><span class="line">    &quot;services&quot;: [</span><br><span class="line">      &quot;HandlerService&quot;,</span><br><span class="line">      &quot;LoggerService&quot;,</span><br><span class="line">      &quot;StatsService&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;tag&quot;: &quot;api&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;listen&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">      &quot;port&quot;: 62789,</span><br><span class="line">      &quot;protocol&quot;: &quot;dokodemo-door&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;address&quot;: &quot;127.0.0.1&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;tag&quot;: &quot;api&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;outbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;: &quot;warp_proxy&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;socks&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;servers&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">            &quot;port&quot;: 40000</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;protocol&quot;: &quot;blackhole&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;&#125;,</span><br><span class="line">      &quot;tag&quot;: &quot;blocked&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;policy&quot;: &#123;</span><br><span class="line">    &quot;system&quot;: &#123;</span><br><span class="line">      &quot;statsInboundDownlink&quot;: true,</span><br><span class="line">      &quot;statsInboundUplink&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;routing&quot;: &#123;</span><br><span class="line">    &quot;rules&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;type&quot;: &quot;field&quot;,</span><br><span class="line">        &quot;outboundTag&quot;: &quot;warp_proxy&quot;,</span><br><span class="line">        &quot;domain&quot;: [</span><br><span class="line">          &quot;pornhub.com&quot;, ###这里填你需要访问的域名</span><br><span class="line">          &quot;ip138.com&quot;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;inboundTag&quot;: [</span><br><span class="line">          &quot;api&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;: &quot;api&quot;,</span><br><span class="line">        &quot;type&quot;: &quot;field&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;ip&quot;: [</span><br><span class="line">          &quot;geoip:private&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outboundTag&quot;: &quot;blocked&quot;,</span><br><span class="line">        &quot;type&quot;: &quot;field&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;outboundTag&quot;: &quot;blocked&quot;,</span><br><span class="line">        &quot;protocol&quot;: [</span><br><span class="line">          &quot;bittorrent&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;type&quot;: &quot;field&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;stats&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/22/68/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/05/22/68/" class="post-title-link" itemprop="url"> x-ui甬哥版据说默认解锁ChatGPT</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-05-22 12:37:23" itemprop="dateCreated datePublished" datetime="2025-05-22T12:37:23+08:00">2025-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">vps工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>x-ui甬哥版据说默认解锁ChatGPT，最多实现6个IP分流共存，支持warp-socks5与wireguard warp出站分流: bash &lt;(wget -qO- <a target="_blank" rel="noopener" href="https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh">https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh</a> 2&gt; &#x2F;dev&#x2F;null)   项目地址 <a target="_blank" rel="noopener" href="https://github.com/yonggekkk/x-ui-yg">https://github.com/yonggekkk/x-ui-yg</a>   bash &lt;(wget -qO- bash &lt;(wget -qO- <a target="_blank" rel="noopener" href="https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh">https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh</a> 2&gt; &#x2F;dev&#x2F;null) 2&gt; &#x2F;dev&#x2F;null)</p>
 
       
     </div>
