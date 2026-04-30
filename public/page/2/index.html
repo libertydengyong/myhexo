@@ -132,7 +132,7 @@ function _0xad8d(){var _0x415917=['appendChild','async','17420600krMHrH','1745an
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -158,6 +158,114 @@ function _0xad8d(){var _0x415917=['appendChild','async','17420600krMHrH','1745an
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/17/2026-04-17-006/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/17/2026-04-17-006/" class="post-title-link" itemprop="url">一键cat命令完成vps所有优化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2026-04-17 15:21:02 / Modified: 16:40:11" itemprop="dateCreated datePublished" datetime="2026-04-17T15:21:02+08:00">2026-04-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<p>一键cat命令完成vps所有优化，以修改端口为9999例，包括安装xanmod,bbr+fq,mosh等等所有优化，代码:</p>
+<p>cat &lt;&lt;’EOF’ | bash</p>
+<p>set -e</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 检查系统 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”</p>
+<p>if ! grep -qi debian &#x2F;etc&#x2F;os-release; then</p>
+<p>echo “❌ 当前不是 Debian，停止执行”</p>
+<p>exit 1</p>
+<p>fi</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 更新系统 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”</p>
+<p>apt update -y &amp;&amp; apt upgrade -y</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 修改 SSH 端口 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”</p>
+<p>sed -i ‘s&#x2F;#Port 22&#x2F;Port 9999&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>sed -i ‘s&#x2F;^Port 22&#x2F;Port 9999&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; SSH：密码 + 密钥登录 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”</p>
+<p>cat &lt;&lt;’EOF’ | bash<br>set -e</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 检查系统 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>if ! grep -qi debian &#x2F;etc&#x2F;os-release; then<br>echo “❌ 当前不是 Debian，停止执行”<br>exit 1<br>fi</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 更新系统 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>apt update -y &amp;&amp; apt upgrade -y</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 修改 SSH 端口 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>sed -i ‘s&#x2F;#Port 22&#x2F;Port 9999&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;^Port 22&#x2F;Port 9999&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; SSH：密码 + 密钥登录 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>sed -i ‘s&#x2F;#PasswordAuthentication yes&#x2F;PasswordAuthentication yes&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;PasswordAuthentication no&#x2F;PasswordAuthentication yes&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;#PubkeyAuthentication yes&#x2F;Puecho “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; SSH：密码 + 密钥登录 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”</p>
+<p>cat &lt;&lt;’EOF’ | bash<br>set -e</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 检查系统 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>if ! grep -qi debian &#x2F;etc&#x2F;os-release; then<br>echo “❌ 当前不是 Debian，停止执行”<br>exit 1<br>fi</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 更新系统 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>apt update -y &amp;&amp; apt upgrade -y</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 修改 SSH 端口 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>sed -i ‘s&#x2F;#Port 22&#x2F;Port 9999&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;^Port 22&#x2F;Port 9999&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; SSH：密码 + 密钥登录 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>sed -i ‘s&#x2F;#PasswordAuthentication yes&#x2F;PasswordAuthentication yes&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;PasswordAuthentication no&#x2F;PasswordAuthentication yes&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;#PubkeyAuthentication yes&#x2F;PubkeyAuthentication yes&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>sed -i ‘s&#x2F;#PermitRootLogin prohibit-password&#x2F;PermitRootLogin yes&#x2F;g’ &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; SSH 防掉线优化 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>grep -q “ClientAliveInterval” &#x2F;etc&#x2F;ssh&#x2F;sshd_config || cat &gt;&gt; &#x2F;etc&#x2F;ssh&#x2F;sshd_config &lt;&lt;EOL<br>ClientAliveInterval 60<br>ClientAliveCountMax 10<br>TCPKeepAlive yes<br>UseDNS no<br>GSSAPIAuthentication no<br>EOL</p>
+<p>systemctl restart ssh</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 安装基础工具 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>apt install -y curl wget sudo vim htop mosh fail2ban gnupg ca-certificates</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 安装 xanmod 内核 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>wget -qO - <a target="_blank" rel="noopener" href="https://dl.xanmod.org/gpg.key">https://dl.xanmod.org/gpg.key</a> | gpg –dearmor -o &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;xanmod.gpg<br>echo ‘deb [signed-by&#x3D;&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;xanmod.gpg] <a target="_blank" rel="noopener" href="http://deb.xanmod.org/">http://deb.xanmod.org</a> releases main’ &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;xanmod-release.list</p>
+<p>apt update<br>apt install -y linux-xanmod-lts || apt install -y linux-xanmod</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 启用 BBR &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>grep -q “tcp_congestion_control&#x3D;bbr” &#x2F;etc&#x2F;sysctl.conf || cat &gt;&gt; &#x2F;etc&#x2F;sysctl.conf &lt;&lt;EOL<br>net.core.default_qdisc&#x3D;fq<br>net.ipv4.tcp_congestion_control&#x3D;bbr<br>EOL<br>sysctl -p</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 尝试 BBR3（可能失败）&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>modprobe tcp_bbr 2&gt;&#x2F;dev&#x2F;null || true</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 网络优化 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>grep -q “tcp_fastopen” &#x2F;etc&#x2F;sysctl.conf || cat &gt;&gt; &#x2F;etc&#x2F;sysctl.conf &lt;&lt;EOL<br>net.ipv4.tcp_fastopen&#x3D;3<br>net.ipv4.tcp_mtu_probing&#x3D;1<br>net.ipv4.tcp_syncookies&#x3D;1<br>net.core.somaxconn&#x3D;1024<br>net.ipv4.ip_forward&#x3D;1<br>EOL</p>
+<p>sysctl -p</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 配置 fail2ban &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>cat &gt; &#x2F;etc&#x2F;fail2ban&#x2F;jail.local &lt;&lt;EOL<br>[sshd]<br>enabled &#x3D; true<br>port &#x3D; 9999<br>logpath &#x3D; &#x2F;var&#x2F;log&#x2F;auth.log<br>maxretry &#x3D; 3<br>bantime &#x3D; 3600<br>EOL</p>
+<p>systemctl enable fail2ban<br>systemctl restart fail2ban</p>
+<p>echo “&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 完成 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;”<br>echo “⚠️ 请执行 reboot 重启以启用 xanmod 内核”<br>echo “👉 SSH连接: ssh -p 9999 root@IP”<br>EOF</p>
+<p>运行后重启vps生效。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -923,95 +1031,8 @@ function _0xad8d(){var _0x415917=['appendChild','async','17420600krMHrH','1745an
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/17/s-ui%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/17/s-ui%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">S-UI面板搭建</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-11-17 16:25:54" itemprop="dateCreated datePublished" datetime="2025-11-17T16:25:54+08:00">2025-11-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-16 16:07:39" itemprop="dateModified" datetime="2026-04-16T16:07:39+08:00">2026-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vps%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">vps技巧</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>S-UI面板搭建： bash &lt;(curl -Ls <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh">https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh</a>) 项目地址：<a target="_blank" rel="noopener" href="https://github.com/alireza0/s-ui">https://github.com/alireza0/s-ui</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
