@@ -1,0 +1,34 @@
+name: Daily AI Post Generator
+
+# ↓↓↓ 下面这一段就是用来在 GitHub 网页上生成“手动运行按钮”的开关 ↓↓↓
+on:
+  workflow_dispatch: # 只要有这一行，GitHub 就会自动显示 Run workflow 按钮
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+        
+      - name: Install dependencies
+        run: |
+          pip install openai
+
+      - name: Run script
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: python zd.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated AI Post" || exit 0
+          git push
