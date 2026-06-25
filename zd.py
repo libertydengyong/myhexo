@@ -1,4 +1,6 @@
-import os datetime;from openai import OpenAI
+import os
+import datetime
+from openai import OpenAI
 try:
  client=OpenAI(api_key=os.environ.get("AI_API_KEY"),base_url="https://generativelanguage.googleapis.com/v1beta/openai")
  response=client.chat.completions.create(model="gemini-1.5-flash",messages=[{"role":"system","content":"You are an expert affiliate marketer and SEO writer."},{"role":"user","content":"Write a 500-word SEO-friendly English article about 'Paid surveys with instant PayPal payout in 2026'. Use markdown format, include headings, and do not mention top famous sites like Swagbucks."}])
