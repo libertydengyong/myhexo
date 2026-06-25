@@ -1,7 +1,35 @@
-version: 2
-updates:
-- package-ecosystem: npm
-  directory: "/"
+name: Daily AI Post Generator
+
+on:
+  workflow_dispatch: # 允许手动点击运行
   schedule:
-    interval: daily
-  open-pull-requests-limit: 20
+    - cron: '0 0 * * *' # 每天国际标准时间 0点（北京时间上午8点）自动运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+        
+      - name: Install dependencies
+        run: |
+          pip install openai
+
+      - name: Run script
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: python zd.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated AI Post" || exit 0
+          git push
