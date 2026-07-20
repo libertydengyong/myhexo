@@ -1,6 +1,6 @@
 # Hexo Configuration
 title: FreedomGPT
-url: https://www.freedomgpt.top
+url: https://freedomgpt.top
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
