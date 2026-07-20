@@ -1,5 +1,6 @@
 ---
 title: 最最最无脑的一键探针
+abbrlink: 49231
 date: 2026-04-16 22:30:00
 tags:
 categories:

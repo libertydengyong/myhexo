@@ -7,20 +7,23 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 
-# 核心：必须跳过渲染，否则 XML 会被 Hexo 破坏
-skip_render:
-  - "sitemap.xml"
+# 核心：使用 next 主题
+theme: next
 
-# 关键：映射旧分类
+# 核心：映射分类名，解决重复问题
 category_map:
   "vps技巧": vps
 
-# 核心：确保主题存在
-theme: next
+# 核心：直接搬运 sitemap，不进行渲染
+skip_render:
+  - "sitemap.xml"
 
-# 基础环境配置
+# 基础显示配置
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
-  tab_replace: ''
