@@ -5,6 +5,7 @@ tags:
 id: '29'
 categories:
   - - 一键安装 OpenLiteSpeed
+abbrlink: 30137
 date: 2025-05-06 12:00:43
 ---
 
