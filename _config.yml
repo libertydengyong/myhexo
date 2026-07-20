@@ -1,18 +1,22 @@
 # Hexo Configuration
+title: FreedomGPT
+subtitle: 'Professional VPS & Tech Guide'
+description: 'Verified tech solutions and VPS optimization ledger.'
+keywords: vps, tech, freedomgpt
+author: John Doe
+language: en
+timezone: UTC
+
+# 网址设置
 url: https://www.freedomgpt.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
 
-# 关键：跳过对 sitemap.xml 的渲染，直接搬运
-skip_render:
-  - "sitemap.xml"
-
-# 关键：分类名映射
-category_map:
-  "vps技巧": vps
-
-# 其他基础配置
+# 目录设置
 source_dir: source
 public_dir: public
 tag_dir: tags
@@ -20,5 +24,32 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
+
+# 关键：直接搬运 sitemap.xml，不进行渲染
+skip_render:
+  - "sitemap.xml"
+
+# 写作设置
+new_post_name: :title.md
 default_layout: post
-title: FreedomGPT
+title_case: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+
+# 关键：分类名映射，解决重复网页问题
+category_map:
+  "vps技巧": vps
+
+# 核心：使用你仓库里的 next 主题
+theme: next
+
+# 部署设置
+deploy:
+  type: ''
