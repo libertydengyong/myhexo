@@ -108,3 +108,6 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+category_map:
+  "vps技巧": vps
