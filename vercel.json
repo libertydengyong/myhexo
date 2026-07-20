@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/",
@@ -48,7 +50,5 @@
       "destination": "/categories/vps技巧/",
       "permanent": true
     }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": true
+  ]
 }
