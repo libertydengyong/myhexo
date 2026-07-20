@@ -1,0 +1,35 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "p", "value": "93" }],
+      "destination": "/2025/06/07/TCP调优一键简化版/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "p", "value": "237" }],
+      "destination": "/2026/04/17/一键cat命令完成vps所有优化/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "p", "value": "230" }],
+      "destination": "/2025/12/31/一键root加改密码脚本/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "cat", "value": "16" }],
+      "destination": "/categories/vps技巧/",
+      "permanent": true
+    },
+    {
+      "source": "/categories/vps技巧/",
+      "destination": "/categories/vps技巧/",
+      "permanent": true
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": true
+}
