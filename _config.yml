@@ -7,16 +7,16 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 
-# 跳过渲染静态地图
+# 核心：使用 next 主题
+theme: next
+
+# 核心：直接搬运静态 sitemap
 skip_render:
   - "sitemap.xml"
 
 # 分类映射
 category_map:
   "vps技巧": vps
-
-# 核心主题
-theme: next
 
 highlight:
   enable: true
