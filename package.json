@@ -1,10 +1,9 @@
 {
-  "name": "freedomgpt-hexo",
+  "name": "hexo-site",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean"
+  "hexo": {
+    "version": "7.0.0"
   },
   "dependencies": {
     "hexo": "^7.0.0",
