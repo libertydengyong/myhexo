@@ -4,7 +4,7 @@ tags:
   - Xray一键脚本
 id: '134'
 categories:
-  - - vps技巧
+  - vps技巧
 abbrlink: 106
 date: 2025-07-01 15:45:48
 ---

@@ -4,7 +4,7 @@ tags:
   - Linux 一键初始化 &amp; SSH 加固脚本
 id: '184'
 categories:
-  - - vps技巧
+  - vps技巧
 abbrlink: 5233
 date: 2025-12-12 21:12:01
 ---

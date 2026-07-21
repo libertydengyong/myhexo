@@ -4,7 +4,7 @@ tags:
   - wp与blogger主题
 id: '111'
 categories:
-  - - wordpress主题与插件
+  - wordpress主题与插件
 abbrlink: 46229
 date: 2025-06-10 19:28:45
 ---

@@ -4,7 +4,7 @@ tags:
   - USTC 公共镜像加速器
 id: '154'
 categories:
-  - - uncategorized
+  - uncategorized
 abbrlink: 49188
 date: 2025-07-24 19:47:47
 ---

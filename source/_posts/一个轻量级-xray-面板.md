@@ -4,7 +4,7 @@ tags:
   - 轻量级 Xray 面板
 id: '137'
 categories:
-  - - vps工具
+  - vps工具
 abbrlink: 38147
 date: 2025-07-09 12:32:25
 ---
