@@ -4,7 +4,7 @@ tags:
   - SSH 加快连接
 id: '147'
 categories:
-  - - vps技巧
+  - vps技巧
 abbrlink: 40921
 date: 2025-07-14 12:26:57
 ---

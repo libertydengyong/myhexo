@@ -4,7 +4,7 @@ tags:
   - S-UI面板搭建
 id: '174'
 categories:
-  - - vps技巧
+  - vps技巧
 abbrlink: 53672
 date: 2025-11-17 16:25:54
 ---

@@ -4,7 +4,7 @@ tags:
   - 定期自动清理vps
 id: '171'
 categories:
-  - - vps技巧
+  - vps技巧
 abbrlink: 16706
 date: 2025-11-07 19:06:37
 ---

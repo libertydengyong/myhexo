@@ -4,7 +4,7 @@ tags:
   - Aeroshell 智能终端
 id: '168'
 categories:
-  - - vps工具
+  - vps工具
 abbrlink: 58400
 date: 2025-10-30 21:20:21
 ---
