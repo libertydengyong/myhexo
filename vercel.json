@@ -4,26 +4,105 @@
   "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "p", "value": "93" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "93"
+        }
+      ],
       "destination": "/2025/06/07/89/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "p", "value": "237" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "237"
+        }
+      ],
       "destination": "/2026/04/17/2026-04-17-006/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "p", "value": "230" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "230"
+        }
+      ],
       "destination": "/2025/12/31/一键root加改密码脚本/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "cat", "value": "16" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "cat",
+          "value": "16"
+        }
+      ],
       "destination": "/categories/vps/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id"
+        }
+      ],
+      "destination": "/404.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p"
+        }
+      ],
+      "destination": "/404.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "author"
+        }
+      ],
+      "destination": "/404.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "paged"
+        }
+      ],
+      "destination": "/404.html",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "amp"
+        }
+      ],
+      "destination": "/404.html",
       "permanent": true
     }
   ]
