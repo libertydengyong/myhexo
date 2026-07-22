@@ -4,7 +4,7 @@ tags:
   - dd命令
 id: '49'
 categories:
-  - uncategorized
+  - 默认
 abbrlink: 64275
 date: 2025-05-11 19:41:02
 ---
