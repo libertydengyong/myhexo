@@ -24,3 +24,7 @@ lazyload:
   enable: true
 sitemap:
   path: sitemap.xml
+
+
+lazyload:
+  enable: true
