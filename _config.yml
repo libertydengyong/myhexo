@@ -10,9 +10,7 @@ category_dir: categories
 # 核心：使用 next 主题
 theme: next
 
-# 核心：直接搬运静态 sitemap
 skip_render:
-  - "sitemap.xml"
 
 # 分类映射
 category_map:
@@ -21,3 +19,6 @@ category_map:
 highlight:
   enable: true
   line_number: true
+
+sitemap:
+  path: sitemap.xml
