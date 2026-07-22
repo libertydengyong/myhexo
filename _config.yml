@@ -1,5 +1,6 @@
 # Hexo Configuration
-title: FreedomGPT
+title: FreedomGPT - VPS与Linux技术分享
+description: 分享VPS服务器、Linux系统、云服务器、网络技术和实用工具教程，记录服务器搭建、优化与使用经验。
 url: https://freedomgpt.top
 root: /
 permalink: :year/:month/:day/:title/
