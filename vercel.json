@@ -3,6 +3,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/category/:path*",
+      "destination": "/categories/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "/tags/:path*/",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -48,61 +58,6 @@
         }
       ],
       "destination": "/categories/vps/",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "page_id"
-        }
-      ],
-      "destination": "/404.html",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "p"
-        }
-      ],
-      "destination": "/404.html",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "author"
-        }
-      ],
-      "destination": "/404.html",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "paged"
-        }
-      ],
-      "destination": "/404.html",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "amp"
-        }
-      ],
-      "destination": "/404.html",
       "permanent": true
     }
   ]
