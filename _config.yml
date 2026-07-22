@@ -20,6 +20,7 @@ category_map:
 highlight:
   enable: true
   line_number: true
-
+lazyload:
+  enable: true
 sitemap:
   path: sitemap.xml
