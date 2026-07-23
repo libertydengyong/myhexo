@@ -28,3 +28,7 @@ sitemap:
 markdown:
   plugins:
     - markdown-it-attrs
+
+# 首页显示文章数量
+index_generator:
+  per_page: 5
