@@ -20,8 +20,11 @@ category_map:
 highlight:
   enable: true
   line_number: true
-lazyload:
-  enable: false
+lazyload: false
 sitemap:
   path: sitemap.xml
 
+
+markdown:
+  plugins:
+    - markdown-it-attrs
