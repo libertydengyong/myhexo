@@ -298,8 +298,9 @@ follow_me:
 # Dependencies: https://github.com/next-theme/hexo-posts-embedding
 # Or: https://github.com/sergeyzwezdin/hexo-related-posts
 related_posts:
-  enable: false
+  enable: true
   icon: fa fa-signs-post
+  title: 相关内容
 
 # Post edit
 # Easily browse and edit blog source code online.

@@ -66,9 +66,6 @@
         {% set _ = related_posts(page) %}
       {%- endif %}
       {%- if page.related_posts and page.related_posts.length > 0 %}
-        <div class="sidebar-inner sidebar-post-related">
-          <div class="animated">
-            {{ partial('_partials/post/post-related.njk') }}
           </div>
         </div>
       {%- endif %}
