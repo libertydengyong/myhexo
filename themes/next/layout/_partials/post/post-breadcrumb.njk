@@ -1,0 +1,14 @@
+<nav class="post-breadcrumb">
+  <a href="{{ url_for('/') }}">首页</a>
+
+  {% if post.categories.length %}
+    {% for cat in post.categories %}
+      <span> / </span>
+      <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
+      {% break %}
+    {% endfor %}
+  {% endif %}
+
+  <span> / </span>
+  <span>{{ post.title }}</span>
+</nav>
