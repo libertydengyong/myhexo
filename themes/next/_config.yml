@@ -916,3 +916,11 @@ vendors:
 css: css
 js: js
 images: images
+
+
+breadcrumb:
+  enable: true
+  home: 首页
+  separator: /
+  index: true
+  subnav: true
