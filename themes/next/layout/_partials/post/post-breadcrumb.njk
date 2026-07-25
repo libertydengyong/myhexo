@@ -3,10 +3,10 @@
 
   {% if post.categories.length %}
     {% set cat = post.categories.first() %}
-    <span> —— </span>
+    <span> — </span>
     <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
   {% endif %}
 
-  <span> —— </span>
+  <span> — </span>
   <span>{{ post.title }}</span>
 </nav>
