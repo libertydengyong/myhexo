@@ -40,3 +40,4 @@ index_generator:
   per_page: 5
   skip_render:
   - images/**
+updated_option: 'date'
