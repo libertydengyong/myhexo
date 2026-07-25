@@ -26,7 +26,6 @@
     {%- if post.header !== false %}
       <header class="post-header">
         {{ partial('_partials/post/post-breadcrumb.njk') }}
-        <div class="test-breadcrumb">测试面包屑</div>
         <{% if is_index %}h2{% else %}h1{% endif %} class="post-title{% if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{% endif %}" itemprop="name headline">
           {# Link posts #}
           {%- if post.link %}
