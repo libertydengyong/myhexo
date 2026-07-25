@@ -1,12 +1,17 @@
 <nav class="post-breadcrumb">
+
   <a href="{{ url_for('/') }}">首页</a>
 
   {% if post.categories.length %}
-    {% set cat = post.categories.first() %}
-    <span> — </span>
+    {% set cat = post.categories.data[0] %}
+    <span class="breadcrumb-separator"> - </span>
     <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
   {% endif %}
 
-  <span> — </span>
-  <span>{{ post.title }}</span>
+
+  {% if post.breadcrumb %}
+    <span class="breadcrumb-separator"> - </span>
+    <span>{{ post.breadcrumb }}</span>
+  {% endif %}
+
 </nav>
