@@ -5,7 +5,6 @@
     {% for cat in post.categories %}
       <span> / </span>
       <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
-      {% break %}
     {% endfor %}
   {% endif %}
 
