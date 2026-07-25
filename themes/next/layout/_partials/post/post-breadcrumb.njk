@@ -2,15 +2,87 @@
 
   <a href="{{ url_for('/') }}">首页</a>
 
+
   {% if post.categories.length %}
+
     {% set cat = post.categories.data[0] %}
-    <span class="breadcrumb-separator"> - </span>
+
+    <span class="breadcrumb-separator"> — </span>
+
     <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
+
   {% endif %}
 
+
   {% if post.breadcrumb %}
-    <span class="breadcrumb-separator"> - </span>
+
+    <span class="breadcrumb-separator"> — </span>
+
     <span>{{ post.breadcrumb }}</span>
+
+
+  {% else %}
+
+    {% set short_title = "技术记录" %}
+
+
+    {% if post.title contains "AetherCloud" or post.title contains "家宽" %}
+
+      {% set short_title = "家宽VPS" %}
+
+
+    {% elif post.title contains "IPv6" %}
+
+      {% set short_title = "IPv6部署" %}
+
+
+    {% elif post.title contains "Linux" %}
+
+      {% set short_title = "Linux服务" %}
+
+
+    {% elif post.title contains "VPS" %}
+
+      {% set short_title = "VPS优化" %}
+
+
+    {% elif post.title contains "Docker" %}
+
+      {% set short_title = "Docker部署" %}
+
+
+    {% elif post.title contains "Xray" %}
+
+      {% set short_title = "节点部署" %}
+
+
+    {% elif post.title contains "Hexo" %}
+
+      {% set short_title = "博客搭建" %}
+
+
+    {% elif post.title contains "Vercel" %}
+
+      {% set short_title = "网站部署" %}
+
+
+    {% elif post.title contains "Cloudflare" %}
+
+      {% set short_title = "CDN配置" %}
+
+
+    {% elif post.title contains "GitHub" %}
+
+      {% set short_title = "Git管理" %}
+
+    {% endif %}
+
+
+    <span class="breadcrumb-separator"> — </span>
+
+    <span>{{ short_title }}</span>
+
+
   {% endif %}
 
 </nav>
