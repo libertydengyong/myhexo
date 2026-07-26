@@ -41,3 +41,9 @@ index_generator:
   skip_render:
   - images/**
 updated_option: 'date'
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html

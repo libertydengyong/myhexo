@@ -1,3 +1,12 @@
 scheme: Gemini
 custom_file_path:
   header: source/_data/header.njk
+
+# Local Search
+# Dependencies: https://github.com/next-theme/hexo-generator-searchdb
+local_search:
+  enable: true
+  trigger: auto
+  top_n_per_article: 1
+  unescape: false
+  preload: false
