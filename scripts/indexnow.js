@@ -24,6 +24,7 @@ function submitIndexNow(site, urlList) {
     hostname: 'api.indexnow.org',
     path: '/indexnow',
     method: 'POST',
+    timeout: 3000,
     headers: {
       'Content-Type': 'application/json',
       'Content-Length': Buffer.byteLength(payload)
@@ -32,6 +33,12 @@ function submitIndexNow(site, urlList) {
 
   const req = https.request(options, (res) => {
     console.log(`[IndexNow] ${site.host} -> HTTP ${res.statusCode} (提交了 ${urlList.length} 个URL)`);
+    res.resume();
+  });
+
+  req.on('timeout', () => {
+    console.log(`[IndexNow] ${site.host} 请求超时(3秒)，已放弃，不影响本次生成`);
+    req.destroy();
   });
 
   req.on('error', (err) => {
