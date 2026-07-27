@@ -35,7 +35,7 @@ SSH 加快连接的几种方法:
  <br>
  相关内容
  <br>
-**[一行代码部署极简、开源的网页版 SSH 管理](https://freedomgpt.top/2025/07/28/一行代码部署极简、开源的网页版-ssh-管理/)**
+[**一行代码部署极简、开源的网页版 SSH 管理**](https://freedomgpt.top/2025/07/28/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2%E6%9E%81%E7%AE%80%E3%80%81%E5%BC%80%E6%BA%90%E7%9A%84%E7%BD%91%E9%A1%B5%E7%89%88-ssh-%E7%AE%A1%E7%90%86/)
 
 [**Linux 一键初始化 & SSH 加固脚本**](https://freedomgpt.top/2025/12/12/linux-%E4%B8%80%E9%94%AE%E5%88%9D%E5%A7%8B%E5%8C%96-ssh-%E5%8A%A0%E5%9B%BA%E8%84%9A%E6%9C%AC/)
 
