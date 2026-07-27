@@ -1,5 +1,3 @@
-
-
 ---
 title: SSH 加快连接的几种方法
 tags:
@@ -23,8 +21,8 @@ SSH 加快连接的几种方法:
  <br>
  方法4：优化连接超时设置（客户端 `config`）：** **原理：** 减少 SSH 客户端等待服务器响应的时间。如果网络特别差，可能需要增加。在客户端的中 `~/.ssh/config` 添加: 主持人 \* ConnectTimeout 10 #连接超时10秒 ServerAliveInterval 60 # 每60秒发送一次保活消息 ServerAliveCountMax 3 # 最多发送3次保活消息未响应则断开 。
 方法5: 指定密码认证方式 (客户端 `config`):** **原理：** 强制SSH客户端先尝试 `keyboard-interactive` 或 `password` 认证，而不浪费时间尝试其他不适用的认证方式。但通常情况下，如果设置了密钥，SSH会优先尝试密钥。 在 `~/.ssh/config` 中添加（如果需要密码登录）： 主持人 \* PreferredAuthentications 公钥，键盘交互，密码  。
-<bbr>
-<bbr>
+<br>
+<br>
 方法6：取消GSSAPI认证 原理： GSSAPI认证（如Kerberos）在某些环境下会尝试很长时间，导致连接缓慢。 **在服务器端 `/etc/ssh/sshd_config` 中设置** GSSAPIAuthentication 否 保存并重启 SSH。
  <br>
  <br>
