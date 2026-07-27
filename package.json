@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate"
+    "build": "hexo generate",
+    "postinstall": "node patch-search.js"
   },
   "hexo": {
     "version": "7.3.0"
