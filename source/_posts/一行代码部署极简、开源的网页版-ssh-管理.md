@@ -1,7 +1,7 @@
 ---
-title: "一行代码部署极简、开源的网页版 SSH\_管理:"
+title: "一行代码部署极简、开源的网页版 SSH 管理："
 tags:
-  - "网页版 SSH\_管理"
+  - "网页版 SSH 管理"
 id: '159'
 categories:
   - vps技巧
