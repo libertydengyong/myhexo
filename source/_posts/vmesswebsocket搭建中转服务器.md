@@ -1,10 +1,11 @@
+
 ---
 title: Vmess+WebSocket搭建中转服务器
 tags:
-  - Vmess+WebSocket搭建中转服务器
+  - Vmess+WebSocket中转
 id: '45'
 categories:
-  - vps工具
+  - vps中转
 abbrlink: 65243
 date: 2025-05-09 14:13:18
 ---
@@ -27,3 +28,11 @@ date: 2025-05-09 14:13:18
 1.  编辑落地机的服务器配置，名称可随意设置。
 2.  地址修改为中转机的IP（如：5.34.x.x），端口修改为中转机的端口35466。
 3.  确认后右键测速，若显示速度数据则说明配置正常。
+
+
+相关内容
+[**S-UI面板搭建
+**](https://freedomgpt.top/2025/11/17/s-ui面板搭建/)
+
+[**S-UI 中转落地
+**](https://freedomgpt.top/2025/05/09/vmesswebsocket搭建中转服务器//)
