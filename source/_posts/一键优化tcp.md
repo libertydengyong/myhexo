@@ -17,6 +17,9 @@ date: 2025-05-14 10:10:41
 
 <!-- more -->
 
+![一键优化TCP](/images/tcp.webp)
+
+
 不同 Linux 系统支持的优化方式有所不同。
 
 Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部分老内核或者特殊环境则会选择 BBRplus、BBR 魔改版等方案。
