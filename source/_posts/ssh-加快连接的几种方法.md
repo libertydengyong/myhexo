@@ -5,6 +5,7 @@ tags:
 id: '147'
 categories:
   - vps技巧
+description: SSH 加快连接的几种方法:使用SSH密钥认证，取消DNS反向解析，配置SSH客户端连接复用，优化连接超时设置，取消GSSAPI认证 原理，使用Mosh。
 abbrlink: 40921
 date: 2025-07-14 12:26:57
 ---
