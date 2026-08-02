@@ -3,7 +3,7 @@ title: Iconic One免费WordPress主题介绍与下载
 tags: []
 id: '101'
 categories:
-  - 默认
+  - WordPress
 comments: false
 abbrlink: 50878
 date: 2025-06-08 20:47:40
