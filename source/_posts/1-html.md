@@ -4,7 +4,7 @@ tags:
   - 面包屑导航
 id: '118'
 categories:
-  - wordpress主题与插件
+  - WordPress
 abbrlink: 40745
 date: 2025-06-11 20:13:49
 ---

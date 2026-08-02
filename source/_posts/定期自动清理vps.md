@@ -6,7 +6,7 @@ tags:
   - vps维护
 id: '171'
 categories:
-  - vps优化
+  - vps技巧
 description: 定期自动清理 VPS、服务器一键管理、更换 XanMod 内核等常见维护方法，提高 VPS 长期运行稳定性与性能。
 abbrlink: 16706
 date: 2025-11-07 19:06:37

@@ -5,7 +5,7 @@ tags:
   - Vmess+WebSocket中转
 id: '45'
 categories:
-  - vps中转
+  - vps技巧
 abbrlink: 65243
 date: 2025-05-09 14:13:18
 ---
