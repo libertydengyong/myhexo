@@ -47,3 +47,7 @@ search:
   field: post
   content: true
   format: striptags
+
+pretty_urls:
+  trailing_index: false
+  trailing_html: true
