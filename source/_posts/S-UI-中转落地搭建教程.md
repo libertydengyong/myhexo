@@ -3,9 +3,9 @@ title: S-UI 中转落地搭建教程
 abbrlink: 49079
 date: 2026-01-11 12:45:22
 categories:
-  - S-UI中转
+  - vps技巧
 tags:
-  - S-UI
+  - vps技巧
   - S-UI中转落地
 ---
 

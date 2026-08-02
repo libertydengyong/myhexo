@@ -4,7 +4,7 @@ tags:
   - 清新简约的wp主题
 id: '16'
 categories:
-  - wp主题
+  - WordPress
 abbrlink: 24496
 date: 2025-05-05 08:21:32
 ---
