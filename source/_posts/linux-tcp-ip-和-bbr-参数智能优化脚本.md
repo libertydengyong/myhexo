@@ -4,7 +4,7 @@ tags:
   - Linux TCP/IP 和 BBR 参数智能优化脚本
 id: '181'
 categories:
-  - 默认
+  - vps技巧
 abbrlink: 2207
 date: 2025-11-30 20:51:47
 ---

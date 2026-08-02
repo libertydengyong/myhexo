@@ -3,7 +3,7 @@ title: 2012胡鹤轩WordPress主题源码分享
 tags: []
 id: '94'
 categories:
-  - 默认
+  - WordPress
 comments: false
 abbrlink: 36886
 date: 2025-06-07 22:32:52
