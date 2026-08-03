@@ -3,9 +3,6 @@ title: Termux手机管理VPS教程
 date: 2026-08-02 21:30:00
 tags:
   - Termux
-  - VPS远程管理
-  - SSH
-  - 手机建站
 categories:
   - vps技巧
 description: 手机用Termux远程连接和管理VPS的完整流程，包含SSH连接、文件传输、连接加速和常见报错排查方法，新手也能跟着操作。
@@ -13,7 +10,7 @@ description: 手机用Termux远程连接和管理VPS的完整流程，包含SSH�
 
 没有电脑的时候，很多人以为VPS就没法管理了。其实一台安卓手机装上Termux，就能完整地完成SSH连接、文件传输、代码部署这些操作，跟在电脑上用终端几乎没区别。这篇记录一下手机端管理VPS的完整流程，包括怎么让连接更快、遇到报错怎么排查。
 
-<img src="/images/termux-vps-flow.svg" alt="手机Termux通过SSH连接VPS服务器并用Git同步代码的流程图" width="700" height="850" loading="lazy">
+<img src="/images/termux-vps-flow.svg" alt="手机Termux通过SSH连接VPS服务器并用Git同步代码的流程图" width="380" height="436" style="max-width:100%;height:auto;display:block;margin:0 auto;" loading="lazy">
 
 整个流程可以概括成四步：手机装好Termux和SSH客户端，用密钥认证连上VPS，中间用SSH连接复用或Mosh提升移动网络下的连接体验，最后代码和配置文件通过Git仓库中转同步。下面按顺序展开说。
 
@@ -103,9 +100,9 @@ git push
 git pull
 ```
 
-这种方式的好处是，不管是手机、VPS还是以后换新设备，都能随时同步，还顺带做了版本备份，比单纯传文件更可靠。如果手机上还需要远程部署代理面板这类工具，思路是一样的——比如之前写过的[S-UI面板搭建教程](https://freedomgpt.top/53672.html)，整个安装过程也完全可以在Termux里通过SSH连上VPS来完成，不需要额外用电脑。
+这种方式的好处是，不管是手机、VPS还是以后换新设备，都能随时同步，还顺带做了版本备份，比单纯传文件更可靠。像之前写的[S-UI面板常见问题与IPv6环境搭建](https://freedomgpt.top/2026/07/27/2026-07-27-001/)里遇到的那些排查步骤，其实也都是在Termux里连着VPS一步步敲完的，不需要额外用电脑。
 
-如果连接GitHub时遇到 `Authentication failed` 报错，大概率是没用Personal Access Token（GitHub已经不支持密码验证了），去GitHub后台生成一个token，替换掉push时用的密码即可。
+这一步经常会踩的坑是push时报 `Authentication failed`——GitHub已经不支持用账号密码做验证了，得去后台生成一个Personal Access Token，push的时候密码那一栏粘贴token就行。
 
 ## 提速技巧：让手机连接VPS更流畅
 
@@ -147,19 +144,8 @@ mosh root@你的VPS的IP地址
 
 **3. VPS本身开启BBR加速**
 
-如果VPS所在线路本身质量一般，开启BBR拥塞控制算法能明显提升传输速度，这一步在服务器端做一次就行，跟用什么设备连接没关系。具体的参数配置和智能优化脚本，可以参考这篇[Linux TCP/IP和BBR参数智能优化脚本](https://freedomgpt.top/2207.html)，跟着操作一遍手机端连接体验也会跟着提升。
+如果VPS所在线路本身质量一般，开启BBR拥塞控制算法能明显提升传输速度，这一步在服务器端做一次就行，跟用什么设备连接没关系。具体的参数配置和智能优化脚本，之前写过一篇[Linux TCP/IP和BBR参数智能优化脚本](https://freedomgpt.top/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)，跟着弄一遍，手机端连接的体验也会跟着提升。
 
-## 常见问题排查
+连接过程中如果遇到 `Permission denied`，一般是密钥没传对或者密码输错了，也可能是VPS防火墙没放行对应端口；如果是连接卡住最后超时，先看看手机网络本身通不通，再查一下VPS的安全组规则有没有限制来源IP。
 
-**连接时报错 `Permission denied`**
-检查密钥有没有正确上传，或者密码是否输错；也可能是VPS的防火墙没放行对应端口。
-
-**连接总是卡住不动，最后超时**
-先确认手机网络本身是否正常，再检查VPS的安全组/防火墙规则是否有限制来源IP。
-
-**Git push时提示 `Authentication failed`**
-确认用的是token而不是密码，并且token没有过期、勾选了正确的仓库权限（详见前文）。
-
-## 总结
-
-手机Termux管理VPS这套流程，核心就是：装好SSH客户端、设置密钥登录省去反复输密码、用别名简化操作、Git做文件同步、按需加上Mosh/BBR这类加速手段应对移动网络的不稳定。跑通一遍之后，手机基本能替代电脑完成大部分VPS日常管理工作。
+这一套流程走下来，装好SSH客户端、密钥登录省去反复输密码、别名简化操作、Git同步文件、按需上Mosh和BBR应对移动网络的不稳定，手机基本能替代电脑完成VPS的日常管理工作了。
