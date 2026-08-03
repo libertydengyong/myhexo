@@ -1,0 +1,30 @@
+{% if is_post() %}
+{% set tagList = [] %}
+{% for tag in page.tags %}
+  {% set tagList = tagList.concat([tag.name]) %}
+{% endfor %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | dump | safe }},
+  "description": {{ (page.description or page.excerpt or config.description or '') | striptags | trim | dump | safe }},
+  "datePublished": "{{ date_xml(page.date) }}",
+  "dateModified": "{{ date_xml(page.updated) }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ config.author | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ config.title | dump | safe }},
+    "url": {{ config.url | dump | safe }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ url_for(page.path) | dump | safe }}
+  }{% if tagList.length > 0 %},
+  "keywords": {{ tagList | join(', ') | dump | safe }}{% endif %}
+}
+</script>
+{% endif %}
