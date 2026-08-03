@@ -10,6 +10,8 @@ description: 手机Termux用SSH连VPS总是断线的原因和解决办法，包�
 
 用手机连VPS，最烦的就是敲着敲着命令突然掉线，尤其是走在路上或者信号不太好的地方，WiFi和移动数据一切换连接就断了。这篇整理一下Termux里SSH断线的两种常见原因和对应的解决办法。
 
+<img src="/images/ssh-vs-mosh.svg" alt="手机终端界面对比：普通SSH网络切换后连接断开需要重新登录，Mosh网络切换后会话自动恢复命令继续执行" width="700" height="888" loading="lazy">
+
 之前写过[Termux手机管理VPS教程](https://freedomgpt.top/2026/08/02/termux-vps-remote-manage/)，里面提到过用Mosh代替SSH能缓解这个问题，这篇展开说说具体是怎么回事、还有哪些别的办法。
 
 ## 网络切换导致断线
