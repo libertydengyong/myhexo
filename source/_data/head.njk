@@ -1,4 +1,4 @@
-{% if is_post() %}
+{% if page.layout == 'post' %}
 {% set tagList = [] %}
 {% for tag in page.tags %}
   {% set tagList = tagList.concat([tag.name]) %}
