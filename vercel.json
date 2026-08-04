@@ -3,6 +3,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/2025/05/14/tcp-迷之调参/",
+      "destination": "/2025/05/14/一键优化tcp/",
+      "permanent": true
+    },
+    {
       "source": "/category/:path*",
       "destination": "/categories/:path*/",
       "permanent": true
