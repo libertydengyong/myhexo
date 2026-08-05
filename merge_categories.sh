@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Hexo 分类精确合并脚本（基于 freedomgpt.top 实际分类数据定制）
+# Hexo 分类精确合并脚本（基于 vpsjq.com 实际分类数据定制）
 # 用法：把本文件放到 myhexo 目录下，然后：
 #   chmod +x merge_categories.sh
 #   ./merge_categories.sh --dry-run   # 先预览，不修改文件
