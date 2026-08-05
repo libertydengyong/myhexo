@@ -27,4 +27,4 @@ MDPings本质上是**哪吒监控（Nezha）**这个开源监控项目的安卓�
 
 下载地址：[GitHub - icylian/MDPings](https://github.com/icylian/MDPings)
 
-如果平时习惯用手机远程管理VPS，MDPings配合[Termux手机管理VPS教程](https://freedomgpt.top/2026/08/02/termux-vps-remote-manage/)里的方法一起用挺合适——Termux负责登录执行具体操作，MDPings负责随时看服务器状态，两者搭配基本不用开电脑也能把VPS管明白。
+如果平时习惯用手机远程管理VPS，MDPings配合[Termux手机管理VPS教程](https://vpsjq.com/2026/08/02/termux-vps-remote-manage/)里的方法一起用挺合适——Termux负责登录执行具体操作，MDPings负责随时看服务器状态，两者搭配基本不用开电脑也能把VPS管明白。

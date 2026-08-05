@@ -13,7 +13,7 @@ description: 2012胡鹤轩WordPress主题源码下载与安装部署方法，MIT
 
 源码地址：https://github.com/huhexian/2012-huhexian
 
-这个主题之前也写过一篇[Twentytwelve 木头人修改版](https://freedomgpt.top/2025/05/15/61/)介绍过它的功能特点，这篇换个角度，说说源码本身和具体的安装部署方法。
+这个主题之前也写过一篇[Twentytwelve 木头人修改版](https://vpsjq.com/2025/05/15/61/)介绍过它的功能特点，这篇换个角度，说说源码本身和具体的安装部署方法。
 
 ## 安装步骤
 

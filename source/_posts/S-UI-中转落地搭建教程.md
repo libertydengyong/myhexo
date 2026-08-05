@@ -106,7 +106,7 @@ install-windows.bat以管理员身份运行
 打开google就是落地机的IP啦。
 
 相关内容
-[**S-UI面板搭建**](https://freedomgpt.top/2025/11/17/s-ui面板搭建/)
+[**S-UI面板搭建**](https://vpsjq.com/2025/11/17/s-ui面板搭建/)
 
-[**Vmess+WebSocket搭建中转服务器**](https://freedomgpt.top/2025/05/09/vmesswebsocket搭建中转服务器/)
+[**Vmess+WebSocket搭建中转服务器**](https://vpsjq.com/2025/05/09/vmesswebsocket搭建中转服务器/)
 

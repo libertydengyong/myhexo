@@ -41,7 +41,7 @@ Debian、Ubuntu 以及部分其他发行版基本都可以正常部署。
 
 之前专门整理过一篇关于 IPv6 环境部署过程中容易遇到的问题：
 
-[S-UI面板常见问题与IPv6环境搭建](https://freedomgpt.top/2026/07/27/2026-07-27-001/?highlight=s+ui)
+[S-UI面板常见问题与IPv6环境搭建](https://vpsjq.com/2026/07/27/2026-07-27-001/?highlight=s+ui)
 
 里面记录了 IPv6 环境下安装 S-UI、面板访问异常以及节点无法连接时的一些排查思路，对于首次使用 IPv6 VPS 的用户比较有参考价值。
 
@@ -65,7 +65,7 @@ S-UI 创建代理节点时，需要根据实际协议选择对应配置。
 
 如果准备部署中转环境，可以参考之前整理的：
 
-[S-UI 中转落地搭建教程](https://freedomgpt.top/2026/01/11/S-UI-%E4%B8%AD%E8%BD%AC%E8%90%BD%E5%9C%B0%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/?highlight=s+ui)
+[S-UI 中转落地搭建教程](https://vpsjq.com/2026/01/11/S-UI-%E4%B8%AD%E8%BD%AC%E8%90%BD%E5%9C%B0%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/?highlight=s+ui)
 
 文章里面介绍了中转服务器和落地服务器之间的配置方式，以及搭建过程中需要注意的几个细节。
 
@@ -121,6 +121,6 @@ journalctl -xe
 
 
 相关内容
-[**S-UI中转落地**](https://freedomgpt.top/2026/01/11/S-UI-中转落地搭建教程/)
+[**S-UI中转落地**](https://vpsjq.com/2026/01/11/S-UI-中转落地搭建教程/)
 
 
