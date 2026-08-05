@@ -12,7 +12,7 @@ description: 两个值得推荐的Blogger主题——Median UI和Contempo，以�
 
 一个清新的wp主题与两个blogger主题:  清新的wp主题是Iconic One Tme 两个blogger主题一个是median ui blogger template 一个是Contempo ，Contempo在Blogger 官方内置主题有，当然，Soho / Emporio /Notable 这几个也不错，也在Blogger 官方内置。
 
-提到的这个WordPress主题Iconic One，之前已经单独写过一篇更详细的[Iconic One免费WordPress主题介绍与下载](https://freedomgpt.top/2025/06/08/iconic-one/)，这里重点说说另外提到的两个Blogger主题。
+提到的这个WordPress主题Iconic One，之前已经单独写过一篇更详细的[Iconic One免费WordPress主题介绍与下载](https://vpsjq.com/2025/06/08/iconic-one/)，这里重点说说另外提到的两个Blogger主题。
 
 ## Median UI
 

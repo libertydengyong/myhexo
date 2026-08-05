@@ -26,7 +26,7 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果不知道不同加速方式之间有什么区别，可以先参考之前整理过的文章：
 
-[BBRplus与其他加速方式安装](https://freedomgpt.top/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
+[BBRplus与其他加速方式安装](https://vpsjq.com/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
 
 里面介绍了官方 BBR、BBRplus 等多种网络加速方式的安装方法以及适用场景，可以根据服务器内核选择合适的方案。
 
@@ -50,7 +50,7 @@ wget https://github.com/BlueSkyWithWhiteClouds/Optimize-Tcp-Cache/releases/downl
 
 如果服务器运行的是 Alpine，可以参考：
 
-[Alpine 开启bbr](https://freedomgpt.top/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
+[Alpine 开启bbr](https://vpsjq.com/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
 
 文章中介绍了不同 Linux 系统支持的优化方式有所不同。
 
@@ -58,7 +58,7 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果不知道不同加速方式之间有什么区别，可以先参考之前整理过的文章：
 
-[BBRplus与其他加速方式安装](https://freedomgpt.top/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
+[BBRplus与其他加速方式安装](https://vpsjq.com/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
 
 里面介绍了官方 BBR、BBRplus 等多种网络加速方式的安装方法以及适用场景，可以根据服务器内核选择合适的方案。
 
@@ -82,7 +82,7 @@ wget https://github.com/BlueSkyWithWhiteClouds/Optimize-Tcp-Cache/releases/downl
 
 如果服务器运行的是 Alpine，可以参考：
 
-[Alpine 开启bbr](https://freedomgpt.top/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
+[Alpine 开启bbr](https://vpsjq.com/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
 
 文章中介绍了 Alpine 系统开启 BBR 的步骤以及需要注意的地方。
 
@@ -122,6 +122,6 @@ bbr
 <br>
 <br>
 相关内容
-[**TCP 迷之调参**](https://freedomgpt.top/2025/05/14/tcp-%E8%BF%B7%E4%B9%8B%E8%B0%83%E5%8F%82/)
+[**TCP 迷之调参**](https://vpsjq.com/2025/05/14/tcp-%E8%BF%B7%E4%B9%8B%E8%B0%83%E5%8F%82/)
 
-[**Linux TCP/IP 和 BBR 参数智能优化脚本**](https://freedomgpt.top/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/?highlight=%E4%BC%98%E5%8C%96)
+[**Linux TCP/IP 和 BBR 参数智能优化脚本**](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/?highlight=%E4%BC%98%E5%8C%96)

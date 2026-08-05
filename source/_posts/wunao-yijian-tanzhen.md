@@ -28,4 +28,4 @@ docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name upti
 
 容器启动后访问 `http://VPS的IP:3001`，首次打开会要求创建管理员账号，设置好之后就能在后台添加监控项——填入要监控的服务地址、选择监控类型、设置检测间隔和通知方式，保存就能开始监控了。
 
-如果是想用手机随时看服务器状态，Uptime Kuma走的是网页Dashboard的路线，跟之前写的[Mdpings另一个手机探针App](https://freedomgpt.top/2025/07/24/mdpings-%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%89%8B%E6%9C%BA%E6%8E%A2%E9%92%88app/)不太一样——Uptime Kuma是自己搭建监控服务端，Mdpings则是连接哪吒面板的手机客户端，两者定位不同，可以按自己的使用习惯选。
+如果是想用手机随时看服务器状态，Uptime Kuma走的是网页Dashboard的路线，跟之前写的[Mdpings另一个手机探针App](https://vpsjq.com/2025/07/24/mdpings-%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%89%8B%E6%9C%BA%E6%8E%A2%E9%92%88app/)不太一样——Uptime Kuma是自己搭建监控服务端，Mdpings则是连接哪吒面板的手机客户端，两者定位不同，可以按自己的使用习惯选。

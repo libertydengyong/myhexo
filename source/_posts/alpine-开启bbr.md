@@ -36,4 +36,4 @@ sysctl net.ipv4.tcp_congestion_control
 
 ## 相关内容
 
-这套手动命令跟之前写的[Linux TCP/IP和BBR参数智能优化脚本](https://freedomgpt.top/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)原理是一样的，只是那篇的一键脚本更适合通用发行版，Alpine系统更适合这种手动方式。如果这台Alpine VPS还打算搭代理服务，可以看看[专为Alpine定制的Xray一键脚本](https://freedomgpt.top/2025/07/01/%E4%B8%93%E4%B8%BAalpine%E5%AE%9A%E5%88%B6%E7%9A%84xray%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/)，跟这篇一起用能把小内存VPS的性能和网络体验都调到位。
+这套手动命令跟之前写的[Linux TCP/IP和BBR参数智能优化脚本](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)原理是一样的，只是那篇的一键脚本更适合通用发行版，Alpine系统更适合这种手动方式。如果这台Alpine VPS还打算搭代理服务，可以看看[专为Alpine定制的Xray一键脚本](https://vpsjq.com/2025/07/01/%E4%B8%93%E4%B8%BAalpine%E5%AE%9A%E5%88%B6%E7%9A%84xray%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/)，跟这篇一起用能把小内存VPS的性能和网络体验都调到位。

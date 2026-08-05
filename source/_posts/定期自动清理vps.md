@@ -40,7 +40,7 @@ VPS 定期自动清理主要包括几个方面：
 
 之前整理过一套比较常用的脚本：
 
-[一键管理vps](https://freedomgpt.top/2025/11/25/vps%E4%B8%80%E9%94%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%EF%BC%9A-bash/)
+[一键管理vps](https://vpsjq.com/2025/11/25/vps%E4%B8%80%E9%94%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%EF%BC%9A-bash/)
 
 里面集成了不少常用的服务器管理功能，对于日常维护会方便很多。
 
@@ -52,7 +52,7 @@ XanMod 在调度器、网络以及部分性能方面进行了优化，对于部�
 
 如果准备更换内核，可以参考之前记录的：
 
-[一键更换为XanMod内核](https://freedomgpt.top/2025/05/07/%E4%B8%80%E9%94%AE%E6%9B%B4%E6%8D%A2%E4%B8%BAxanmod%E5%86%85%E6%A0%B8/?highlight=linux)
+[一键更换为XanMod内核](https://vpsjq.com/2025/05/07/%E4%B8%80%E9%94%AE%E6%9B%B4%E6%8D%A2%E4%B8%BAxanmod%E5%86%85%E6%A0%B8/?highlight=linux)
 
 更换内核之前，建议先确认当前 VPS 是否支持自定义内核，同时保留原来的启动项，以便出现兼容性问题时能够恢复。
 
