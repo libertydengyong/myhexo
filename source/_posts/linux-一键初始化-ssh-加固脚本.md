@@ -10,7 +10,7 @@ date: 2025-12-12 21:12:01
 description: Linux VPS拿到手后的初始化和SSH安全加固脚本，降低暴力破解风险，新服务器上线前建议先跑一遍。
 ---
 
-Linux 一键初始化 & SSH 加固脚本 curl -fsSL https://raw.githubusercontent.com/247like/linux-ssh-init-sh/main/init.sh -o ./init.sh && chmod +x init.sh && ./init.sh   来源：https://github.com/247like/linux-ssh-init-sh
+Linux 一键初始化 & SSH 加固脚本 curl -fsSL https://raw.githubusercontent.com/247like/linux-ssh-init-sh/main/init.sh -o ./init.sh && chmod +x `init.sh` && ./init.sh   来源：https://github.com/247like/linux-ssh-init-sh
 
 公网上的VPS只要开着SSH默认端口，几分钟内就会有自动化脚本开始扫描尝试暴力破解，这不是危言耸听，而是新服务器上线后几乎必然会遇到的情况。这类"初始化加固脚本"存在的意义，就是把几项关键的安全加固操作打包，新VPS到手先跑一遍，比裸奔状态直接用安全得多。
 
