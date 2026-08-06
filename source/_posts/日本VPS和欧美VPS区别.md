@@ -18,6 +18,9 @@ categories:
 
 <!-- more -->
 
+![日本VPS和欧美VPS哪个好，延迟、线路与适用场景对比](/images/japan-vps-vs-europe-us-vps.png)
+
+
 日本 VPS 的特点
 
 日本 VPS 最大的优势就是距离亚洲用户较近。
