@@ -43,7 +43,7 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果服务器本身线路较差，再好的 TCP 参数也无法完全解决网络质量问题，因此线路质量仍然是影响速度的重要因素，推荐一个一键优化TCP，代码:
 
-wget https://github.com/BlueSkyWithWhiteClouds/Optimize-Tcp-Cache/releases/download/v1.0/Optimize\_Tcp\_Cache.sh ; chmod +x Optimize_Tcp_Cache.sh ; ./Optimize_Tcp_Cache.sh
+原项目下载链接已失效（GitHub Release 已不存在），本文仅保留优化思路，请查阅项目最新官方仓库或其他仍在维护的 TCP 优化方案。
 
 
 不少用户使用 Alpine Linux 部署代理服务或者 Docker，由于 Alpine 默认配置与 Debian 有一些区别，开启 BBR 的方法也有所不同。
@@ -75,7 +75,7 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果服务器本身线路较差，再好的 TCP 参数也无法完全解决网络质量问题，因此线路质量仍然是影响速度的重要因素，推荐一个一键优化TCP，代码:
 
-wget https://github.com/BlueSkyWithWhiteClouds/Optimize-Tcp-Cache/releases/download/v1.0/Optimize\_Tcp\_Cache.sh ; chmod +x Optimize_Tcp_Cache.sh ; ./Optimize_Tcp_Cache.sh
+原项目下载链接已失效（GitHub Release 已不存在），本文仅保留优化思路，请查阅项目最新官方仓库或其他仍在维护的 TCP 优化方案。
 
 
 不少用户使用 Alpine Linux 部署代理服务或者 Docker，由于 Alpine 默认配置与 Debian 有一些区别，开启 BBR 的方法也有所不同。

@@ -21,7 +21,6 @@ skip_render:
 
 # 分类映射
 category_map:
-  "vps技巧": vps
 
 highlight:
   enable: true
