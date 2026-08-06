@@ -22,7 +22,7 @@ S-UI 面板是目前比较常见的代理管理面板之一，相比传统配置
 准备一台干净的 Linux VPS，更新系统之后即可安装面板。
 
 Debian、Ubuntu 以及部分其他发行版基本都可以正常部署。
-运行： bash <(curl -Ls https://raw.githubuserco    ntent.com/alireza0/s-ui/master/install.sh)
+运行： bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh)
 
 安装完成以后，建议先不要急着创建节点，而是确认几个基础配置是否正常。
 
