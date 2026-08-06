@@ -9,7 +9,7 @@
   {%- if page.description %}
     <div class="post-description">{{ page.description }}</div>
   {%- endif %}
-  {%- include '_partials/page/breadcrumb.njk' -%}
+  {%- if page.type !== 'about' %}{%- include '_partials/page/breadcrumb.njk' -%}{%- endif %}
 </div>
 
 </header>
