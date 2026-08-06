@@ -9,22 +9,39 @@ abbrlink: 49188
 date: 2025-07-24 19:47:47
 ---
 
-创建/etc/docker/ 目录: mkdir -p /etc/docker/ **创建 `/etc/docker/daemon.json` 文件并粘贴配置：**使用 USTC 的加速器地址 `https://docker.mirrors.ustc.edu.cn` 输入    cat > /etc/docker/daemon.json
+创建 Docker 配置目录：
 
-按下 Enter 键后，光标会停留在新行等待输入，输入:
+```bash
+mkdir -p /etc/docker
+```
 
+创建 Docker 配置文件：
+
+```bash
+cat > /etc/docker/daemon.json
+```
+
+输入以下内容：
+
+```json
 {
-
-  "registry-mirrors": \["https://docker.mirrors.ustc.edu.cn"\]
-
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
 }
+```
 
-终端的新的一行按下 Ctrl + D ，结束输入并保存文件。
+终端新的一行按下 Ctrl + D，结束输入并保存文件。
 
-验证文件:
+验证配置：
 
+```bash
 cat /etc/docker/daemon.json
+```
 
-**重启 Docker 服务：**
+重启 Docker 服务：
 
-service docker restart
+```bash
+systemctl restart docker
+```
+```
