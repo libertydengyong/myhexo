@@ -1,6 +1,6 @@
 
 # Hexo Configuration
-title: FreedomGPT - VPS与Linux技术分享
+title: VPS技巧与Linux运维笔记
 author: FreedomGPT
 language: zh-CN
 description:  分享VPS服务器、Linux系统、IPv6网络、云服务器与网站搭建教程，记录服务器部署、优化、安全配置和实用工具使用经验。
@@ -21,7 +21,6 @@ skip_render:
 
 # 分类映射
 category_map:
-  "vps技巧": vps
 
 highlight:
   enable: true
@@ -47,3 +46,7 @@ search:
   field: post
   content: true
   format: striptags
+
+pretty_urls:
+  trailing_index: false
+  trailing_html: true

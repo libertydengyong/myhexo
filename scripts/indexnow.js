@@ -2,9 +2,9 @@
 
 const SITES = [
   {
-    host: 'freedomgpt.top',
+    host: 'vpsjq.com',
     key: 'freedomgpttopindexnowkey1785053347',
-    keyLocation: 'https://freedomgpt.top/freedomgpttopindexnowkey1785053347.txt'
+    keyLocation: 'https://vpsjq.com/freedomgpttopindexnowkey1785053347.txt'
   }
 ];
 

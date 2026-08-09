@@ -3,7 +3,7 @@
 VPS、Linux、云服务器、网络技术与实用工具教程。
 
 博客：
-https://freedomgpt.top/
+https://vpsjq.com/
 
 内容方向：
 

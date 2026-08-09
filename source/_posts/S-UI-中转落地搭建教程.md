@@ -3,17 +3,16 @@ title: S-UI 中转落地搭建教程
 abbrlink: 49079
 date: 2026-01-11 12:45:22
 categories:
-  - S-UI中转
+  - vps技巧
 tags:
-  - S-UI
+  - vps技巧
   - S-UI中转落地
 ---
 
 
 
-来源：nodeseek
+来源：NodeSeek（原帖已设为私有）
 
-https://www.nodeseek.com/post-471245-1
 
 <!-- more --> 
 
@@ -106,7 +105,7 @@ install-windows.bat以管理员身份运行
 打开google就是落地机的IP啦。
 
 相关内容
-[**S-UI面板搭建**](https://freedomgpt.top/2025/11/17/s-ui面板搭建/)
+[**S-UI面板搭建**](https://vpsjq.com/2025/11/17/s-ui面板搭建/)
 
-[**Vmess+WebSocket搭建中转服务器**](https://freedomgpt.top/2025/05/09/vmesswebsocket搭建中转服务器/)
+[**Vmess+WebSocket搭建中转服务器**](https://vpsjq.com/2025/05/09/vmesswebsocket搭建中转服务器/)
 

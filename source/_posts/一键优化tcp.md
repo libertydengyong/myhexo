@@ -7,7 +7,7 @@ tags:
 description: VPS 一键优化 TCP、开启 BBR、BBRplus、Alpine Linux 开启 BBR 等常见网络优化方法整理，提高服务器网络传输效率与访问体验。
 id: '58'
 categories:
-  - vps优化
+  - vps技巧
 abbrlink: 50945
 date: 2025-05-14 10:10:41
 ---
@@ -26,7 +26,7 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果不知道不同加速方式之间有什么区别，可以先参考之前整理过的文章：
 
-[BBRplus与其他加速方式安装](https://freedomgpt.top/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
+[BBRplus与其他加速方式安装](https://vpsjq.com/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
 
 里面介绍了官方 BBR、BBRplus 等多种网络加速方式的安装方法以及适用场景，可以根据服务器内核选择合适的方案。
 
@@ -43,14 +43,14 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果服务器本身线路较差，再好的 TCP 参数也无法完全解决网络质量问题，因此线路质量仍然是影响速度的重要因素，推荐一个一键优化TCP，代码:
 
-wget https://github.com/BlueSkyWithWhiteClouds/Optimize-Tcp-Cache/releases/download/v1.0/Optimize\_Tcp\_Cache.sh ; chmod +x Optimize_Tcp_Cache.sh ; ./Optimize_Tcp_Cache.sh
+原项目下载链接已失效（GitHub Release 已不存在），本文仅保留优化思路，请查阅项目最新官方仓库或其他仍在维护的 TCP 优化方案。
 
 
 不少用户使用 Alpine Linux 部署代理服务或者 Docker，由于 Alpine 默认配置与 Debian 有一些区别，开启 BBR 的方法也有所不同。
 
 如果服务器运行的是 Alpine，可以参考：
 
-[Alpine 开启bbr](https://freedomgpt.top/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
+[Alpine 开启bbr](https://vpsjq.com/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
 
 文章中介绍了不同 Linux 系统支持的优化方式有所不同。
 
@@ -58,7 +58,7 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果不知道不同加速方式之间有什么区别，可以先参考之前整理过的文章：
 
-[BBRplus与其他加速方式安装](https://freedomgpt.top/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
+[BBRplus与其他加速方式安装](https://vpsjq.com/2025/05/06/bbrplus%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8A%A0%E9%80%9F%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85/?highlight=bbr)
 
 里面介绍了官方 BBR、BBRplus 等多种网络加速方式的安装方法以及适用场景，可以根据服务器内核选择合适的方案。
 
@@ -75,14 +75,14 @@ Debian、Ubuntu、CentOS 大多数情况下可以直接开启官方 BBR，而部
 
 如果服务器本身线路较差，再好的 TCP 参数也无法完全解决网络质量问题，因此线路质量仍然是影响速度的重要因素，推荐一个一键优化TCP，代码:
 
-wget https://github.com/BlueSkyWithWhiteClouds/Optimize-Tcp-Cache/releases/download/v1.0/Optimize\_Tcp\_Cache.sh ; chmod +x Optimize_Tcp_Cache.sh ; ./Optimize_Tcp_Cache.sh
+原项目下载链接已失效（GitHub Release 已不存在），本文仅保留优化思路，请查阅项目最新官方仓库或其他仍在维护的 TCP 优化方案。
 
 
 不少用户使用 Alpine Linux 部署代理服务或者 Docker，由于 Alpine 默认配置与 Debian 有一些区别，开启 BBR 的方法也有所不同。
 
 如果服务器运行的是 Alpine，可以参考：
 
-[Alpine 开启bbr](https://freedomgpt.top/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
+[Alpine 开启bbr](https://vpsjq.com/2025/07/12/alpine-%E5%BC%80%E5%90%AFbbr/?highlight=bbr)
 
 文章中介绍了 Alpine 系统开启 BBR 的步骤以及需要注意的地方。
 
@@ -122,6 +122,6 @@ bbr
 <br>
 <br>
 相关内容
-[**TCP 迷之调参**](https://freedomgpt.top/2025/05/14/tcp-%E8%BF%B7%E4%B9%8B%E8%B0%83%E5%8F%82/)
+[**TCP 迷之调参**](https://vpsjq.com/2025/05/14/tcp-%E8%BF%B7%E4%B9%8B%E8%B0%83%E5%8F%82/)
 
-[**Linux TCP/IP 和 BBR 参数智能优化脚本**](https://freedomgpt.top/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/?highlight=%E4%BC%98%E5%8C%96)
+[**Linux TCP/IP 和 BBR 参数智能优化脚本**](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/?highlight=%E4%BC%98%E5%8C%96)
