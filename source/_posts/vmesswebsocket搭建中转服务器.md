@@ -5,7 +5,7 @@ tags:
   - Vmess+WebSocket中转
 id: '45'
 categories:
-  - vps中转
+  - vps技巧
 abbrlink: 65243
 date: 2025-05-09 14:13:18
 ---
@@ -31,6 +31,6 @@ date: 2025-05-09 14:13:18
 
 
 相关内容
-[**S-UI面板搭建**](https://freedomgpt.top/2025/11/17/s-ui面板搭建/)
+[**S-UI面板搭建**](https://vpsjq.com/2025/11/17/s-ui面板搭建/)
 
-[**S-UI 中转落地**](https://freedomgpt.top/2025/05/09/vmesswebsocket搭建中转服务器//)
+[**S-UI 中转落地**](https://vpsjq.com/2025/05/09/vmesswebsocket搭建中转服务器//)

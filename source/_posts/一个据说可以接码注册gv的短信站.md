@@ -4,7 +4,7 @@ tags:
   - 注册GV
 id: '192'
 categories:
-  - 工具
+  - vps工具
 abbrlink: 42826
 date: 2025-12-31 16:17:40
 ---
