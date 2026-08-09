@@ -4,13 +4,12 @@ tags:
   - S-UI面板搭建
   - IPv6
   - 中转
- description: S-UI 面板搭建、IPv6 VPS 安装 S-UI、代理节点部署以及中转落地配置记录
+description: S-UI 面板搭建、IPv6 VPS 安装 S-UI、代理节点部署以及中转落地配置记录
 id: '174'
 categories:
   - vps技巧
 abbrlink: 53672
-date: 2025-11-17
-16:25:54
+date: 2025-11-17 16:25:54
 ---
 S-UI 面板是目前比较常见的代理管理面板之一，相比传统配置方式，能够更加方便地管理节点、查看在线情况以及维护多个服务器。
 <!-- more -->
