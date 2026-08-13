@@ -3,8 +3,8 @@
 const SITES = [
   {
     host: 'vpsjq.com',
-    key: 'freedomgpttopindexnowkey1785053347',
-    keyLocation: 'https://vpsjq.com/freedomgpttopindexnowkey1785053347.txt'
+    key: 'vpsjqindexnowkey1786276558',
+    keyLocation: 'https://vpsjq.com/vpsjqindexnowkey1786276558.txt'
   }
 ];
 
