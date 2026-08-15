@@ -2,6 +2,7 @@
 title: SSH连接提示REMOTE HOST IDENTIFICATION HAS CHANGED怎么办
 tags:
   - SSH报错
+date: 2026-08-15 20:10:00
 categories:
   - vps技巧
 description: SSH连接VPS时出现REMOTE HOST IDENTIFICATION HAS CHANGED警告的原因和解决方法，一条命令搞定。
@@ -48,4 +49,4 @@ ssh-keygen -R 1.2.3.4
 
 ## 相关操作
 
-如果这个警告是因为用DD方式重装系统触发的，具体的DD重装命令可以参考[dd命令大集合](https://freedomgpt.top/2025/05/11/dd%E5%91%BD%E4%BB%A4%E5%A4%A7%E9%9B%86%E5%90%88/)这篇；如果平时习惯用手机Termux连接VPS，遇到这个警告时的处理方式完全一样，可以配合[Termux手机管理VPS教程](https://freedomgpt.top/2026/08/02/termux-vps-remote-manage/)一起参考。
+如果这个警告是因为用DD方式重装系统触发的，具体的DD重装命令可以参考[dd命令大集合](https://vpsjq.com/2025/05/11/dd%E5%91%BD%E4%BB%A4%E5%A4%A7%E9%9B%86%E5%90%88/)这篇；如果平时习惯用手机Termux连接VPS，遇到这个警告时的处理方式完全一样，可以配合[Termux手机管理VPS教程](https://vpsjq.com/2026/08/02/termux-vps-remote-manage/)一起参考。
