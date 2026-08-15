@@ -2,6 +2,7 @@
 title: VPS SSH连接很慢是什么原因
 tags:
   - SSH连接慢
+date: 2026-08-15 20:00:00
 categories:
   - vps技巧
 description: SSH连接VPS时卡顿几秒才弹出密码提示的常见原因，多数不是网络问题，而是服务端在做没用上的反向DNS解析和GSSAPI认证。
@@ -47,10 +48,10 @@ systemctl restart sshd
 
 ## 频繁登录同一台机器，还是觉得慢
 
-上面两个改完是单次连接不卡了，但如果习惯开好几个终端窗口、或者用scp传文件，每次还是要重新走一遍完整的认证握手，累积起来还是烦。这种场景下该用连接复用，把认证过的通道留着给后面的连接直接用，具体怎么配置在[Termux手机管理VPS教程](https://freedomgpt.top/2026/08/02/termux-vps-remote-manage/)里写过（ControlMaster那部分），手机和电脑上用的思路是一样的。
+上面两个改完是单次连接不卡了，但如果习惯开好几个终端窗口、或者用scp传文件，每次还是要重新走一遍完整的认证握手，累积起来还是烦。这种场景下该用连接复用，把认证过的通道留着给后面的连接直接用，具体怎么配置在[Termux手机管理VPS教程](https://vpsjq.com/2026/08/02/termux-vps-remote-manage/)里写过（ControlMaster那部分），手机和电脑上用的思路是一样的。
 
 ## 排除掉这两个原因，还是慢
 
 如果`UseDNS`和`GSSAPIAuthentication`都关了，卡顿依然明显，那大概率是真的网络线路问题了，不是配置能解决的，可以测一下到VPS的延迟和丢包，或者考虑给网络本身做一下优化。
 
-顺带一提，如果SSH连接时弹出的不是"卡顿"而是一大段REMOTE HOST IDENTIFICATION HAS CHANGED的红色警告，那是另一码事，跟这篇讲的连接慢没关系，具体可以看[这篇](https://freedomgpt.top/2026/08/13/ssh-remote-host-identification-changed/)。
+顺带一提，如果SSH连接时弹出的不是"卡顿"而是一大段REMOTE HOST IDENTIFICATION HAS CHANGED的红色警告，那是另一码事，跟这篇讲的连接慢没关系，具体可以看[这篇](https://vpsjq.com/2026/08/15/ssh-remote-host-identification-changed/)。
