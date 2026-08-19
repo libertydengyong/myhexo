@@ -23,8 +23,5 @@ jobs:
       - name: Install Hexo dependencies
         run: npm install
 
-      - name: Generate site
+      - name: Generate site (this triggers IndexNow submission automatically)
         run: npx hexo generate
-
-      - name: Submit to IndexNow
-        run: node scripts/indexnow.js
