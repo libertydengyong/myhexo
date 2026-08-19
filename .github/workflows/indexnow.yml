@@ -1,0 +1,30 @@
+name: Submit to IndexNow after deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Wait for Vercel deployment to propagate
+        run: sleep 90
+
+      - name: Install Hexo dependencies
+        run: npm install
+
+      - name: Generate site
+        run: npx hexo generate
+
+      - name: Submit to IndexNow
+        run: node scripts/indexnow.js
