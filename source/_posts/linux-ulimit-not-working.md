@@ -1,5 +1,5 @@
 ---
-title: 为什么ulimit设置了文件描述符限制，服务还是报Too many open files
+title: ulimit 设上限仍报 Too many open files 排查
 date: 2026-08-20 10:00:00
 tags:
   - ulimit文件描述符

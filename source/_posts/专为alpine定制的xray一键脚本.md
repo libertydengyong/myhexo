@@ -7,6 +7,7 @@ categories:
   - vps技巧
 abbrlink: 106
 date: 2025-07-01 15:45:48
+description: 专为 Alpine Linux 系统定制的轻量级 Xray 节点一键部署脚本，适合小内存 VPS 快速搭建代理。
 ---
 
 专为 alpine 定制的 Xray 一键脚本：

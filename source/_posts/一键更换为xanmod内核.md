@@ -7,6 +7,7 @@ categories:
   - vps工具
 abbrlink: 405
 date: 2025-05-07 21:39:51
+description: 使用 ylx2016 的 tcpx.sh 经典网络加速脚本一键安装与替换 Linux 系统 XanMod 内核的命令行指南。
 ---
 
 wget -O [tcpx.sh](https://draft.blogger.com/blog/page/edit/6572730579278366385/7941114663552175576#) "[https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh](https://draft.blogger.com/blog/page/edit/6572730579278366385/7941114663552175576#)" && chmod +x [tcpx.sh](https://draft.blogger.com/blog/page/edit/6572730579278366385/7941114663552175576#) && ./tcpx.sh
