@@ -1,5 +1,5 @@
 ---
-title: 一键优化TCP
+title: "Linux VPS 一键优化 TCP 网络性能与 BBR 加速脚本"
 tags:
   - 优化TCP
   - BBR

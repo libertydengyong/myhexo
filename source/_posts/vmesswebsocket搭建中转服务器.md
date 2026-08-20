@@ -8,6 +8,7 @@ categories:
   - vps技巧
 abbrlink: 65243
 date: 2025-05-09 14:13:18
+description: 记录使用 Vmess + WebSocket 协议配置 VPS 中转服务器的完整实践流程与节点设置技巧。
 ---
 
 文章来源:     https://www.laoliuceping.com/31450.html 比如一台德国机慢，一台日本机快，给两台服务器都安装3x-ui面板，配置德鸡，面板进入“新建入站”界面。

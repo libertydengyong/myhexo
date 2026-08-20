@@ -1,5 +1,5 @@
 ---
-title: dd命令大集合
+title: "Linux dd 命令实用指南：磁盘镜像、DD重装与性能测试"
 tags:
   - dd命令
 id: '49'

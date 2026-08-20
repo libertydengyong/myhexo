@@ -7,6 +7,7 @@ categories:
   - Linux优化
 abbrlink: 49188
 date: 2025-07-24 19:47:47
+description: 配置中国科学技术大学（USTC）Docker 公共镜像加速器的目录创建与 daemon.json 参数修改步骤。
 ---
 
 创建 Docker 配置目录：

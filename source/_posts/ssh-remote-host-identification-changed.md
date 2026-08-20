@@ -1,5 +1,5 @@
 ---
-title: SSH连接提示REMOTE HOST IDENTIFICATION HAS CHANGED怎么办
+title: 解决 SSH 远程主机身份验证更改报错
 tags:
   - SSH报错
 date: 2026-08-15 20:10:00
