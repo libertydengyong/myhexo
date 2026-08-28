@@ -3,6 +3,7 @@ title: 为什么开了BBR，网速却感觉一点没提升
 date: 2026-08-18 10:00:00
 tags:
   - BBR原理
+  - Linux网络优化
 categories:
   - Linux优化
 description: BBR不是万能加速器，它优化的是拥塞控制方式，不能凭空变出物理带宽，搞清楚这个原理才知道为什么有的机器开了没感觉。
