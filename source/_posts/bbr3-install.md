@@ -1,5 +1,5 @@
 ---
-title: BBR3一键安装脚本：byJoey的Actions-bbr-v3使用记录
+title: BBR3一键安装脚本：byJoey Actions-bbr-v3 GitHub安装教程
 date: 2026-08-28 16:00:00
 tags:
   - BBR3
