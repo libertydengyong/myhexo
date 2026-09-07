@@ -8,6 +8,67 @@ categories:
 description: XanMod内核装完之后出现无法启动、网络异常这类问题，怎么安全切回原来的默认内核，以及为什么绝对不能急着把旧内核删掉。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "装了XanMod内核出问题，怎么卸载切回默认内核",
+      "description": "XanMod内核装完之后出现无法启动、网络异常这类问题，怎么安全切回原来的默认内核，以及为什么绝对不能急着把旧内核删掉。",
+      "datePublished": "2026-08-27T10:00:00+08:00",
+      "dateModified": "2026-08-27T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/27/xanmod-uninstall-rollback/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "XanMod出问题后能不能直接卸载旧内核重装？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "绝对不能。旧内核在确认新内核没问题之前必须保留，如果在没确认新内核能正常启动前就卸载了发行版自带的旧内核，一旦新内核有任何问题，机器会陷入无限重启循环，连救援模式都进不去，只能靠服务商VNC或救援系统从底层介入。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么临时测试新内核而不影响正常使用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用grub-reboot做一次性的启动选择，先用grep menuentry查看grub.cfg里旧内核对应的条目名，执行grub-reboot加条目名再reboot，这次重启会用旧内核启动，之后的重启会恢复成GRUB默认设置，不会永久改变引导配置。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "确认新内核有问题，怎么永久切回旧内核？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "编辑/etc/default/grub，把GRUB_DEFAULT这一行改成旧内核对应的条目名，保存后执行update-grub再reboot。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么时候才能真正卸载XanMod？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "确认旧内核用着一切正常、不再需要XanMod之后才可以卸载，执行apt purge linux-xanmod-*，再update-grub和reboot，用uname -r确认当前跑的是默认内核。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 之前写[XanMod内核从性能优化到实际使用](https://vpsjq.com/2026/07/28/2026-07-28-002/)那篇提过一句——**换了XanMod之后如果出现无法启动、网络异常、服务不稳定，需要及时恢复原来的内核**。这句话背后具体怎么操作，值得单独展开说清楚，因为这一步如果搞错顺序，后果比"内核换得不理想"严重得多。
 
 ## 黄金原则：旧内核在你确认新内核没问题之前，绝对不能删

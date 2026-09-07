@@ -9,6 +9,67 @@ categories:
 description: XanMod内核安装后系统启动失败、黑屏卡grub或内核未切换的原因分析，以及装之前怎么判断VPS是否适合安装XanMod。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "XanMod内核安装失败怎么办：启动黑屏与内核未切换的处理",
+      "description": "XanMod内核安装后系统启动失败、黑屏卡grub或内核未切换的原因分析，以及装之前怎么判断VPS是否适合安装XanMod。",
+      "datePublished": "2026-08-27T20:00:00+08:00",
+      "dateModified": "2026-08-27T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/27/xanmod-install-fail/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "XanMod内核安装失败通常是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主要是VPS本身不适合安装自定义内核，或者虚拟化方案对内核有限制。表现分两种：重启后系统还在跑原来的内核；或者更严重的直接黑屏卡在grub界面起不来。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "装之前怎么判断VPS适不适合装XanMod？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最值得确认的是虚拟化类型，用systemd-detect-virt查看，输出openvz的话直接放弃安装，因为OpenVZ架构内核由母机统一管理，用户没有权限替换；输出kvm或none的话一般可以继续尝试。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "装之前应该做什么准备？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最重要的是备份系统快照，如果服务商支持快照功能，装之前先打一个，出问题直接回滚；没有快照功能的话至少把重要配置文件和数据备份到本地。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "出现黑屏或卡grub界面怎么处理？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果VPS控制面板提供VNC控制台，可以连进去看卡在哪里，有时是grub菜单等待选择，手动选回旧内核能救回来；但很多廉价VPS没有VNC或救援模式，这种情况下通常只能重装。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 XanMod 装完重启之后出问题，大概分两种情况。一种是重启后系统还在跑原来的内核，`uname -r` 看不到 xanmod 字样，面板显示的还是系统默认内核版本。另一种更严重，直接黑屏或者卡在 grub 界面，系统起不来，只能重装。
 
 两种情况的根本原因都差不多——VPS 本身不适合安装自定义内核，或者虚拟化方案对内核有限制。

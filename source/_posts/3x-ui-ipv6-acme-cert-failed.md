@@ -9,6 +9,68 @@ categories:
   - vps技巧
 description: 纯IPv6环境下用3x-ui面板申请证书一直失败或超时的原因排查，acme.sh standalone模式默认只监听IPv4，需要手动加--listen-v6参数才能完成验证。
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui纯IPv6 VPS申请SSL证书失败：acme.sh --listen-v6解决方法",
+      "description": "纯IPv6环境下用3x-ui面板申请证书一直失败或超时的原因排查，acme.sh standalone模式默认只监听IPv4，需要手动加--listen-v6参数才能完成验证。",
+      "datePublished": "2026-09-06T16:00:00+08:00",
+      "dateModified": "2026-09-06T16:00:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/3x-ui-ipv6-acme-cert-failed/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "纯IPv6 VPS用3x-ui申请证书为什么一直失败？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3x-ui申请证书底层调用acme.sh，走standalone模式验证，acme.sh的standalone模式默认只监听IPv4地址。纯IPv6服务器根本没有IPv4地址，acme.sh却还是只尝试监听IPv4，导致验证请求连不上，证书申请失败。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么判断自己是不是这个原因导致的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用ip -4 addr show查看服务器有没有配置IPv4地址，如果输出为空或只有本地回环地址127.0.0.1，说明是纯IPv6环境，大概率就是这个问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么解决这个问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "面板内置的申请入口通常不暴露--listen-v6参数，需要绕开面板手动用acme.sh命令行申请，命令里加上--listen-v6强制监听IPv6，申请成功后把证书文件路径填回面板设置里对应的证书路径和私钥路径字段。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "加了--listen-v6还是不行怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先确认acme.sh是不是最新版本，执行acme.sh --upgrade升级后重新申请；另外要确认80端口没有被面板或其他服务占用，可以用netstat -tlnp查看80端口占用情况，避免误判成监听IPv6失败。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 如果服务器是纯IPv6（没有IPv4地址），用3x-ui面板自带的证书申请功能经常会一直卡住或者直接报错超时，具体的证书配置入口可以先参考[3x-ui配置TLS证书教程](https://vpsjq.com/2026/08/30/3x-ui-tls/)，本篇专门讲纯IPv6环境下失败的原因和解决办法。
 <!-- more -->
 3x-ui面板申请证书这个功能，底层调用的是acme.sh，走的是standalone模式验证。acme.sh的standalone模式有个默认行为：只监听IPv4地址，不会自动监听IPv6。纯IPv4或者双栈（IPv4+IPv6都有）的服务器不会遇到这个问题，因为总有IPv4地址可以监听；但纯IPv6服务器根本没有IPv4地址，acme.sh却还是只尝试监听IPv4，导致Let's Encrypt发起的验证请求根本连不上，证书申请自然失败。

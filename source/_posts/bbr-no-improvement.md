@@ -9,6 +9,67 @@ categories:
 description: BBR不是万能加速器，它优化的是拥塞控制方式，不能凭空变出物理带宽，搞清楚这个原理才知道为什么有的机器开了没感觉。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "为什么开了BBR，网速却感觉一点没提升",
+      "description": "BBR不是万能加速器，它优化的是拥塞控制方式，不能凭空变出物理带宽，搞清楚这个原理才知道为什么有的机器开了没感觉。",
+      "datePublished": "2026-08-18T10:00:00+08:00",
+      "dateModified": "2026-08-18T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/18/bbr-no-improvement/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "BBR到底在优化什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BBR是一种拥塞控制算法，优化的是数据包在网络出现拥堵时的应对方式，不是给服务器凭空变出更多带宽。它会持续估算链路真实的带宽上限和往返时间，尽量把发送速率贴着这个上限走，而不像传统Cubic算法那样一遇到丢包就大幅减速。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么情况下开BBR感觉不出差别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果测速目标是同城甚至同一数据中心内部的节点，延迟本来就很低、链路几乎不丢包，这种场景下Cubic和BBR表现差距很小。BBR真正体现优势的场景是跨洋、跨运营商、延迟上百毫秒、偶尔丢包的链路。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "配置了BBR但没生效，还有哪些技术原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "常见原因有三个：一是队列调度算法qdisc没有设成fq（或fq_codel），配套没设对BBR效果会打折扣；二是内核版本太旧不支持BBR，sysctl设置时不报错但重启后会变回cubic；三是VPS上同时跑着多条连接，物理带宽已经被瓜分完，单条连接测速自然上不去，这不是BBR的问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "该怎么判断BBR到底有没有用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最靠谱的办法是用自己这台机器的实际线路，开BBR前后各测一次，对比同样的目标、同样的时间段，而不是跟别人的截图比较。如果线路本身质量一般（比如遇到VPS超售问题），BBR再怎么调也调不出一条干净的物理线路。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 网上一搜BBR教程，标题动不动就是"网速提升3倍""涡轮增压"，跟着敲完三行命令，兴冲冲测个速，发现数字跟开之前差不多，甚至一模一样。很多人到这一步就得出结论："BBR就是个噱头，没用。"这个结论下得有点冤——问题往往不在BBR本身，而在对它的期待从一开始就搞错了方向。
 
 ## BBR到底在优化什么

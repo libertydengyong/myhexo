@@ -9,6 +9,68 @@ categories:
   - vps技巧
 description: BBRplus跑一键脚本提示内核版本不支持、下载不到对应内核，通常是脚本指向了已经停止维护的旧项目，换成还在持续更新的分支就能解决。
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "BBRplus内核版本不支持怎么办：找对维护中的分支",
+      "description": "BBRplus跑一键脚本提示内核版本不支持、下载不到对应内核，通常是脚本指向了已经停止维护的旧项目，换成还在持续更新的分支就能解决。",
+      "datePublished": "2026-09-06T22:00:00+08:00",
+      "dateModified": "2026-09-06T22:00:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/bbrplus-kernel-version-unsupported/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "装BBRplus提示内核版本不支持是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "通常不是系统内核太新导致BBRplus过时不能用，而是用的一键脚本或教程指向了已经停止维护的旧项目，比如最早只支持4.14/4.19/5.4/5.9几个固定版本的老仓库，该项目已被标记archived，当前系统内核对不上老版本支持范围，报错是必然的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么解决这个问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "换成还在持续维护的分支，比如UJX6N维护的bbrplus-6.x_stable仓库，专门适配6.x系列内核，Release页面会标注支持的系统范围，根据自己的系统和内核版本找到匹配的Release下载安装。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "找不到匹配自己内核版本的Release怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "两个选择：一是把系统内核降级或切换到已支持的具体版本；二是放弃BBRplus，改用对内核版本要求更宽松的方案，比如原版BBR或者XanMod内核自带的BBR3。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "装完之后怎么验证是否成功？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用uname -r确认内核版本号里带有bbrplus字样，再用lsmod grep bbr确认能看到tcp_bbrplus模块，两者都正常说明启用成功。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 装BBRplus的时候，经常会遇到脚本运行到装内核这一步卡住，报"内核版本不支持"，或者干脆下载失败、找不到对应的内核包。很多人第一反应是自己系统版本太新了，BBRplus这个东西已经过时用不了了，其实不完全是这样，问题更多出在**用的脚本指向了哪个项目**，跟"BBRplus本身能不能用"是两回事。这篇跟站内另外两篇容易搞混的文章区别一下：如果你是纠结BBR系列该选哪个版本，看[BBR、BBR2、BBRplus、BBR3有什么区别](https://vpsjq.com/2026/08/28/bbr-versions-compare/)；如果报错是"headers未匹配"、提示某个下载链接直接404，看[安装BBR时内核headers未匹配的原因和解决方法](https://vpsjq.com/2026/08/30/bbr-headers-mismatch/)；这篇专门讲"内核版本号对不上、找不到匹配内核"这一类报错。
 <!-- more -->
 ## 为什么会遇到内核版本不支持

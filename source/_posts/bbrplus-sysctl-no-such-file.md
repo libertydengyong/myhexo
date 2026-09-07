@@ -9,6 +9,68 @@ categories:
   - vps技巧
 description: 装BBRplus后执行sysctl命令报"No such file or directory"，可能是模块没加载、系统还在跑旧内核，也可能是VPS本身是OpenVZ虚拟化根本装不了，三种情况分别怎么判断和处理。
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "BBRplus报错sysctl No such file or directory的三个真实原因",
+      "description": "装BBRplus后执行sysctl命令报No such file or directory，可能是模块没加载、系统还在跑旧内核，也可能是VPS本身是OpenVZ虚拟化根本装不了，三种情况分别怎么判断和处理。",
+      "datePublished": "2026-09-07T09:00:00+08:00",
+      "dateModified": "2026-09-07T09:00:00+08:00",
+      "url": "https://vpsjq.com/2026/09/07/bbrplus-sysctl-no-such-file/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "BBRplus报sysctl No such file or directory是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这个报错说明当前运行的内核压根没有加载BBRplus这个模块，不是配置写错了。可以查看tcp_available_congestion_control确认当前内核认识哪些拥塞控制算法，常见原因有三种：模块没有真正加载、VPS本身是OpenVZ虚拟化装不了、系统实际还在跑旧内核。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "模块没加载怎么解决？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "重启后手动执行modprobe加载tcp_bbrplus模块，用lsmod确认出现在列表里后重新执行sysctl命令；想让开机自动加载可以把模块名写进modules-load.d目录下的配置文件。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么判断是不是OpenVZ虚拟化导致的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用systemd-detect-virt命令查看，输出openvz说明是这种情况。OpenVZ容器共享宿主机内核，用户没有权限单独换内核，需要换成不依赖单独编译内核的方案，或者直接问VPS服务商宿主机是否已经开启BBR。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么确认是不是系统还在跑旧内核？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用uname -r查看当前实际运行的内核版本号，对照是不是刚装的新内核，对不上说明GRUB默认启动项没有切换过去，需要手动检查GRUB配置或者重启时在菜单里手动选择新内核测试。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 装完BBRplus，按照教程执行开启命令，结果报了这样的错：
 
 ```bash

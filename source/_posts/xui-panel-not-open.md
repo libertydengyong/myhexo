@@ -9,6 +9,67 @@ categories:
 description: x-ui面板访问不了的几个常见原因：端口没有放行、服务商安全组限制、访问路径填错，以及对应的排查和解决方法。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "x-ui面板打不开的常见原因和解决方法",
+      "description": "x-ui面板访问不了的几个常见原因：端口没有放行、服务商安全组限制、访问路径填错，以及对应的排查和解决方法。",
+      "datePublished": "2026-08-29T10:00:00+08:00",
+      "dateModified": "2026-08-29T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/xui-panel-not-open/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "x-ui面板打不开最常见的原因是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最常见的原因是面板端口没有在系统防火墙里放行，用ufw allow加端口号放行后，用ufw status确认端口出现在允许列表里，大多数VPS做到这一步就能正常访问。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "系统防火墙放行后还是访问不了怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "需要确认这台VPS是不是甲骨文、AWS、谷歌云这类大厂服务器，这些服务商在系统防火墙之外还有一层安全组，需要去服务商控制台手动添加入站规则放行对应端口，光在系统里用ufw放行是不够的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "面板地址对了但还是打不开，还可能是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "另一个容易忽略的原因是访问路径填错了，x-ui安装完会生成一个随机的WebBasePath，完整访问地址是IP:端口/访问路径，如果忘了访问路径可以SSH进服务器执行x-ui settings查看当前配置。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么确认面板服务本身有没有正常运行？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "执行x-ui status查看服务状态，输出显示运行中就说明服务没问题，问题出在网络访问这一层，需要按端口放行、安全组、访问路径的顺序继续排查。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 装完 x-ui 面板之后打开浏览器访问，结果页面一直转圈或者直接报错连不上，这种情况大概率出在端口和访问路径这两个地方，按顺序排查一下基本能定位问题。
 
 最常见的原因是端口没有放行。x-ui 安装完之后会分配一个面板端口，这个端口需要在系统防火墙里手动放行，不然外部根本访问不到。用 ufw 放行的命令：
