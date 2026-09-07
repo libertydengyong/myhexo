@@ -10,7 +10,7 @@ date: 2025-07-24 19:51:44
 description: MDPings安卓客户端介绍，基于哪吒监控开发，支持多服务器状态监控和SSH终端，使用前需要先部署哪吒面板。
 ---
 
-MDPings是另一个手机探针App，但要先安装哪吒面板。
+MDPings是一个基于哪吒监控 API 开发的 Android 探针 App，可以连接哪吒监控面板查看服务器状态、延迟和网络信息。如果你正在找一款手机上的探针 App，MDPings 是一个比较简单的选择。
 
 MDPings本质上是**哪吒监控（Nezha）**这个开源监控项目的安卓客户端，不是一个独立能用的探针工具——它需要连接到一个已经部署好的哪吒面板才能工作，自己不负责数据采集，只负责在手机上把面板的数据展示出来。
 
@@ -28,3 +28,27 @@ MDPings本质上是**哪吒监控（Nezha）**这个开源监控项目的安卓�
 下载地址：[GitHub - icylian/MDPings](https://github.com/icylian/MDPings)
 
 如果平时习惯用手机远程管理VPS，MDPings配合[Termux手机管理VPS教程](https://vpsjq.com/2026/08/02/termux-vps-remote-manage/)里的方法一起用挺合适——Termux负责登录执行具体操作，MDPings负责随时看服务器状态，两者搭配基本不用开电脑也能把VPS管明白。
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mdpings，另一个手机探针App",
+  "description": "MDPings安卓客户端介绍，基于哪吒监控开发，支持多服务器状态监控和SSH终端，使用前需要先部署哪吒面板。",
+  "datePublished": "2025-07-24T19:51:44+08:00",
+  "dateModified": "2026-09-06T00:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vpsjq.com/2025/07/24/mdpings-%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%89%8B%E6%9C%BA%E6%8E%A2%E9%92%88app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Deng Lin"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "vpsjq.com",
+    "url": "https://vpsjq.com/"
+  }
+}
+</script>
