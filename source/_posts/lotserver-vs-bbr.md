@@ -9,6 +9,60 @@ categories:
   - vps工具
 description: 锐速和BBR系列不是同一类东西，两者不能同时装，讲清楚锐速的原理、限制和BBR/BBRplus该怎么选，避免装错走弯路。
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "锐速（LotServer）是什么，跟BBR/BBRplus怎么选",
+      "description": "锐速和BBR系列不是同一类东西，两者不能同时装，讲清楚锐速的原理、限制和BBR/BBRplus该怎么选，避免装错走弯路。",
+      "datePublished": "2026-09-06T20:00:00+08:00",
+      "dateModified": "2026-09-06T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/lotserver-vs-bbr/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "锐速和BBR是同类东西吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是。锐速（LotServer）是商业化的TCP单边加速软件，出现得比BBR早，免费版有速度上限；BBR是Google开源的拥塞控制算法，直接集成在Linux内核里，不需要额外授权，两者思路不同，且不能同时启用，会产生冲突。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "锐速和BBR系列该怎么选？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "纯免费不想额外花钱就选BBR或BBRplus，效果对大多数人已经够用；服务器线路质量差、丢包率高、愿意为效果付费，可以考虑锐速付费版；内核版本太老升级不了的话，BBR系列依赖4.9以上内核，锐速对内核要求相对宽松，可能是唯一可行选项。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能不能同时装锐速和BBR？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能，两者都是在修改TCP层面的拥塞控制/传输行为，同时启用会冲突。切换前一定要先卸载干净原来那个，不能两个同时跑，否则容易导致网络异常甚至连不上服务器。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 搜"VPS加速"经常会同时刷到锐速和BBR这两个名字，两者经常被放在同一个教程里当作平行选项介绍，容易让人以为是同类东西、随便选一个装就行。实际上锐速比BBR出现得更早，思路也不一样，装之前搞清楚区别能少踩不少坑。
 <!-- more -->
 锐速（也叫LotServer）是一款商业化的TCP单边加速软件，早在Google的BBR算法出现之前就已经存在，专门用来优化服务器出口的网络传输效率。它是收费产品，虽然有免费版可以用，但免费版会有速度上限，跑不满带宽，想要更好的效果需要付费授权。

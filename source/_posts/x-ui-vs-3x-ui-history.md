@@ -9,6 +9,68 @@ categories:
   - vps工具
 description: x-ui这个名字最早指的是另一个已经停止维护的面板项目，3x-ui是它后续接力维护的分支，讲清楚这段历史脉络，避免装错老版本走弯路。
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "x-ui和3x-ui是什么关系，为什么现在教程都推荐3x-ui",
+      "description": "x-ui这个名字最早指的是另一个已经停止维护的面板项目，3x-ui是它后续接力维护的分支，讲清楚这段历史脉络，避免装错老版本走弯路。",
+      "datePublished": "2026-09-06T23:00:00+08:00",
+      "dateModified": "2026-09-06T23:00:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/x-ui-vs-3x-ui-history/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "x-ui和3x-ui是什么关系？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "两者是同一条技术脉络上的前后两代，不是平行的不同选择。最早是vaxilu维护的x-ui（基于更早的v2-ui项目），后来x-ui停更了（最近的PR记录停在2022年下半年），MHSanaei基于x-ui代码做了3x-ui分支并持续维护至今，3x-ui相当于x-ui的接班人。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么现在都推荐装3x-ui不推荐x-ui？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "原版x-ui停更后有三个问题：新协议用不了，比如VLESS Reality这类协议是x-ui停更之后才成熟的；安全更新跟不上，多年没修复的漏洞直接暴露在公网风险较高；社区支持基本消失，现在绝大多数教程和讨论都是针对3x-ui写的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "已经装了老版本x-ui要不要换？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果用得好好的、协议也够用，不是非换不可。但如果想用VLESS Reality/Hysteria2这类新协议、担心安全风险、或者遇到问题搜不到解决方案，建议尽快迁移到3x-ui，直接卸载重装比纠结升级更省事。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么快速确认自己装的是x-ui还是3x-ui？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "看面板后台，3x-ui界面选项更多（订阅链接管理、更完整的协议支持），如果协议选项里没有Reality这类新协议、界面明显简单，大概率是原版x-ui；也可以看安装脚本运行时终端打印的项目名称和版本号。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 搜VPS代理面板教程，经常会同时看到"x-ui"和"3x-ui"这两个名字，很多老教程、老帖子里写的安装命令用的是"x-ui"，但现在大部分活跃的中文教程站（包括本站）默认推荐的都是"3x-ui"。如果你是照着一篇比较老的教程在装，很容易搞不清楚这两个到底是不是同一个东西，装完发现功能对不上、缺协议支持，其实是版本选错了。
 <!-- more -->
 ## 一段简单的接力关系
