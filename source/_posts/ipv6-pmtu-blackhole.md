@@ -8,6 +8,59 @@ categories:
 description: ping用的是小包能畅通无阻，网页、SSH会话这类大包却卡住不动，这是IPv6下一种叫PMTU黑洞的经典问题，根源在防火墙悄悄拦截了一条关键的反馈通道。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "为什么IPv6配置好了，Ping能通，网站却怎么都打不开",
+      "description": "ping用的是小包能畅通无阻，网页、SSH会话这类大包却卡住不动，这是IPv6下一种叫PMTU黑洞的经典问题，根源在防火墙悄悄拦截了一条关键的反馈通道。",
+      "datePublished": "2026-08-21T20:00:00+08:00",
+      "dateModified": "2026-08-21T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/21/ipv6-pmtu-blackhole/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么ping能通但网站打不开、SSH卡死？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IPv6设计上废掉了路由器分片能力，遇到超过链路MTU的包只能丢弃并回发ICMPv6 Packet Too Big消息通知发送方改用更小尺寸重发。如果路径上有防火墙拦截了这条反馈消息，发送方永远收不到提醒，包被反复丢弃，TCP只能靠超时重传兜底，这就是PMTU黑洞。ping包体积小不会撞上MTU这道坎所以畅通，网页和SSH会话数据包大容易触发这个问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么确认自己遇到的是PMTU黑洞？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "对照症状：TCP连接能正常建立（握手包小）、网页加载到一半卡住不动、SSH能连上认证成功后却卡死、文件下载开始几KB后停滞不前，符合大半基本可以锁定。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么解决PMTU黑洞问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "核心是确保ICMPv6的Packet Too Big消息在整条路径上畅通，检查自己VPS防火墙用ip6tables明确放行这类消息；如果自己这边没问题，说明黑洞在上游链路，自己改配置帮不上忙，只能等对方网络修复或换路由。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 `ping -6`一测，延迟正常、一个包都不丢，看着IPv6配置得妥妥的；结果打开一个网站，页面加载到一半就卡死不动，SSH倒是能连上，登录成功之后敲命令却半天没反应。小包一路畅通，大包寸步难行，这种诡异的"选择性失灵"，在IPv6下有个专门的名字——**PMTU黑洞**。
 
 ## IPv6做了一个跟IPv4不一样的设计决定

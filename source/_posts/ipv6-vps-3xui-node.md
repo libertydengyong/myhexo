@@ -9,6 +9,69 @@ categories:
 description: 在纯IPv6 VPS上用3x-ui搭建代理节点的完整流程，包括先添加IPv4出口、安装3x-ui面板和客户端连接注意事项。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "纯IPv6 VPS用3x-ui搭建节点教程",
+      "description": "在纯IPv6 VPS上用3x-ui搭建代理节点的完整流程，包括先添加IPv4出口、安装3x-ui面板和客户端连接注意事项。",
+      "datePublished": "2026-08-29T12:00:00+08:00",
+      "dateModified": "2026-08-29T12:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/ipv6-vps-3xui-node/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "纯IPv6 VPS搭建3x-ui节点",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "先添加IPv4出口",
+          "text": "纯IPv6 VPS上很多命令和脚本依赖IPv4网络，没有IPv4出口直接跑3x-ui安装脚本会卡住或报错，需要先给服务器加一个IPv4出口。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "安装3x-ui面板",
+          "text": "IPv4出口配置好之后，正常运行3x-ui一键安装脚本即可，跟普通VPS没有区别，安装完终端会打印面板地址、端口、用户名密码。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置入站监听地址",
+          "text": "新建入站节点时，纯IPv6服务器监听地址不能填0.0.0.0（只监听IPv4），需要填::才能同时监听IPv6地址，或者直接填服务器的IPv6地址。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "处理客户端IPv6兼容性",
+          "text": "客户端连接纯IPv6节点需要客户端本身和所在网络都支持IPv6，可以先访问test-ipv6.com测试；如果客户端网络不支持，可以在面板里额外配置一个走IPv4的入站端口。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "纯IPv6节点连不上怎么排查？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先检查面板端口有没有在防火墙放行，纯IPv6服务器防火墙需要同时处理IPv4和IPv6两套规则，只放行IPv4端口在IPv6环境下不一定生效。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 纯IPv6 VPS价格通常比较低，AWS EC2、EUserv、hax.co.id这类平台都有免费或者低价的纯IPv6机器，但用起来有一个绕不开的问题：很多命令和脚本依赖IPv4网络，没有IPv4出口的情况下直接运行往往会失败，包括3x-ui的安装脚本。所以在纯IPv6 VPS上搭节点，第一步不是装面板，而是先给服务器加一个IPv4出口。
 
 添加IPv4出口的方法站内有两篇记录，可以先参考[IPv6 only VPS添加IPv4](https://vpsjq.com/2026/07/26/2026-07-26-002/)或者[为纯IPv6的小鸡添加v4出口](https://vpsjq.com/2026/04/30/2026-04-30-002/)，把IPv4出口加好之后再继续下面的步骤。没有IPv4出口直接装3x-ui，安装脚本下载依赖的时候就会卡住或者报错，很多apt包也拉不下来。

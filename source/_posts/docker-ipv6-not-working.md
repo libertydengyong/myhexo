@@ -8,6 +8,77 @@ categories:
 description: 宿主机IPv6配置得再完美，Docker容器默认也不会继承这个能力，得手动改daemon.json开启才行，这是Docker的默认行为，不是配置出了问题。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS配了IPv6，Docker容器里却死活连不上",
+      "description": "宿主机IPv6配置得再完美，Docker容器默认也不会继承这个能力，得手动改daemon.json开启才行，这是Docker的默认行为，不是配置出了问题。",
+      "datePublished": "2026-08-25T10:00:00+08:00",
+      "dateModified": "2026-08-25T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/25/docker-ipv6-not-working/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "让Docker容器获得IPv6网络能力",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "修改daemon.json开启IPv6",
+          "text": "编辑/etc/docker/daemon.json，加入ipv6:true和fixed-cidr-v6指定一个私有IPv6网段（比如fd00:db8:1::/64），照抄这个格式即可。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "重启Docker服务",
+          "text": "执行systemctl restart docker让配置生效。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "验证是否生效",
+          "text": "执行docker network inspect bridge查看输出里EnableIPv6是否为true，IPAM.Config里是否出现刚配置的IPv6网段，这一步能提前确认配置有没有生效，避免白费功夫排查容器内部网络。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "实际测试连接",
+          "text": "用docker run --network=bridge --rm -it busybox ping -6 -c4 google.com测试容器内部是否真的能访问IPv6。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "配置了daemon.json还是不生效怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果宿主机拿到的是公网IPv6网关而不是私网网关，可能还需要配合ip6tables做地址映射才能真正打通，光改daemon.json不一定够，具体取决于VPS服务商分配IPv6的方式。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "只是临时需要用一下IPv6有更简单的方法吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以用host网络模式跑这个容器（docker run --network=host），直接借用宿主机自己的网络协议栈，不需要额外配置，但端口映射逻辑跟bridge模式不同，适合临时验证，长期生产环境还是建议正常配置daemon.json。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS本身IPv6配置得妥妥当当，`ping -6`一测宿主机畅通无阻，装进容器里的服务却怎么都连不上IPv6，`docker exec`进去一试，IPv6网络对这个容器来说压根不存在。折腾半天以为是容器内部网络设置有问题，其实**Docker默认根本不会把宿主机的IPv6能力传给容器**，这是设计上的默认行为，不是哪里配错了。
 
 ## Docker压根没把IPv6当默认选项

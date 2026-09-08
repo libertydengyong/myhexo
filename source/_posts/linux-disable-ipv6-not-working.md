@@ -8,6 +8,67 @@ categories:
 description: net.ipv6.conf.all.disable_ipv6设置了却没生效，或者生效了却搞崩了SSH转发和邮件服务，这个内核参数比看起来复杂得多。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "为什么改了disable_ipv6，IPv6却还是没有被真正关掉",
+      "description": "net.ipv6.conf.all.disable_ipv6设置了却没生效，或者生效了却搞崩了SSH转发和邮件服务，这个内核参数比看起来复杂得多。",
+      "datePublished": "2026-08-20T20:00:00+08:00",
+      "dateModified": "2026-08-20T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/20/linux-disable-ipv6-not-working/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么设置了disable_ipv6=1，IPv6地址还在？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "net.ipv6.conf.all.disable_ipv6=1只是给新建立的接口设置默认值，回环接口lo不受它管，需要单独再加net.ipv6.conf.lo.disable_ipv6=1这一行，只写all这一行是最常见的踩坑点。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "sysctl都配对了为什么还是没关掉？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果系统用NetworkManager管理网络（常见于RHEL/CentOS），它有自己的逻辑，可能在网卡重新连接时把IPv6又悄悄打开，跟sysctl设置对着干，这种情况需要额外用nmcli单独设置ipv6.method为disabled才能真正锁死。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有更彻底的关闭方式吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在GRUB里加内核启动参数ipv6.disable=1，重启后IPv6模块压根不会被内核加载，但要注意如果sysctl.conf里还留着旧的disable_ipv6配置没清理，下次sysctl -p会报错找不到对应文件，需要把旧配置一并清掉。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "关掉IPv6之后为什么别的服务出问题了？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "一些服务默认监听::1这种IPv6回环地址，关掉IPv6后会启动失败，比如Postfix邮件服务的inet_interfaces配置可能需要改成127.0.0.1，SSH的X11转发也可能需要在sshd_config里加AddressFamily inet明确指定只用IPv4。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 某些场景下想彻底关掉IPv6（比如某个服务对IPv6支持有问题，干脆关掉省心），常见做法是改`/etc/sysctl.conf`加一行`net.ipv6.conf.all.disable_ipv6=1`，跑一下`sysctl -p`，结果`ip -6 addr`一查，IPv6地址还在，跟没改过一样。要么就是反过来——真关掉了，过阵子发现SSH的某个功能用不了了，或者邮件服务死活启动不起来，两头都能踩坑。
 
 ## "all"不等于"所有"

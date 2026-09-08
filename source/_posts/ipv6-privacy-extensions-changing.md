@@ -8,6 +8,59 @@ categories:
 description: IPv6地址过段时间自动改变不是入侵或者配置出错，是Privacy Extensions这个隐私保护特性在起作用，但服务器场景通常并不需要它。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "为什么VPS的IPv6地址过一阵子会自己变，是不是被入侵了",
+      "description": "IPv6地址过段时间自动改变不是入侵或者配置出错，是Privacy Extensions这个隐私保护特性在起作用，但服务器场景通常并不需要它。",
+      "datePublished": "2026-08-22T10:00:00+08:00",
+      "dateModified": "2026-08-22T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/22/ipv6-privacy-extensions-changing/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么VPS的IPv6地址会自己变？是被入侵了吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大概率不是入侵，是Privacy Extensions（RFC 4941/8981）这个隐私保护机制在正常工作，设备不再用MAC地址生成固定后缀，而是随机生成临时接口标识符，默认约1天有效期，到期前自动生成新地址替换，这是设计好该有的正常行为。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这个特性对服务器有用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "没有实际收益，Privacy Extensions是为终端设备（笔记本、手机）设计的，防止被追踪；但服务器存在的意义就是要被稳定找到，域名解析、白名单、日志分析都指望地址长期不变，主动发起连接的地址不断换马甲只会让日志分析更困惑。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么关闭这个特性？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用sysctl -w net.ipv6.conf.all.use_tempaddr=0和对应的default项关闭，并写入/etc/sysctl.conf持久化。这个设置只影响服务器自己主动发起连接用哪个地址，不影响外部通过AAAA记录访问服务器的稳定地址。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 `ip -6 addr`今天看的地址，隔几天再查，后半截莫名其妙变了，第一反应容易往坏处想——是不是配置被人动过手脚，或者哪个服务偷偷改了网络设置。其实大概率什么都没被入侵，这是IPv6一个专门设计出来的隐私保护特性在正常工作，只是这个特性放在服务器身上，通常并不是你想要的。
 
 ## 最早的IPv6地址，其实是个"永久身份证"

@@ -8,6 +8,67 @@ categories:
 description: iptables只管IPv4，IPv6得靠单独的ip6tables，很多发行版默认还把IPv6策略设成完全放行，等于留了个自己都不知道的后门。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS防火墙规则设置了，IPv6那边却像没设一样",
+      "description": "iptables只管IPv4，IPv6得靠单独的ip6tables，很多发行版默认还把IPv6策略设成完全放行，等于留了个自己都不知道的后门。",
+      "datePublished": "2026-08-24T20:00:00+08:00",
+      "dateModified": "2026-08-24T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/24/ipv6-ip6tables-not-working/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "iptables配置的防火墙规则IPv6也生效吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不生效。iptables工作在AF_INET协议族上专门为IPv4设计，对IPv6流量完全没有感知能力，IPv6走独立协议栈路径，得靠专门的ip6tables管理，两者语法相似但管的是完全不同的两拨流量。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么确认自己的ip6tables是不是没设防？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用ip6tables -L INPUT查看默认策略，如果显示ACCEPT，意味着IPv6方向的流量一直毫无过滤地大门敞开，很多发行版默认就是这个状态，从装好系统那一刻起就没设防。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能把ICMPv6也全部堵死图省事吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不行，这个思路在IPv4上问题不大但IPv6里行不通，ICMPv6承担着邻居发现（NDP）、路由通告、路径MTU发现等重要职责，全部拦掉轻则地址自动配置失败，重则触发PMTU黑洞问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有更省心的方式管理两套防火墙规则吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以用UFW，在/etc/default/ufw里把IPV6设成yes之后，UFW会自动帮你同步维护IPv6对应的规则，不用两边分别敲命令。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 辛苦用`iptables`把防火墙规则配得严严实实，只放行指定端口、指定IP，自我感觉安全性拉满，结果压根没意识到——**这些规则从头到尾只管住了IPv4这一半，IPv6完全是另一套独立体系，你写的东西对它一个字都不生效**。
 
 ## iptables和IPv6，压根不是一回事

@@ -8,6 +8,67 @@ categories:
 description: 系统同时解析出IPv4和IPv6地址后会优先尝试IPv6，如果IPv6配置是半吊子状态，每次新建连接都要多等一截超时时间才会回落到IPv4。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "为什么VPS各种连接、下载都很慢，罪魁祸首可能是IPv6",
+      "description": "系统同时解析出IPv4和IPv6地址后会优先尝试IPv6，如果IPv6配置是半吊子状态，每次新建连接都要多等一截超时时间才会回落到IPv4。",
+      "datePublished": "2026-08-21T10:00:00+08:00",
+      "dateModified": "2026-08-21T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/21/ipv6-happy-eyeballs-slow/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么VPS感觉整体慢半拍，但带宽和CPU都正常？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "现代系统处理域名同时解析出IPv4和IPv6的情况时用的是Happy Eyeballs机制（RFC 8305），会优先尝试IPv6，如果IPv6配置是半吊子状态（能解析但走不通），每次新建连接都要多等一截超时时间才会回落到IPv4，这种延迟不是带宽或CPU问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "是不是所有软件都能正确处理这种情况？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是，Happy Eyeballs是建议标准不是强制实现，比如Node.js底层网络库undici没有实现这套机制，会先死磕IPv6直到完整连接超时才回落IPv4，等待时间可能长达数秒，而curl这类正确实现的工具在同样环境下访问完全正常。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么样的IPv6配置最容易导致这个问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最麻烦的是看着有、实际走不通的半吊子状态：有IPv6地址但没有默认路由；防火墙静默丢弃IPv6流量而不是明确拒绝；AAAA记录已解析但IPv6网络配置其实没弄好，这些都会导致每次连接都要等超时才能确认失败。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么解决这个问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只有两个方向：要么把IPv6配置彻底修好（补上默认路由、确认防火墙没有静默丢包），要么干脆关掉IPv6让系统不再尝试，最忌讳停在半吊子状态；如果这台VPS是IPv6 only或者IPv6是核心需求，则要把IPv6彻底修通而不是关掉。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 带宽测过、路由也查过，数据看着都正常，但VPS上敲个`wget`就是要愣个一两秒才开始下载，SSH连接偶尔也要卡一下，说不上哪里坏了，就是整体感觉"慢半拍"。这种笼统的慢，很多时候压根不是带宽或者CPU的问题，是**系统每次新建连接的时候，先去尝试了一个根本走不通的IPv6，白白等了一截超时时间**。
 
 ## 系统本来是有防呆设计的
