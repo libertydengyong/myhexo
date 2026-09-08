@@ -8,6 +8,82 @@ categories:
 description: 手机用Termux远程连接和管理VPS的完整流程，包含SSH连接、文件传输、连接加速和常见报错排查方法，新手也能跟着操作。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Termux手机管理VPS教程",
+      "description": "手机用Termux远程连接和管理VPS的完整流程，包含SSH连接、文件传输、连接加速和常见报错排查方法，新手也能跟着操作。",
+      "datePublished": "2026-08-02T21:30:00+08:00",
+      "dateModified": "2026-08-02T21:30:00+08:00",
+      "url": "https://vpsjq.com/2026/08/02/termux-vps-remote-manage/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用Termux手机端管理VPS",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "授权Termux访问手机存储",
+          "text": "执行termux-setup-storage并允许权限申请，之后可以通过~/storage/downloads等路径访问手机文件。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "安装SSH客户端并用密钥登录",
+          "text": "pkg install openssh后用ssh root@IP连接，建议用ssh-keygen生成密钥再用ssh-copy-id把公钥传到VPS上，之后连接不用输密码。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置连接别名简化操作",
+          "text": "在~/.bashrc里加一条alias起个好记的名字，以后直接输入别名即可连接，多台VPS可以设置多个别名区分。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "用Git仓库中转文件",
+          "text": "手机和VPS之间传文件用Git仓库比scp/rsync更方便，一端git push另一端git pull，同时顺带做了版本备份。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "按需开启连接复用和Mosh提速",
+          "text": "配置SSH的ControlMaster实现连接复用避免重复握手；网络不稳定时用Mosh代替SSH，网络恢复后自动续上不用重新登录。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Git push时报Authentication failed怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GitHub已经不支持账号密码验证，需要去后台生成Personal Access Token，push时密码那一栏粘贴token即可。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "连接VPS时Permission denied是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "一般是密钥没传对或密码输错了，也可能是VPS防火墙没放行对应端口；如果连接卡住最后超时，先检查手机网络本身通不通，再查VPS安全组规则有没有限制来源IP。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 没有电脑的时候，很多人以为VPS就没法管理了。其实一台安卓手机装上Termux，就能完整地完成SSH连接、文件传输、代码部署这些操作，跟在电脑上用终端几乎没区别。这篇记录一下手机端管理VPS的完整流程，包括怎么让连接更快、遇到报错怎么排查。
 
 <img src="/images/termux-vps-flow.svg" alt="手机Termux通过SSH连接VPS服务器并用Git同步代码的流程图" width="380" height="436" style="max-width:100%;height:auto;display:block;margin:0 auto;" loading="lazy">

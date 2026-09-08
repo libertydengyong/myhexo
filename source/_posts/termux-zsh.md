@@ -8,6 +8,56 @@ categories:
 description: 在Termux里安装zsh和oh-my-zsh的完整步骤，包括自动补全、命令历史这些让命令行操作更高效的功能配置。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Termux安装zsh和oh-my-zsh提升命令行体验",
+      "description": "在Termux里安装zsh和oh-my-zsh的完整步骤，包括自动补全、命令历史这些让命令行操作更高效的功能配置。",
+      "datePublished": "2026-08-29T16:00:00+08:00",
+      "dateModified": "2026-08-29T16:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/termux-zsh/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "Termux安装zsh和oh-my-zsh",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "安装zsh",
+          "text": "执行pkg install zsh安装zsh。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "安装oh-my-zsh",
+          "text": "运行官方安装脚本sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"，安装过程会自动切换默认shell为zsh，没自动切换的话手动执行chsh -s zsh。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "迁移原有配置",
+          "text": "如果之前在bash里配置过别名或环境变量，需要把这些配置从~/.bashrc复制到~/.zshrc，否则在zsh里不会生效。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "按需启用插件",
+          "text": "配置文件在~/.zshrc里可以启用更多插件或换主题，常用的比如git（显示当前分支状态）、z（快速跳转常用目录），插件不是装越多越好，装太多会拖慢启动速度。"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Termux 默认用的是 bash，够用但体验一般。换成 zsh 加上 oh-my-zsh 之后，自动补全和命令历史这两个功能会明显改善日常操作效率——敲命令的时候 Tab 补全更智能，之前跑过的命令用方向键就能翻出来，不需要重新手打，在手机小键盘上操作 VPS 的时候这两点体验提升很明显。
 
 先安装 zsh：

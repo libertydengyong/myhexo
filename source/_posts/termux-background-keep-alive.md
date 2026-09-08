@@ -8,6 +8,64 @@ categories:
 description: 手机切个后台，Termux里正在跑的SSH连接和脚本就没了，安卓的省电机制是元凶，但设了唤醒锁和电池白名单可能还不够。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Termux后台总被系统杀掉，正在跑的任务怎么保住",
+      "description": "手机切个后台，Termux里正在跑的SSH连接和脚本就没了，安卓的省电机制是元凶，但设了唤醒锁和电池白名单可能还不够。",
+      "datePublished": "2026-08-25T20:00:00+08:00",
+      "dateModified": "2026-08-25T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/25/termux-background-keep-alive/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "让Termux后台任务不被系统杀掉",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "开启唤醒锁并加入电池白名单",
+          "text": "在Termux菜单点Acquire Wakelock或执行termux-wake-lock阻止CPU深度睡眠，任务跑完记得termux-wake-unlock释放；同时在手机系统设置里把Termux电池优化策略改成不受限制。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "把任务放进tmux会话",
+          "text": "配合SSH断连处理方法，用tmux new -s起个会话跑任务，就算Termux本身被系统重启，只要底层进程没被真正杀死，重新连回去还能接上。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "安卓12/13额外放宽幽灵进程限制",
+          "text": "安卓12/13新增了Phantom Process Killer机制，就算唤醒锁和电池优化都设置好依然可能杀后台，需要用ADB命令把max_phantom_processes上限调到接近无限大来绕开这套新机制。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "设置好保活措施后还需要注意什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "千万别手动开启手机的省电模式，这个模式会直接覆盖唤醒锁的效果，不管之前设置得多仔细，一旦手动打开后台任务照样立刻被杀，等于前功尽弃。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 用手机Termux连着VPS跑一个耗时的任务，切个微信回来一看，会话断了，任务也没了，跟没跑过一样。这不是Termux不稳定，是安卓系统的省电机制在暗中动手——手机为了省电，会主动清理它认为"不重要"的后台进程，Termux作为一个终端应用，很容易被系统划进这个清理名单。
 
 ## 第一层防护：唤醒锁+电池白名单

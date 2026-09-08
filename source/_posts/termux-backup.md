@@ -8,6 +8,69 @@ categories:
 description: Termux备份和恢复环境的完整方法，包括备份命令、备份文件存储位置和恢复步骤，适合换手机或者重装Termux时快速恢复环境。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Termux备份和恢复环境的方法",
+      "description": "Termux备份和恢复环境的完整方法，包括备份命令、备份文件存储位置和恢复步骤，适合换手机或者重装Termux时快速恢复环境。",
+      "datePublished": "2026-08-29T14:00:00+08:00",
+      "dateModified": "2026-08-29T14:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/termux-backup/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "备份和恢复Termux环境",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "执行备份命令",
+          "text": "运行termux-backup ~/storage/shared/termux-backup.tar.gz，会把home目录和已安装的包打包成tar.gz文件保存到手机公共存储目录，文件可能几百MB到几GB，备份前确认存储空间够用。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "异地备份更安全",
+          "text": "备份文件包含SSH私钥、配置文件和所有安装的包属于敏感文件，可以上传到云盘做异地备份，但注意不要上传到公开分享的目录。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "恢复时先申请存储权限",
+          "text": "新安装的Termux先执行termux-setup-storage申请存储权限。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "执行恢复命令",
+          "text": "运行termux-restore ~/storage/shared/termux-backup.tar.gz，恢复过程会覆盖当前环境，恢复完重启Termux。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么时候应该做一次备份？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议定期做，尤其是在做了比较大的改动之后，比如装了新工具、改了SSH配置、或者添加了新的VPS连接信息，SSH密钥和连接配置一旦丢失重新配置比较麻烦。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Termux 装了一堆包、配置好了 SSH 密钥和各种工具之后，换手机或者重装 Termux 的时候从头来过非常麻烦。Termux 自带备份和恢复功能，把整个环境打包成一个文件，恢复的时候一条命令还原，不需要重新装包和配置。
 
 备份命令：
