@@ -9,6 +9,59 @@ categories:
 description: XanMod内核edge、lts和普通版的区别和选择思路，以及换XanMod之后和Debian默认内核实际体验对比。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "XanMod内核版本怎么选：edge、lts和普通版的区别",
+      "description": "XanMod内核edge、lts和普通版的区别和选择思路，以及换XanMod之后和Debian默认内核实际体验对比。",
+      "datePublished": "2026-08-28T22:00:00+08:00",
+      "dateModified": "2026-08-28T22:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/28/xanmod-versions-choose/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "XanMod的普通版、edge版、lts版有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "普通版基于当前稳定Linux内核，功能和稳定性取平衡；edge版跟进最新内核，功能最新但稳定性相对差；lts版基于长期支持内核，更新节奏慢，适合追求稳定的场景。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "从BBR3支持角度该选哪个版本？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "edge版内核版本更新，BBR3支持更完整；lts版内核版本相对老一些，具体支持情况要看版本号。主要跑代理节点可以选edge，服务器上跑重要服务不希望内核更新引入不稳定因素则更适合lts。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "换XanMod之后速度会有明显提升吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "实际体验上换XanMod后感觉没有明显差别，不是换完立刻提速的变化，XanMod的优化更多体现在系统调度和响应上，对速度的影响没有线路质量本身影响大。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 装 XanMod 的时候第一个问题就是选哪个版本——官方提供了好几个，名字不一样但看起来都差不多，不知道从哪下手。简单说一下几个版本的定位，以及实际怎么选。
 
 XanMod 目前主要有三个常见版本：普通版（linux-xanmod）、edge 版（linux-xanmod-edge）和 lts 版（linux-xanmod-lts）。普通版基于当前稳定的 Linux 内核构建，功能和稳定性之间取了个平衡；edge 版跟进最新的 Linux 内核，功能最新，对新硬件和新特性的支持也最好，但相对来说稳定性不如 lts；lts 版基于长期支持内核，更新节奏慢，适合追求稳定、不需要最新特性的场景。

@@ -9,6 +9,69 @@ categories:
 description: 3x-ui面板路由规则配置方法，包括国内流量直连、按域名分流和广告屏蔽规则的设置步骤。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui路由规则配置：分流和直连设置方法",
+      "description": "3x-ui面板路由规则配置方法，包括国内流量直连、按域名分流和广告屏蔽规则的设置步骤。",
+      "datePublished": "2026-08-29T23:00:00+08:00",
+      "dateModified": "2026-08-29T23:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/3x-ui-routing/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui配置路由分流规则",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "进入Xray路由配置页面",
+          "text": "路由规则在左侧菜单的Xray选项里配置，不是在入站设置里，进入后找到路由（Routing）板块。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "理解匹配条件与出站动作",
+          "text": "规则由匹配条件（域名、IP段、协议类型等）和出站动作（走某代理节点、direct直连、block屏蔽）组成，规则按从上到下顺序匹配，匹配到第一条就执行，更精确的规则要放在前面。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "添加国内流量直连规则",
+          "text": "添加一条规则，匹配条件选geoip:cn和geosite:cn，出站选direct，让国内网站和IP的流量不走代理。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "添加按域名分流或屏蔽规则",
+          "text": "对AI、金融类等地理位置敏感的域名单独设置规则固定走某个节点；广告类域名可以匹配geosite:category-ads-all并设为block直接屏蔽。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "配置路由规则容易出什么问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "常见三个坑：规则顺序搞错导致精确规则被兜底规则挡住不生效；域名格式填错，比如domain:openai.com匹配所有子域名而openai.com只匹配本身；改完规则后没有保存并重启Xray服务导致不生效。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 3x-ui 的路由规则在左侧菜单的 **Xray** 选项里配置，不是在入站设置里。进入 Xray 配置页面之后，找到路由（Routing）这个板块，可以在这里添加各种分流规则，决定哪些流量走代理、哪些直连、哪些屏蔽。
 
 路由规则的基本逻辑是：匹配条件 + 出站动作。匹配条件可以是域名、IP 段、协议类型等，出站动作可以是走某个代理节点、直连（direct）或者屏蔽（block）。规则按从上到下的顺序匹配，匹配到第一条就执行对应动作，不再往下匹配，所以规则的顺序很重要，更精确的规则要放在前面。

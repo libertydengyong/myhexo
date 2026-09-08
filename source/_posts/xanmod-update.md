@@ -9,6 +9,69 @@ categories:
 description: XanMod内核的两种更新方式，apt upgrade直接更新和重新跑安装脚本，以及更新前的备份建议和更新后内核未切换的处理。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "XanMod内核怎么更新",
+      "description": "XanMod内核的两种更新方式，apt upgrade直接更新和重新跑安装脚本，以及更新前的备份建议和更新后内核未切换的处理。",
+      "datePublished": "2026-08-28T10:00:00+08:00",
+      "dateModified": "2026-08-28T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/28/xanmod-update/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "更新XanMod内核",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "确认安装方式",
+          "text": "更新方式取决于当初怎么装的，apt源安装的可以直接系统更新，一键脚本装的要看脚本本身是否提供更新方式。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "apt源方式更新",
+          "text": "执行apt update && apt upgrade -y更新所有可更新的包，或者用apt install --only-upgrade加对应包名（linux-xanmod、linux-xanmod-edge或linux-xanmod-lts）单独更新XanMod。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "更新前备份重要数据",
+          "text": "内核更新本身风险不大，但重启后万一出问题系统起不来，有备份能减少损失，服务器上跑着面板的话把数据库文件也备份一下。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "重启并验证",
+          "text": "更新完执行reboot重启，用uname -r确认内核版本号是否更新成功。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "更新后内核没有切换过去怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "跟安装时内核未切换的情况一样，大概率是grub默认启动项没有更新，可以尝试手动设置默认内核，但如果VPS对grub有限制，改了也不一定生效，这种情况继续用旧内核即可，强行折腾意义不大。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 XanMod 内核的更新方式主要有两种，用哪种取决于你当初是怎么装的。
 
 如果是通过 apt 源安装的，直接跑系统更新命令就能把 XanMod 内核更新到最新版：

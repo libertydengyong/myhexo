@@ -9,6 +9,69 @@ categories:
 description: 3x-ui面板升级方法、升级前备份重要性，以及3.0版本稳定性问题和降级回2.9.4版本的操作步骤。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui面板升级与降级教程：从新版降回2.9.4",
+      "description": "3x-ui面板升级方法、升级前备份重要性，以及3.0版本稳定性问题和降级回2.9.4版本的操作步骤。",
+      "datePublished": "2026-08-27T22:00:00+08:00",
+      "dateModified": "2026-08-27T22:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/27/3x-ui-upgrade/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui从新版降级回2.9.4稳定版",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "升级前先备份数据库",
+          "text": "执行cp /etc/x-ui/x-ui.db /root/x-ui-backup-加日期.db，升级本身通常不会清空数据，但版本跨度大时数据库结构可能变化，备份是最保险的做法。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "确认是否需要降级",
+          "text": "3x-ui 3.0版本发布后不少用户反映稳定性比2.x差，连接容易出问题，如果服务器在稳定跑着节点，不是非要用新功能的话，留在社区公认更稳定的2.9.4版本更省心。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "下载对应版本安装脚本降级",
+          "text": "去MHSanaei的3x-ui仓库releases页面找到2.9.4版本，复制对应安装命令执行即可，不需要先卸载当前版本，安装脚本会直接覆盖，降级前同样先备份数据库。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "降级后验证面板状态",
+          "text": "执行x-ui status确认面板状态是否正常，登录面板检查入站列表是否正常显示，如果不显示，执行x-ui restart重启面板通常能解决。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "新服务器该直接装哪个版本？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "新服务器直接装2.9.4是比较稳妥的做法，跑安装脚本时指定版本号即可，不用先装最新版再降级。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 3x-ui 的升级方式很简单，SSH 进服务器之后跑 `x-ui update` 就会重新拉取最新版本的安装脚本并执行，整个过程跟第一次安装差不多，面板会短暂重启。
 
 升级之前建议先备份数据库文件，3x-ui 的配置数据全部存在 `/etc/x-ui/x-ui.db`，把这个文件复制出来就是完整备份：

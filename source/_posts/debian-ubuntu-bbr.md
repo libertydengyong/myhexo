@@ -9,6 +9,69 @@ categories:
 description: Debian和Ubuntu系统开启BBR的两种方式：手动修改sysctl配置和用adsorgcn的bbr-script一键脚本，附验证命令。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Debian和Ubuntu开启BBR加速的两种方式",
+      "description": "Debian和Ubuntu系统开启BBR的两种方式：手动修改sysctl配置和用adsorgcn的bbr-script一键脚本，附验证命令。",
+      "datePublished": "2026-08-28T18:00:00+08:00",
+      "dateModified": "2026-08-28T18:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/28/debian-ubuntu-bbr/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "Debian/Ubuntu开启BBR加速",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "确认内核版本",
+          "text": "用uname -r查看内核版本，BBR从Linux 4.9开始支持，版本够新才能继续。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "手动方式：修改sysctl配置",
+          "text": "把net.ipv4.tcp_congestion_control=bbr和net.core.default_qdisc=fq两行加到/etc/sysctl.conf，执行sysctl -p让配置生效，改完建议重启确保持久生效。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "或用一键脚本方式",
+          "text": "用adsorgcn维护的bbr-script一键脚本，脚本支持自动升级内核，适合内核版本不够新的情况，脚本会自动检测系统环境判断是否需要升级内核。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "验证是否生效",
+          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出为bbr，再用sysctl net.core.default_qdisc确认输出为fq或fq_codel，两者都对说明配置完整。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "验证结果不对怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先确认重启之后配置有没有持久化，有时候sysctl -p当时生效了但重启后恢复默认，检查/etc/sysctl.conf里两行有没有正确写入。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Debian 和 Ubuntu 是 VPS 上最常见的两个系统，开启 BBR 的方式比较简单，内核版本够新的话不需要换内核，直接改几行配置就能生效。主要有两种方式：手动修改系统配置，或者用一键脚本自动处理。
 
 手动方式适合想了解具体配置的情况。先确认内核版本够不够，BBR 从 Linux 4.9 开始支持：

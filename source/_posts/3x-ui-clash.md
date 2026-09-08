@@ -9,6 +9,77 @@ categories:
 description: 把3x-ui面板的订阅链接导入Clash for Android客户端的完整步骤，包括配置导入和切换方法。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui订阅链接导入Clash for Android方法",
+      "description": "把3x-ui面板的订阅链接导入Clash for Android客户端的完整步骤，包括配置导入和切换方法。",
+      "datePublished": "2026-08-30T20:00:00+08:00",
+      "dateModified": "2026-08-30T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/3x-ui-clash/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui订阅链接导入Clash for Android",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "获取订阅链接",
+          "text": "在3x-ui面板用户管理里复制对应用户的订阅地址。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "从URL导入配置",
+          "text": "打开Clash for Android，底部菜单点配置，点右上角加号选择从URL导入，粘贴订阅链接并填一个配置名称后保存。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "选中配置使其生效",
+          "text": "在配置列表里找到刚导入的配置并点击选中，让它变成当前生效的配置，导入完成后不会自动切换，需要手动选中这一步。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "开启代理并选择节点",
+          "text": "回到主页面打开代理开关，选择一个节点即可使用。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "怎么手动更新订阅内容？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在配置列表里找到这条订阅，长按或点右边的刷新图标即可手动触发一次更新，不用等客户端定时自动更新。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "导入时提示网络错误或配置格式不对怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先确认订阅链接是完整的、没有被截断，再检查面板是否正常运行、端口有没有放行。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 拿到 3x-ui 面板的订阅链接之后，导入 Clash for Android 只需要几步操作，不需要手动填写节点参数。订阅链接的获取方式参考[3x-ui订阅链接设置和导出方法](https://vpsjq.com/2026/08/30/3x-ui-subscription/)，在面板用户管理里复制对应用户的订阅地址。
 
 打开 Clash for Android，底部菜单点**配置**，进入配置页面之后点右上角的加号，选择**从URL导入**，把复制好的订阅链接粘贴进去，填一个好认的配置名称，点保存。客户端会自动拉取订阅内容，下载完成后在配置列表里可以看到刚才添加的这条配置。

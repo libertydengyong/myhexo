@@ -8,6 +8,77 @@ categories:
 description: 3x-ui面板数据备份和迁移到新服务器的完整流程，包括数据库文件备份、新服务器恢复和常见问题处理。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui面板迁移与备份教程",
+      "description": "3x-ui面板数据备份和迁移到新服务器的完整流程，包括数据库文件备份、新服务器恢复和常见问题处理。",
+      "datePublished": "2026-08-27T18:00:00+08:00",
+      "dateModified": "2026-08-27T18:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/27/3x-ui-backup-migrate/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui面板数据备份与迁移",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "备份数据库文件",
+          "text": "3x-ui的所有数据都存在SQLite数据库文件里，路径是/etc/x-ui/x-ui.db，用scp把这个文件下载到本地即可完成备份，建议换服务器前和每次大改配置前都备份一次。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "新服务器安装面板",
+          "text": "在新服务器上先按正常流程装好3x-ui面板，暂不需要手动配置入站，等备份数据导入后会自动恢复。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "上传并覆盖数据库文件",
+          "text": "把备份的x-ui.db通过scp上传到新服务器，覆盖掉新装面板生成的数据库文件路径/etc/x-ui/x-ui.db。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "重启面板生效",
+          "text": "执行x-ui restart重启服务，让新数据库生效，重启后登录面板确认之前的入站列表、用户数据、面板设置是否已经恢复。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "迁移后证书路径失效怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果之前用的是自己域名的证书，证书文件存在旧服务器某个路径，迁移后面板记录的还是旧路径，需要把证书文件一并复制到新服务器相同路径，或者在面板设置里重新填写新路径并重启面板生效。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "迁移后出现端口冲突怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果新服务器上已有其他服务占用了某个入站的端口，这条入站会启动失败，需要进入面板入站列表把冲突端口改掉，同时在防火墙放行新端口。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 换服务器的时候，3x-ui 里配置好的入站节点、用户数据、面板设置不想重新配置一遍，可以直接把数据库文件迁移过去。3x-ui 的数据全部存在一个 SQLite 数据库文件里，路径是 `/etc/x-ui/x-ui.db`，备份和迁移都围绕这个文件操作。
 
 备份很简单，把这个文件复制出来就行。可以用 scp 直接从服务器下载到本地：

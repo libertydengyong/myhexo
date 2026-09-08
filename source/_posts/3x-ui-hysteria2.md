@@ -9,6 +9,69 @@ categories:
 description: 在3x-ui面板里新建Hysteria2入站节点的完整流程，包括端口设置、证书配置和客户端连接注意事项。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui配置Hysteria2节点教程",
+      "description": "在3x-ui面板里新建Hysteria2入站节点的完整流程，包括端口设置、证书配置和客户端连接注意事项。",
+      "datePublished": "2026-08-27T12:00:00+08:00",
+      "dateModified": "2026-08-27T12:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/27/3x-ui-hysteria2/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui配置Hysteria2入站节点",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "新建入站选择Hysteria2协议",
+          "text": "进入面板点左侧入站列表，点右上角添加入站，协议选择Hysteria2，这是独立入站类型，不是在已有VLESS或VMess入站里切换。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置端口并放行UDP",
+          "text": "端口可自定或随机生成，Hysteria2走UDP协议，系统防火墙和服务商安全组都需要单独放行UDP端口，只放行TCP是常见的连不上原因。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置TLS证书",
+          "text": "可以上传已有域名证书填写证书和私钥路径，也可以用面板生成的自签证书，自签证书需要客户端关闭证书验证才能连接。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置密码并保存",
+          "text": "填一个字符串作为客户端连接的认证密码，每个用户可设不同密码，保存后入站列表会出现这条Hysteria2记录，点二维码图标可获取hy2://开头的分享链接。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hysteria2节点连不上怎么排查？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "按顺序检查：UDP端口是否在系统防火墙和服务商安全组两边都放行；客户端的证书验证设置是否和使用的证书类型匹配；面板里这条入站的状态是否正常启动。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Hysteria2 是近几年比较受关注的一个代理协议，基于 QUIC 实现，在高延迟或者丢包率高的网络环境下表现比 TCP 系协议稳定一些。3x-ui 原生支持 Hysteria2，不需要额外安装什么，直接在面板里新建入站就能用。
 
 在 3x-ui 里，Hysteria2 是一个独立的入站协议，不是在现有 VLESS 或者 VMess 入站里切换的，需要单独新建一个入站。进入面板后点左侧**入站列表**，点右上角**添加入站**，协议那一栏选 Hysteria2，这时候下面的配置项会跟其他协议有所不同。

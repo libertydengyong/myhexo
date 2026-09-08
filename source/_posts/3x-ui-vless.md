@@ -9,6 +9,72 @@ categories:
 description: 在3x-ui面板里配置普通VLESS节点的步骤，不需要域名和证书，适合测试和简单使用场景，附连不上时的排查方法。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui配置普通VLESS节点",
+      "description": "在3x-ui面板里配置普通VLESS节点的步骤，不需要域名和证书，适合测试和简单使用场景，附连不上时的排查方法。",
+      "datePublished": "2026-08-30T10:00:00+08:00",
+      "dateModified": "2026-08-30T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/3x-ui-vless/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui配置普通VLESS节点",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "新建VLESS入站",
+          "text": "进入面板点入站列表，点添加入站，协议选VLESS，传输方式选TCP，安全选项选none，这几项选完不会展开太多额外配置。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置端口并放行防火墙",
+          "text": "端口随机生成或自己填一个，填完在防火墙用ufw allow放行该端口。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "保存并获取分享链接",
+          "text": "UUID默认自动生成不需要手动填，保存后在入站列表点二维码图标获取vless://开头的分享链接，复制到客户端导入即可。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "普通VLESS节点连不上怎么排查？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先确认防火墙端口是否放行，这是最常见原因；再确认客户端配置的UUID、端口、服务器地址跟面板一致；最后确认客户端安全选项也选的是none，不能选TLS，否则握手失败。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "普通VLESS适合长期使用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不太适合，安全选项用none时流量是明文传输的，容易被中间设备识别甚至篡改，只适合测试用，长期稳定使用建议换成抗检测能力更强的VLESS Reality。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 3x-ui 支持多种协议，普通 VLESS 是配置最简单的一种——不需要域名、不需要证书、不需要生成密钥对，几个基本参数填完就能用。代价是抗封锁能力比较差，流量特征明显，容易被识别和封锁，所以普通 VLESS 更适合测试用或者对安全性要求不高的临时场景，长期稳定使用建议换成 VLESS Reality，配置方法可以参考[3x-ui配置VLESS Reality节点教程](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)。
 
 进入 3x-ui 面板，点左侧**入站列表**，点右上角**添加入站**，协议选 VLESS，传输方式选 TCP，安全选项选 none。这几个选项选完之后下面不会展开太多额外配置，比 Reality 简单很多。

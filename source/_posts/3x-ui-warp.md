@@ -10,6 +10,69 @@ categories:
 description: 在3x-ui面板里配置Cloudflare Warp，给服务器添加IPv4或IPv6出口，包括warp安装和Xray出站配置步骤。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui配置Warp给服务器添加IPv4/IPv6出口",
+      "description": "在3x-ui面板里配置Cloudflare Warp，给服务器添加IPv4或IPv6出口，包括warp安装和Xray出站配置步骤。",
+      "datePublished": "2026-08-30T22:00:00+08:00",
+      "dateModified": "2026-08-30T22:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/3x-ui-warp/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui配置Cloudflare Warp出站",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "安装Warp",
+          "text": "用fscarmen维护的一键安装脚本在服务器上安装Warp，根据需求选择添加IPv4还是IPv6出口，安装完成后会创建一个虚拟网络接口。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "在面板添加Warp出站",
+          "text": "进入3x-ui面板点左侧Xray选项，找到出站配置，添加新出站，类型选Warp或按脚本说明对应方式填写。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置路由规则指向Warp出站",
+          "text": "在路由规则里把需要走Warp的流量（比如特定域名或IP段）指向这个出站，其他流量维持原来的出口。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "验证Warp是否生效",
+          "text": "访问ip.sb或ifconfig.me查看出口IP，显示Cloudflare的IP段说明流量已经走了Warp出口。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "纯IPv6 VPS配置Warp有什么用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以获得IPv4出口，从而访问只支持IPv4的网站和服务，也可以用来安装3x-ui这类需要从GitHub拉取文件的脚本，不需要额外折腾其他添加IPv4出口的方案。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Cloudflare Warp 可以给服务器添加一个额外的网络出口，纯 IPv6 的 VPS 可以通过 Warp 获得 IPv4 出口，纯 IPv4 的服务器可以通过 Warp 获得 IPv6 出口。3x-ui 面板里有专门的 Warp 配置入口，在 Xray 设置里添加 Warp 出站，不需要手动编辑配置文件。
 
 第一步先在服务器上安装 Warp，用 fscarmen 维护的一键安装脚本，安装命令去 GitHub 仓库找最新的：`https://github.com/fscarmen/warp`，README 里有当前维护的安装命令，根据你的需求选择添加 IPv4 还是 IPv6 出口。安装完之后 Warp 会在服务器上创建一个虚拟网络接口，流量可以通过这个接口走 Cloudflare 的网络出去。

@@ -8,6 +8,72 @@ categories:
 description: 3x-ui面板订阅链接在用户管理里获取，支持自定义订阅路径，客户端导入后自动更新节点配置。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui订阅链接设置和导出方法",
+      "description": "3x-ui面板订阅链接在用户管理里获取，支持自定义订阅路径，客户端导入后自动更新节点配置。",
+      "datePublished": "2026-08-30T18:00:00+08:00",
+      "dateModified": "2026-08-30T18:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/3x-ui-subscription/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui获取用户订阅链接",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "进入用户管理页面",
+          "text": "订阅链接在用户管理里获取，不是在入站列表，进入面板点左侧用户管理，找到对应用户。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "获取订阅链接",
+          "text": "点该用户这一行的订阅链接图标查看订阅地址，每个用户的订阅链接都是独立的，互不影响。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "按需自定义订阅路径",
+          "text": "订阅路径subPath可以在面板设置里单独配置，默认是随机生成的字符串，也可以改成好记的路径，改完订阅链接会跟着更新。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "订阅链接和普通分享链接有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "普通分享链接是固定的节点配置，端口或密码改了链接就失效；订阅链接是一个接口地址，客户端访问会拉取最新配置，面板改了配置后客户端下次更新订阅就能拿到最新版本，不需要重新发链接。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "订阅链接泄露了怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "订阅链接包含面板地址和认证信息，不要随意分享。如果某个用户的链接泄露，在用户管理里把这个用户删掉重建，旧链接立刻失效。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 3x-ui 的订阅链接在**用户管理**里获取，不是在入站列表里。进入面板后点左侧**用户管理**，找到对应的用户，点那一行的订阅链接图标，可以看到这个用户的订阅地址。每个用户有独立的订阅链接，不同用户之间互不影响，把链接发给对应的人就行。
 
 订阅链接的格式是 `http://IP:端口/路径` 这种结构，如果面板配置了 HTTPS 证书，链接会是 `https://` 开头。订阅路径（subPath）可以在面板设置里单独配置，默认是随机生成的一串字符，也可以自己改成好记的路径，改完之后订阅链接里的路径部分会跟着更新。

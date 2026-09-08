@@ -9,6 +9,69 @@ categories:
 description: XanMod内核安装后开启BBR3的完整流程，包括版本选择、安装后内核验证和BBR3启用方法。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "XanMod内核搭配BBR3使用教程",
+      "description": "XanMod内核安装后开启BBR3的完整流程，包括版本选择、安装后内核验证和BBR3启用方法。",
+      "datePublished": "2026-08-27T14:00:00+08:00",
+      "dateModified": "2026-08-27T14:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/27/xanmod-bbr3/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "XanMod内核搭配BBR3配置",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "确认虚拟化方案支持自定义内核",
+          "text": "用systemd-detect-virt查看，输出kvm或none可以继续，输出openvz或lxc不适合装XanMod。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "选择合适的XanMod版本",
+          "text": "常见有普通版、edge版和lts版，edge功能最新但稳定性稍差，lts基于长期支持内核更稳定，主要跑代理节点或网站建议选lts。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "安装并确认内核切换",
+          "text": "安装完重启后用uname -r确认输出里有xanmod字样，如果还是原来内核说明引导程序没切换，需要手动设置默认启动内核并update-grub。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "确认BBR3是否生效",
+          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出为bbr，再结合内核版本判断是否为BBR3，如果没有自动启用可以手动写入sysctl配置开启。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "怎么确认跑的是BBR3而不是普通BBR？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用sysctl net.ipv4.tcp_available_congestion_control查看，如果输出里有bbr并且内核版本在6.x以上，跑的基本就是BBR3。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 XanMod 内核内置了 BBR3 支持，装好之后理论上不需要额外操作就能用，但实际情况是安装完重启后有时候内核没有切换过去，还在跑原来的系统内核，这时候 BBR3 自然也没有生效。所以安装完之后先确认内核有没有真的切换，再去看 BBR3 的状态，顺序不能反。
 
 在装 XanMod 之前，先确认你的 VPS 虚拟化方案支不支持自定义内核。KVM 架构的 VPS 一般没有问题，OpenVZ 的 VPS 通常不允许更换内核，装了也没用甚至会出问题。不确定自己 VPS 是什么架构的话，跑一下这条命令：

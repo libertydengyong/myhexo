@@ -9,6 +9,77 @@ categories:
 description: 在3x-ui面板里配置Shadowsocks 2022节点的步骤，以及Shadowsocks容易被封的原因和替代方案建议。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui配置Shadowsocks节点及抗封锁分析",
+      "description": "在3x-ui面板里配置Shadowsocks 2022节点的步骤，以及Shadowsocks容易被封的原因和替代方案建议。",
+      "datePublished": "2026-08-30T24:00:00+08:00",
+      "dateModified": "2026-08-30T24:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/3x-ui-shadowsocks/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "3x-ui配置Shadowsocks 2022节点",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "新建Shadowsocks入站",
+          "text": "进入面板点入站列表，点添加入站，协议选Shadowsocks。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "选择2022系列加密方式",
+          "text": "版本选2022系列，比如2022-blake3-aes-128-gcm或2022-blake3-aes-256-gcm，这个版本在协议层面做了改进，比旧版本更难被识别，几种常见加密方式实际体验差别不大。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置端口并放行防火墙",
+          "text": "端口随机生成或自己填，填完在防火墙里用ufw allow放行对应端口。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "保存并导出分享链接",
+          "text": "密码栏自动生成随机字符串，也可自己改，保存后在入站列表点二维码图标复制分享链接导入客户端。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Shadowsocks为什么容易被封？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有几个层面的原因：流量特征上虽然2022版本做了改进，但仍相对容易被深度包检测（DPI）识别；端口层面用常见端口更容易被针对性封锁；IP层面一旦服务器IP被标记，不管用什么协议都可能受影响。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "对稳定性要求高应该用什么协议？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议换成VLESS Reality，不需要域名，伪装成访问真实网站的流量，抗检测能力比Shadowsocks强很多，Shadowsocks更适合对抗封锁要求不高、或客户端只支持它的场景。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Shadowsocks 是最早流行起来的代理协议之一，配置简单，客户端支持广泛。3x-ui 支持 Shadowsocks，在入站列表里新建入站，协议选 Shadowsocks，选好加密方式就能用。不过实际使用下来，Shadowsocks 容易被封是一个绕不开的问题，长期稳定使用的话建议换更抗检测的协议。
 
 进入 3x-ui 面板，点左侧**入站列表**，点右上角**添加入站**，协议选 Shadowsocks。版本选 2022 系列，比如 `2022-blake3-aes-128-gcm` 或者 `2022-blake3-aes-256-gcm`，2022 版本在协议层面做了改进，比旧版本更难被识别。加密方式按需选择，几种常见的加密方式实际体验差别不大，选一个就行。

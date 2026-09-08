@@ -9,6 +9,69 @@ categories:
 description: 在S-UI面板里配置VLESS Reality节点的完整流程，包括dest目标网站设置、密钥生成和客户端连接配置。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "S-UI面板搭建VLESS Reality节点",
+      "description": "在S-UI面板里配置VLESS Reality节点的完整流程，包括dest目标网站设置、密钥生成和客户端连接配置。",
+      "datePublished": "2026-08-28T23:00:00+08:00",
+      "dateModified": "2026-08-28T23:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/28/s-ui-reality/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "S-UI配置VLESS Reality入站",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "新建入站选择Reality",
+          "text": "进入S-UI面板找到入站管理，新建入站，协议选VLESS，传输方式选TCP，安全选项选Reality，顺序不能搞错，先选协议再选传输方式最后才能选到Reality。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置dest伪装目标网站",
+          "text": "dest填一个真实存在的大流量网站，比如amazon.com，访问量大流量特征复杂不容易被识别，serverName填跟dest一样的值。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "生成密钥",
+          "text": "shortId、publicKey和privateKey面板会自动生成，点生成按钮即可，privateKey只存在面板里不会出现在分享链接中。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "设置端口并放行",
+          "text": "端口随机生成或自己填，Reality走TCP，放行对应TCP端口即可，不需要像Hysteria2那样单独放行UDP。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "S-UI的Reality节点连不上怎么排查？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先确认防火墙端口是否放行，再对照检查客户端的publicKey、shortId、serverName跟面板是否一致，最后确认dest填的目标网站在服务器上能正常访问。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 S-UI 配置 VLESS Reality 的流程跟 3x-ui 基本一样，操作逻辑相同，只是界面布局有些差别。Reality 不需要自己的域名和证书，这是它比普通 VLESS TLS 省事的地方，不用提前申请证书，也不用配置[SSL证书路径](https://vpsjq.com/2026/08/28/s-ui-certificate/)。
 
 进入 S-UI 面板后，找到入站管理，新建入站，协议选 VLESS，传输方式选 TCP，安全选项选 Reality，下面会展开 Reality 相关的配置项。这几个选项的顺序不能搞错，先选协议，再选传输方式，最后才能选到 Reality。

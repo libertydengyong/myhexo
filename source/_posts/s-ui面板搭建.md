@@ -12,6 +12,78 @@ categories:
 abbrlink: 53672
 date: 2025-11-17 16:25:54
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "S-UI面板搭建，IPv6部署代理节点与中转",
+      "description": "S-UI 面板搭建、IPv6 VPS 安装 S-UI、代理节点部署以及中转落地配置记录",
+      "datePublished": "2025-11-17T16:25:54+08:00",
+      "dateModified": "2025-11-17T16:25:54+08:00",
+      "url": "https://vpsjq.com/2025/11/17/s-ui面板搭建/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "S-UI面板安装与基础环境确认",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "安装S-UI面板",
+          "text": "准备一台干净的Linux VPS更新系统后，运行官方安装命令bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh)完成安装，Debian、Ubuntu等主流发行版基本都可以正常部署。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "确认基础环境",
+          "text": "安装完成后不要急着创建节点，先确认面板端口是否开放、防火墙是否允许访问、域名解析是否正常、HTTPS是否能正常使用，基础环境没问题后面创建节点基本不会遇到太大麻烦。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "IPv6环境额外注意事项",
+          "text": "如果在IPv6 only VPS上部署，虽然能正常安装S-UI，但客户端所在网络如果不支持IPv6，就无法直接连接节点或访问管理面板，需要额外考虑网络兼容性。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "按需选择中转落地方案",
+          "text": "如果线路一般或者想把入口和出口分开部署，可以用中转落地方案，把高速线路作为入口、稳定出口服务器作为落地，组合不同服务器的线路特点。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "节点连不上一般是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大多数情况不是面板本身导致的，常见原因有VPS防火墙没放行端口、DNS解析错误、IPv6网络无法访问、TLS配置错误、域名证书异常、中转服务器无法连接落地服务器，建议按网络、服务、配置三个方向依次排查，而不是直接重装面板。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "长期运行的节点服务器需要做哪些日常维护？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议定期用top查看系统资源占用、ss -tlnp查看监听端口、df -h查看磁盘空间、journalctl -xe查看系统日志，同时定期备份S-UI配置和证书文件，方便更换VPS或系统重装后快速恢复。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 S-UI 面板是目前比较常见的代理管理面板之一，相比传统配置方式，能够更加方便地管理节点、查看在线情况以及维护多个服务器。
 <!-- more -->
 

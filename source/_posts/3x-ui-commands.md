@@ -8,6 +8,30 @@ categories:
 description: 3x-ui面板常用命令汇总，包括启动、停止、重启、查看状态、更新、查看日志和重置密码等日常维护命令。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "3x-ui常用命令汇总",
+      "description": "3x-ui面板常用命令汇总，包括启动、停止、重启、查看状态、更新、查看日志和重置密码等日常维护命令。",
+      "datePublished": "2026-08-30T16:00:00+08:00",
+      "dateModified": "2026-08-30T16:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/3x-ui-commands/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    }
+  ]
+}
+</script>
+
 装好 3x-ui 之后，日常维护面板主要靠这几条命令，SSH 进服务器直接跑就行，不需要进面板操作。
 
 启动面板：
