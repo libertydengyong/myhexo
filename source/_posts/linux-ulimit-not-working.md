@@ -8,6 +8,75 @@ categories:
 description: 修改了limits.conf、ulimit -a也确认生效了，systemd管理的服务却依然报错文件句柄不够，因为systemd根本不看这个配置文件。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "ulimit 设上限仍报 Too many open files 排查",
+      "description": "修改了limits.conf、ulimit -a也确认生效了，systemd管理的服务却依然报错文件句柄不够，因为systemd根本不看这个配置文件。",
+      "datePublished": "2026-08-20T10:00:00+08:00",
+      "dateModified": "2026-08-20T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/20/linux-ulimit-not-working/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "给systemd管理的服务单独配置文件描述符上限",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "为具体服务创建systemd覆盖配置",
+          "text": "创建/etc/systemd/system/服务名.service.d/目录，在里面新建override.conf文件，写入[Service]和LimitNOFILE=100000，不用去动limits.conf主配置文件。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "重新加载并重启服务",
+          "text": "执行systemctl daemon-reload让配置生效，再systemctl restart对应服务名重启服务。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么改了limits.conf，ulimit -a显示生效了，服务还是报错？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "因为/etc/security/limits.conf设置的是通过PAM登录的用户的资源限制，不影响系统服务的资源限制。改完这个文件重新登录后自己的shell里ulimit -a会变，但systemctl start、docker run这类方式启动的后台服务压根不是通过登录会话拉起来的，不受这个文件管理。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这是systemd的bug吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是，是systemd故意设计成忽略这个全局配置文件，官方文档明确说明systemd不支持全局限制，这个文件被有意忽略，systemd有自己独立的一套限制机制，需要单独针对每个服务配置。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "按上面方法配置了还是不生效怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "还可能碰到两层隐藏限制：一是内核本身的硬顶/proc/sys/fs/nr_open，设置值不能超过这个内核级上限；二是CentOS 7上曾存在过低于240版本的systemd bug，LimitNOFILE参数写了也不生效，需要额外手动干预。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 服务并发一上来，日志里开始刷屏`Too many open files`，查了一圈发现是文件描述符（也就是`nofile`）限制不够用，照着教程改了`/etc/security/limits.conf`，重新登录敲一下`ulimit -a`，数字确实变大了，满心以为解决了，结果服务重启之后照样报同样的错，跟没改过一模一样。
 
 ## 你改对了地方，但改错了对象

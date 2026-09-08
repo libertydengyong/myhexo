@@ -8,6 +8,77 @@ categories:
 description: VPS忘记root密码的两种找回方式，控制面板一键重置和救援模式手动改密，两种方法分别适合什么情况。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS忘记root密码怎么办",
+      "description": "VPS忘记root密码的两种找回方式，控制面板一键重置和救援模式手动改密，两种方法分别适合什么情况。",
+      "datePublished": "2026-08-15T20:40:00+08:00",
+      "dateModified": "2026-08-15T20:40:00+08:00",
+      "url": "https://vpsjq.com/2026/08/15/vps-forgot-root-password/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "VPS忘记root密码后通过救援模式找回",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "先检查控制面板有没有一键重置功能",
+          "text": "不少服务商（比如搬瓦工KiwiVM、Vultr、DigitalOcean）在管理面板里直接提供重置root密码的入口，VPS需要处于开机状态，这是最省事的方式，有的话不用走救援模式。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "面板没有重置功能时打开VNC/KVM控制台",
+          "text": "在控制面板重启VPS的同时打开VNC/KVM控制台，系统重启到GRUB引导菜单瞬间按方向键阻止自动继续。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "进入单用户模式编辑启动参数",
+          "text": "选中要启动的内核那一行按e进入编辑模式，找到以linux或linux16开头的那一行，行末加空格加single（部分系统是1），按Ctrl+X或F10保存启动。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "修改密码并重启",
+          "text": "系统会直接给一个root shell不需要密码，执行mount -o remount,rw /和passwd设置新密码，输入两次确认后reboot正常重启。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "连VNC/KVM控制台都连不上怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "基本只能考虑DD重装这条路，数据保不住但至少能拿回一台能用的机器。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "找回密码后应该做什么预防下次再忘？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "顺手把SSH安全理一下，改用密钥登录方式，能从根本上避免下次再忘密码这种情况。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS用一段时间没登录，回头想连的时候发现root密码怎么试都不对，这种情况比想象中常见——密码管理器换了、笔记丢了、或者根本没记录过用的是随机密码。好在这不算严重问题，只要还有VPS控制面板的登录权限，基本都能找回来。
 
 ## 先看看面板有没有直接重置的按钮

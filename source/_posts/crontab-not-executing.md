@@ -8,6 +8,67 @@ categories:
 description: 脚本手动跑没问题，扔进crontab就死活不执行，多半是cron的执行环境跟登录shell不是一回事，PATH变量差了一大截。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS的Crontab任务设置了却没执行",
+      "description": "脚本手动跑没问题，扔进crontab就死活不执行，多半是cron的执行环境跟登录shell不是一回事，PATH变量差了一大截。",
+      "datePublished": "2026-08-24T10:00:00+08:00",
+      "dateModified": "2026-08-24T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/24/crontab-not-executing/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "脚本手动跑正常，放进crontab却不执行是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最常见的原因是crontab执行任务的环境变量跟登录shell完全不同，cron的PATH通常只有/usr/bin:/bin这两个目录，手动安装在/usr/local/bin等自定义路径下的工具在cron环境里找不到，导致命令执行失败但默认没地方能看到报错。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么验证是不是PATH环境的问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "加一条临时任务* * * * * env > /tmp/cron_env.log，等一分钟后打开对比正常登录后执行env的结果，PATH这一项一眼就能看出差在哪。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么解决这个问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最推荐的做法是脚本里所有命令都用绝对路径（用which查出具体路径），不依赖PATH去查找；也可以在脚本开头显式声明PATH或手动export所需的环境变量。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "除了PATH还有哪些常见排查点？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "确认crond服务本身是否在跑（systemctl status crond）、脚本是否有执行权限（chmod +x）、crontab的五个时间字段格式有没有写错，这几个优先级甚至比PATH问题更靠前。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 写了个脚本，手动`bash script.sh`跑一遍好好的，扔进crontab设置成定时任务，到点却什么反应都没有，日志里也不报错，就是安安静静地什么都没发生，排查起来比报错还让人摸不着头脑。
 
 ## 手动跑和定时跑，压根不是同一个环境

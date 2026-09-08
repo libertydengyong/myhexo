@@ -8,6 +8,72 @@ categories:
 description: VPS提示No space left on device磁盘空间不足的排查方法，用df和du定位占用大户，以及inode耗尽这种容易被忽略的情况。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS磁盘空间满了怎么排查是什么占用的",
+      "description": "VPS提示No space left on device磁盘空间不足的排查方法，用df和du定位占用大户，以及inode耗尽这种容易被忽略的情况。",
+      "datePublished": "2026-08-15T20:30:00+08:00",
+      "dateModified": "2026-08-15T20:30:00+08:00",
+      "url": "https://vpsjq.com/2026/08/15/vps-disk-space-full/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "排查VPS磁盘空间被什么占用",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "确认哪个分区满了",
+          "text": "用df -h查看Use%这一列，接近或已经100%的挂载点就是问题所在的分区。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "逐层定位占用大户",
+          "text": "从根目录开始用du -sh /*逐层往下钻查看每个大目录的占用，缩小范围直到找到具体是哪些文件在占空间，Docker镜像、系统日志、包管理器缓存通常是常见大头。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "清理常见占用源",
+          "text": "用docker system df看Docker明细，docker system prune -a清理没用的镜像容器；journalctl --vacuum-size=200M压缩系统日志；apt clean或yum clean all清理安装包缓存。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "df显示还有剩余空间却仍报错No space left怎么回事？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大概率是inode用完了而不是空间不够，用df -i查看IUse%这一列，接近100%说明是某个目录堆了海量小文件，得去找文件数量多的目录，而不是找体积大的文件。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "rm删了大文件，df显示的空间却没变化是为什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是因为还有进程占着这个文件的文件描述符，文件从目录里消失了但底层数据块还没释放，用lsof | grep deleted找到占用这个文件的进程，重启对应服务后空间才会真正被放出来。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS用着用着突然报错`No space left on device`，很多人第一反应是"我这台VPS明明没存什么东西"，其实占空间的往往不是自己上传的文件，日志、镜像缓存、容器这些"看不见"的东西悄悄堆积起来才是真正的元凶。
 
 ## 先看看是哪个分区满了

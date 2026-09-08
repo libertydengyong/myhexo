@@ -8,6 +8,75 @@ categories:
 description: free -h显示可用内存很少不代表内存真的不够用，buff/cache是可回收的缓存，看available这一列才是真实可用值。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS内存明明够用为什么free -h显示快满了",
+      "description": "free -h显示可用内存很少不代表内存真的不够用，buff/cache是可回收的缓存，看available这一列才是真实可用值。",
+      "datePublished": "2026-08-16T15:00:00+08:00",
+      "dateModified": "2026-08-16T15:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/16/vps-free-memory-explained/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "free -h里free那一列显示内存很少是内存不够用了吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大概率不是，free那一列指的是完全没被任何东西碰过的空闲内存，Linux会把磁盘读写数据顺手缓存进内存的buff/cache里，这部分是可以被随时回收挪用的，不是被程序死死攥住不放。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "应该看哪一列才知道真实可用内存？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "看available这一列，这个数字已经把可回收的buff/cache算进去了，才是如果现在有新程序要申请内存系统实际能腾出来的量，比free那一列更能反映真实情况。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "buffer和cache是同一个东西吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是，是两项加在一起显示的：Buffers对应磁盘块级别的缓存一般占用不大，Cache对应文件系统层面的页缓存，读过的文件内容留在这里通常是大头，系统跑得越久这个数字自然越大是正常现象。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么时候才是内存真的吃紧？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不要盯着free这一列，真正该留意的是available持续走低、或者swap用量一直在涨，或者监控软件报了OOM日志，这些才是实打实需要担心的信号。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "手动清缓存能解决内存问题吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不建议，用echo 3 > /proc/sys/vm/drop_caches清空缓存只是让free那一列数字瞬间变大，实际是把可以直接复用的缓存清没了，下次读同样文件得重新从磁盘加载，性能反而变差，问题本质没解决只是被暂时掩盖。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 买了台2G内存的VPS，跑的东西没几个，敲一下`free -h`却发现`free`那一列只剩几十兆，第一反应往往是"内存被谁吃光了"，赶紧到处排查是不是哪个进程内存泄漏了。其实大概率什么问题都没有，纯粹是没看懂这条命令的输出。
 
 ## free那一列不是真正的"可用内存"

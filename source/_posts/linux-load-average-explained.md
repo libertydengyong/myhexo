@@ -8,6 +8,67 @@ categories:
 description: Load Average不是CPU使用率，它把等待磁盘IO的进程也算了进去，这个设计从1993年就埋下了让无数人误判的伏笔。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Linux服务器的Load Average很高，是不是要出问题了",
+      "description": "Load Average不是CPU使用率，它把等待磁盘IO的进程也算了进去，这个设计从1993年就埋下了让无数人误判的伏笔。",
+      "datePublished": "2026-08-18T20:00:00+08:00",
+      "dateModified": "2026-08-18T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/18/linux-load-average-explained/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Load Average高但CPU使用率不高是怎么回事？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Load Average统计的是可运行状态和不可中断等待状态（D状态）进程的平均数量，D状态进程是在等磁盘、网络IO返回结果，根本不需要CPU却被算进了这个本该反映CPU繁忙程度的指标里，所以Load Average高不代表CPU真的不够用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么Linux要把等IO的进程也算进Load Average？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这是1993年就定下的设计决定，当时的逻辑是D状态的等待通常很短暂很快恢复，干脆算作约等于在排队等CPU，这个设计一直沿用至今，带着容易让人误判的副作用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么判断Load Average高到底是CPU问题还是IO问题？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用top查看%us和%sy（CPU占用），如果很高说明是真的CPU吃紧；如果这两项不高但%wa（等待IO）很显眼，说明是磁盘IO在拖后腿。也可以用ps aux | grep \" D \"直接找出处于D状态的进程。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Load Average多高算是需要重视的信号？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "经验参考：低于CPU核心数一般不用太担心；超过核心数70%左右响应速度可能开始变慢；持续超过核心数好几倍才是真正需要重视的信号，但这个数字终究是运行中加等待IO的混合体，不能只看这一个数字下结论。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 跑一下`uptime`，Load Average显示8点多，第一反应是CPU要炸了，赶紧`top`一看，CPU使用率却只有百分之十几，两个数字对不上，人都懵了——到底是该慌还是不该慌？
 
 ## 这个数字从一开始就不是"CPU使用率"

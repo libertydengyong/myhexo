@@ -8,6 +8,67 @@ categories:
 description: SSH断开后前台运行的程序被自动杀掉是SIGHUP信号导致的，用nohup或tmux能避免这种情况，让程序继续在后台跑。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS关闭SSH连接后，之前跑的程序为什么会停止",
+      "description": "SSH断开后前台运行的程序被自动杀掉是SIGHUP信号导致的，用nohup或tmux能避免这种情况，让程序继续在后台跑。",
+      "datePublished": "2026-08-16T20:00:00+08:00",
+      "dateModified": "2026-08-16T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/16/vps-ssh-disconnect-process-killed/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么SSH断开后正在跑的程序会被杀掉？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SSH会话下敲的命令本质上都是这个会话进程的子进程，连接断开时系统会给会话下所有还在跑的进程发送SIGHUP挂断信号，默认情况下大部分程序收到这个信号就会直接退出，这是设计上的默认行为不是故障。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么用nohup避免程序被断开影响？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在命令前加nohup、末尾加&放到后台执行，比如nohup 命令 &，程序会忽略SIGHUP信号继续跑，输出默认写进当前目录nohup.out文件，可以用tail -f查看进度，局限是没法重新接管程序做交互操作，适合不需要中途干预的任务。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要中途重新接回程序操作用什么方法？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用tmux这类终端复用工具，tmux new -s起个会话名进去执行命令，关掉SSH窗口也不影响，因为程序属于tmux自己的进程组不属于SSH会话；下次用tmux attach -t名字重新接回，界面会恢复成离开时的样子。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "所有程序都会受SSH断开影响吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是，像Nginx、MySQL这类通过systemctl启动的服务本身是独立的守护进程，不属于SSH会话的进程组，SSH断不断跟它们没关系，这个坑主要出现在手动在SSH窗口里直接敲命令启动的临时任务上。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 在VPS上跑一个耗时挺长的任务，比如下载大文件、跑个数据处理脚本，中途把SSH窗口关了或者网络断了一下，回来一看进度直接没了，程序不知道什么时候就被杀掉了。第一次遇到这种情况很容易怀疑是VPS不稳定、内存不够，其实跟这些都没关系，是SSH本身的机制在起作用。
 
 ## 为什么会被杀掉

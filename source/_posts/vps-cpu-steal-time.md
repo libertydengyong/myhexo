@@ -8,6 +8,67 @@ categories:
 description: top命令里一个常年被忽略的%st指标，揭示了低价VPS性能不稳定的真正原因——CPU超售，教你怎么用一条命令量化判断超售程度。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS的CPU使用率明明很低，为什么系统还是卡",
+      "description": "top命令里一个常年被忽略的%st指标，揭示了低价VPS性能不稳定的真正原因——CPU超售，教你怎么用一条命令量化判断超售程度。",
+      "datePublished": "2026-08-17T20:00:00+08:00",
+      "dateModified": "2026-08-17T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/17/vps-cpu-steal-time/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "top显示CPU使用率很低，系统却依然卡顿是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "留意top第三行最右边一个常被忽略的字段st（Steal Time），VPS共享同一颗物理CPU，虚拟化层负责给每台VPS轮流分配时间片，st表示你的VPS想用CPU时物理CPU正忙着伺候宿主机上的另一台VPS，被迫等待的时间占比，这部分不算进CPU使用率但同样会造成卡顿。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么查看Steal Time这个指标？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "直接跑top看第三行最后的st值，需要观察几分钟且最好在业务负载高峰期看，闲时基本都是0看不出问题；也可以从/proc/stat里用awk精确计算出百分比数字。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Steal Time多少算正常，多少算超售严重？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "业内比较公认的参考线是长期低于10%基本不用担心，是共享云主机的正常代价；如果持续超过10%甚至维持半小时以上都下不来，说明这台VPS所在的物理机已经明显超卖。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么判断是自己业务负载高还是VPS被超卖了？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果同一家服务商开了不止一台VPS，st在所有机器上普遍升高，说明是自己业务负载确实上来了；但如果只有某一台VPS的st异常飙高别的都正常，问题就是这台机器所在物理宿主机被商家超卖得特别狠，换一台机器往往更有效。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 跑`top`看CPU使用率，加起来还不到20%，系统却依然卡得像便秘，敲个命令都要愣一下才有反应。这种情况下大部分人会怀疑是自己的程序有问题，或者VPS的网络不行，其实真正的凶手可能一直藏在`top`输出的最右边，一个几乎没人会去看的数字里——`%st`。
 
 ## 那个被所有人忽略的列

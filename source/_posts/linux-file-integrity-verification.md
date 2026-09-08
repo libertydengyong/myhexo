@@ -8,6 +8,80 @@ categories:
 description: sha256sum只能验证文件没损坏，验证不了文件是不是真的来自官方，想两者都确认，得靠GPG签名验证这一步。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "下载的Linux软件包，怎么确认没被人动过手脚",
+      "description": "sha256sum只能验证文件没损坏，验证不了文件是不是真的来自官方，想两者都确认，得靠GPG签名验证这一步。",
+      "datePublished": "2026-08-26T10:00:00+08:00",
+      "dateModified": "2026-08-26T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/26/linux-file-integrity-verification/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用GPG签名验证下载文件的真实性",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "导入官方公钥",
+          "text": "用gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 官方公钥ID导入官方的GPG公钥。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "验证签名文件",
+          "text": "用gpg --verify SHA256SUMS.gpg SHA256SUMS验证校验文件本身的签名，看到Good signature from说明这份校验文件确实是官方私钥签过名的。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "用可信的校验文件比对实际文件",
+          "text": "签名验证通过后，再用sha256sum -c配合grep筛出对应文件名这条记录，比对下载的实际文件是否匹配。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "单纯用sha256sum校验够不够？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不够，sha256sum只能验证文件在传输中没有损坏或被篡改，但如果攻击者连官方公布的校验值本身也一起篡改了，两者对得上号也没用，因为参照物本身就是假的，回答不了文件是否真的来自官方这个问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么场景下真的需要走完整的GPG验证流程？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "日常从大厂官方渠道装常规软件包风险不高不必每次都验证，但从BT种子网络下载的镜像、个人维护的第三方软件源、来源不确定的镜像站下载的文件，值得多花两分钟验证。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "验证流程里公钥本身可信吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "gpg --recv-keys是从密钥服务器拉取公钥，如果这个公钥本身是伪造的，后面所有验证步骤都会验证成功但验证的是攻击者伪造的整套签名体系，条件允许的话最好从官方网站直接确认公钥指纹，而不是盲目信任密钥服务器返回的结果。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 从网上下载一个ISO镜像或者软件包，尤其是从镜像站、种子网络这类不完全受控的渠道拿到的文件，装到系统里之前多一步验证，能避免装了个被人动过手脚的版本。很多教程只教到`sha256sum`这一步就停了，其实这只完成了验证工作的一半。
 
 ## sha256sum验证的是"完整"，不是"真实"

@@ -8,6 +8,77 @@ categories:
 description: VPS的时间漂移比物理机严重得多，装了NTP同步开关打开也不代表真同步成功，这背后跟虚拟化调度延迟脱不了干系。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS的时间为什么会跑偏，NTP装了却没用",
+      "description": "VPS的时间漂移比物理机严重得多，装了NTP同步开关打开也不代表真同步成功，这背后跟虚拟化调度延迟脱不了干系。",
+      "datePublished": "2026-08-23T10:00:00+08:00",
+      "dateModified": "2026-08-23T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/23/vps-ntp-time-drift/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用chrony修复VPS时间同步问题",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "确认NTP是否真正同步成功",
+          "text": "timedatectl set-ntp true只是告诉系统去尝试同步，不代表真的成功，用timedatectl status查看NTP synchronized这一行是yes还是no，enabled和synchronized是两码事。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "安装并启用chrony",
+          "text": "yum install chrony -y，然后systemctl enable chronyd和systemctl start chronyd，chrony对突发时间跳变的适应能力比传统ntpd更强，更适合虚拟化环境。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "确认同步状态",
+          "text": "用chronyc tracking和chronyc sources -v手动查看当前同步情况。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "校准硬件时钟",
+          "text": "NTP只同步了系统时间，重启时系统会读一次硬件时钟RTC作为初始值，用hwclock --systohc把硬件时钟也校准，并用timedatectl set-local-rtc 0确认硬件时钟存的是UTC。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "VPS的时间问题跟物理机有什么不同？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "物理机时钟依赖硬件晶振，误差是缓慢可预期的漂移；VPS没有独立可靠的硬件时钟，对时间流逝的感知靠宿主机分配的CPU调度周期堆出来，如果宿主机负载重、这台VPS抢不到及时的CPU时间片，虚拟机时钟会直接跳跃而不是慢慢漂移，跟CPU Steal Time是同一个根源。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "时间偏差特别大时chrony默认策略会不会太慢？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "chrony默认倾向温和纠正，偏差大时可能要花很长时间才追上，可以在配置文件里加一条makestep 1.0 3，允许在偏差超过1秒且是启动后前3次更新之内直接步进调整到正确时间。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS上跑`date`一看，时间跟手机差了好几分钟甚至几小时，日志时间戳全乱套，排查问题时间线都对不上。装个NTP同步以为解决了，`timedatectl status`一查，`NTP enabled: yes`看着挺正常，可下面一行`NTP synchronized: no`——开关打开了，但压根没真同步成功。
 
 ## 开关打开不等于同步成功

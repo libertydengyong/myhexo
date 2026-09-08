@@ -8,6 +8,67 @@ categories:
 description: Fail2ban装上就以为高枕无忧，实际可能一次攻击都没真正拦住，几个常见的静默失效原因和验证方法。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "装了Fail2ban，怎么确认它真的在拦截攻击",
+      "description": "Fail2ban装上就以为高枕无忧，实际可能一次攻击都没真正拦住，几个常见的静默失效原因和验证方法。",
+      "datePublished": "2026-08-25T20:00:00+08:00",
+      "dateModified": "2026-08-25T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/25/fail2ban-verify-working/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "改了SSH端口后Fail2ban为什么还是没拦住攻击？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fail2ban的jail.local规则里port配置默认写死是ssh对应的22端口，如果SSH端口改了但没同步更新这个配置，Fail2ban检测到攻击并执行封禁动作，但实际下发的防火墙规则拦的还是22端口，跟攻击者真正在用的新端口完全不搭边。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fail2ban显示封禁成功，为什么攻击者还能连上？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可能是防火墙规则压根没真正插进去，用fail2ban-client status sshd显示已封禁，但用iptables -L一查对应拦截链条不存在，需要交叉验证两边状态是否一致来发现这类问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么验证Fail2ban是否在正常读取日志？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用fail2ban-regex命令拿现有日志测试正则匹配规则能不能正常识别，如果匹配数量是0，可能是日志格式跟预设正则对不上，尤其在Docker环境下日志格式跟原生系统默认格式有出入时容易出现。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "系统时区变过会影响Fail2ban吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "会，如果日志时间戳跟Fail2ban感知的当前时间对不上，会导致判断某个IP在规定时间窗口内失败次数的逻辑错乱，实际效果是日志明明在报警，Fail2ban却判断还没到触发阈值，安静地什么都不做。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Fail2ban装完，`systemctl status fail2ban`显示绿色的`active (running)`，看着一切正常，从此就不再管它，默认它一直在尽职尽责地拦截暴力破解。这个假设有风险——**Fail2ban显示"运行正常"、甚至显示"已封禁某个IP"，都不代表它真的在起作用**，一些常见的配置疏漏会让它变成一个只会报告好消息、实际什么都没拦住的摆设。
 
 ## 改了SSH端口，但没同步告诉Fail2ban

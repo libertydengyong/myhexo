@@ -8,6 +8,69 @@ categories:
 description: VPS遭到暴力破解攻击后，怎么查登录日志、异常账号、可疑进程判断是否真的被入侵，以及确认入侵后该怎么处理。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS被暴力破解怎么查有没有被入侵",
+      "description": "VPS遭到暴力破解攻击后，怎么查登录日志、异常账号、可疑进程判断是否真的被入侵，以及确认入侵后该怎么处理。",
+      "datePublished": "2026-08-15T20:20:00+08:00",
+      "dateModified": "2026-08-15T20:20:00+08:00",
+      "url": "https://vpsjq.com/2026/08/15/vps-brute-force-check/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "排查VPS是否已被入侵",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "检查登录日志",
+          "text": "在/var/log/auth.log（Debian/Ubuntu）或/var/log/secure（CentOS）里用grep筛出Accepted password for root的记录，重点看有没有成功登录的陌生IP，而不是失败次数有多少（失败是扫描器常态）。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "检查是否有多出来的账号",
+          "text": "用cat /etc/passwd查看有没有自己从没建过的用户，确认可疑先用usermod -L禁用留证据，不要直接删除。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "检查crontab有没有被塞东西",
+          "text": "用crontab -l和cat /etc/crontab查看有没有自己没设置过的任务，尤其是指向/tmp、/dev/shm这类临时目录或者带下载执行命令的可疑条目。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "检查异常进程",
+          "text": "用top留意名字怪异或伪装成系统进程但拼写有差异、长期占用大量CPU内存的进程，确认可疑先用ps aux记下PID和完整路径，不要立刻杀掉以免漏掉背后重新拉起它的守护脚本。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "排查确认真的被入侵了怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "单纯改密码、杀进程很难保证清理干净，攻击者留后门的方式很多，比较稳妥的做法是直接重装系统推倒重来，重装完成后第一件事就是把SSH安全做扎实，比如用密钥登录、禁用密码认证，把绝大多数暴力破解挡在门外。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 公网上开着SSH端口的VPS，基本每天都在被扫描器试探，这是常态，不代表真的出事了。但如果哪天感觉服务器变卡、流量异常暴涨、或者单纯不放心，想确认一下到底有没有被人摸进来，有几个地方能看出端倪。
 
 ## 先看登录日志，谁在敲你的门

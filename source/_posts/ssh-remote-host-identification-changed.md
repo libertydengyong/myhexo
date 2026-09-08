@@ -8,6 +8,67 @@ categories:
 description: SSH连接VPS时出现REMOTE HOST IDENTIFICATION HAS CHANGED警告的原因和解决方法，一条命令搞定。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "解决 SSH 远程主机身份验证更改报错",
+      "description": "SSH连接VPS时出现REMOTE HOST IDENTIFICATION HAS CHANGED警告的原因和解决方法，一条命令搞定。",
+      "datePublished": "2026-08-15T20:10:00+08:00",
+      "dateModified": "2026-08-15T20:10:00+08:00",
+      "url": "https://vpsjq.com/2026/08/15/ssh-remote-host-identification-changed/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "SSH连接时弹出REMOTE HOST IDENTIFICATION HAS CHANGED警告是被攻击了吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大部分情况下不用慌，这是SSH的正常安全机制在起作用。SSH第一次连接会把服务器的公钥指纹记录在本地known_hosts文件里，之后每次连接都会核对，只要服务器SSH密钥变了（哪怕是自己合法操作导致的）就会触发这个警告。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么合法操作会导致这个警告？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最常见的是重装了系统（比如DD方式换系统后SSH密钥全新生成）、重新生成过SSH主机密钥，或者服务商更换了这台VPS的底层物理机。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么解决这个警告？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "确认是自己主动重装或换过系统导致的，执行ssh-keygen -R 服务器IP地址清除本地旧记录，重新连接时SSH会当作第一次连接重新记录新密钥指纹。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么情况下不该无脑清除记录？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果最近没有主动重装过VPS系统、是在公共WiFi等不完全信任的网络环境下连接、或者IP是新买的之前从没连接成功过就报了警告，建议先联系VPS服务商确认最近是否做过重装或迁移操作，避免真的连到了假冒的服务器上。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS重装完系统，兴冲冲敲下`ssh root@IP`想连上去看看，结果屏幕突然弹出一大段红色警告，中间还有"IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY"这种吓人的话，第一次遇到这个多半会愣一下，以为自己的VPS被人攻击了。
 
 其实大部分情况下不用慌——**这是SSH的正常安全机制在起作用**，不是真的出了安全事故。

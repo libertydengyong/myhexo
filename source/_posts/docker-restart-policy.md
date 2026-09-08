@@ -8,6 +8,67 @@ categories:
 description: Docker容器默认不会在VPS重启后自动启动，需要设置restart策略，docker update命令能在不重建容器的情况下直接修复。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS重启后Docker容器为什么没有自动启动",
+      "description": "Docker容器默认不会在VPS重启后自动启动，需要设置restart策略，docker update命令能在不重建容器的情况下直接修复。",
+      "datePublished": "2026-08-17T10:00:00+08:00",
+      "dateModified": "2026-08-17T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/17/docker-restart-policy/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么VPS重启后Docker容器没有自动拉起来？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Docker容器的默认重启策略是no，容器进程退出（包括宿主机重启导致的退出）Docker不会主动拉起来，这是设计上的默认行为不是故障，需要手动指定--restart参数才会自动重启。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Docker有哪些重启策略，该选哪个？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "四种策略：no（默认不自动重启）、on-failure（只有异常退出才重启）、always（不管什么原因退出都重启）、unless-stopped（跟always类似但主动停掉后宿主机重启也保持停止）。对大部分长期跑着的服务，unless-stopped最推荐。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "已经在跑的容器怎么补上重启策略？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要删掉重建，直接执行docker update --restart unless-stopped 容器名或ID即可。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "补上重启策略后重启还是没自动起来怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "检查Docker服务本身有没有设置开机自启，容器重启策略是Docker daemon负责执行的，如果Docker服务自己没有跟系统一起启动，容器策略再对也没用，用systemctl enable docker确认。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS因为维护或者别的原因重启了一下，回去一看，之前跑得好好的Docker容器全没了，得手动一个个`docker start`才能拉起来。这不是Docker出故障了，是**容器的默认重启策略本来就是"不自动重启"**，这个坑几乎每个刚开始用Docker的人都会踩一次。
 
 ## 默认策略是"no"，不是"always"

@@ -8,6 +8,67 @@ categories:
 description: 手机Termux用SSH连VPS总是断线的原因和解决办法，包括网络切换导致断连和长时间无操作自动断开这两种最常见的情况。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Termux SSH连接VPS断线怎么办",
+      "description": "手机Termux用SSH连VPS总是断线的原因和解决办法，包括网络切换导致断连和长时间无操作自动断开这两种最常见的情况。",
+      "datePublished": "2026-08-03T10:00:00+08:00",
+      "dateModified": "2026-08-03T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/03/termux-ssh-disconnect/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "手机在WiFi和移动数据之间切换会导致SSH断线吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "会，网络切换时手机IP地址会变，原来建立在旧IP上的SSH连接自然就断了，普通SSH对这种情况没好办法，得换用Mosh代替SSH，Mosh用UDP维护会话状态，网络环境变了只要能重新连上会话会自动恢复，之前没敲完的命令和光标位置都还在。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "用Mosh需要注意什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VPS这边如果防火墙比较严格，需要放行Mosh用的UDP端口范围（默认60000-61000），不然连不上。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "长时间不操作导致的断线怎么解决？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这跟网络切换无关，是连接空闲太久被中间路由器/防火墙当成死连接清理掉，可以在Termux这边的~/.ssh/config里配置ServerAliveInterval 60和ServerAliveCountMax 3让SSH定期发心跳包，如果还是断可能需要在VPS一侧sshd_config里配置ClientAliveInterval和ClientAliveCountMax。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "两种断线问题能一起解决吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "比较省事的做法是直接把Mosh当默认连接方式，配合SSH心跳配置一起用，网络切换靠Mosh自动恢复会话，长时间挂机不操作靠心跳包保活，基本能避免大部分莫名其妙的掉线。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 用手机连VPS，最烦的就是敲着敲着命令突然掉线，尤其是走在路上或者信号不太好的地方，WiFi和移动数据一切换连接就断了。这篇整理一下Termux里SSH断线的两种常见原因和对应的解决办法。
 
 <img src="/images/ssh-vs-mosh.svg" alt="手机终端界面对比：普通SSH网络切换后连接断开需要重新登录，Mosh网络切换后会话自动恢复命令继续执行" width="700" height="748" loading="lazy">
