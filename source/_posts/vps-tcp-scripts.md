@@ -9,6 +9,67 @@ categories:
 description: 四个常用VPS TCP加速脚本的特点和适用场景对比，包括Eric86777/vps-tcp-tune、zeruns/tcp.sh、adsorgcn/bbr-script和yahuisme的优化脚本。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "常用VPS TCP加速脚本汇总",
+      "description": "四个常用VPS TCP加速脚本的特点和适用场景对比，包括Eric86777/vps-tcp-tune、zeruns/tcp.sh、adsorgcn/bbr-script和yahuisme的优化脚本。",
+      "datePublished": "2026-08-29T20:00:00+08:00",
+      "dateModified": "2026-08-29T20:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/vps-tcp-scripts/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Eric86777/vps-tcp-tune适合什么场景？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主要做TCP参数调优，包含33项实用优化功能，不涉及内核替换，适合不想动内核又想优化网络的场景，稳定性比较好，日常维护服务器首选。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "zeruns/tcp.sh是做什么的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是一个五合一加速脚本，把BBRplus、BBR魔改版、暴力BBR等几种加速方式打包在一起，从菜单选要装哪种，适合想一次性试几种加速方式看哪个效果好，但会安装第三方内核，装前需确认VPS支持换内核。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "adsorgcn/bbr-script的特点是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持自动升级内核，适合内核版本太旧不支持BBR的VPS，脚本会检测当前内核版本自动引导升级，升级完重启就能开启BBR，适合Debian和Ubuntu系统内核版本4.9以下的VPS。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这几个脚本能叠加使用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要叠加，选一个适合自己场景的就行，混着装容易参数冲突。新VPS快速优化选Eric86777/vps-tcp-tune，内核太旧选adsorgcn/bbr-script，想试BBRplus选zeruns/tcp.sh，想一次调好BBR和TCP参数选yahuisme/network-optimization。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS 网络优化的脚本很多，功能侧重不一样，选错了要么效果不明显，要么跟现有环境冲突。这篇整理了几个实际用过的脚本，说一下各自的特点和适用场景。
 
 **Eric86777/vps-tcp-tune** 是日常用得最多的一个，主要做 TCP 参数调优，包含33项实用优化功能，安装命令去 GitHub 仓库找最新的：`https://github.com/Eric86777/vps-tcp-tune`。这个脚本的特点是专注 TCP 层面的参数调整，不涉及内核替换，适合不想动内核但又想优化网络的场景，稳定性比较好，日常维护服务器首选这个。

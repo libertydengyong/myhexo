@@ -10,6 +10,59 @@ date: 2025-12-12 21:12:01
 description: Linux VPS拿到手后的初始化和SSH安全加固脚本，降低暴力破解风险，新服务器上线前建议先跑一遍。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Linux 一键初始化 & SSH 加固脚本",
+      "description": "Linux VPS拿到手后的初始化和SSH安全加固脚本，降低暴力破解风险，新服务器上线前建议先跑一遍。",
+      "datePublished": "2025-12-12T21:12:01+08:00",
+      "dateModified": "2025-12-12T21:12:01+08:00",
+      "url": "https://vpsjq.com/2025/12/12/linux-一键初始化-ssh-加固脚本/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "新VPS到手先跑SSH加固脚本",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "下载并运行脚本",
+          "text": "curl -fsSL https://raw.githubusercontent.com/247like/linux-ssh-init-sh/main/init.sh -o ./init.sh && chmod +x init.sh && ./init.sh，跟着交互过程走完即可。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "先加固再部署业务",
+          "text": "新VPS到手建议先跑加固脚本，再部署具体的业务或代理服务，顺序很重要，如果先装好服务再加固，中间这段裸奔窗口期风险最高。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这类初始化加固脚本通常会处理哪些事？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "常见覆盖修改SSH默认端口（过滤掉大部分无脑扫描）、禁用密码登录强制密钥认证（让暴力破解失效）、限制root直接登录（改用普通用户加sudo降低风险）、安装fail2ban类工具（检测多次登录失败自动封禁来源IP）。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Linux 一键初始化 & SSH 加固脚本 curl -fsSL https://raw.githubusercontent.com/247like/linux-ssh-init-sh/main/init.sh -o ./init.sh && chmod +x `init.sh` && ./init.sh   来源：https://github.com/247like/linux-ssh-init-sh
 
 公网上的VPS只要开着SSH默认端口，几分钟内就会有自动化脚本开始扫描尝试暴力破解，这不是危言耸听，而是新服务器上线后几乎必然会遇到的情况。这类"初始化加固脚本"存在的意义，就是把几项关键的安全加固操作打包，新VPS到手先跑一遍，比裸奔状态直接用安全得多。

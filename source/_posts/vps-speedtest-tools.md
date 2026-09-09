@@ -8,6 +8,67 @@ categories:
 description: VPS网络测速常用的speedtest-cli、mtr、iperf3三个工具分别测的是什么，怎么选合适的工具判断网络质量。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS网络测速用什么工具最好",
+      "description": "VPS网络测速常用的speedtest-cli、mtr、iperf3三个工具分别测的是什么，怎么选合适的工具判断网络质量。",
+      "datePublished": "2026-08-15T20:50:00+08:00",
+      "dateModified": "2026-08-15T20:50:00+08:00",
+      "url": "https://vpsjq.com/2026/08/15/vps-speedtest-tools/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "speedtest-cli测出来的结果能反映真实访问体验吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只能反映大概，因为它连的是speedtest自己选的测速节点，不一定是你实际会访问的目标线路，跑出来数字很漂亮不代表访问国内网站也快。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "测速结果很好，为什么网站还是打不开？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "很多人只测了带宽没测路由，VPS本身带宽再大，如果回程线路绕路严重，从国内访问照样卡，用mtr -r -c 100看经过的中间节点IP能大致判断走的是什么线路，比如看到59.43.x.x开头说明走了CN2线路。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么测VPS到自己本地网络之间的精确带宽？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "用iperf3做点对点直连测试，VPS端跑iperf3 -s服务端，本地端用iperf3 -c VPS的IP -t 30发起测试，注意VPS防火墙要放行默认5201端口。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "三个工具该怎么选？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只想知道带宽够不够用speedtest-cli；怀疑是国内回程线路问题用mtr；需要精确到具体数字能自己复现验证（比如向服务商反映带宽不达标）用iperf3。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 买完VPS第一件事往往是测速，但很多人直接跑一个speedtest就下结论"这机器网不行"，其实不同工具测的是完全不同的东西，选错工具很容易得出误导性的结论。
 
 ## speedtest-cli：测个大概的带宽

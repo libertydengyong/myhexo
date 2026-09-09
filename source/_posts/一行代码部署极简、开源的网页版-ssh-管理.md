@@ -10,6 +10,59 @@ date: 2025-07-28 12:36:20
 description: Managi是一款极简开源的网页版SSH管理工具，一行docker命令部署，不用装客户端，浏览器直接管理服务器。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "一行代码部署极简开源网页版 SSH 管理工具",
+      "description": "Managi是一款极简开源的网页版SSH管理工具，一行docker命令部署，不用装客户端，浏览器直接管理服务器。",
+      "datePublished": "2025-07-28T12:36:20+08:00",
+      "dateModified": "2025-07-28T12:36:20+08:00",
+      "url": "https://vpsjq.com/2025/07/28/一行代码部署极简、开源的网页版-ssh-管理/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "部署Managi网页版SSH管理工具",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "执行Docker一行命令部署",
+          "text": "docker run -d --network host hochenggang/managi:0.5.0，--network host表示容器直接使用宿主机网络。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "浏览器访问管理界面",
+          "text": "部署完成后通过http://VPS_IP:18001访问，打开浏览器输入网址就能连VPS，不用在设备上装SSH客户端。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Managi适合什么场景？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "适合临时借用别人电脑操作服务器（用完关掉浏览器不留痕迹）、平板手机等不方便装客户端的设备、或者快速给团队成员一个统一的管理入口不用每人各自配置SSH客户端和密钥。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 一行代码部署极简、开源的**网页版 SSH** 管理: docker run -d --network host hochenggang/managi:0.5.0 访问 http://VPS_IP:18001
 
 这个工具叫**Managi**，是作者hochenggang开发的一款轻量级网页SSH管理工具（GitHub: hochenggang/managi-backend），核心思路很简单——把SSH客户端搬到浏览器里，不用在电脑上装PuTTY、Xshell这些客户端，也不用在手机上找专门的SSH App，打开浏览器输入网址就能连VPS。

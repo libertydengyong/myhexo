@@ -11,6 +11,60 @@ categories:
 abbrlink: 50945
 date: 2025-05-14 10:10:41
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Linux VPS 一键优化 TCP 网络性能与 BBR 加速脚本",
+      "description": "VPS 一键优化 TCP、开启 BBR、BBRplus、Alpine Linux 开启 BBR 等常见网络优化方法整理，提高服务器网络传输效率与访问体验。",
+      "datePublished": "2025-05-14T10:10:41+08:00",
+      "dateModified": "2025-05-14T10:10:41+08:00",
+      "url": "https://vpsjq.com/2025/05/14/一键优化tcp/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "一键TCP优化脚本通常会做哪些配置？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "常见包括开启BBR或BBRplus、调整TCP缓冲区大小、开启TCP Fast Open、优化队列算法（fq、fq_codel等）、调整网络连接参数、提高大量连接情况下的稳定性，这些优化不会让带宽变大，但能改善高延迟线路上的传输效率。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Alpine Linux开启BBR的方法和Debian一样吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不完全一样，Alpine默认配置跟Debian有区别，开启BBR的具体方法需要参考专门针对Alpine系统的步骤。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "生产环境该用官方BBR还是第三方内核？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "并不是所有VPS都适合用第三方内核或魔改BBR，生产环境优先建议使用官方内核提供的BBR，兼容性和稳定性通常更有保障。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 很多 VPS 刚开通时都保持默认网络参数，对于建站、代理服务、远程连接来说，默认配置虽然可以正常使用，但并不能发挥服务器的全部性能。
 
 如果希望减少网络延迟、提高 TCP 传输效率，一般都会对服务器进行一些基础优化，例如开启 BBR、调整 TCP 参数、优化系统网络栈等。

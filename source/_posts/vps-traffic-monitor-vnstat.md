@@ -8,6 +8,69 @@ categories:
 description: vnstat是Linux下常用的VPS流量监控工具，能统计每日每月流量使用情况，避免超出服务商的流量限额。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS流量监控用什么工具",
+      "description": "vnstat是Linux下常用的VPS流量监控工具，能统计每日每月流量使用情况，避免超出服务商的流量限额。",
+      "datePublished": "2026-08-15T21:00:00+08:00",
+      "dateModified": "2026-08-15T21:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/15/vps-traffic-monitor-vnstat/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "安装vnstat监控VPS流量",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "安装vnstat",
+          "text": "Debian/Ubuntu用apt-get install vnstat -y；CentOS需要先装epel-release再yum install vnstat。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "确认网卡名字",
+          "text": "用ifconfig -a或ip a查看网卡名（常见eth0或ens5这类），如果装完发现数据一直是空的，多半是/etc/vnstat.conf里Interface配置的网卡名没对上。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "查看流量数据",
+          "text": "vnstat -d看每日明细，vnstat -m看每月汇总，vnstat -l看实时网速。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "对齐服务商的流量重置日期",
+          "text": "vnstat默认按每月1号重新计算，如果服务商的重置日不是1号，需要修改/etc/vnstat.conf里的MonthRotate项改成实际重置日期。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "vnstat会不会占用很多系统资源？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要root权限也能跑，因为它读的是/proc文件系统里的数据而不是直接抓网络包，对系统性能影响很小，常年挂着不用担心占用太多资源。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 不少VPS套餐带月流量限制，超了轻则限速重则额外收费，但服务商自己的面板经常只给一个模糊的进度条，具体每天用了多少、哪天用得特别猛，压根查不到。vnstat能把这块补上，装一次之后随时能查详细的流量记录。
 
 ## 安装

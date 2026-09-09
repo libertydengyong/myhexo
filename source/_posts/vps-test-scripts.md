@@ -9,6 +9,67 @@ categories:
 description: 两个常用VPS测试脚本nodequality和融合怪的使用方法，测试网络速度、回程去程路由和流媒体解锁情况。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS测试脚本推荐：nodequality和融合怪的使用方法",
+      "description": "两个常用VPS测试脚本nodequality和融合怪的使用方法，测试网络速度、回程去程路由和流媒体解锁情况。",
+      "datePublished": "2026-08-29T22:00:00+08:00",
+      "dateModified": "2026-08-29T22:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/vps-test-scripts/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用nodequality和融合怪测试VPS",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "运行nodequality快速测网络质量",
+          "text": "执行bash <(curl -sL https://run.NodeQuality.com)，重点看速度、回程去程路由（决定线路走CN2、163还是其他）、流媒体解锁情况这几个指标，新VPS建议先跑这个。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "网络没问题再运行融合怪做全面评估",
+          "text": "用curl下载ecs.sh脚本执行，覆盖CPU测试、内存检测、磁盘IO评估、IP属性识别、流媒体解锁检测等更全面的项目，测试时间比nodequality长一些。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "测试完发现网络参数不理想怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以用常用VPS TCP加速脚本汇总里提到的脚本做优化，优化完再跑一次测试对比效果。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "测试结果显示BBR没生效怎么排查？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "参考为什么开了BBR网速却感觉一点没提升这篇，搞清楚原理之后对测试结果的判断会更准确。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 买了新 VPS 之后第一件事不是急着装面板或者优化参数，而是先跑一下测试脚本，看看这台机器的实际网络质量和性能，再决定用来做什么。测试结果也可以在优化前后各跑一次，对比一下效果。
 
 nodequality 是 NodeSeek 社区出的测试脚本，一条命令跑起来：
