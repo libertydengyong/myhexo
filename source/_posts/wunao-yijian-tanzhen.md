@@ -9,6 +9,64 @@ categories:
 description: Uptime Kuma是一款开源自托管监控工具，Docker一键部署，支持HTTP、TCP、Ping、Docker容器等多种监控方式。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "最最最无脑的一键探针",
+      "description": "Uptime Kuma是一款开源自托管监控工具，Docker一键部署，支持HTTP、TCP、Ping、Docker容器等多种监控方式。",
+      "datePublished": "2026-04-16T22:30:00+08:00",
+      "dateModified": "2026-04-16T22:30:00+08:00",
+      "url": "https://vpsjq.com/2026/04/16/wunao-yijian-tanzhen/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "Docker部署Uptime Kuma监控工具",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "运行Docker命令部署",
+          "text": "docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "首次访问创建管理员账号",
+          "text": "运行后访问http://VPS的IP:3001，首次打开会要求创建管理员账号。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "添加监控项",
+          "text": "在后台填入要监控的服务地址、选择监控类型（HTTP、TCP、Ping、Docker容器状态等）、设置检测间隔和通知方式，保存后开始监控。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Uptime Kuma和Mdpings这类手机探针App有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uptime Kuma是自己搭建监控服务端，走的是网页Dashboard路线；Mdpings是连接哪吒面板的手机客户端，两者定位不同，可以按使用习惯选择。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 这个工具叫**Uptime Kuma**，作者louislam，是一款开源的自托管监控工具，作用类似Uptime Robot这类第三方监控服务，区别是完全自己部署、自己掌控数据，没有第三方平台的使用限制。
 
 ```bash

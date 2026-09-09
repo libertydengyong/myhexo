@@ -1,4 +1,3 @@
-
 ---
 title: VPS一键定期自动清理与系统维护
 tags:
@@ -11,6 +10,60 @@ description: 定期自动清理 VPS、服务器一键管理、更换 XanMod 内�
 abbrlink: 16706
 date: 2025-11-07 19:06:37
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS一键定期自动清理与系统维护",
+      "description": "定期自动清理 VPS、服务器一键管理、更换 XanMod 内核等常见维护方法，提高 VPS 长期运行稳定性与性能。",
+      "datePublished": "2025-11-07T19:06:37+08:00",
+      "dateModified": "2025-11-07T19:06:37+08:00",
+      "url": "https://vpsjq.com/2025/11/07/定期自动清理vps/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "设置VPS定期自动清理任务",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "创建清理脚本",
+          "text": "用nano创建/usr/local/bin/clean_vps.sh文件，写入docker system prune -af清理Docker镜像缓存、apt clean清理包缓存、rm -rf清理旧日志文件和临时文件，保存后chmod +x赋予执行权限。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "添加定时任务",
+          "text": "运行crontab -e，在文件末添加0 3 * * * /usr/local/bin/clean_vps.sh >/dev/null 2>&1，表示每天凌晨3点自动执行一次清理。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "VPS定期自动清理主要清理哪些内容？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主要包括清理系统缓存、删除临时文件、清理日志文件、删除无用软件包、清理Docker镜像和缓存、检查磁盘空间使用情况，对运行时间较长的服务器能避免磁盘空间越来越小。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 不少 VPS 刚安装系统时运行速度都比较快，但随着运行时间越来越长，日志文件、缓存文件以及各种临时数据不断增加，服务器资源占用也会逐渐升高。
 
 对于长期运行的网站、代理服务或者 Docker 环境来说，适当进行系统维护，可以减少磁盘占用，也有助于保持服务器运行稳定。

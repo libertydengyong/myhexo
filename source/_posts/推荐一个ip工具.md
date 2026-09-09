@@ -10,6 +10,51 @@ date: 2025-05-06 15:35:59
 description: 三个常用IP质量检测工具介绍，检测VPS的IP类型、纯净度和风控值，判断是否适合日常使用。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "推荐几个IP工具",
+      "description": "三个常用IP质量检测工具介绍，检测VPS的IP类型、纯净度和风控值，判断是否适合日常使用。",
+      "datePublished": "2025-05-06T15:35:59+08:00",
+      "dateModified": "2025-05-06T15:35:59+08:00",
+      "url": "https://vpsjq.com/2025/05/06/推荐一个ip工具/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "iphub.info、ping0.cc、iplark.com这三个工具有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iphub.info主要判断IP类型是住宅IP还是机房IP；ping0.cc是中文圈知名度最高的检测工具，除了类型还会给出风控值这个综合评分；iplark.com界面简洁，除了IP质量检测还能测延迟。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么情况下需要关注IP纯净度？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "打算用VPS的IP访问对IP质量敏感的服务（比如某些AI服务对机房IP限制功能）、遇到莫名其妙的访问受限或验证码变多怀疑IP被标记、买了便宜VPS想确认IP是不是被滥用过的旧IP，这几种场景值得检测一下。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 这个据说可以检测是否是住宅IP https://iphub.info/   这个准一点 https://ping0.cc/   这个比较全面，可以检测延迟 https://iplark.com/
 
 VPS买回来能不能用得顺手，很大程度上取决于这个IP本身"干不干净"——同样是能上网的IP，家宽IP（住宅IP）和机房IP在很多平台眼里待遇完全不一样，机房IP更容易被判定为"非真实用户"，访问某些网站或者用AI服务时更容易触发风控甚至被降级限制。

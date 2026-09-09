@@ -5,39 +5,155 @@ tags:
 id: '147'
 categories:
   - vps技巧
-description: SSH 加快连接的几种方法:使用SSH密钥认证，取消DNS反向解析，配置SSH客户端连接复用，优化连接超时设置，取消GSSAPI认证 原理，使用Mosh。
+description: SSH 加快连接的几种方法：使用SSH密钥认证，取消DNS反向解析，配置SSH客户端连接复用，优化连接超时设置，取消GSSAPI认证，使用Mosh。
 abbrlink: 40921
 date: 2025-07-14 12:26:57
 ---
-SSH 加快连接的几种方法:
-方法一：使用SSH密钥认证（最推荐）： 原理：密钥认证比密码认证快，因为不需要在每次连接时传输密码并进行硬盘磨损。 
- <br>
- <br>
 
-方法二：取消DNS反向解析（客户端sshd\_config）： 原理： SSH服务器在接收连接时，默认会尝试反向解析客户端的IP地址到域名。如果客户端IP没有对应的PTR记录，或者DNS解析慢，这会拖慢连接速度。 这个方法是在服务器端 /etc/ssh/sshd\_config 中配置，但效果展示在客户端连接速度， sudo nano /etc/ssh/sshd\_config 修改为UseDNS no，如果前面有#，删除它  
- <br>
- <br>
-方法3：配置SSH客户端连接复用（ControlMaster）： 原理：允许您在同一个 SSH 会话上重复使用多个连接。当您第一次连接后，后续的连接（如 scp、sftp 或再次 ssh）将直接通过已建立的通道，消耗重新进行认证和握手，速度极快。 在您本地电脑或例如 Termux 的 ~/.ssh/config 文件（~/.ssh/config 文件的权限必须是 600） 中添加以下配置： 主持人 \* ControlMaster 自动 控制路径 ~/.ssh/cm\_socket/%r@%h:%p ControlPersist 600s # 保持主连接活跃600秒 。
- <br>
- <br>
- 方法4：优化连接超时设置（客户端 `config`）：** **原理：** 减少 SSH 客户端等待服务器响应的时间。如果网络特别差，可能需要增加。在客户端的中 `~/.ssh/config` 添加: 主持人 \* ConnectTimeout 10 #连接超时10秒 ServerAliveInterval 60 # 每60秒发送一次保活消息 ServerAliveCountMax 3 # 最多发送3次保活消息未响应则断开 。
-方法5: 指定密码认证方式 (客户端 `config`):** **原理：** 强制SSH客户端先尝试 `keyboard-interactive` 或 `password` 认证，而不浪费时间尝试其他不适用的认证方式。但通常情况下，如果设置了密钥，SSH会优先尝试密钥。 在 `~/.ssh/config` 中添加（如果需要密码登录）： 主持人 \* PreferredAuthentications 公钥，键盘交互，密码  。
-<br>
-<br>
-方法6：取消GSSAPI认证 原理： GSSAPI认证（如Kerberos）在某些环境下会尝试很长时间，导致连接缓慢。 **在服务器端 `/etc/ssh/sshd_config` 中设置** GSSAPIAuthentication 否 保存并重启 SSH。
- <br>
- <br>
-方法7：使用Mosh（手机壳） **其实，有个一键优化SSH：** **sed -i '/^#UseDNS/d' /etc/ssh/sshd\_config && echo 'UseDNS no' >> /etc/ssh/sshd\_config && \\** **sed -i '/^#GSSAPIAuthentication/d' /etc/ssh/sshd\_config && echo 'GSSAPIAuthentication no' >> /etc/ssh/sshd\_config && \\** **sed -i '/^#PermitRootLogin/d' /etc/ssh/sshd\_config && echo 'PermitRootLogin no' >> /etc/ssh/sshd\_config && \\** **sed -i '/^#PasswordAuthentication/d' /etc/ssh/sshd\_config && echo 'PasswordAuthentication no' >> /etc/ssh/sshd\_config && \\** **sed -i '/^#ClientAliveInterval/d' /etc/ssh/sshd\_config && echo 'ClientAliveInterval 300' >> /etc/ssh/sshd\_config && \\** **sed -i '/^#ClientAliveCountMax/d' /etc/ssh/sshd\_config && echo 'ClientAliveCountMax 2' >> /etc/ssh/sshd\_config && \\** **sed -i '/^#TCPKeepAlive/d' /etc/ssh/sshd\_config && echo 'TCPKeepAlive no' >> /etc/ssh/sshd\_config && \\** **echo -e "\\n✅ SSH配置已优化，重启服务即可生效：" && \\**   **服务 sshd 重启 systemctl 重启 sshd**
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "SSH 加快连接的几种方法",
+      "description": "SSH 加快连接的几种方法：使用SSH密钥认证，取消DNS反向解析，配置SSH客户端连接复用，优化连接超时设置，取消GSSAPI认证，使用Mosh。",
+      "datePublished": "2025-07-14T12:26:57+08:00",
+      "dateModified": "2025-07-14T12:26:57+08:00",
+      "url": "https://vpsjq.com/2025/07/14/ssh-加快连接的几种方法/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "为什么SSH连接总是很慢？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "常见原因是服务器默认开着DNS反向解析和GSSAPI认证，这两者在大多数场景下用不上却会拖慢连接，在sshd_config里关掉UseDNS和GSSAPIAuthentication通常能明显改善。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ControlMaster连接复用是怎么加速的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "第一次SSH连接建立后，后续的scp、sftp或再次ssh连接会直接复用已建立的通道，不用重新走一遍认证握手，在~/.ssh/config里配置Host * 加ControlMaster auto、ControlPath、ControlPersist即可开启。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "一键优化脚本执行前需要注意什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "脚本里的PasswordAuthentication no和PermitRootLogin no会关闭密码登录和root直接登录，执行前必须确认已经配置好密钥登录，不然可能把自己锁在门外连不上服务器。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
-说明: UseDNS no 取消DNS反向解析，加快连接速度 GSSAPIAuthentication 不禁用GSSAPI，避免Kerberos 卡顿 PermitRootLogin no 禁止root登录，提升安全性 密码验证 否 强制使用密钥登录 ClientAliveInterval 300 - 5 分钟检测是否连接 ClientAliveCountMax 2 超过10分钟无响应自动中断 TCPKeepAlive 不会降低中间人攻击风险。
+SSH 加快连接的几种方法：
 
- <br>
- <br>
- <br>
- 相关内容
+**方法一：使用SSH密钥认证（最推荐）**
 
-[**一行代码部署极简、开源的网页版 SSH 管理**](https://vpsjq.com/2025/07/28/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2%E6%9E%81%E7%AE%80%E3%80%81%E5%BC%80%E6%BA%90%E7%9A%84%E7%BD%91%E9%A1%B5%E7%89%88-ssh-%E7%AE%A1%E7%90%86/)
+原理：密钥认证比密码认证快，不需要在每次连接时传输密码。
 
-[**Linux 一键初始化 & SSH 加固脚本**](https://vpsjq.com/2025/12/12/linux-%E4%B8%80%E9%94%AE%E5%88%9D%E5%A7%8B%E5%8C%96-ssh-%E5%8A%A0%E5%9B%BA%E8%84%9A%E6%9C%AC/)
+**方法二：取消DNS反向解析（服务器端 sshd_config）**
 
-[**一键root加改密码脚本**](https://vpsjq.com/2025/12/31/%E4%B8%80%E9%94%AEroot%E5%8A%A0%E6%94%B9%E5%AF%86%E7%A0%81%E8%84%9A%E6%9C%AC/)
+原理：SSH服务器接收连接时，默认会尝试反向解析客户端的IP地址到域名，如果客户端IP没有对应的PTR记录，或者DNS解析慢，会拖慢连接速度。这个方法是在服务器端 `/etc/ssh/sshd_config` 中配置，但效果体现在客户端连接速度上：
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+修改为 `UseDNS no`，如果前面有 `#`，把它删掉。
+
+**方法三：配置SSH客户端连接复用（ControlMaster）**
+
+原理：允许在同一个SSH会话上重复使用多个连接。第一次连接后，后续的连接（如scp、sftp或再次ssh）会直接通过已建立的通道，不用重新认证握手，速度极快。在本地电脑或Termux的 `~/.ssh/config` 文件（权限必须是600）中添加：
+
+```
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/cm_socket/%r@%h:%p
+  ControlPersist 600s
+```
+
+`ControlPersist 600s` 表示保持主连接活跃600秒。
+
+**方法四：优化连接超时设置（客户端config）**
+
+原理：减少SSH客户端等待服务器响应的时间。在 `~/.ssh/config` 中添加：
+
+```
+Host *
+  ConnectTimeout 10
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+```
+
+`ConnectTimeout 10` 表示连接超时10秒；`ServerAliveInterval 60` 表示每60秒发送一次保活消息；`ServerAliveCountMax 3` 表示最多发送3次保活消息未响应则断开。
+
+**方法五：指定认证方式优先级（客户端config）**
+
+原理：强制SSH客户端优先尝试指定的认证方式，避免浪费时间尝试不适用的认证方式。在 `~/.ssh/config` 中添加（如果需要密码登录）：
+
+```
+Host *
+  PreferredAuthentications publickey,keyboard-interactive,password
+```
+
+通常情况下，如果设置了密钥，SSH会优先尝试密钥认证。
+
+**方法六：取消GSSAPI认证**
+
+原理：GSSAPI认证（如Kerberos）在某些环境下会尝试很长时间，导致连接缓慢。在服务器端 `/etc/ssh/sshd_config` 中设置：
+
+```
+GSSAPIAuthentication no
+```
+
+保存并重启SSH服务。
+
+**方法七：使用Mosh**
+
+Mosh专门针对网络不稳定的场景设计，网络切换或者信号不好的时候比普通SSH更抗断线。
+
+**一键优化脚本**
+
+把上面几个服务器端配置项打包成一条命令，直接在服务器上跑：
+
+```bash
+sed -i '/^#UseDNS/d' /etc/ssh/sshd_config && echo 'UseDNS no' >> /etc/ssh/sshd_config && \
+sed -i '/^#GSSAPIAuthentication/d' /etc/ssh/sshd_config && echo 'GSSAPIAuthentication no' >> /etc/ssh/sshd_config && \
+sed -i '/^#PermitRootLogin/d' /etc/ssh/sshd_config && echo 'PermitRootLogin no' >> /etc/ssh/sshd_config && \
+sed -i '/^#PasswordAuthentication/d' /etc/ssh/sshd_config && echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config && \
+sed -i '/^#ClientAliveInterval/d' /etc/ssh/sshd_config && echo 'ClientAliveInterval 300' >> /etc/ssh/sshd_config && \
+sed -i '/^#ClientAliveCountMax/d' /etc/ssh/sshd_config && echo 'ClientAliveCountMax 2' >> /etc/ssh/sshd_config && \
+sed -i '/^#TCPKeepAlive/d' /etc/ssh/sshd_config && echo 'TCPKeepAlive no' >> /etc/ssh/sshd_config && \
+echo -e "\n✅ SSH配置已优化，重启服务即可生效：" && \
+systemctl restart sshd
+```
+
+说明：`UseDNS no` 取消DNS反向解析，加快连接速度；`GSSAPIAuthentication no` 禁用GSSAPI，避免Kerberos卡顿；`PermitRootLogin no` 禁止root直接登录，提升安全性；`PasswordAuthentication no` 强制使用密钥登录；`ClientAliveInterval 300` 每5分钟检测一次连接；`ClientAliveCountMax 2` 超过约10分钟无响应自动断开；`TCPKeepAlive no` 关闭TCP层面的保活探测，不影响中间人攻击防护，这个选项和安全性无关，纯粹是连接层面的设置。
+
+**注意：这条一键命令里 `PasswordAuthentication no` 和 `PermitRootLogin no` 会关闭密码登录和root直接登录，执行前请确认已经配置好密钥登录，不然可能把自己锁在门外连不上服务器。**
+
+相关内容
+
+[一行代码部署极简、开源的网页版 SSH 管理](https://vpsjq.com/2025/07/28/一行代码部署极简、开源的网页版-ssh-管理/)
+
+[Linux 一键初始化 & SSH 加固脚本](https://vpsjq.com/2025/12/12/linux-一键初始化-ssh-加固脚本/)
+
+[一键root加改密码脚本](https://vpsjq.com/2025/12/31/一键root加改密码脚本/)

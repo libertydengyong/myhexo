@@ -10,6 +10,51 @@ date: 2025-11-25 15:47:13
 description: VPS一键系统管理脚本，只支持Debian、Ubuntu系统，集成常见的系统管理功能，一条命令搞定日常维护操作。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS一键系统管理",
+      "description": "VPS一键系统管理脚本，只支持Debian、Ubuntu系统，集成常见的系统管理功能，一条命令搞定日常维护操作。",
+      "datePublished": "2025-11-25T15:47:13+08:00",
+      "dateModified": "2025-11-25T15:47:13+08:00",
+      "url": "https://vpsjq.com/2025/11/25/vps一键系统管理：-bash/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个脚本支持哪些系统？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只支持Debian和Ubuntu系，如果VPS跑的是CentOS、Alpine这类系统，运行前最好先确认脚本兼容性，避免装到一半报错甚至影响系统稳定。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "跑这类一键管理脚本前要注意什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "确认脚本来源是否可信（curl | bash本质是把远程代码原样执行在自己服务器上）；涉及系统清理、安全加固操作前先备份重要数据；大部分系统管理类脚本需要root权限才能正常执行。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS一键系统管理： bash <(curl -sL sh.cici.one)   只支持DEBIAN,ubuntu系
 
 <img src="/images/vps-manage-script-hub.svg" alt="VPS一键管理脚本常见功能分类示意图：系统信息查看、常用软件安装、安全加固、清理维护" width="700" height="480" loading="lazy">

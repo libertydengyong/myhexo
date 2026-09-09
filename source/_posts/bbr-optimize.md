@@ -9,6 +9,67 @@ categories:
 description: BBR装完之后的进一步优化思路，包括TCP缓冲区参数调整，以及为什么大多数情况下效果不明显的原因。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "BBR装完之后还能怎么优化",
+      "description": "BBR装完之后的进一步优化思路，包括TCP缓冲区参数调整，以及为什么大多数情况下效果不明显的原因。",
+      "datePublished": "2026-08-31T10:00:00+08:00",
+      "dateModified": "2026-08-31T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/31/bbr-optimize/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "调整TCP缓冲区参数进一步优化",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "写入TCP缓冲区参数",
+          "text": "把net.core.rmem_max、net.core.wmem_max、net.ipv4.tcp_rmem、net.ipv4.tcp_wmem这几行加到/etc/sysctl.conf里，作用是增大TCP读写缓冲区上限。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "让配置生效",
+          "text": "执行sysctl -p让配置生效。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "调整这些参数后为什么感觉不出明显变化？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这类参数优化的是网络协议栈层面的效率，对最终速度的影响要在线路本身质量够好、带宽够大的情况下才能体现出来，如果VPS线路本身延迟高丢包多，调再多参数也补不回来，速度的天花板是线路质量决定的不是参数。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "不想手动改参数有更省事的方法吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以用yahuisme的网络优化脚本，会自动检测系统环境并调整这些参数，跑完自动应用不需要手动填参数。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 装完 BBR 之后，有些人会想继续折腾——能不能再调几个参数让速度更快？理论上可以，实际上效果因环境而异，很多时候调完感觉不出来。
 
 最常见的进一步优化是调整 TCP 缓冲区大小，主要是这几个参数：

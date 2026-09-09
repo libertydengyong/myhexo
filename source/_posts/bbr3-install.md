@@ -9,6 +9,72 @@ categories:
 description: 用byJoey的Actions-bbr-v3脚本一键安装BBR3内核的完整流程，包括安装命令、重启验证和实际使用感受。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "BBR3一键安装脚本：byJoey Actions-bbr-v3 GitHub安装教程",
+      "description": "用byJoey的Actions-bbr-v3脚本一键安装BBR3内核的完整流程，包括安装命令、重启验证和实际使用感受。",
+      "datePublished": "2026-08-28T16:00:00+08:00",
+      "dateModified": "2026-08-28T16:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/28/bbr3-install/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用byJoey脚本安装BBR3内核",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "下载运行脚本",
+          "text": "去byJoey/Actions-bbr-v3的GitHub仓库找README里当前维护的安装命令直接跑，脚本会自动识别系统架构并下载匹配的BBR3内核.deb包安装。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "重启服务器",
+          "text": "脚本跑完执行reboot重启，让新内核生效。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "验证是否生效",
+          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出bbr，再用uname -r确认内核版本号已经切换。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "已经装了XanMod内核还需要跑这个脚本吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要，XanMod内核内置了BBR3支持，直接开启即可，不用额外跑这个专门的安装脚本。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "装完BBR3之后速度提升明显吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "实际使用中提升不算明显，跟原版BBR或BBRplus的差距在日常使用中感觉不出太大区别，BBR系列各版本之间本来差距就不大。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 BBR3 是目前 BBR 系列里最新的版本，已经合并进较新的 Linux 主线内核。网上流传的 BBR3 安装方式主要有两种：一种是装 XanMod 内核（内置了 BBR3 支持），另一种是用专门的脚本直接把 BBR3 内核装到现有系统上，byJoey 维护的 Actions-bbr-v3 属于后者。
 
 这个脚本会自动识别当前系统架构，从 GitHub Releases 下载匹配的 BBR3 内核 .deb 包，安装完之后还能切换加速模式。一条命令跑完整个安装流程，不需要手动下载或者配置内核参数。

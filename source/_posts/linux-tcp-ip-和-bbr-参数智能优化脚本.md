@@ -11,6 +11,64 @@ date: 2025-11-30 20:51:47
 description: Linux服务器TCP/IP和BBR参数智能优化脚本的使用方法，包括一键脚本安装步骤和优化效果验证。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Linux TCP/IP 和 BBR 参数智能优化脚本",
+      "description": "Linux服务器TCP/IP和BBR参数智能优化脚本的使用方法，包括一键脚本安装步骤和优化效果验证。",
+      "datePublished": "2025-11-30T20:51:47+08:00",
+      "dateModified": "2025-11-30T20:51:47+08:00",
+      "url": "https://vpsjq.com/2025/11/30/linux-tcp-ip-和-bbr-参数智能优化脚本/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用yahuisme脚本智能优化TCP和BBR参数",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "确认内核版本",
+          "text": "先用uname -r确认内核版本，BBR从Linux 4.9开始才支持，版本太旧脚本一般会提示需要先升级内核。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "运行优化脚本",
+          "text": "执行bash <(curl -sL https://raw.githubusercontent.com/yahuisme/network-optimization/main/script.sh)，脚本会自动检测系统内核版本和网络环境，调整拥塞控制算法、TCP缓冲区大小、队列规则等内核网络参数。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "验证是否生效",
+          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出bbr，再用sysctl net.core.default_qdisc确认输出fq或fq_codel。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "开启BBR之后提升明显吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "对高延迟的海外VPS线路来说提升通常能直接感受到，尤其是原本网络质量一般、丢包率偏高的线路上效果更明显；如果服务器本身网络质量已经很好（比如本地IDC、低延迟专线），提升幅度会相对有限。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 VPS用久了会发现，同样的带宽，有的服务器传文件、访问网站就是比别的快，很大一部分原因出在TCP/IP参数和拥塞控制算法上。默认配置一般比较保守，没有针对具体网络环境做调优，而BBR这类拥塞控制算法配合合理的TCP参数，能明显改善高延迟、丢包网络下的传输速度。
 
 手动一项项调这些内核参数比较麻烦，还容易调错导致连接不稳定，所以直接用一键脚本智能优化更省事。yahuisme 在 GitHub 上维护了一个针对这类场景的优化脚本：

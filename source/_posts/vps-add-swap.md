@@ -8,6 +8,77 @@ categories:
 description: VPS内存不够用时添加SWAP虚拟内存的完整步骤，fallocate创建、mkswap格式化、写入fstab永久生效。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "VPS怎么添加SWAP虚拟内存",
+      "description": "VPS内存不够用时添加SWAP虚拟内存的完整步骤，fallocate创建、mkswap格式化、写入fstab永久生效。",
+      "datePublished": "2026-08-16T10:00:00+08:00",
+      "dateModified": "2026-08-16T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/16/vps-add-swap/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "给VPS添加SWAP虚拟内存",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "创建SWAP文件",
+          "text": "用fallocate -l 2G /swapfile创建，如果提示fallocate failed（部分VPS文件系统不支持），换成dd if=/dev/zero of=/swapfile bs=1M count=2048代替。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "先收紧权限再格式化启用",
+          "text": "顺序很重要：先chmod 600 /swapfile收紧权限，再执行mkswap /swapfile和swapon /swapfile，顺序反了会导致中间有个时间窗口其他用户能读到SWAP内容。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "写入fstab永久生效",
+          "text": "执行echo '/swapfile none swap sw 0 0' >> /etc/fstab，不写这一步重启后SWAP设置就没了。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "按需调整swappiness",
+          "text": "用sysctl vm.swappiness=10调整系统使用SWAP的积极程度，数值越低系统越优先用物理内存，同时写入/etc/sysctl.conf让重启后依然生效。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "SWAP大小该设置多大？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "没有一刀切标准，常见参考是跟物理内存差不多大，1G内存配1-2G SWAP，2G内存配2-4G SWAP，内存越大SWAP的边际作用越小。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "加了SWAP之后长期被占用大半是正常的吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这其实是内存真的不够用的信号，SWAP的读写速度跟物理内存差几个数量级，长期依赖SWAP运行性能会明显下降，遇到这种情况该考虑升级内存套餐或优化程序本身的内存占用，而不是一味把SWAP开得更大。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 小内存VPS（512M、1G这种）跑着跑着突然卡死、甚至直接断连，很多时候不是CPU的问题，是内存被吃满之后系统开始疯狂调度，最后干脆被OOM Killer强制杀进程。加一块SWAP能给系统一个缓冲，扛住突发的内存峰值。
 
 ## 创建SWAP文件
