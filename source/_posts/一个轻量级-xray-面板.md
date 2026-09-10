@@ -10,6 +10,51 @@ date: 2025-07-09 12:32:25
 description: FranzKafkaYu/x-ui是vaxilu原版x-ui的一个分支，单端口支持多协议多用户，目前该仓库已归档不再更新。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "一个轻量级 Xray 面板",
+      "description": "FranzKafkaYu/x-ui是vaxilu原版x-ui的一个分支，单端口支持多协议多用户，目前该仓库已归档不再更新。",
+      "datePublished": "2025-07-09T12:32:25+08:00",
+      "dateModified": "2025-07-09T12:32:25+08:00",
+      "url": "https://vpsjq.com/2025/07/09/一个轻量级-xray-面板/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "FranzKafkaYu/x-ui这个面板还在维护吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "没有，这个仓库目前在GitHub上标注为Public archive（已归档），作者已经停止更新维护，如果比较在意能不能持续获得新协议支持，建议直接用活跃维护的MHSanaei/3x-ui。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这个面板有什么特点？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "单端口支持多协议多用户，不用为每个用户或协议单独开端口，支持中英文双语界面，面板管理菜单里直接有一键安装BBR选项，默认端口54321、默认账号admin/admin，装完建议及时通过面板菜单修改。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 **轻量级 Xray 面板** bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)   项目来源:   https://github.com/FranzKafkaYu/x-ui?tab=readme-ov-file#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85
 
 这是**FranzKafkaYu/x-ui**，同样是vaxilu原版x-ui的一个分支（fork），特点是单端口支持多协议多用户，同时支持英文界面和Telegram机器人集成，操作体验做了不少优化。
