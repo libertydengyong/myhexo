@@ -11,6 +11,59 @@ date: 2025-06-08 20:47:40
 description: Iconic One主题手机端面包屑导航不显示的折腾过程，试过CSS方案但效果不理想，最后改用一行PHP代码解决。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Iconic One主题手机端面包屑导航折腾记录",
+      "description": "Iconic One主题手机端面包屑导航不显示的折腾过程，试过CSS方案但效果不理想，最后改用一行PHP代码解决。",
+      "datePublished": "2025-06-08T20:47:40+08:00",
+      "dateModified": "2025-06-08T20:47:40+08:00",
+      "url": "https://vpsjq.com/2025/06/08/iconic-one/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Iconic One主题面包屑导航在手机端不显示是什么原因？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "面包屑导航在桌面端显示正常，切到手机屏幕就不见了，尝试用CSS媒体查询配合display: block !important和visibility: visible !important强制显示，但效果不理想，不同手机屏幕宽度下表现不一致。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "最后是怎么解决的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "放弃CSS方案，改用PHP直接输出面包屑结构，一行PHP代码输出首页链接、当前分类和文章标题，不带任何预设样式，手机端和桌面端都能正常显示，不需要媒体查询也不需要!important强制覆盖，样式完全自己控制反而更灵活。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "这段PHP代码要放在哪里？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "加到主题的single.php或者header.php里合适的位置，具体放哪里取决于想让面包屑出现在页面的哪个位置，不需要装任何插件。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Iconic One 是一个设计比较清新的免费 WordPress 主题，布局简洁，加载也快，适合内容型博客。用这个主题的时候遇到一个问题：面包屑导航在桌面端显示正常，切到手机屏幕就不见了。
 
 第一反应是用 CSS 强制显示，思路是用媒体查询针对手机屏幕单独写样式，加上 `display: block !important` 和 `visibility: visible !important` 强制让面包屑容器显示出来，顺带统一链接颜色。代码写了一大段，涉及媒体查询、容器定位、内部元素的 inline-block 处理，看起来挺完整的。

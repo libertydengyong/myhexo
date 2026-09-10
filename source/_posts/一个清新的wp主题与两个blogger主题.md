@@ -10,6 +10,51 @@ date: 2025-06-10 19:28:45
 description: 两个值得推荐的Blogger主题——Median UI和Contempo，以及Blogger官方内置的其他几款主题介绍。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "一个清新的wp主题与两个blogger主题",
+      "description": "两个值得推荐的Blogger主题——Median UI和Contempo，以及Blogger官方内置的其他几款主题介绍。",
+      "datePublished": "2025-06-10T19:28:45+08:00",
+      "dateModified": "2025-06-10T19:28:45+08:00",
+      "url": "https://vpsjq.com/2025/06/10/一个清新的wp主题与两个blogger主题/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Median UI这个Blogger主题有什么特点？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "采用仪表盘风格设计，导航菜单做成三栏布局，第一栏专门放导航菜单可自由收起展开，加载速度快、支持SEO优化的代码结构、完全响应式支持深色模式切换、自带Blogger原生评论和Disqus评论支持，免费版功能相对基础，付费版有更完整的自定义选项。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Contempo这类官方内置主题有什么优缺点？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contempo、Soho、Emporio、Notable都是Blogger平台官方内置主题，不需要额外下载安装，直接在Blogger后台主题设置里选择切换，好处是兼容性有保障、更新由官方维护，不用担心作者停止维护，缺点是设计风格相对没有第三方主题多样和个性化。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 一个清新的wp主题与两个blogger主题:  清新的wp主题是Iconic One Tme 两个blogger主题一个是median ui blogger template 一个是Contempo ，Contempo在Blogger 官方内置主题有，当然，Soho / Emporio /Notable 这几个也不错，也在Blogger 官方内置。
 
 提到的这个WordPress主题Iconic One，之前已经单独写过一篇更详细的[Iconic One免费WordPress主题介绍与下载](https://vpsjq.com/2025/06/08/iconic-one/)，这里重点说说另外提到的两个Blogger主题。

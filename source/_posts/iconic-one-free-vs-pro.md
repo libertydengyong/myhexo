@@ -9,6 +9,59 @@ categories:
 description: Iconic One免费版和Pro版的功能对比，博客用免费版够不够用，以及Pro版几个功能对普通博客的实际价值分析。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Iconic One免费版和Pro版有什么区别",
+      "description": "Iconic One免费版和Pro版的功能对比，博客用免费版够不够用，以及Pro版几个功能对普通博客的实际价值分析。",
+      "datePublished": "2026-08-29T10:00:00+08:00",
+      "dateModified": "2026-08-29T10:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/iconic-one-free-vs-pro/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Iconic One的Pro版比免费版多了什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "去掉底部版权信息、无限颜色选项、高级现代设计、社交分享集成、高级页面模板、定期版本更新和6小时内优先客服支持，核心设计和布局两个版本是一样的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "普通博客用免费版够用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "完全够用，响应式布局、基本自定义选项、清新简洁的设计这些核心功能免费版都有，日常写文章发布内容没有障碍。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么情况下需要升级Pro版？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主要两种情况：介意底部版权信息想去掉；对颜色和视觉风格有比较高的自定义需求，如果这两点都不在意，免费版用着就行。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 Iconic One 有免费版和 Pro 版两个版本，免费版直接在 WordPress 官方主题库下载，Pro 版需要去开发者官网 themonic.com 购买。两个版本的核心设计和布局是一样的，差别在于几个附加功能。
 
 Pro 版比免费版多了这些：去掉底部版权信息、无限颜色选项、高级现代设计、社交分享集成、高级页面模板、定期版本更新和6小时内优先客服支持。

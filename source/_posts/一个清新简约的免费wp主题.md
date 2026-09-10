@@ -10,6 +10,30 @@ date: 2025-05-05 08:21:32
 description: 分享一款设计清新简约的免费 WordPress 主题（cu2.3.zip）及其官方源码下载链接。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "一个清新简约的免费wp主题",
+      "description": "分享一款设计清新简约的免费 WordPress 主题（cu2.3.zip）及其官方源码下载链接。",
+      "datePublished": "2025-05-05T08:21:32+08:00",
+      "dateModified": "2025-05-05T08:21:32+08:00",
+      "url": "https://vpsjq.com/2025/05/05/一个清新简约的免费wp主题/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    }
+  ]
+}
+</script>
+
 <a href="https://down.2zzt.com/uploads/cu/cu2.3.zip" rel="nofollow">下载地址</a>
 
 

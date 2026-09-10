@@ -11,6 +11,64 @@ date: 2025-06-07 22:32:52
 description: 2012胡鹤轩WordPress主题源码下载与安装部署方法，MIT/GPL2双协议开源，基于Twenty Twelve二次开发。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "2012胡鹤轩WordPress主题源码分享",
+      "description": "2012胡鹤轩WordPress主题源码下载与安装部署方法，MIT/GPL2双协议开源，基于Twenty Twelve二次开发。",
+      "datePublished": "2025-06-07T22:32:52+08:00",
+      "dateModified": "2025-06-07T22:32:52+08:00",
+      "url": "https://vpsjq.com/2025/06/07/2012-huhexian-main/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "安装2012胡鹤轩WordPress主题",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "下载源码",
+          "text": "从GitHub仓库huhexian/2012-huhexian下载源码压缩包，或者直接下载main分支的zip包。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "上传主题文件夹",
+          "text": "解压后把整个主题文件夹上传到WordPress站点的wp-content/themes/目录下。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "在后台启用主题",
+          "text": "登录WordPress后台，进入外观-主题，找到这个主题点击启用。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个主题的开源协议是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "遵循MIT/GPL2双协议开源，可以自由使用、修改、二次分发，不需要付费或授权申请，唯一要求是保留原作者的版权声明，具体条款以仓库内LICENSE文件为准。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 源码地址：https://github.com/huhexian/2012-huhexian
 
 这个主题之前也写过一篇[Twentytwelve 木头人修改版](https://vpsjq.com/2025/05/15/61/)介绍过它的功能特点，这篇换个角度，说说源码本身和具体的安装部署方法。

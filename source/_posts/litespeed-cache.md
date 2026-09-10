@@ -9,6 +9,77 @@ categories:
 description: LiteSpeed Cache插件的页面缓存、图片优化和QUIC.cloud CDN配置方法，配合OpenLiteSpeed服务器使用效果最好。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "LiteSpeed Cache插件配置教程：页面缓存、图片优化和CDN",
+      "description": "LiteSpeed Cache插件的页面缓存、图片优化和QUIC.cloud CDN配置方法，配合OpenLiteSpeed服务器使用效果最好。",
+      "datePublished": "2026-08-30T12:00:00+08:00",
+      "dateModified": "2026-08-30T12:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/30/litespeed-cache/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "配置LiteSpeed Cache插件",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "安装插件",
+          "text": "WordPress后台插件-添加新插件，搜索LiteSpeed Cache安装并启用，如果服务器是OpenLiteSpeed搭建的效果最好。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "开启页面缓存",
+          "text": "进入LiteSpeed Cache-缓存，把启用缓存打开保存，开启后访客请求页面时服务器直接返回缓存好的静态HTML，不用每次重新执行PHP和查询数据库。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置图片优化",
+          "text": "进入LiteSpeed Cache-图片优化，点请求优化积分，插件会把图片上传到QUIC.cloud压缩后替换原图，QUIC.cloud每月有免费额度。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置CDN",
+          "text": "进入LiteSpeed Cache-CDN，先在QUIC.cloud官网注册账号，在插件里填入域名开启QUIC.cloud CDN，静态资源通过CDN节点分发。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "开启缓存后登录用户看到的内容不对怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大概率是缓存没有正确排除登录用户的请求，在缓存设置的不缓存选项里确认登录用户、购物车、后台这些路径已经被排除在缓存之外。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "改了网站内容但前台还是显示旧内容怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "手动清一下缓存，在WordPress后台顶部工具栏找到LiteSpeed Cache的清除缓存按钮点一下即可。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 LiteSpeed Cache 是专门为 LiteSpeed 和 OpenLiteSpeed 服务器设计的 WordPress 缓存插件，配合 OpenLiteSpeed 使用效果比其他缓存插件好很多，因为插件可以直接调用服务器层面的缓存机制，不只是 PHP 层面的缓存。安装完之后网站速度提升很明显，页面加载时间能缩短不少。
 
 在 WordPress 后台直接安装，左侧菜单点**插件** -> **添加新插件**，搜索"LiteSpeed Cache"，找到之后安装并启用。如果你的服务器是用 OpenLiteSpeed 搭建的，可以参考[一键安装OpenLiteSpeed与WP](https://vpsjq.com/2026/07/22/一键安装-openlitespeed与wp/)，装好服务器环境之后再安装这个插件。
