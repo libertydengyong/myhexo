@@ -77,7 +77,7 @@ VPS用久了会发现，同样的带宽，有的服务器传文件、访问网�
 bash <(curl -sL https://raw.githubusercontent.com/yahuisme/network-optimization/main/script.sh)
 ```
 
-脚本会自动检测当前系统的内核版本和网络环境，调整拥塞控制算法（切换到BBR）、TCP缓冲区大小（根据服务器内存和带宽调大读写缓冲区）、队列规则（搭配BBR一起调整）以及其他内核网络参数（比如连接队列长度、TIME_WAIT状态回收等）。不需要手动挨个改 `/etc/sysctl.conf`，脚本跑完会自动应用配置。
+脚本会自动检测当前系统的内核版本和网络环境，调整拥塞控制算法（切换到BBR）、TCP缓冲区大小（根据服务器内存和带宽调大读写缓冲区）、队列规则（搭配BBR一起调整）以及其他内核网络参数（比如连接队列长度、TIME_WAIT状态回收等）。不需要手动挨个改 `/etc/sysctl.conf`，脚本跑完会自动应用配置。如果想搞清楚TIME_WAIT状态回收具体在解决什么问题、为什么高并发场景下端口会被耗尽，可以看看[Linux服务器为什么会积累大量TIME_WAIT连接](https://vpsjq.com/2026/08/17/linux-time-wait-port-exhaustion/)这篇，原理讲得比较细。
 
 跑脚本之前，先确认一下内核版本，BBR从Linux 4.9开始才支持：
 
