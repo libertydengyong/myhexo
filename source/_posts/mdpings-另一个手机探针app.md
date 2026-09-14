@@ -23,7 +23,7 @@ MDPings本质上是**哪吒监控（Nezha）**这个开源监控项目的安卓�
 
 ## 使用前提
 
-用MDPings之前，VPS上得先部署好哪吒监控面板，App本身只是个"壳"，连不上面板就什么都看不了。如果手头还没有部署过哪吒面板，需要先在服务器上装好，拿到面板地址（形如 `https://your.nezha.api.com/`）之后，在MDPings里填入这个地址和对应的密钥才能连接成功。
+用MDPings之前，VPS上得先部署好哪吒监控面板，App本身只是个"壳"，连不上面板就什么都看不了。如果手头还没有部署过哪吒面板，可以参考[哪吒监控官方安装文档](https://nezha.wiki/guide/dashboard.html)先在服务器上装好，拿到面板地址（形如 `https://your.nezha.api.com/`）之后，在MDPings里填入这个地址和对应的密钥才能连接成功。
 
 下载地址：[GitHub - icylian/MDPings](https://github.com/icylian/MDPings)
 
