@@ -195,5 +195,13 @@ journalctl -xe
 
 普通单节点部署比较简单，而结合 IPv6 环境以及中转落地之后，则能够根据不同线路灵活组合入口和出口，在后续维护时也更加方便。
 
+## 更多 S-UI 教程
+
+面板装好、基础环境确认没问题之后，可以按需要参考下面几篇更细分的教程：
+
+- 协议配置：[SNI 配置教程](https://vpsjq.com/2026/09/06/s-ui-sni/)、[TUIC 节点教程](https://vpsjq.com/2026/09/06/s-ui-tuic/)、[Hysteria2 节点教程](https://vpsjq.com/2026/09/06/S-UI-%E6%90%AD%E5%BB%BA-Hysteria2-%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/)、[端口跳跃配置](https://vpsjq.com/2026/09/06/s-ui-port-hopping/)
+- 面板使用：[SSL证书配置](https://vpsjq.com/2026/08/28/s-ui-certificate/)、[订阅链接获取和客户端导入](https://vpsjq.com/2026/08/29/s-ui-subscription/)
+- 选型参考：[alireza0/s-ui 官方仓库与常用命令](https://vpsjq.com/2026/09/06/s-ui-alireza0-guide/)、[S-UI 原版和分叉版对比](https://vpsjq.com/2026/09/07/s-ui-pro-panel-fork/)、[S-UI 和 3x-ui 有什么区别](https://vpsjq.com/2026/09/06/s-ui-vs-3x-ui/)
+
 
 
