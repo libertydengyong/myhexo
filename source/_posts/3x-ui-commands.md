@@ -36,61 +36,61 @@ description: 3x-ui面板常用命令汇总，包括启动、停止、重启、�
 
 启动面板：
 
-\`\`\`bash
+```bash
 x-ui start
-\`\`\`
+```
 
 停止面板：
 
-\`\`\`bash
+```bash
 x-ui stop
-\`\`\`
+```
 
 重启面板（改了配置之后通常需要重启才能生效）：
 
-\`\`\`bash
+```bash
 x-ui restart
-\`\`\`
+```
 
 查看面板当前运行状态：
 
-\`\`\`bash
+```bash
 x-ui status
-\`\`\`
+```
 
 查看面板日志（排查问题的时候用，能看到报错信息）：
 
-\`\`\`bash
+```bash
 x-ui log
-\`\`\`
+```
 
 查看当前安装的版本号：
 
-\`\`\`bash
+```bash
 x-ui version
-\`\`\`
+```
 
 更新到最新版本：
 
-\`\`\`bash
+```bash
 x-ui update
-\`\`\`
+```
 
 更新前建议先备份数据库文件，具体备份方法参考[3x-ui面板迁移与备份教程](https://vpsjq.com/2026/08/27/3x-ui-backup-migrate/)，跨版本更新有时候数据库结构会变化，备份是最保险的做法。
 
 重置用户名和密码回 admin/admin（忘记密码的时候用）：
 
-\`\`\`bash
+```bash
 x-ui reset
-\`\`\`
+```
 
 重置完之后用默认的 admin/admin 登录面板，进去之后第一件事改掉默认密码，入口在面板右上角用户名那里。
 
 卸载面板：
 
-\`\`\`bash
+```bash
 x-ui uninstall
-\`\`\`
+```
 
 卸载后数据库文件不会自动删除，需要手动清理，完整卸载步骤参考[3x-ui卸载方法和数据清理](https://vpsjq.com/2026/08/30/3x-ui-uninstall/)。
 

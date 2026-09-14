@@ -73,25 +73,25 @@ Hysteria2 是基于 QUIC 的代理协议，在高丢包高延迟的网络环境�
 
 老王工具箱的安装命令：
 
-\`\`\`bash
+```bash
 wget -qO ssh_tool.sh https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
-\`\`\`
+```
 
 跑完会出现一个菜单，从菜单里选择安装 Hysteria2 的选项，脚本会自动处理依赖安装和配置。f佬和223的独立脚本安装命令去各自的 GitHub 仓库找最新版本，README 里有当前维护的命令。
 
 安装完之后验证 Hysteria2 是否正常运行，最直接的方式是把节点导入客户端测试连接速度，速度正常说明运行没有问题。也可以检查服务状态：
 
-\`\`\`bash
+```bash
 systemctl status hysteria-server
-\`\`\`
+```
 
 显示 active (running) 说明服务在跑。
 
 Hysteria2 走的是 UDP 协议，防火墙需要单独放行 UDP 端口，不是只开 TCP 就够了：
 
-\`\`\`bash
+```bash
 ufw allow 你的端口号/udp
-\`\`\`
+```
 
 如果服务商有安全组（比如甲骨文、AWS），同样需要在控制台手动加 UDP 入站规则，光在系统防火墙放行不够。连不上的时候这是最常见的原因。
 

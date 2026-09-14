@@ -76,15 +76,15 @@ XanMod 内核的更新方式主要有两种，用哪种取决于你当初是怎�
 
 如果是通过 apt 源安装的，直接跑系统更新命令就能把 XanMod 内核更新到最新版：
 
-\`\`\`bash
+```bash
 apt update && apt upgrade -y
-\`\`\`
+```
 
 这条命令会把系统里所有可更新的包一起升级，包括 XanMod 内核。如果只想单独更新 XanMod，可以指定包名：
 
-\`\`\`bash
+```bash
 apt update && apt install --only-upgrade linux-xanmod
-\`\`\`
+```
 
 具体包名取决于你装的是哪个版本，`linux-xanmod`、`linux-xanmod-edge` 还是 `linux-xanmod-lts`，把对应的包名替换进去就行。
 
@@ -94,8 +94,8 @@ apt update && apt install --only-upgrade linux-xanmod
 
 更新完之后需要重启才能切换到新内核：
 
-\`\`\`bash
+```bash
 reboot
-\`\`\`
+```
 
 重启完用 `uname -r` 确认内核版本有没有更新，输出里应该能看到新的版本号。如果重启之后内核没有切换过去，还是跑着旧版本，跟安装时内核未切换的情况一样，大概率是 grub 默认启动项没有更新。这种情况在廉价 VPS 上比较常见，可以尝试手动设置默认内核，但如果 VPS 本身对 grub 有限制，改了也不一定生效，这时候就只能继续用旧内核，强行折腾意义不大，参考[XanMod内核安装失败怎么办](https://vpsjq.com/2026/08/27/xanmod-install-fail/)里的分析。

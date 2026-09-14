@@ -76,22 +76,22 @@ Debian 和 Ubuntu 是 VPS 上最常见的两个系统，开启 BBR 的方式比�
 
 手动方式适合想了解具体配置的情况。先确认内核版本够不够，BBR 从 Linux 4.9 开始支持：
 
-\`\`\`bash
+```bash
 uname -r
-\`\`\`
+```
 
 内核版本在 4.9 以上就可以继续。把下面两行加到 `/etc/sysctl.conf` 里：
 
-\`\`\`bash
+```bash
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-\`\`\`
+```
 
 然后让配置生效：
 
-\`\`\`bash
+```bash
 sysctl -p
-\`\`\`
+```
 
 改完之后建议重启服务器，确保配置在重启后也能持久生效。
 
@@ -99,15 +99,15 @@ sysctl -p
 
 不管用哪种方式，开启之后验证一下有没有真正生效：
 
-\`\`\`bash
+```bash
 sysctl net.ipv4.tcp_congestion_control
-\`\`\`
+```
 
 输出 `bbr` 说明拥塞控制算法已经切换成功。再检查一下队列规则：
 
-\`\`\`bash
+```bash
 sysctl net.core.default_qdisc
-\`\`\`
+```
 
 输出 `fq` 或者 `fq_codel` 说明配置完整。如果验证结果不对，先确认重启之后配置有没有持久化，有时候 `sysctl -p` 当时生效了但重启后又恢复默认，检查一下 `/etc/sysctl.conf` 里两行有没有正确写入。
 

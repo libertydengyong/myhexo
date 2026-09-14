@@ -78,9 +78,9 @@ description: 在纯IPv6 VPS上用3x-ui搭建代理节点的完整流程，包括
 
 IPv4出口配置好之后，3x-ui的安装跟普通VPS没有区别，直接跑一键安装脚本：
 
-\`\`\`bash
+```bash
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
-\`\`\`
+```
 
 安装完之后终端会打印面板地址、端口、用户名和密码，照着登录就行。
 

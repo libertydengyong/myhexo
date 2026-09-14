@@ -81,21 +81,21 @@ BBR3 是目前 BBR 系列里最新的版本，已经合并进较新的 Linux 主
 
 安装命令直接去 byJoey 的 GitHub 仓库找最新的，地址是 `https://github.com/byJoey/Actions-bbr-v3`，README 里有当前维护的安装命令，直接复制跑就行。脚本跑完之后建议重启服务器，让新内核生效：
 
-\`\`\`bash
+```bash
 reboot
-\`\`\`
+```
 
 重启之后验证 BBR3 有没有生效：
 
-\`\`\`bash
+```bash
 sysctl net.ipv4.tcp_congestion_control
-\`\`\`
+```
 
 输出 `bbr` 说明生效了。再确认一下内核版本有没有切换过来：
 
-\`\`\`bash
+```bash
 uname -r
-\`\`\`
+```
 
 输出里应该能看到新的内核版本号，跟安装之前不一样。
 

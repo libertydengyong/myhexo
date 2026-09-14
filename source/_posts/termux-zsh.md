@@ -62,21 +62,21 @@ Termux 默认用的是 bash，够用但体验一般。换成 zsh 加上 oh-my-zs
 
 先安装 zsh：
 
-\`\`\`bash
+```bash
 pkg install zsh
-\`\`\`
+```
 
 装完之后安装 oh-my-zsh，这是一个 zsh 的配置框架，内置了大量实用插件和主题：
 
-\`\`\`bash
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-\`\`\`
+```
 
 安装过程中会自动把默认 shell 切换成 zsh，安装完重启 Termux 就能看到效果。如果没有自动切换，手动设置一下：
 
-\`\`\`bash
+```bash
 chsh -s zsh
-\`\`\`
+```
 
 执行这条命令时如果报 Permission denied，这是 Termux 官方仓库里记录过的一个已知问题，通常跟 ~/.termux/shell 这个路径的权限有关。可以先尝试重启 Termux 再重新执行一次；如果还是不行，检查一下 Termux 本身是否是从 Google Play 商店安装的版本——官方建议优先用 F-Droid 或者 GitHub Release 版本，Play 商店版本因为权限限制更容易出现这类问题。
 

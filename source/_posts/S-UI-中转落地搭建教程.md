@@ -81,9 +81,9 @@ description: S-UI面板搭建中转落地代理架构的完整步骤，涵盖落
 
 安装命令：
 
-\`\`\`bash
+```bash
 bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh)
-\`\`\`
+```
 
 落地机配置：
 

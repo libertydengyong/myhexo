@@ -75,9 +75,9 @@ Termux 装了一堆包、配置好了 SSH 密钥和各种工具之后，换手�
 
 备份命令：
 
-\`\`\`bash
+```bash
 termux-backup ~/storage/shared/termux-backup.tar.gz
-\`\`\`
+```
 
 这条命令会把 Termux 的 home 目录和已安装的包打包成一个 tar.gz 文件，保存到手机的公共存储目录里（也就是文件管理器里能看到的位置）。备份文件可能比较大，取决于你安装了多少包和 home 目录里有多少文件，几百 MB 到几 GB 都有可能，备份之前确认一下手机存储空间够不够。
 
@@ -85,15 +85,15 @@ termux-backup ~/storage/shared/termux-backup.tar.gz
 
 恢复备份的命令：
 
-\`\`\`bash
+```bash
 termux-restore ~/storage/shared/termux-backup.tar.gz
-\`\`\`
+```
 
 恢复之前需要先给 Termux 申请存储权限（如果是新安装的 Termux），跑一下：
 
-\`\`\`bash
+```bash
 termux-setup-storage
-\`\`\`
+```
 
 申请完权限之后再跑恢复命令。恢复过程会把备份文件里的内容覆盖到当前 Termux 环境，恢复完之后重启 Termux，之前安装的包和配置基本都会恢复回来。
 

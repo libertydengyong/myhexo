@@ -82,23 +82,23 @@ byJoey 的 Actions-bbr-v3，专门针对 BBR3，从 GitHub Releases 下载匹配
 
 换脚本之前先确认一下当前系统的内核版本：
 
-\`\`\`bash
+```bash
 uname -r
-\`\`\`
+```
 
 再确认系统版本：
 
-\`\`\`bash
+```bash
 cat /etc/os-release
-\`\`\`
+```
 
 把这两个信息对照脚本的说明，选一个支持你当前系统的脚本来跑，避免又遇到同样的兼容性问题。如果换了脚本还是有问题，也可以考虑直接升级系统到新版本，新版本的内核包维护更活跃，headers 缺失的情况更少。
 
 装完之后用这两条命令验证 BBR 有没有真正生效：
 
-\`\`\`bash
+```bash
 lsmod | grep bbr
 sysctl net.ipv4.tcp_congestion_control
-\`\`\`
+```
 
 如果验证结果正常但感觉速度没有提升，原因分析参考[为什么开了BBR网速却感觉一点没提升](https://vpsjq.com/2026/08/18/bbr-no-improvement/)。
