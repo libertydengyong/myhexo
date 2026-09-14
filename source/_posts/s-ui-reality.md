@@ -6,7 +6,7 @@ tags:
   - VLESS Reality
 categories:
   - vps技巧
-description: 在S-UI面板里配置VLESS Reality节点的完整流程，包括dest目标网站设置、密钥生成和客户端连接配置。
+description: S-UI教程：4步搭建VLESS Reality节点，dest伪装、密钥生成一次讲清，连不上的排查方法也附上了。
 ---
 
 <script type="application/ld+json">
@@ -16,7 +16,7 @@ description: 在S-UI面板里配置VLESS Reality节点的完整流程，包括de
     {
       "@type": "BlogPosting",
       "headline": "S-UI面板搭建VLESS Reality节点",
-      "description": "在S-UI面板里配置VLESS Reality节点的完整流程，包括dest目标网站设置、密钥生成和客户端连接配置。",
+      "description": "S-UI教程：4步搭建VLESS Reality节点，dest伪装、密钥生成一次讲清，连不上的排查方法也附上了。",
       "datePublished": "2026-08-28T23:00:00+08:00",
       "dateModified": "2026-08-28T23:00:00+08:00",
       "url": "https://vpsjq.com/2026/08/28/s-ui-reality/",
