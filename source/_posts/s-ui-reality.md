@@ -72,7 +72,7 @@ description: S-UI教程：4步搭建VLESS Reality节点，dest伪装、密钥生
 }
 </script>
 
-S-UI 配置 VLESS Reality 的流程跟 3x-ui 基本一样，操作逻辑相同，只是界面布局有些差别。Reality 不需要自己的域名和证书，这是它比普通 VLESS TLS 省事的地方，不用提前申请证书，也不用配置[SSL证书路径](https://vpsjq.com/2026/08/28/s-ui-certificate/)。
+前提是面板已经装好，还没装的可以先参考[S-UI面板搭建教程](https://vpsjq.com/2025/11/17/s-ui面板搭建/)。S-UI 配置 VLESS Reality 的流程跟 3x-ui 基本一样，操作逻辑相同，只是界面布局有些差别。Reality 不需要自己的域名和证书，这是它比普通 VLESS TLS 省事的地方，不用提前申请证书，也不用配置[SSL证书路径](https://vpsjq.com/2026/08/28/s-ui-certificate/)。
 
 进入 S-UI 面板后，找到入站管理，新建入站，协议选 VLESS，传输方式选 TCP，安全选项选 Reality，下面会展开 Reality 相关的配置项。这几个选项的顺序不能搞错，先选协议，再选传输方式，最后才能选到 Reality。
 
