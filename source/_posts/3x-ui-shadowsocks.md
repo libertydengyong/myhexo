@@ -1,6 +1,6 @@
 ---
 title: 3x-ui配置Shadowsocks节点及抗封锁分析
-date: 2026-08-30 24:00:00
+date: 2026-08-31 00:00:00
 tags:
   - 3x-ui
   - Shadowsocks
@@ -17,9 +17,9 @@ description: 在3x-ui面板里配置Shadowsocks 2022节点的步骤，以及Shad
       "@type": "BlogPosting",
       "headline": "3x-ui配置Shadowsocks节点及抗封锁分析",
       "description": "在3x-ui面板里配置Shadowsocks 2022节点的步骤，以及Shadowsocks容易被封的原因和替代方案建议。",
-      "datePublished": "2026-08-30T24:00:00+08:00",
-      "dateModified": "2026-08-30T24:00:00+08:00",
-      "url": "https://vpsjq.com/2026/08/30/3x-ui-shadowsocks/",
+      "datePublished": "2026-08-31T00:00:00+08:00",
+      "dateModified": "2026-08-31T00:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/31/3x-ui-shadowsocks/",
       "author": {
         "@type": "Organization",
         "name": "vpsjq.com"

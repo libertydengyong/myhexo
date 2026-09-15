@@ -1,6 +1,6 @@
 ---
 title: Iconic One主题免费下载和安装方法
-date: 2026-08-28 24:00:00
+date: 2026-08-29 00:00:00
 tags:
   - Iconic One
   - WordPress主题
@@ -17,9 +17,9 @@ description: Iconic One是一个免费的WordPress主题，直接在WordPress后
       "@type": "BlogPosting",
       "headline": "Iconic One主题免费下载和安装方法",
       "description": "Iconic One是一个免费的WordPress主题，直接在WordPress后台搜索安装或者去官方主题库下载zip文件，装完不需要额外配置直接可用。",
-      "datePublished": "2026-08-28T24:00:00+08:00",
-      "dateModified": "2026-08-28T24:00:00+08:00",
-      "url": "https://vpsjq.com/2026/08/28/iconic-one-download/",
+      "datePublished": "2026-08-29T00:00:00+08:00",
+      "dateModified": "2026-08-29T00:00:00+08:00",
+      "url": "https://vpsjq.com/2026/08/29/iconic-one-download/",
       "author": {
         "@type": "Organization",
         "name": "vpsjq.com"
