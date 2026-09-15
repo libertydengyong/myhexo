@@ -4,7 +4,7 @@ date: 2026-09-06 22:00:00
 tags:
   - BBRplus
   - BBR加速
-  - 内核兼容性
+  - Linux内核
 categories:
   - vps技巧
 description: BBRplus跑一键脚本提示内核版本不支持、下载不到对应内核，通常是脚本指向了已经停止维护的旧项目，换成还在持续更新的分支就能解决。

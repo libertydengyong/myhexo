@@ -2,7 +2,7 @@
 title: VPS测试脚本推荐：nodequality和融合怪的使用方法
 date: 2026-08-29 22:00:00
 tags:
-  - VPS测试
+  - VPS优化
   - Linux优化
 categories:
   - vps技巧

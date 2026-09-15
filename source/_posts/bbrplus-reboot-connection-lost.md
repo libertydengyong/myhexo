@@ -3,7 +3,7 @@ title: 装BBRplus重启后连不上服务器怎么办
 date: 2026-09-06 23:30:00
 tags:
   - BBRplus
-  - 内核
+  - Linux内核
   - 故障排查
 categories:
   - vps技巧

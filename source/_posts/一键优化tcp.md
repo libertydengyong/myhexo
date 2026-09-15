@@ -1,8 +1,8 @@
 ---
 title: "Linux VPS 一键优化 TCP 网络性能与 BBR 加速脚本"
 tags:
-  - 优化TCP
-  - BBR
+  - Linux网络优化
+  - BBR加速
   - BBRplus
 description: VPS 一键优化 TCP、开启 BBR、BBRplus、Alpine Linux 开启 BBR 等常见网络优化方法整理，提高服务器网络传输效率与访问体验。
 id: '58'

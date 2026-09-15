@@ -2,7 +2,7 @@
 title: 3x-ui纯IPv6 VPS申请SSL证书失败：acme.sh --listen-v6解决方法
 date: 2026-09-06 16:00:00
 tags:
-  - 3x-ui教程
+  - 3x-ui
   - IPv6
   - SSL证书
 categories:

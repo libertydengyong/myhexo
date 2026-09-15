@@ -28,6 +28,7 @@ highlight:
 lazyload: false
 sitemap:
   path: sitemap.xml
+  tags: false
 
 
 markdown:

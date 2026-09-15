@@ -2,7 +2,7 @@
 title: 装了XanMod内核出问题，怎么卸载切回默认内核
 date: 2026-08-27 10:00:00
 tags:
-  - XanMod回退
+  - XanMod内核
 categories:
   - Linux优化
 description: XanMod内核装完之后出现无法启动、网络异常这类问题，怎么安全切回原来的默认内核，以及为什么绝对不能急着把旧内核删掉。

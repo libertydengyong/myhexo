@@ -2,7 +2,7 @@
 title: Termux后台总被系统杀掉，正在跑的任务怎么保住
 date: 2026-08-25 20:00:00
 tags:
-  - Termux保活
+  - Termux
 categories:
   - vps工具
 description: 手机切个后台，Termux里正在跑的SSH连接和脚本就没了，安卓的省电机制是元凶，但设了唤醒锁和电池白名单可能还不够。

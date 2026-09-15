@@ -1,10 +1,8 @@
 ---
 title: S-UI面板搭建，IPv6部署代理节点与中转
 tags:
-  - S-UI面板搭建
-  - IPv6
-  - 中转
   - S-UI教程
+  - IPv6
 description: S-UI 面板搭建、IPv6 VPS 安装 S-UI、代理节点部署以及中转落地配置记录
 id: '174'
 categories:

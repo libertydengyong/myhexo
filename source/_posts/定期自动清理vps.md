@@ -1,7 +1,6 @@
 ---
 title: VPS一键定期自动清理与系统维护
 tags:
-  - vps清理
   - vps维护
 id: '171'
 categories:

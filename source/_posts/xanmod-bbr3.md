@@ -3,7 +3,7 @@ title: XanMod内核搭配BBR3使用教程
 date: 2026-08-27 14:00:00
 tags:
   - XanMod内核
-  - BBR3
+  - BBR加速
 categories:
   - Linux优化
 description: XanMod内核安装后开启BBR3的完整流程，包括版本选择、安装后内核验证和BBR3启用方法。

@@ -2,7 +2,7 @@
 title: 为什么开了BBR，网速却感觉一点没提升
 date: 2026-08-18 10:00:00
 tags:
-  - BBR原理
+  - BBR加速
   - Linux网络优化
 categories:
   - Linux优化

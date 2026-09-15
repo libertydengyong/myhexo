@@ -2,7 +2,6 @@
 title: BBR3一键安装脚本：byJoey Actions-bbr-v3 GitHub安装教程
 date: 2026-08-28 16:00:00
 tags:
-  - BBR3
   - BBR加速
 categories:
   - Linux优化
