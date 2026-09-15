@@ -82,7 +82,7 @@ description: LiteSpeed Cache插件的页面缓存、图片优化和QUIC.cloud CD
 
 LiteSpeed Cache 是专门为 LiteSpeed 和 OpenLiteSpeed 服务器设计的 WordPress 缓存插件，配合 OpenLiteSpeed 使用效果比其他缓存插件好很多，因为插件可以直接调用服务器层面的缓存机制，不只是 PHP 层面的缓存。安装完之后网站速度提升很明显，页面加载时间能缩短不少。
 
-在 WordPress 后台直接安装，左侧菜单点**插件** -> **添加新插件**，搜索"LiteSpeed Cache"，找到之后安装并启用。如果你的服务器是用 OpenLiteSpeed 搭建的，可以参考[一键安装OpenLiteSpeed与WP](https://vpsjq.com/2026/07/22/一键安装-openlitespeed与wp/)，装好服务器环境之后再安装这个插件。
+在 WordPress 后台直接安装，左侧菜单点**插件** -> **添加新插件**，搜索"LiteSpeed Cache"，找到之后安装并启用。如果你的服务器是用 OpenLiteSpeed 搭建的，可以参考[一键安装OpenLiteSpeed与WP](https://vpsjq.com/2025/05/06/一键安装-openlitespeed与wp/)，装好服务器环境之后再安装这个插件。
 
 启用插件之后左侧菜单会多出一个 LiteSpeed Cache 的设置入口。第一步先开启页面缓存，进入**LiteSpeed Cache** -> **缓存**，把**启用缓存**打开，保存设置。开启之后访客请求页面的时候，服务器会直接返回缓存好的静态 HTML，不需要每次都重新执行 PHP 和查询数据库，速度提升最明显的就是这一步。
 

@@ -88,7 +88,7 @@ termux-wake-unlock
 
 ## 第二层防护：把任务放进tmux，而不是直接跑在主会话里
 
-单纯开着wake-lock还不够稳妥，配合[之前写过的SSH断连处理方法](https://vpsjq.com/2026/08/15/vps-ssh-disconnect-process-killed/)，把任务放进`tmux`会话里跑，就算Termux本身被系统重启或者意外重开，只要底层进程没被真正杀死，重新连回去还能接上：
+单纯开着wake-lock还不够稳妥，配合[之前写过的SSH断连处理方法](https://vpsjq.com/2026/08/16/vps-ssh-disconnect-process-killed/)，把任务放进`tmux`会话里跑，就算Termux本身被系统重启或者意外重开，只要底层进程没被真正杀死，重新连回去还能接上：
 
 ```bash
 tmux new -s 任务名

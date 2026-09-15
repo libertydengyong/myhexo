@@ -10,7 +10,7 @@ date: 2025-05-07 21:39:51
 description: 使用 ylx2016 的 tcpx.sh 经典网络加速脚本一键安装与替换 Linux 系统 XanMod 内核的命令行指南，附 Debian/Ubuntu 系发行版通用说明。
 ---
 
-用 ylx2016 维护的 tcpx.sh 这个网络加速脚本合集，可以直接一键换成 XanMod 内核，不需要自己手动配置 APT 仓库：
+用 ylx2016 维护的 `tcpx.sh` 这个网络加速脚本合集，可以直接一键换成 XanMod 内核，不需要自己手动配置 APT 仓库：
 
 ```bash
 wget -O tcpx.sh "https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh" && chmod +x tcpx.sh && ./tcpx.sh
