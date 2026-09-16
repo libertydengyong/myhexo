@@ -1,7 +1,7 @@
 ---
 title: SSH 加快连接的几种方法
 tags:
-  - SSH 加快连接
+  - SSH
 id: '147'
 categories:
   - vps技巧

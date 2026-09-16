@@ -1,7 +1,7 @@
 ---
 title: VPS SSH连接很慢是什么原因
 tags:
-  - SSH连接慢
+  - SSH
 date: 2026-08-15 20:00:00
 categories:
   - vps技巧

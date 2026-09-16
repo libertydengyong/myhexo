@@ -72,9 +72,12 @@ Hexo的Markdown渲染器会把看起来像域名的裸文本（比如 `acme.sh`�
 - `_config.yml` 的 `sitemap:` 配置加了 `tags: false`，sitemap从311条URL降到约165条，不再主动把这146个tag页推给Google抓取（页面本身没删，只是不再通过sitemap索取）。
 - 合并了27组明显是同义词/拼写变体的孤儿tag到已有的常用tag（比如"IPv6 only VPS"等4个变体全部并入"IPv6"，"BBR/BBR原理/BBR3"并入"BBR加速"，"S-UI面板搭建"等5个并入"S-UI教程"），tag总数144→117，单篇孤儿tag数121→95。
 
-**还没处理、需要用户进一步决定的部分**：
-- SSH相关4个孤儿tag（SSH报错、SSH连接慢、SSH后台运行、SSH 加快连接）——要不要统一成一个"SSH"标签，用户还没给意见。
-- WordPress相关6个孤儿tag（WordPress、WordPress优化、WordPress SEO、WordPress面包屑、面包屑导航、wp添加面包屑导航）——同样还没决定怎么合并。
+**后续（2026-09-16）用户确认后追加处理**：
+- SSH相关4个孤儿tag（SSH报错、SSH连接慢、SSH后台运行、SSH 加快连接）已全部合并为统一的"SSH"标签（4篇文章共用）。
+- WordPress相关6个孤儿tag拆成两类分别合并：WordPress、WordPress优化、WordPress SEO 三个并入"WordPress"（3篇共用）；WordPress面包屑、面包屑导航、wp添加面包屑导航 三个并入"面包屑导航"（3篇共用）。
+- 以上两组合并后，去重后tag总数 117→110。
+
+**不建议合并的部分**：
 - 剩下几十个真正独一无二的孤儿tag（比如"root密码找回""安卓模拟定位"）不建议强行合并，本身就是单独话题。
 
 **验证效果需要等1-3周**，回GSC"网页索引"报告看"已发现-尚未编入索引"这个数字有没有下降，抽查剩下的URL是不是主要是文章而不是tag页。

@@ -2,7 +2,7 @@
 title: VPS关闭SSH连接后，之前跑的程序为什么会停止
 date: 2026-08-16 20:00:00
 tags:
-  - SSH后台运行
+  - SSH
 categories:
   - vps工具
 description: SSH断开后前台运行的程序被自动杀掉是SIGHUP信号导致的，用nohup或tmux能避免这种情况，让程序继续在后台跑。

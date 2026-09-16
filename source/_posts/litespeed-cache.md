@@ -3,7 +3,7 @@ title: LiteSpeed Cache插件配置教程：页面缓存、图片优化和CDN
 date: 2026-08-30 12:00:00
 tags:
   - LiteSpeed Cache
-  - WordPress优化
+  - WordPress
 categories:
   - WordPress
 description: LiteSpeed Cache插件的页面缓存、图片优化和QUIC.cloud CDN配置方法，配合OpenLiteSpeed服务器使用效果最好。

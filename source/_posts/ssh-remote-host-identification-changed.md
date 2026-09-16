@@ -1,7 +1,7 @@
 ---
 title: 解决 SSH 远程主机身份验证更改报错
 tags:
-  - SSH报错
+  - SSH
 date: 2026-08-15 20:10:00
 categories:
   - vps技巧
