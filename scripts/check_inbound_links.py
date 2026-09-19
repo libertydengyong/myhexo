@@ -31,6 +31,12 @@ from pathlib import Path
 
 POSTS_DIR = Path(__file__).resolve().parent.parent / "source" / "_posts"
 
+RED = "\033[1;31m"
+YELLOW = "\033[1;33m"
+GREEN = "\033[1;32m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+
 
 def load_posts():
     """返回 {url_path: filename}，url_path形如 '2026/08/28/slug/'"""
@@ -123,20 +129,44 @@ def main():
 
     results = sorted(inbound.items(), key=lambda x: (len(x[1]), x[0]))
     zero = [f for f, s in results if len(s) == 0]
-    one = [f for f, s in results if len(s) == 1]
+    one = [(f, s) for f, s in results if len(s) == 1]
 
-    print(f"文章总数: {len(posts)}")
-    print(f"0个站内回链（孤儿页）: {len(zero)}")
-    print(f"1个站内回链: {len(one)}")
-    print()
-    print("--- 0个回链的文章列表 ---")
-    for f in zero:
-        print(" ", f)
-    print()
-    print("--- 只有1个回链的文章列表（附来源） ---")
-    for f, s in results:
-        if len(s) == 1:
-            print(f"  {f}  <- {next(iter(s))}")
+    print(f"文章总数: {len(posts)}\n")
+
+    print(f"{BOLD}📋 摘要{RESET}")
+    print("-" * 50)
+    if zero:
+        print(f"  {RED}❌ 0个站内回链（孤儿页）: {len(zero)} 篇{RESET}")
+    else:
+        print(f"  {GREEN}✅ 0个站内回链（孤儿页）: 0 篇{RESET}")
+    if one:
+        print(f"  {YELLOW}⚠️  仅1个站内回链: {len(one)} 篇{RESET}")
+    else:
+        print(f"  {GREEN}✅ 仅1个站内回链: 0 篇{RESET}")
+    print("-" * 50 + "\n")
+
+    print(f"{BOLD}📖 详细结果{RESET}")
+    print("=" * 50)
+
+    print(f"\n1. 孤儿页（0个站内回链）")
+    if zero:
+        print(f"   {RED}{len(zero)} 篇{RESET}")
+        for f in zero:
+            print("   -", f)
+    else:
+        print(f"   {GREEN}✅ 没有孤儿页{RESET}")
+
+    print(f"\n2. 仅1个站内回链（附来源）")
+    if one:
+        print(f"   {YELLOW}{len(one)} 篇{RESET}")
+        for f, s in one:
+            print(f"   - {f}  <- {next(iter(s))}")
+    else:
+        print(f"   {GREEN}✅ 没有这类文章{RESET}")
+
+    print("\n" + "=" * 50)
+
+    return 1 if zero else 0
 
 
 if __name__ == "__main__":

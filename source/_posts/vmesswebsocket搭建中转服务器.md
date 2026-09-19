@@ -77,5 +77,3 @@ description: 记录使用 Vmess + WebSocket 协议配置 VPS 中转服务器的�
 
 相关内容
 [**S-UI面板搭建**](https://vpsjq.com/2025/11/17/s-ui面板搭建/)
-
-[**S-UI 中转落地**](https://vpsjq.com/2025/05/09/vmesswebsocket搭建中转服务器//)
