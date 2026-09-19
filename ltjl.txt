@@ -82,6 +82,27 @@ Hexo的Markdown渲染器会把看起来像域名的裸文本（比如 `acme.sh`�
 
 **验证效果需要等1-3周**，回GSC"网页索引"报告看"已发现-尚未编入索引"这个数字有没有下降，抽查剩下的URL是不是主要是文章而不是tag页。
 
+### 7. 全站"内链孤儿页"排查与新增检测脚本（2026-09-19起）
+参考用户另一个项目(paidsurvey)里的同类脚本思路，写了 `scripts/check_inbound_links.py`，扫描 `source/_posts/*.md`（不是生成后的HTML），按 `date`字段+文件名反推每篇文章的真实URL（同样处理`24:00:00`进位），识别3种内链写法（标准Markdown链接、HTML `<a href>`、Hexo的`{% post_link %}`标签），统计每篇文章被站内其他文章引用的次数。
+
+首次运行结果：154篇文章里**51篇是完全没有被任何其他文章链接过的孤儿页，41篇只被链接过1次**，加起来约60%。已交叉验证过脚本本身的准确性（全站301条内链里299条精确匹配，另外2条是内容本身的小瑕疵不是脚本bug）。
+
+已处理：**3x-ui安装主篇(2026-04-30-011.md)与8篇孤儿子文章**（3x-ui-docker-latency、3x-ui-forgot-password、3x-ui-ipv6-acme-cert-failed、3x-ui-shadowsocks、3x-ui-telegram-bot、3x-ui-upgrade、3x-ui-vless、3x-ui-warp）的双向回链，做法跟S-UI系列一致——主篇加"更多3x-ui配置教程"分类列表一次性回链，每篇孤儿各自补1条自然衔接的话链回主篇。处理后0回链孤儿数从51降到43。
+
+**还没处理的孤儿页分组**（按之前分析，供后续参考）：
+- XanMod/BBR/内核优化系列（约7篇）：bbr-module-not-loaded、bbr-optimize、bbrplus-sysctl-no-such-file、lotserver-vs-bbr、xanmod-uninstall-rollback、xanmod-update、xanmod-versions-choose
+- Termux系列（2篇）：termux-backup、termux-zsh
+- 老旧数字命名文章（约10篇，WordPress迁移遗留）：65、66、68、69、70、73、74、75、76、82
+- 其他零散孤儿（约24篇），需要逐个判断有没有合适的主篇/关联文章可以自然带出
+
+跑 `python3 scripts/check_inbound_links.py` 随时能拿到最新的孤儿页清单。
+
+### 8. 关于外部协作者/其他AI工具往这个仓库推送代码的经验（2026-09-19）
+用户曾让Antigravity独立对同一个仓库做过SEO相关的改动，产生过一次git分叉（`8532830`这个commit），排查过程中发现两点值得记录：
+- **commit的作者名/邮箱不代表推送者的真实身份**——遇到过一个显示为`LiamThomasiiasa <...@outlook.co.nz>`的commit作者，一开始怀疑是不是仓库权限被别人拿到了，后来用`gh api repos/.../collaborators`核实，仓库唯一有写权限的账号就是用户自己，说明推送本身是合法的，只是那台设备/工具的本地`git config user.name/email`没配置成我们统一用的`ziyouhua <freedomdengyong@outlook.com>`，显示了工具自带的默认占位身份。**遇到类似情况先查collaborators列表确认权限，不要仅凭commit署名就下结论。**
+- **不同AI工具各自独立分析出的"孤儿tag"或类似清单，起始基准数字可能对不上**（比如Antigravity算出的tag总数跟这边核实的对不上），说明每个工具的检测脚本/方法论可能有细微差异，合并别人的改动前最好看一下完整diff内容，而不是只看commit message里的结论数字。
+- 如果发现别人的改动跟这边已经明确做过的分类决策冲突（比如把用户特意拆分保留的独立tag又合并回去了），要在合并的基础上做针对性的修正commit，而不是全盘接受或者全盘拒绝。
+
 ---
 
 ## 三、给继续操作的AI工具/人的建议
