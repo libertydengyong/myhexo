@@ -36,7 +36,7 @@ keywords: 3x-ui telegram机器人,3x-ui telegram bot配置,3x-ui telegram bot no
 }
 </script>
 
-3x-ui 自带 Telegram 机器人通知功能，可以把面板登录提醒、流量统计、到期提醒这些消息直接推送到 Telegram，不用每次都登录面板去看。这篇教程把配置步骤和常见的"配置了但不工作"问题说清楚。
+前提是3x-ui已经按[3x-ui安装教程](https://vpsjq.com/2026/04/30/2026-04-30-011/)装好。3x-ui 自带 Telegram 机器人通知功能，可以把面板登录提醒、流量统计、到期提醒这些消息直接推送到 Telegram，不用每次都登录面板去看。这篇教程把配置步骤和常见的"配置了但不工作"问题说清楚。
 
 ## 第一步：找 BotFather 创建机器人
 

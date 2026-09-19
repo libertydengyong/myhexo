@@ -73,7 +73,7 @@ description: 在3x-ui面板里配置Cloudflare Warp，给服务器添加IPv4或I
 }
 </script>
 
-Cloudflare Warp 可以给服务器添加一个额外的网络出口，纯 IPv6 的 VPS 可以通过 Warp 获得 IPv4 出口，纯 IPv4 的服务器可以通过 Warp 获得 IPv6 出口。3x-ui 面板里有专门的 Warp 配置入口，在 Xray 设置里添加 Warp 出站，不需要手动编辑配置文件。
+前提是3x-ui已经按[3x-ui安装教程](https://vpsjq.com/2026/04/30/2026-04-30-011/)装好。Cloudflare Warp 可以给服务器添加一个额外的网络出口，纯 IPv6 的 VPS 可以通过 Warp 获得 IPv4 出口，纯 IPv4 的服务器可以通过 Warp 获得 IPv6 出口。3x-ui 面板里有专门的 Warp 配置入口，在 Xray 设置里添加 Warp 出站，不需要手动编辑配置文件。
 
 第一步先在服务器上安装 Warp，用 fscarmen 维护的一键安装脚本，安装命令去 GitHub 仓库找最新的：`https://github.com/fscarmen/warp`，README 里有当前维护的安装命令，根据你的需求选择添加 IPv4 还是 IPv6 出口。安装完之后 Warp 会在服务器上创建一个虚拟网络接口，流量可以通过这个接口走 Cloudflare 的网络出去。
 
