@@ -43,25 +43,38 @@ def run_script(script_name):
     return result.stdout, result.returncode
 
 
-def extract_summary_lines(output):
-    """从脚本输出里抠出"摘要"区块的几行（不含标题和分隔线本身）"""
+def split_output(output):
+    """把子脚本的输出拆成两部分：
+    1) 摘要区块的几行（供顶部"总摘要"提取用）
+    2) "详细结果"往后的内容（供下面完整展示，不再重复摘要区块本身）
+    """
     lines = output.splitlines()
-    in_summary = False
     summary_lines = []
+    detail_lines = []
+    in_summary = False
+    in_detail = False
     dash_count = 0
     for line in lines:
         if "📋 摘要" in line:
             in_summary = True
             continue
+        if "📖 详细结果" in line:
+            in_summary = False
+            in_detail = True
+            detail_lines.append(line)
+            continue
         if in_summary:
             if line.strip().startswith("---"):
                 dash_count += 1
                 if dash_count == 2:
-                    break
+                    in_summary = False
                 continue
             if line.strip():
                 summary_lines.append(line)
-    return summary_lines
+            continue
+        if in_detail:
+            detail_lines.append(line)
+    return summary_lines, "\n".join(detail_lines)
 
 
 def severity_rank(line):
@@ -78,15 +91,16 @@ def main():
     print("=" * 60)
 
     all_summary = []  # (severity, 脚本名, 原始行文本)
-    full_outputs = []
+    detail_outputs = []
     any_fail = False
 
     for label, script in CHECKS:
         output, code = run_script(script)
         if code != 0:
             any_fail = True
-        full_outputs.append((label, output))
-        for line in extract_summary_lines(output):
+        summary_lines, detail = split_output(output)
+        detail_outputs.append((label, detail))
+        for line in summary_lines:
             all_summary.append((severity_rank(line), label, line))
 
     all_summary.sort(key=lambda x: x[0])
@@ -101,11 +115,11 @@ def main():
         print(f"  {line.strip()}")
     print("\n" + "-" * 60)
 
-    for label, output in full_outputs:
+    for label, detail in detail_outputs:
         print(f"\n\n{BOLD}{'#' * 60}{RESET}")
         print(f"{BOLD}# {label}{RESET}")
         print(f"{BOLD}{'#' * 60}{RESET}\n")
-        print(output)
+        print(detail)
 
     return 1 if any_fail else 0
 
