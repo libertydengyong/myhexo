@@ -1,7 +1,7 @@
 ---
 title: 一个清新简约的免费wp主题
 tags:
-  - 清新简约的wp主题
+  - WordPress主题
 id: '16'
 categories:
   - WordPress

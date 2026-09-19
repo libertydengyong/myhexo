@@ -1,7 +1,7 @@
 ---
 title: 一个清新的wp主题与两个blogger主题
 tags:
-  - wp与blogger主题
+  - WordPress主题
 id: '111'
 categories:
   - WordPress

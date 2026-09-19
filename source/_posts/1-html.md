@@ -1,7 +1,7 @@
 ---
 title: css的方式一行代码给wordpress添加面包屑导航
 tags:
-  - 面包屑导航
+  - WordPress
 id: '118'
 categories:
   - WordPress

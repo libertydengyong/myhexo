@@ -1,7 +1,7 @@
 ---
 title: 2012胡鹤轩WordPress主题源码分享
 tags:
-  - 2012胡鹤轩WordPress主题
+  - WordPress主题
 id: '94'
 categories:
   - WordPress

@@ -1,7 +1,7 @@
 ---
 title: 一键安装 OpenLiteSpeed与WP
 tags:
-  - OpenLiteSpeed与wp
+  - WordPress
 id: '29'
 categories:
   - vps工具

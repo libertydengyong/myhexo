@@ -2,7 +2,7 @@
 title: Iconic One主题手机端面包屑导航折腾记录
 tags:
   - Iconic One
-  - 面包屑导航
+  - WordPress
 categories:
   - WordPress
 comments: false
