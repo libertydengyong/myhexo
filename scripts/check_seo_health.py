@@ -11,11 +11,12 @@ check_seo_health.py —— 全站SEO/结构健康检查工具（vpsjq.com / Hexo
   3. JSON-LD结构化数据的 url/datePublished/dateModified 跟文章真实permalink
      对不上（通常是问题2导致的连锁反应——日期进位了但JSON-LD没跟着改）
   4. 代码块用了转义反引号 \\`\\`\\` 而不是正常的三个反引号，导致代码框没法正常渲染
-  5. 正文里裸露的类似域名的英文短语(不在反引号里)紧贴中文，容易被Markdown
+  5. tags字段里混入HTML实体编码（&amp;等），标签页上会直接显示乱码文字
+  6. 正文里裸露的类似域名的英文短语(不在反引号里)紧贴中文，容易被Markdown
      渲染器误判成一个乱码域名链接（历史真实案例：acme.sh/tcpx.sh）
-  6. 单篇文章独占的"孤儿tag"数量（仅提示，不是每个孤儿tag都需要合并，
+  7. 单篇文章独占的"孤儿tag"数量（仅提示，不是每个孤儿tag都需要合并，
      但数量太多说明该做一轮tag梳理了）
-  7. sitemap.xml覆盖情况（需要联网请求线上sitemap，没网络时自动跳过这一项）
+  8. sitemap.xml覆盖情况（需要联网请求线上sitemap，没网络时自动跳过这一项）
 
 用法：
     python3 scripts/check_seo_health.py
@@ -153,6 +154,29 @@ def check_escaped_backtick_fences():
     return issues
 
 
+def check_html_entities_in_tags():
+    """检查tags字段里有没有混入HTML实体编码（&amp; &lt; &gt; 等），
+    这是纯粹的书写错误，不是"要不要合并"的孤儿tag问题——2026年9月
+    审计时发现过"Realm&amp;一键转发脚本"这种真实案例，标签页上会
+    直接显示乱码文字。"""
+    issues = []
+    entity_pattern = re.compile(r"&(amp|lt|gt|quot|#39);")
+    for path in sorted(glob.glob(os.path.join(POSTS_DIR, "*.md"))):
+        fn = os.path.basename(path)
+        content = open(path, encoding="utf-8", errors="ignore").read()
+        if not content.startswith("---"):
+            continue
+        fm = content.split("---", 2)[1]
+        m = re.search(r"^tags:\s*\n((?:\s*-\s*.+\n?)+)", fm, re.M)
+        if not m:
+            continue
+        for line in m.group(1).splitlines():
+            line = line.strip()
+            if line.startswith("-") and entity_pattern.search(line):
+                issues.append((fn, line[1:].strip()))
+    return issues
+
+
 def check_bare_domain_like_text():
     """启发式检测：中文紧贴一个"看起来像域名"的裸露短语，没有用反引号包起来"""
     issues = []
@@ -231,6 +255,7 @@ def main():
     invalid_dates = check_invalid_date()
     jsonld_mismatch = check_jsonld_mismatch(posts)
     escaped_fences = check_escaped_backtick_fences()
+    html_entities_in_tags = check_html_entities_in_tags()
     bare_domains = check_bare_domain_like_text()
     total_tags, orphan_tags = check_orphan_tags()
     sitemap_missing, sitemap_err = check_sitemap_coverage(posts)
@@ -242,6 +267,7 @@ def main():
         ("JSON-LD的url/日期跟真实permalink不一致", jsonld_mismatch, RED),
         ("front matter缺少必填字段", missing_fields, RED),
         ("转义反引号代码块(渲染不出代码框)", escaped_fences, RED),
+        ("tags里混入HTML实体编码(&amp;等)", html_entities_in_tags, RED),
         ("裸露域名样式文本可能被误判成链接", bare_domains, YELLOW),
         ("sitemap覆盖情况", None, RED),
         ("孤儿tag(仅供参考，不强制处理)", orphan_tags, YELLOW),
@@ -299,7 +325,15 @@ def main():
     else:
         print(f"   {GREEN}✅ 全部正常{RESET}")
 
-    print(f"\n5. 裸露域名样式文本(启发式检测，可能有误报，人工复核一下)")
+    print(f"\n5. tags里混入HTML实体编码")
+    if html_entities_in_tags:
+        print(f"   {RED}{len(html_entities_in_tags)} 处{RESET}")
+        for fn, tag in html_entities_in_tags:
+            print(f"   - {fn}: {tag}")
+    else:
+        print(f"   {GREEN}✅ 全部正常{RESET}")
+
+    print(f"\n6. 裸露域名样式文本(启发式检测，可能有误报，人工复核一下)")
     if bare_domains:
         print(f"   {YELLOW}{len(bare_domains)} 处{RESET}")
         for fn, snippet in bare_domains:
@@ -307,7 +341,7 @@ def main():
     else:
         print(f"   {GREEN}✅ 没有发现{RESET}")
 
-    print(f"\n6. sitemap覆盖情况")
+    print(f"\n7. sitemap覆盖情况")
     if sitemap_err:
         print(f"   {YELLOW}⚠️  无法联网检查: {sitemap_err}{RESET}")
     elif sitemap_missing:
@@ -317,12 +351,15 @@ def main():
     else:
         print(f"   {GREEN}✅ 全部文章都在sitemap里{RESET}")
 
-    print(f"\n7. 孤儿tag（仅供参考，全站tag总数: {total_tags}，单篇独占的孤儿tag: {len(orphan_tags)}个）")
+    print(f"\n8. 孤儿tag（仅供参考，全站tag总数: {total_tags}，单篇独占的孤儿tag: {len(orphan_tags)}个）")
     print(f"   {YELLOW}提示：不是每个孤儿tag都需要合并，数量持续增长时再考虑做一轮梳理{RESET}")
 
     print("\n" + "=" * 50)
 
-    fatal = bool(invalid_dates or jsonld_mismatch or missing_fields or escaped_fences or sitemap_missing)
+    fatal = bool(
+        invalid_dates or jsonld_mismatch or missing_fields or escaped_fences
+        or html_entities_in_tags or sitemap_missing
+    )
     return 1 if fatal else 0
 
 
