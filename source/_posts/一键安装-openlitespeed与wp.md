@@ -51,3 +51,7 @@ description: 使用官方 ols1clk.sh 自动化脚本一键快速部署 OpenLiteS
 </script>
 
 一键安装 OpenLiteSpeed与WP 运行wget https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh && bash `ols1clk.sh` 或 bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh )   安装 WordPress: bash <( curl -k https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh ) -w
+
+## 相关文章
+
+- [WordPress安装OpenLiteSpeed与SEO](https://vpsjq.com/2026/07/27/2026-07-27-002/)

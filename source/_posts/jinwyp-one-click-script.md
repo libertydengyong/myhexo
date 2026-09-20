@@ -90,3 +90,4 @@ sysctl net.ipv4.tcp_congestion_control
 除了 BBR，脚本还支持安装 XanMod 内核、配置 Cloudflare WARP（给服务器加 IPv4 或 IPv6 出口）、以及安装各类代理协议。功能比较多，不需要全部用到，按需选择就行，不用的功能不装不会影响已有的配置。
 
 BBR 各版本的区别和适用场景可以参考[BBR、BBR2、BBRplus、BBR3有什么区别](https://vpsjq.com/2026/08/28/bbr-versions-compare/)，如果想用更专门的 BBR3 安装脚本，可以参考[BBR3一键安装脚本：byJoey Actions-bbr-v3 GitHub安装教程](https://vpsjq.com/2026/08/28/bbr3-install/)，两者的区别在于 Jinwyp 的脚本功能更综合，byJoey 的脚本专门针对 BBR3 内核安装。
+

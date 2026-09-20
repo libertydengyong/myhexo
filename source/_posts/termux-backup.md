@@ -98,3 +98,4 @@ termux-setup-storage
 申请完权限之后再跑恢复命令。恢复过程会把备份文件里的内容覆盖到当前 Termux 环境，恢复完之后重启 Termux，之前安装的包和配置基本都会恢复回来。
 
 备份建议定期做，尤其是在做了比较大的改动之后——比如装了新的工具、改了 SSH 配置、或者添加了新的 VPS 连接信息。如果你平时用 Termux 管理 VPS，SSH 密钥和连接配置都在里面，一旦丢失重新配置比较麻烦，定期备份能省不少事。具体怎么用 Termux 管理 VPS 可以参考[Termux手机管理VPS教程](https://vpsjq.com/2026/08/02/termux-vps-remote-manage/)，SSH 断线问题可以参考[Termux SSH连接VPS断线怎么办](https://vpsjq.com/2026/08/03/termux-ssh-disconnect/)。
+

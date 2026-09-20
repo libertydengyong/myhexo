@@ -112,3 +112,4 @@ fail2ban-regex /var/log/auth.log /etc/fail2ban/filter.d/sshd.conf
 ## 顺带一提
 
 这种"工具装了、开关打开了、看着一切正常，实际却完全没起作用"的情况，跟之前写的[ulimit设置了却不生效](https://vpsjq.com/2026/08/20/linux-ulimit-not-working/)是同一种性质的陷阱——配置本身可能一个字都没写错，但环境或者关联的另一项设置对不上，整套东西就变成了摆设。装完安全工具，花两分钟做一次真实验证，比事后翻日志才发现从来没生效过要踏实得多。
+

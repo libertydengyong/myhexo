@@ -89,3 +89,7 @@ sysctl net.ipv4.tcp_congestion_control
 ```
 
 输出里看到 bbrplus 就说明在跑了。如果验证结果不对，先确认内核版本够不够，老内核不支持这类加速方式，装了也没用，需要先升级内核。BBR 系列加速方式的原理和适用场景可以参考[为什么开了BBR网速却感觉一点没提升](https://vpsjq.com/2026/08/18/bbr-no-improvement/)，搞清楚原理之后对验证结果的判断会更准确。如果想搭配 XanMod 内核一起用，可以参考[XanMod内核搭配BBR3使用教程](https://vpsjq.com/2026/08/27/xanmod-bbr3/)，XanMod 内置了 BBR3 支持，不需要额外跑这个脚本。
+
+## 相关文章
+
+- [BBRplus报错sysctl No such file or directory的三个真实原因](https://vpsjq.com/2026/09/07/bbrplus-sysctl-no-such-file/)

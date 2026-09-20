@@ -81,3 +81,7 @@ VPS 网络优化的脚本很多，功能侧重不一样，选错了要么效果�
 **yahuisme/network-optimization** 是一个综合优化脚本，同时调整 BBR 和 TCP 缓冲区、队列规则等多个参数，不需要手动挨个改配置文件，跑完自动应用，适合想一次性把网络参数都调好的场景，具体效果和使用方法参考[Linux TCP/IP和BBR参数智能优化脚本](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)。
 
 这四个脚本不需要叠加使用，选一个适合自己场景的就行，混着装容易参数冲突。如果只是想快速优化一台新 VPS，Eric86777/vps-tcp-tune 是最省事的选择；如果内核版本太旧需要升级，用 adsorgcn/bbr-script；如果想试试 BBRplus 这类第三方加速，用 zeruns/tcp.sh；想一次性把 BBR 和 TCP 参数都调好，用 yahuisme/network-optimization。各版本 BBR 之间的区别和选择思路可以参考[BBR、BBR2、BBRplus、BBR3有什么区别](https://vpsjq.com/2026/08/28/bbr-versions-compare/)。
+
+## 相关文章
+
+- [Realm&一键转发脚本 优化重构版](https://vpsjq.com/2025/06/01/76/)

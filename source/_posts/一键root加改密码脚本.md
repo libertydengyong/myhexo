@@ -62,3 +62,7 @@ curl -fsSL -o root.sh "https://github.com/tonyliuzj/oneclick-root/releases/lates
 ```
 
 项目地址：https://github.com/tonyliuzj/oneclick-root   使用 root 权限运行脚本：sudo ./root.sh 脚本将会： 检测你的包管理器 更新软件包列表 安装 sudo 和 openssh-server 提示设置新的 root 密码 配置 SSH 允许 root 使用密码认证登录 重启 SSH 服务
+
+## 相关文章
+
+- [VPS忘记root密码怎么办](https://vpsjq.com/2026/08/15/vps-forgot-root-password/)

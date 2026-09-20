@@ -124,3 +124,4 @@ export PATH=$PATH:/usr/local/bin
 ## 顺带一提
 
 这种"手动跑正常，交给系统自动执行就失灵"的情况，跟之前写的[VPS改了Nginx配置，网站却还是老样子](https://vpsjq.com/2026/08/23/nginx-config-not-taking-effect/)其实是同一类思路——不管是Nginx的配置生效，还是cron的执行环境，自动化的那一层跟你手动操作时的环境、状态都不完全一样，出问题的时候别光盯着命令本身对不对，环境差异往往才是真正的元凶。
+

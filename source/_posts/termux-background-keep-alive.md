@@ -115,3 +115,4 @@ adb shell "/system/bin/device_config put activity_manager max_phantom_processes 
 ## 顺带一提
 
 这种"系统默认倾向于清理你没有特别保护的东西"的思路，跟Linux里[kill -9都杀不死一个进程](https://vpsjq.com/2026/08/19/linux-kill-9-cannot-kill-process/)那篇讲的其实是完全相反的情况——一个是"太容易被杀掉"，一个是"怎么杀都杀不掉"，两种极端背后都是系统在某种机制下的默认行为，了解清楚各自的逻辑，才知道该往哪个方向去应对。如果手机上除了Termux还跑着[Mdpings这类需要常驻后台的探针App](https://vpsjq.com/2025/07/24/mdpings-%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%89%8B%E6%9C%BA%E6%8E%A2%E9%92%88app/)，同样的保活思路也适用，都得先过电池优化这一关。
+

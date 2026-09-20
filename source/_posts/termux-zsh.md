@@ -89,3 +89,4 @@ oh-my-zsh 安装完之后默认会启用一些插件，如果想进一步自定�
 如果之前在 bash 里配置过一些别名或者环境变量，切换到 zsh 之后需要把这些配置从 `~/.bashrc` 复制到 `~/.zshrc`，否则这些配置在 zsh 里不会生效。
 
 用 Termux 管理 VPS 的时候，zsh 的自动补全对 SSH 命令特别有用，服务器地址和用户名都可以补全，不需要每次手打完整命令。关于用 Termux 连接和管理 VPS 的完整流程可以参考[Termux手机管理VPS教程](https://vpsjq.com/2026/08/02/termux-vps-remote-manage/)，如果遇到 SSH 断线问题可以看[Termux SSH连接VPS断线怎么办](https://vpsjq.com/2026/08/03/termux-ssh-disconnect/)。
+

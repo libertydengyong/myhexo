@@ -88,3 +88,4 @@ net.ipv4.tcp_wmem = 4096 65536 67108864
 如果不想手动挨个改参数，用一键脚本更省事，yahuisme 的网络优化脚本会自动检测系统环境并调整这些参数，具体使用方法参考[Linux TCP/IP和BBR参数智能优化脚本](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)，跑完自动应用，不需要手动填参数。
 
 BBR 本身和各版本之间的区别可以参考[BBR、BBR2、BBRplus、BBR3有什么区别](https://vpsjq.com/2026/08/28/bbr-versions-compare/)，如果调完参数还是感觉没提升，原因分析参考[为什么开了BBR网速却感觉一点没提升](https://vpsjq.com/2026/08/18/bbr-no-improvement/)，大多数情况下速度的瓶颈不在参数上。
+

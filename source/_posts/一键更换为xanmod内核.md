@@ -21,3 +21,11 @@ wget -O tcpx.sh "https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh" &
 这套方法本质上是脚本自动帮你配置好了 XanMod 官方的 APT 仓库，所以 Debian 和 Ubuntu 系的发行版都适用，原理上没有区别，脚本会自动识别系统版本代号去匹配对应的仓库源。
 
 如果不想用第三方脚本，也可以手动添加 XanMod 官方仓库自己安装，具体命令可以参考 xanmod.org 官网的安装说明。
+
+## 相关文章
+
+- [装了XanMod内核出问题，怎么卸载切回默认内核](https://vpsjq.com/2026/08/27/xanmod-uninstall-rollback/)
+- [XanMod内核怎么更新](https://vpsjq.com/2026/08/28/xanmod-update/)
+- [XanMod内核版本怎么选：edge、lts和普通版的区别](https://vpsjq.com/2026/08/28/xanmod-versions-choose/)
+- [XanMod内核部署Xray、Trojan并优化服务器](https://vpsjq.com/2026/07/28/2026-07-28-001/)
+- [使用USTC 公共镜像加速器](https://vpsjq.com/2025/07/24/使用ustc-公共镜像加速器/)

@@ -112,3 +112,11 @@ sysctl net.core.default_qdisc
 输出 `fq` 或者 `fq_codel` 说明配置完整。如果验证结果不对，先确认重启之后配置有没有持久化，有时候 `sysctl -p` 当时生效了但重启后又恢复默认，检查一下 `/etc/sysctl.conf` 里两行有没有正确写入。
 
 开启 BBR 之后如果感觉速度提升不明显，不一定是配置有问题，更多时候是线路本身的限制，具体原因可以参考[为什么开了BBR网速却感觉一点没提升](https://vpsjq.com/2026/08/18/bbr-no-improvement/)。如果想进一步优化，可以结合[Linux TCP/IP和BBR参数智能优化脚本](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)一起跑，把TCP参数也一并调优。
+
+## 相关文章
+
+- [已安装BBR加速内核但加速模块未加载的解决方法](https://vpsjq.com/2026/08/30/bbr-module-not-loaded/)
+- [BBR装完之后还能怎么优化](https://vpsjq.com/2026/08/31/bbr-optimize/)
+- [锐速（LotServer）是什么，跟BBR/BBRplus怎么选](https://vpsjq.com/2026/09/06/lotserver-vs-bbr/)
+- [Jinwyp一键脚本：VPS安装BBR和网络优化工具](https://vpsjq.com/2026/09/02/jinwyp-one-click-script/)
+- [Linux VPS 一键优化 TCP 网络性能与 BBR 加速脚本](https://vpsjq.com/2025/05/14/一键优化tcp/)

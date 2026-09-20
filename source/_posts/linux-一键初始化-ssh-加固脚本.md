@@ -81,3 +81,9 @@ Linux 一键初始化 & SSH 加固脚本 curl -fsSL https://raw.githubuserconten
 新VPS到手，建议**先跑加固脚本，再部署具体的业务/代理服务**，顺序很重要——如果先装好一堆服务再加固，中间这段裸奔窗口期风险最高。
 
 跑完这个脚本，如果VPS上还想装点常用管理工具，可以看看之前写的[VPS一键系统管理](https://vpsjq.com/2025/11/25/vps%E4%B8%80%E9%94%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%EF%BC%9A-bash/)，两篇一个管安全加固、一个管日常系统维护，配合起来用比较完整。
+
+## 相关文章
+
+- [装了Fail2ban，怎么确认它真的在拦截攻击](https://vpsjq.com/2026/08/25/fail2ban-verify-working/)
+- [下载的Linux软件包，怎么确认没被人动过手脚](https://vpsjq.com/2026/08/26/linux-file-integrity-verification/)
+- [SSH 加快连接的几种方法](https://vpsjq.com/2025/07/14/ssh-加快连接的几种方法/)

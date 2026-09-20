@@ -91,3 +91,4 @@ curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x
 两个脚本可以配合使用，不是非此即彼的关系。新买 VPS 之后先跑 nodequality 快速看一下网络质量，如果网络没问题再跑融合怪做全面评估。最关注的几个指标：速度（上下行带宽）、回程去程路由（线路质量）、流媒体解锁（能不能用来看 Netflix 等平台）、IP 属性（是不是原生 IP、有没有被标记为代理 IP）。
 
 测试完之后如果发现网络参数不理想，可以用[常用VPS TCP加速脚本汇总](https://vpsjq.com/2026/08/29/vps-tcp-scripts/)里提到的几个脚本做优化，优化完再跑一次测试对比效果。如果测试结果显示 BBR 没有生效，参考[为什么开了BBR网速却感觉一点没提升](https://vpsjq.com/2026/08/18/bbr-no-improvement/)，搞清楚原理之后对测试结果的判断会更准确。
+

@@ -99,3 +99,4 @@ echo "net.ipv6.conf.default.use_tempaddr=0" >> /etc/sysctl.conf
 ## 顺带一提
 
 如果是在排查[VPS被暴力破解怎么查有没有被入侵](https://vpsjq.com/2026/08/15/vps-brute-force-check/)这类安全问题的过程中，看到日志里同一台自己的机器顶着不同IPv6地址出现，先别急着往"被入侵"这个方向想，回头查一下是不是这个特性在起作用。想确认自己这台VPS当前对外呈现的地址类型和质量，也可以配合[推荐几个IP工具](https://vpsjq.com/2025/05/06/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%AAip%E5%B7%A5%E5%85%B7/)那篇提到的工具查一下，确认关闭Privacy Extensions之后地址确实稳定下来了。
+

@@ -107,3 +107,4 @@ uname -r
 ```
 
 版本低于 4.9 的话需要先升级内核，可以用 adsorgcn 的 bbr-script 自动升级，具体方法参考[Debian和Ubuntu开启BBR加速的两种方式](https://vpsjq.com/2026/08/28/debian-ubuntu-bbr/)。升级完内核重启之后，BBR 模块应该能正常加载。BBR 各版本的区别和选择可以参考[BBR、BBR2、BBRplus、BBR3有什么区别](https://vpsjq.com/2026/08/28/bbr-versions-compare/)。
+

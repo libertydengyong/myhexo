@@ -137,3 +137,4 @@ docker run --network=host 镜像名
 ## 顺带一提
 
 这种"宿主机能力齐全，但容器/子系统默认不继承"的情况，跟之前写的[VPS重启后Docker容器为什么没有自动启动](https://vpsjq.com/2026/08/17/docker-restart-policy/)是同一个脾气——Docker很多行为默认都偏保守，不会自作主张帮你把宿主机的能力透传进去，重启策略是这样，IPv6支持也是这样，新装的服务多留意一下默认值，别想当然。如果这台VPS本身的IPv6配置就有问题（不只是Docker层面），可以先看[VPS防火墙规则设置了，IPv6那边却像没设一样](https://vpsjq.com/2026/08/24/ipv6-ip6tables-not-working/)那篇，排查一下宿主机这一层的IPv6是不是真的健康，再往Docker这一层深入。
+

@@ -225,3 +225,10 @@ mosh root@你的VPS的IP地址
 连接过程中如果遇到 `Permission denied`，一般是密钥没传对或者密码输错了，也可能是VPS防火墙没放行对应端口；如果是连接卡住最后超时，先看看手机网络本身通不通，再查一下VPS的安全组规则有没有限制来源IP。
 
 这一套流程走下来，装好SSH客户端、密钥登录省去反复输密码、别名简化操作、Git同步文件、按需上Mosh和BBR应对移动网络的不稳定，手机基本能替代电脑完成VPS的日常管理工作了。
+
+## 相关文章
+
+- [Termux后台总被系统杀掉，正在跑的任务怎么保住](https://vpsjq.com/2026/08/25/termux-background-keep-alive/)
+- [Termux备份和恢复环境的方法](https://vpsjq.com/2026/08/29/termux-backup/)
+- [Termux安装zsh和oh-my-zsh提升命令行体验](https://vpsjq.com/2026/08/29/termux-zsh/)
+- [frp Android客户端使用教程与内网穿透配置](https://vpsjq.com/2025/05/30/74/)

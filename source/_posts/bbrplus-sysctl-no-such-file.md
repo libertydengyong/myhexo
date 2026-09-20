@@ -128,3 +128,4 @@ uname -r
 ## 小结
 
 遇到这个sysctl报错，别急着重装系统或者反复重试同一个脚本，按`available_congestion_control`列表 → `systemd-detect-virt`虚拟化类型 → `uname -r`当前内核版本，这三步一步步排查，基本能定位到具体是哪种情况，对症处理就行。
+
