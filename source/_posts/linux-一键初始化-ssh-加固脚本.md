@@ -1,7 +1,7 @@
 ---
 title: Linux 一键初始化 & SSH 加固脚本
 tags:
-  - Linux 一键初始化 &amp; SSH 加固脚本
+  - Linux 一键初始化 & SSH 加固脚本
 id: '184'
 categories:
   - vps技巧
