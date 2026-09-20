@@ -10,6 +10,29 @@ date: 2025-10-30 21:20:21
 description: Aeroshell智能终端介绍，集成SSH、SFTP、VNC和AI辅助功能的现代化跨平台运维工具。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Aeroshell 智能终端",
+      "description": "Aeroshell智能终端介绍，集成SSH、SFTP、VNC和AI辅助功能的现代化跨平台运维工具。",
+      "datePublished": "2025-10-30T21:20:21+08:00",
+      "dateModified": "2025-10-30T21:20:21+08:00",
+      "url": "https://vpsjq.com/2025/10/30/aeroshell-智能终端/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    }
+  ]
+}
+</script>
 Aeroshell 智能终端 https://termdev.com/
 
 Aeroshell是一款定位比较特别的SSH客户端，跟MobaXterm、Xshell这些传统工具不是一个思路——它把连接、文件传输、安全审计和AI辅助整合到了一起，官方的说法是想做一个"运维工作台"，而不只是一个连接服务器的窗口。

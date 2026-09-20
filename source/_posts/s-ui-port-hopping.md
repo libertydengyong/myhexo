@@ -15,23 +15,43 @@ keywords: s-ui端口跳跃,S-UI hysteria2端口跳跃,hysteria2 port hopping,端
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "S-UI 面板支持端口跳跃吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "截至目前，S-UI 面板的入站设置里还没有直接暴露端口跳跃的配置项，社区在 GitHub 上有相关的功能请求（Issue #498、#570）还没有被合并。想用端口跳跃，目前需要通过服务器防火墙的端口转发规则手动实现，而不是在面板里直接填一个端口范围字段。"
+      "@type": "BlogPosting",
+      "headline": "S-UI 端口跳跃配置教程：Hysteria2 Port Hopping 实操方法",
+      "description": "S-UI 面板目前还没有原生的端口跳跃配置项，这篇教程讲清楚现状，并提供通过 iptables 实现 Hysteria2 端口跳跃的具体操作步骤。",
+      "datePublished": "2026-09-06T17:40:00+08:00",
+      "dateModified": "2026-09-06T17:40:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/s-ui-port-hopping/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "端口跳跃的原理是什么？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "客户端把流量随机发往一段端口范围内的某个端口，服务器通过防火墙规则把这段端口范围的流量都转发到 Hysteria2 真实监听的那个端口，服务端本身还是只监听一个端口，跳跃发生在客户端和转发规则这一层。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "S-UI 面板支持端口跳跃吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "截至目前，S-UI 面板的入站设置里还没有直接暴露端口跳跃的配置项，社区在 GitHub 上有相关的功能请求（Issue #498、#570）还没有被合并。想用端口跳跃，目前需要通过服务器防火墙的端口转发规则手动实现，而不是在面板里直接填一个端口范围字段。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "端口跳跃的原理是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "客户端把流量随机发往一段端口范围内的某个端口，服务器通过防火墙规则把这段端口范围的流量都转发到 Hysteria2 真实监听的那个端口，服务端本身还是只监听一个端口，跳跃发生在客户端和转发规则这一层。"
+          }
+        }
+      ]
     }
   ]
 }

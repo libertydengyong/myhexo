@@ -14,23 +14,43 @@ keywords: 3x-ui忘记密码,3x-ui重置密码,3x-ui docker忘记密码,x-ui面�
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "3x-ui 忘记密码怎么重置？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "脚本安装的 3x-ui，SSH 登录服务器执行 x-ui 命令打开管理菜单，选择账号密码重置选项，会把用户名密码重置为 admin/admin，登录后记得立刻改掉默认密码。"
+      "@type": "BlogPosting",
+      "headline": "3x-ui 忘记密码怎么办？脚本安装和 Docker 部署的重置方法",
+      "description": "3x-ui 面板忘记登录密码的重置方法，区分脚本安装和 Docker 部署两种情况，附 Docker 环境下的现状说明和排查思路。",
+      "datePublished": "2026-09-06T20:50:00+08:00",
+      "dateModified": "2026-09-06T20:50:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/3x-ui-forgot-password/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "Docker 部署的 3x-ui 忘记密码怎么办？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Docker 环境下没有脚本安装那套 x-ui 命令行菜单，社区里有反馈这种情况下重置流程不如脚本安装方便，具体是否已经改善需要以项目最新版本和 GitHub 上的讨论为准。目前普遍做法是停止容器、备份并处理挂载的数据库文件后重新拉起容器，这个操作会连带清空已有的入站和用户配置，操作前务必先做好备份。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "3x-ui 忘记密码怎么重置？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "脚本安装的 3x-ui，SSH 登录服务器执行 x-ui 命令打开管理菜单，选择账号密码重置选项，会把用户名密码重置为 admin/admin，登录后记得立刻改掉默认密码。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Docker 部署的 3x-ui 忘记密码怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Docker 环境下没有脚本安装那套 x-ui 命令行菜单，社区里有反馈这种情况下重置流程不如脚本安装方便，具体是否已经改善需要以项目最新版本和 GitHub 上的讨论为准。目前普遍做法是停止容器、备份并处理挂载的数据库文件后重新拉起容器，这个操作会连带清空已有的入站和用户配置，操作前务必先做好备份。"
+          }
+        }
+      ]
     }
   ]
 }

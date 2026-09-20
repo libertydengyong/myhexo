@@ -15,30 +15,50 @@ keywords: S-UI搭建TUIC,S-UI配置TUIC,TUIC节点搭建教程,TUIC和Hysteria2�
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "S-UI 面板搭建 TUIC 节点教程",
-  "description": "使用 S-UI 面板搭建 TUIC 节点的完整步骤，涵盖入站配置、证书设置、拥塞控制算法选择与客户端连接验证。",
-  "totalTime": "PT15M",
-  "step": [
+  "@graph": [
     {
-      "@type": "HowToStep",
-      "name": "创建 TUIC 入站",
-      "text": "在入站管理中新建 TUIC 类型入站，设置监听端口与用户凭据。"
+      "@type": "BlogPosting",
+      "headline": "S-UI 面板搭建 TUIC 节点教程，附 Hysteria2 对比选择建议",
+      "description": "用 S-UI 面板搭建 TUIC 节点的完整步骤，包含证书配置、拥塞控制算法选择、客户端导入方法，并对比 TUIC 和 Hysteria2 该怎么选。",
+      "datePublished": "2026-09-06T16:30:00+08:00",
+      "dateModified": "2026-09-06T16:30:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/s-ui-tuic/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
     },
     {
-      "@type": "HowToStep",
-      "name": "配置证书",
-      "text": "选择自签证书或正式证书，注意部分客户端需要手动开启跳过证书验证。"
-    },
-    {
-      "@type": "HowToStep",
-      "name": "选择拥塞控制算法",
-      "text": "根据线路情况在 bbr、cubic、new_reno 中选择合适的拥塞控制算法。"
-    },
-    {
-      "@type": "HowToStep",
-      "name": "导入客户端并验证",
-      "text": "复制节点链接导入客户端，连接后检查出口 IP 确认节点可用。"
+      "@type": "HowTo",
+      "name": "S-UI 面板搭建 TUIC 节点教程",
+      "description": "使用 S-UI 面板搭建 TUIC 节点的完整步骤，涵盖入站配置、证书设置、拥塞控制算法选择与客户端连接验证。",
+      "totalTime": "PT15M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "创建 TUIC 入站",
+          "text": "在入站管理中新建 TUIC 类型入站，设置监听端口与用户凭据。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置证书",
+          "text": "选择自签证书或正式证书，注意部分客户端需要手动开启跳过证书验证。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "选择拥塞控制算法",
+          "text": "根据线路情况在 bbr、cubic、new_reno 中选择合适的拥塞控制算法。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "导入客户端并验证",
+          "text": "复制节点链接导入客户端，连接后检查出口 IP 确认节点可用。"
+        }
+      ]
     }
   ]
 }

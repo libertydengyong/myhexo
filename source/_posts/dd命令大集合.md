@@ -10,6 +10,29 @@ date: 2025-05-11 19:41:02
 description: VPS用dd方式重装Windows系统的常用命令合集，基于InstallNET.sh脚本，覆盖Windows Server和桌面版多个版本。
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Linux dd 命令实用指南：磁盘镜像、DD重装与性能测试",
+      "description": "VPS用dd方式重装Windows系统的常用命令合集，基于InstallNET.sh脚本，覆盖Windows Server和桌面版多个版本。",
+      "datePublished": "2025-05-11T19:41:02+08:00",
+      "dateModified": "2025-05-11T19:41:02+08:00",
+      "url": "https://vpsjq.com/2025/05/11/dd命令大集合/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
+    }
+  ]
+}
+</script>
 https://gist.github.com/barkpixels/da77865ac6f59b24f567912939ab82b0
 
 VPS圈子里说的"DD重装系统"，指的是用 `dd` 命令把一份完整的系统镜像直接写入硬盘，跳过传统的图形化安装向导，几分钟就能把一台Linux VPS换成Windows系统（或者反过来），比用服务商自带的重装面板灵活很多，尤其适合服务商没有提供你想要的系统版本的情况。

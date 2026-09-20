@@ -15,30 +15,50 @@ keywords: S-UI搭建Hysteria2,Hysteria2节点搭建教程,S-UI面板配置hyster
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "S-UI 搭建 Hysteria2 节点教程",
-  "description": "使用 S-UI 面板从零搭建 Hysteria2 节点的完整步骤，涵盖安装、入站配置、证书设置与客户端连接验证。",
-  "totalTime": "PT20M",
-  "step": [
+  "@graph": [
     {
-      "@type": "HowToStep",
-      "name": "安装 S-UI 面板",
-      "text": "登录 VPS，执行官方一键安装脚本完成 S-UI 面板部署。"
+      "@type": "BlogPosting",
+      "headline": "S-UI 搭建 Hysteria2 节点教程",
+      "description": "详细讲解如何用 S-UI 面板搭建 Hysteria2 节点，包含入站配置、证书申请、端口跳跃与客户端订阅导入的完整步骤，适合零基础用户参考。",
+      "datePublished": "2026-09-06T11:20:00+08:00",
+      "dateModified": "2026-09-06T11:20:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/S-UI-搭建-Hysteria2-节点教程/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      }
     },
     {
-      "@type": "HowToStep",
-      "name": "创建 Hysteria2 入站",
-      "text": "在入站管理中新建 Hysteria2 类型入站，设置监听端口与带宽参数。"
-    },
-    {
-      "@type": "HowToStep",
-      "name": "配置 TLS 证书",
-      "text": "选择自签证书或通过域名申请证书，完成加密握手所需的证书绑定。"
-    },
-    {
-      "@type": "HowToStep",
-      "name": "生成并导入订阅",
-      "text": "在用户管理中生成节点链接，导入客户端并验证连接是否成功。"
+      "@type": "HowTo",
+      "name": "S-UI 搭建 Hysteria2 节点教程",
+      "description": "使用 S-UI 面板从零搭建 Hysteria2 节点的完整步骤，涵盖安装、入站配置、证书设置与客户端连接验证。",
+      "totalTime": "PT20M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "安装 S-UI 面板",
+          "text": "登录 VPS，执行官方一键安装脚本完成 S-UI 面板部署。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "创建 Hysteria2 入站",
+          "text": "在入站管理中新建 Hysteria2 类型入站，设置监听端口与带宽参数。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "配置 TLS 证书",
+          "text": "选择自签证书或通过域名申请证书，完成加密握手所需的证书绑定。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "生成并导入订阅",
+          "text": "在用户管理中生成节点链接，导入客户端并验证连接是否成功。"
+        }
+      ]
     }
   ]
 }

@@ -14,23 +14,43 @@ keywords: s-ui原版分叉区别,s-ui pro panel,vchan-ui s-ui,s-ui分叉版,alir
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "S-UI 有分叉版本吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "有，社区在 alireza0/s-ui v1.4.1 基础上做了一个增强二次开发版本，仓库地址是 vchan-ui/s-ui，项目名叫 S-UI Pro Panel，主打结构优化、界面升级和功能扩展。"
+      "@type": "BlogPosting",
+      "headline": "S-UI 原版和分叉版（S-UI Pro Panel）有什么区别",
+      "description": "S-UI 官方原版（alireza0/s-ui）和社区分叉版 S-UI Pro Panel（vchan-ui/s-ui）有什么区别，该装哪个，这篇文章说清楚两者的功能差异和安装方式。",
+      "datePublished": "2026-09-07T09:30:00+08:00",
+      "dateModified": "2026-09-07T09:30:00+08:00",
+      "url": "https://vpsjq.com/2026/09/07/s-ui-pro-panel-fork/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "该装原版还是 S-UI Pro Panel？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "官方原版更新持续、社区资料和已有教程都基于它，求稳定优先选原版；S-UI Pro Panel 在原版基础上做了功能扩展和界面优化，如果想尝试增强功能可以考虑，但相对小众、踩坑时能查到的资料会少一些。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "S-UI 有分叉版本吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有，社区在 alireza0/s-ui v1.4.1 基础上做了一个增强二次开发版本，仓库地址是 vchan-ui/s-ui，项目名叫 S-UI Pro Panel，主打结构优化、界面升级和功能扩展。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "该装原版还是 S-UI Pro Panel？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "官方原版更新持续、社区资料和已有教程都基于它，求稳定优先选原版；S-UI Pro Panel 在原版基础上做了功能扩展和界面优化，如果想尝试增强功能可以考虑，但相对小众、踩坑时能查到的资料会少一些。"
+          }
+        }
+      ]
     }
   ]
 }

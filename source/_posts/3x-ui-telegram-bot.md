@@ -14,23 +14,43 @@ keywords: 3x-ui telegram机器人,3x-ui telegram bot配置,3x-ui telegram bot no
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "3x-ui 的 Telegram 机器人能做什么？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "可以推送每日流量统计、面板登录提醒、CPU 使用率告警，并支持设置流量阈值和到期时间阈值提前提醒，部分版本还支持通过机器人命令直接查询和管理入站信息。"
+      "@type": "BlogPosting",
+      "headline": "3x-ui Telegram 机器人配置教程：通知、命令与常见问题",
+      "description": "3x-ui 面板 Telegram 机器人配置完整步骤，包含创建机器人、获取 Token 和 Chat ID、开启流量与到期提醒，以及机器人不工作的排查方法。",
+      "datePublished": "2026-09-06T21:20:00+08:00",
+      "dateModified": "2026-09-06T21:20:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/3x-ui-telegram-bot/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "3x-ui Telegram 机器人配置了但收不到消息怎么办？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "先确认 Bot Token 和 Chat ID 是否填写正确且没有多余空格，再确认服务器所在网络环境能否正常访问 Telegram 的 API（部分地区网络会屏蔽 Telegram），另外要检查是否已经先手动给机器人发送过一条消息激活对话，机器人是无法主动私聊一个从未联系过它的用户的。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "3x-ui 的 Telegram 机器人能做什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以推送每日流量统计、面板登录提醒、CPU 使用率告警，并支持设置流量阈值和到期时间阈值提前提醒，部分版本还支持通过机器人命令直接查询和管理入站信息。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "3x-ui Telegram 机器人配置了但收不到消息怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先确认 Bot Token 和 Chat ID 是否填写正确且没有多余空格，再确认服务器所在网络环境能否正常访问 Telegram 的 API（部分地区网络会屏蔽 Telegram），另外要检查是否已经先手动给机器人发送过一条消息激活对话，机器人是无法主动私聊一个从未联系过它的用户的。"
+          }
+        }
+      ]
     }
   ]
 }

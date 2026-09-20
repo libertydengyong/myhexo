@@ -15,23 +15,43 @@ keywords: s-ui sni配置,S-UI TLS设置,sni伪装域名怎么选,s-ui alpn设置
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "S-UI 里 SNI 应该填什么？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SNI 一般填一个访问量大、正规且大概率不会被封锁的域名，比如常见的 www.bing.com、www.apple.com、www.microsoft.com 等，不需要自己拥有这个域名，只是借用它的证书链做握手伪装。"
+      "@type": "BlogPosting",
+      "headline": "S-UI SNI 配置教程：伪装域名怎么选，TLS 参数怎么填",
+      "description": "S-UI 面板里 SNI 伪装域名怎么填、为什么要选这个域名，以及配套的 TLS 参数（ALPN、指纹）设置方法，帮你把节点的 TLS 握手伪装做扎实。",
+      "datePublished": "2026-09-06T17:55:00+08:00",
+      "dateModified": "2026-09-06T17:55:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/s-ui-sni/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "SNI 和证书是一回事吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "不是。证书是节点自己申请或自签的，用来加密流量；SNI 是 TLS 握手阶段告诉对方\"我要访问哪个域名\"的字段，两者可以配置成不同的值，这也是伪装能生效的原因之一。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "S-UI 里 SNI 应该填什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SNI 一般填一个访问量大、正规且大概率不会被封锁的域名，比如常见的 www.bing.com、www.apple.com、www.microsoft.com 等，不需要自己拥有这个域名，只是借用它的证书链做握手伪装。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SNI 和证书是一回事吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是。证书是节点自己申请或自签的，用来加密流量；SNI 是 TLS 握手阶段告诉对方\"我要访问哪个域名\"的字段，两者可以配置成不同的值，这也是伪装能生效的原因之一。"
+          }
+        }
+      ]
     }
   ]
 }

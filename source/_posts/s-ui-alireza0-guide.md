@@ -15,23 +15,43 @@ keywords: alireza0 s-ui,s-ui docker安装,s-ui命令,s-ui删库,s-ui官方仓库
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "alireza0/s-ui 是什么？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "alireza0/s-ui 是 S-UI 面板的官方原始 GitHub 仓库，作者是 Alireza Ahmadi，项目基于 SagerNet/Sing-Box 构建。目前市面上看到的各种 S-UI 教程和分发版本，绝大多数都是围绕这个官方仓库展开或者在其基础上做的二次分发。"
+      "@type": "BlogPosting",
+      "headline": "alireza0/s-ui 是什么？官方仓库、Docker 安装与常用命令一览",
+      "description": "alireza0/s-ui 是 S-UI 面板的官方原始仓库，这篇文章说清楚它和社区分叉版本的关系，并提供 Docker 部署方式和常用管理命令。",
+      "datePublished": "2026-09-06T21:50:00+08:00",
+      "dateModified": "2026-09-06T21:50:00+08:00",
+      "url": "https://vpsjq.com/2026/09/06/s-ui-alireza0-guide/",
+      "author": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "vpsjq.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "S-UI 支持 Docker 安装吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "支持，官方提供了 docker-compose 和 docker run 两种方式，镜像地址是 alireza7/s-ui，安装前需要先装好 Docker 环境。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "alireza0/s-ui 是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "alireza0/s-ui 是 S-UI 面板的官方原始 GitHub 仓库，作者是 Alireza Ahmadi，项目基于 SagerNet/Sing-Box 构建。目前市面上看到的各种 S-UI 教程和分发版本，绝大多数都是围绕这个官方仓库展开或者在其基础上做的二次分发。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "S-UI 支持 Docker 安装吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持，官方提供了 docker-compose 和 docker run 两种方式，镜像地址是 alireza7/s-ui，安装前需要先装好 Docker 环境。"
+          }
+        }
+      ]
     }
   ]
 }
