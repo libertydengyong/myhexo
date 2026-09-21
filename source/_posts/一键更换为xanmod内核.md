@@ -52,3 +52,4 @@ wget -O tcpx.sh "https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh" &
 - [XanMod内核版本怎么选：edge、lts和普通版的区别](https://vpsjq.com/2026/08/28/xanmod-versions-choose/)
 - [XanMod内核部署Xray、Trojan并优化服务器](https://vpsjq.com/2026/07/28/2026-07-28-001/)
 - [使用USTC 公共镜像加速器](https://vpsjq.com/2025/07/24/使用ustc-公共镜像加速器/)
+- [BBR、BBR2、BBRplus、BBR3有什么区别](https://vpsjq.com/2026/08/28/bbr-versions-compare/)
