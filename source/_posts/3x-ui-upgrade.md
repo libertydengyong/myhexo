@@ -65,6 +65,22 @@ description: 3x-ui面板升级方法、升级前备份重要性，以及3.0版�
             "@type": "Answer",
             "text": "新服务器直接装2.9.4是比较稳妥的做法，跑安装脚本时指定版本号即可，不用先装最新版再降级。"
           }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么查看当前3x-ui版本号？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "执行/usr/local/x-ui/x-ui -v即可看到当前版本号，如果是Docker部署的，路径改成/app/x-ui -v。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "升级失败提示无法访问GitHub怎么办？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "x-ui update本质是去GitHub Releases下载新版本安装包，报错Failed to download x-ui, please be sure that your server can access GitHub说明是网络问题，不是面板坏了，需要先确认服务器能不能正常连到GitHub，网络受限的话重跑升级命令也没用，得先解决网络层面的问题。"
+          }
         }
       ]
     }
@@ -72,7 +88,15 @@ description: 3x-ui面板升级方法、升级前备份重要性，以及3.0版�
 }
 </script>
 
-（还没装过3x-ui的可以先看[3x-ui安装教程](https://vpsjq.com/2026/04/30/2026-04-30-011/)。）3x-ui 的升级方式很简单，SSH 进服务器之后跑 `x-ui update` 就会重新拉取最新版本的安装脚本并执行，整个过程跟第一次安装差不多，面板会短暂重启。
+（还没装过3x-ui的可以先看[3x-ui安装教程](https://vpsjq.com/2026/04/30/2026-04-30-011/)。）升级之前，先确认一下当前跑的是哪个版本，不然升完了都不知道是不是真的换了版本：
+
+```bash
+/usr/local/x-ui/x-ui -v
+```
+
+如果是Docker部署的，路径不一样，改成 `/app/x-ui -v`。
+
+确认完版本，3x-ui 的升级方式很简单，SSH 进服务器之后跑 `x-ui update` 就会重新拉取最新版本的安装脚本并执行，整个过程跟第一次安装差不多，面板会短暂重启。
 
 升级之前建议先备份数据库文件，3x-ui 的配置数据全部存在 `/etc/x-ui/x-ui.db`，把这个文件复制出来就是完整备份：
 
@@ -81,6 +105,22 @@ cp /etc/x-ui/x-ui.db /root/x-ui-backup-$(date +%Y%m%d).db
 ```
 
 这条命令会在 `/root/` 下生成一个带日期的备份文件，升级出了问题可以直接把这个文件覆盖回去。升级本身通常不会清空数据，但不排除版本跨度大的时候数据库结构变化导致问题，备份一下是最保险的做法，具体恢复步骤参考[3x-ui面板迁移与备份](https://vpsjq.com/2026/08/27/3x-ui-backup-migrate/)。
+
+## 升级命令跑了没反应，或者直接报错怎么办
+
+`x-ui update` 本质上是去 GitHub Releases 下载新版本的安装包，如果服务器访问 GitHub 不顺畅，会直接卡住或者报错，常见的报错是这样：
+
+```text
+ERROR: Failed to download x-ui, please be sure that your server can access GitHub
+```
+
+看到这个报错说明是网络问题，不是面板本身坏了，先确认服务器能不能正常连到 GitHub：
+
+```bash
+curl -Is https://github.com | head -1
+```
+
+能返回 `HTTP/2 200` 或者类似的状态码说明网络没问题；如果超时或者连不上，那就是这台服务器访问 GitHub 本身受限，需要先解决网络层面的问题（换线路、配置代理等），单纯重跑 `x-ui update` 大概率还是会失败在同一步。
 
 升级到最新版之前有一点值得注意。3x-ui 3.0 版本发布之后，不少用户反映稳定性比 2.x 版本差，连接容易出问题，面板本身也有一些 bug。如果你的服务器在稳定跑着节点，升到 3.0 之后出问题的概率不低，不是非要用新功能的话，留在 2.9.4 反而更省心。
 
