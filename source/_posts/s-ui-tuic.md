@@ -59,6 +59,35 @@ keywords: S-UI搭建TUIC,S-UI配置TUIC,TUIC节点搭建教程,TUIC和Hysteria2�
           "text": "复制节点链接导入客户端，连接后检查出口 IP 确认节点可用。"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "S-UI 怎么配置 TUIC？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "核心步骤是新建TUIC类型入站、配置好证书(重点注意自签证书要手动打开跳过验证)、选定拥塞控制算法，再从用户管理里导出节点链接给客户端使用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "TUIC 和 Hysteria2 哪个更好？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "两者性能接近，实际体验取决于VPS线路和落地网络质量，建议都部署一份实测对比。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "TUIC 证书要怎么设置？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "自签证书需要在客户端手动开启跳过证书验证，否则连接会失败；如果有域名，直接用面板的acme功能申请正式证书能省掉这一步，兼容性也更好。"
+          }
+        }
+      ]
     }
   ]
 }

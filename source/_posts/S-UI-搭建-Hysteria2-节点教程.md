@@ -59,6 +59,43 @@ keywords: S-UI搭建Hysteria2,Hysteria2节点搭建教程,S-UI面板配置hyster
           "text": "在用户管理中生成节点链接，导入客户端并验证连接是否成功。"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "如何搭建 Hysteria2 节点？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "核心步骤就是装好S-UI面板、新建Hysteria2入站、配置证书、生成用户订阅这四步，大部分卡壳的地方都出在防火墙没放行UDP端口或者证书没配对。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hysteria2 可以使用哪些机场？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这里说的是自建场景，跟第三方机场是两回事。如果是想直接用现成的Hysteria2节点而不是自建，需要找明确支持该协议的服务商，这篇教程主要讲自己动手搭建。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "TUIC 和 Hysteria2 节点有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "两者都基于QUIC，思路类似，主要差异在拥塞控制算法和握手细节上，实际表现跟具体线路关系很大，没有绝对谁更好，建议都试一下再决定用哪个。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "S-UI 和 3x-ui 哪个好？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S-UI更轻量，界面和配置逻辑相对简洁，对新协议(比如Hysteria2、TUIC)的支持更新也比较快；3x-ui功能更全、社区教程更多，胜在资料丰富、上手门槛低。两者选哪个更多是习惯问题。"
+          }
+        }
+      ]
     }
   ]
 }
