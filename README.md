@@ -1,4 +1,4 @@
-# FreedomGPT
+# VPS技巧与Linux运维笔记
 
 VPS、Linux、云服务器、网络技术与实用工具教程。
 
