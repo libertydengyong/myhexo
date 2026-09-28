@@ -96,4 +96,4 @@ shortId、publicKey 和 privateKey 这三个字段面板会自动生成，点一
 
 连不上的时候先确认防火墙端口有没有放行，再对照检查客户端里的 publicKey、shortId、serverName 跟面板里的是否一致。dest 填的目标网站在你的服务器上要能正常访问，如果服务器本身访问不了 `amazon.com`，伪装就没有意义，这种情况换一个你的服务器能访问的目标网站。
 
-VLESS Reality 跟 Hysteria2 定位不太一样，Reality 走 TCP 伪装，适合对流量特征要求高的场景；Hysteria2 走 UDP，在高丢包网络下更稳定，两个协议可以同时配置，参考[3x-ui配置Hysteria2节点教程](https://vpsjq.com/2026/08/27/3x-ui-hysteria2/)。多用户管理的方式两个协议都一样，具体操作看[3x-ui多用户管理](https://vpsjq.com/2026/08/27/3x-ui-multi-user/)。
+VLESS Reality 跟 Hysteria2 定位不太一样，Reality 走 TCP 伪装，适合对流量特征要求高的场景；Hysteria2 走 UDP，在高丢包网络下更稳定，两个协议可以同时配置，参考[3x-ui配置Hysteria2节点教程](https://vpsjq.com/2026/08/27/3x-ui-hysteria2/)。多用户管理的方式两个协议都一样，具体操作看[3x-ui多用户管理](https://vpsjq.com/2026/08/27/3x-ui-multi-user/)。这里的 Reality 默认走裸 TCP 传输，如果想换成抗流量分析能力更强、还能套 CDN 的 XHTTP 传输层，可以参考[3x-ui配置XHTTP节点教程](https://vpsjq.com/2026/09/28/3x-ui-xhttp/)。
