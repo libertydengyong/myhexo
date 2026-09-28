@@ -90,3 +90,5 @@ ufw allow 80
 TLS 比普通 none 安全很多，流量加密传输，不容易被中间设备识别和篡改。跟 VLESS Reality 相比，TLS 需要域名和证书，Reality 不需要，但 TLS 的兼容性更好，几乎所有客户端都支持。如果不想折腾域名，可以用 Reality 代替，配置方法参考[3x-ui配置VLESS Reality节点教程](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)。
 
 证书有效期是90天，到期前 Let's Encrypt 会自动续期，面板里申请的证书通常也会自动续期，不需要手动操作。如果证书到期后没有自动续期，节点会因为证书过期无法连接，这时候手动重新申请一次就行。
+
+除了给节点入站用，这套证书申请流程同样适用于给面板本身套 HTTPS，具体做法看[3x-ui用Nginx反向代理隐藏面板](https://vpsjq.com/2026/09/28/3x-ui-nginx-reverse-proxy/)。
