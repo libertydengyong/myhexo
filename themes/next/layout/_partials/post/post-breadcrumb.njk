@@ -26,52 +26,52 @@
     {% set short_title = "技术记录" %}
 
 
-    {% if post.title contains "AetherCloud" or post.title contains "家宽" %}
+    {% if "AetherCloud" in post.title or "家宽" in post.title %}
 
       {% set short_title = "家宽VPS" %}
 
 
-    {% elif post.title contains "IPv6" %}
+    {% elif "IPv6" in post.title %}
 
       {% set short_title = "IPv6部署" %}
 
 
-    {% elif post.title contains "Linux" %}
+    {% elif "Linux" in post.title %}
 
       {% set short_title = "Linux服务" %}
 
 
-    {% elif post.title contains "VPS" %}
+    {% elif "VPS" in post.title %}
 
       {% set short_title = "VPS优化" %}
 
 
-    {% elif post.title contains "Docker" %}
+    {% elif "Docker" in post.title %}
 
       {% set short_title = "Docker部署" %}
 
 
-    {% elif post.title contains "Xray" %}
+    {% elif "Xray" in post.title %}
 
       {% set short_title = "节点部署" %}
 
 
-    {% elif post.title contains "Hexo" %}
+    {% elif "Hexo" in post.title %}
 
       {% set short_title = "博客搭建" %}
 
 
-    {% elif post.title contains "Vercel" %}
+    {% elif "Vercel" in post.title %}
 
       {% set short_title = "网站部署" %}
 
 
-    {% elif post.title contains "Cloudflare" %}
+    {% elif "Cloudflare" in post.title %}
 
       {% set short_title = "CDN配置" %}
 
 
-    {% elif post.title contains "GitHub" %}
+    {% elif "GitHub" in post.title %}
 
       {% set short_title = "Git管理" %}
 

@@ -299,7 +299,7 @@ follow_me:
 # Dependencies: https://github.com/next-theme/hexo-posts-embedding
 # Or: https://github.com/sergeyzwezdin/hexo-related-posts
 related_posts:
-  enable: true
+  enable: false
   icon: fa fa-signs-post
   title: 相关内容
 
