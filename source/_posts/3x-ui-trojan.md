@@ -110,4 +110,4 @@ Trojan **必须**配 TLS，面板里安全选项这一栏没有 none 可选，�
 2. 客户端里的密码是否跟面板一致，Trojan 认证只看密码，填错了直接连不上；
 3. 回落配置本身有没有把真正的 Trojan 流量也错误转发出去——回落只应该拦截"不符合协议格式"的流量，正常的 Trojan 握手不会被误判，如果配置有问题导致正常流量也走了回落，客户端会显示连接成功但实际不通。
 
-如果不想折腾域名和证书，可以考虑换成 [VLESS Reality](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)，不需要自己的证书，配置思路更简单。多用户管理可以参考[3x-ui多用户管理](https://vpsjq.com/2026/08/27/3x-ui-multi-user/)。
+如果不想折腾域名和证书，可以考虑换成 [VLESS Reality](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)，不需要自己的证书，配置思路更简单。多用户管理可以参考[3x-ui多用户管理](https://vpsjq.com/2026/08/27/3x-ui-multi-user/)。如果用的是S-UI面板，配置步骤和思路不完全一样，S-UI的Trojan入站没有回落这个配置项，具体看[S-UI搭建Trojan节点](https://vpsjq.com/2026/09/30/s-ui-trojan/)。
