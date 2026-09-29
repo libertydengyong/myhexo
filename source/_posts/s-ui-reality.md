@@ -84,4 +84,4 @@ shortId、publicKey 和 privateKey 这三个字段面板会自动生成，点生
 
 配置填完保存之后，在入站列表找到这条记录，点二维码图标可以看到分享链接，格式是 `vless://` 开头的，复制到客户端导入就能用。Clash Meta、sing-box、NekoBox、v2rayN 这些主流客户端都支持 VLESS Reality，导入链接之后基本不需要额外配置。
 
-连不上的时候按这个顺序排查：先确认防火墙端口有没有放行，再对照检查客户端里的 publicKey、shortId、serverName 跟面板里的是否一致，最后确认 dest 填的目标网站在你的服务器上能正常访问。S-UI 和 3x-ui 的 Reality 配置思路完全一样，如果你之后考虑换到 3x-ui，可以参考[3x-ui配置VLESS Reality节点教程](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)，操作流程基本一致。
+连不上的时候按这个顺序排查：先确认防火墙端口有没有放行，再对照检查客户端里的 publicKey、shortId、serverName 跟面板里的是否一致，最后确认 dest 填的目标网站在你的服务器上能正常访问。S-UI 和 3x-ui 的 Reality 配置思路完全一样，如果你之后考虑换到 3x-ui，可以参考[3x-ui配置VLESS Reality节点教程](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)，操作流程基本一致。如果只是想先跑通面板和客户端的连接测试，不想一开始就折腾 dest 和密钥，可以先用[S-UI配置普通VLESS节点](https://vpsjq.com/2026/09/29/s-ui-vless/)，测试没问题再回来换成 Reality。
