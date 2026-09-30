@@ -81,4 +81,4 @@ description: 在3x-ui面板里配置Cloudflare Warp，给服务器添加IPv4或I
 
 配置完之后验证一下 Warp 有没有生效，访问 `ip.sb` 或者 `ifconfig.me` 看一下出口 IP，如果显示的是 Cloudflare 的 IP 段说明流量走了 Warp 出口。速度上 Warp 不会明显变慢，日常使用基本感觉不到差别。
 
-对于纯 IPv6 的 VPS 来说，加了 Warp 之后可以访问只支持 IPv4 的网站和服务，也可以直接用来安装 3x-ui 这类需要从 GitHub 拉取文件的脚本，不需要额外折腾其他添加 IPv4 出口的方案。纯 IPv6 VPS 搭节点的完整流程可以参考[纯IPv6 VPS用3x-ui搭建节点教程](https://vpsjq.com/2026/08/29/ipv6-vps-3xui-node/)。
+对于纯 IPv6 的 VPS 来说，加了 Warp 之后可以访问只支持 IPv4 的网站和服务，也可以直接用来安装 3x-ui 这类需要从 GitHub 拉取文件的脚本，不需要额外折腾其他添加 IPv4 出口的方案。纯 IPv6 VPS 搭节点的完整流程可以参考[纯IPv6 VPS用3x-ui搭建节点教程](https://vpsjq.com/2026/08/29/ipv6-vps-3xui-node/)。用S-UI面板的话注册流程是全自动的，不需要手动跑注册命令，具体看[S-UI配置WARP出站](https://vpsjq.com/2026/09/30/s-ui-warp/)。
