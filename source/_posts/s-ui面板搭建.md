@@ -198,7 +198,7 @@ journalctl -xe
 面板装好、基础环境确认没问题之后，可以按需要参考下面几篇更细分的教程：
 
 - 协议配置：[普通VLESS节点](https://vpsjq.com/2026/09/29/s-ui-vless/)、[Trojan节点](https://vpsjq.com/2026/09/30/s-ui-trojan/)、[Shadowsocks节点](https://vpsjq.com/2026/09/30/s-ui-shadowsocks/)、[SNI 配置教程](https://vpsjq.com/2026/09/06/s-ui-sni/)、[TUIC 节点教程](https://vpsjq.com/2026/09/06/s-ui-tuic/)、[Hysteria2 节点教程](https://vpsjq.com/2026/09/06/S-UI-%E6%90%AD%E5%BB%BA-Hysteria2-%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/)、[端口跳跃配置](https://vpsjq.com/2026/09/06/s-ui-port-hopping/)
-- 面板使用：[SSL证书配置](https://vpsjq.com/2026/08/28/s-ui-certificate/)、[订阅链接获取和客户端导入](https://vpsjq.com/2026/08/29/s-ui-subscription/)、[忘记密码怎么办](https://vpsjq.com/2026/09/29/s-ui-forgot-password/)、[改端口和访问路径](https://vpsjq.com/2026/09/30/s-ui-change-port-webpath/)、[升级到新版本怎么操作](https://vpsjq.com/2026/09/30/s-ui-upgrade/)
+- 面板使用：[SSL证书配置](https://vpsjq.com/2026/08/28/s-ui-certificate/)、[订阅链接获取和客户端导入](https://vpsjq.com/2026/08/29/s-ui-subscription/)、[忘记密码怎么办](https://vpsjq.com/2026/09/29/s-ui-forgot-password/)、[改端口和访问路径](https://vpsjq.com/2026/09/30/s-ui-change-port-webpath/)、[升级到新版本怎么操作](https://vpsjq.com/2026/09/30/s-ui-upgrade/)、[数据库备份和迁移新服务器](https://vpsjq.com/2026/09/30/s-ui-backup-migrate/)
 - 选型参考：[alireza0/s-ui 官方仓库与常用命令](https://vpsjq.com/2026/09/06/s-ui-alireza0-guide/)、[S-UI 原版和分叉版对比](https://vpsjq.com/2026/09/07/s-ui-pro-panel-fork/)、[S-UI 和 3x-ui 有什么区别](https://vpsjq.com/2026/09/06/s-ui-vs-3x-ui/)
 
 
