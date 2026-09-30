@@ -94,4 +94,4 @@ ufw allow 你的端口号
 
 Shadowsocks 容易被封的原因有几个层面。流量特征层面，虽然 2022 版本做了改进，但 Shadowsocks 的流量特征还是比较容易被深度包检测（DPI）识别，尤其是在网络管控严格的时期。端口层面，用的如果是常见端口，更容易被针对性封锁。IP 层面，一旦这台服务器的 IP 被标记，不管用什么协议都可能受影响。
 
-实际用下来，IP 被封、端口被封、流量被识别这几种情况都可能发生，不是换个加密方式就能完全避免的。如果对稳定性要求比较高，建议换成 VLESS Reality，不需要域名，伪装成访问真实网站的流量，抗检测能力比 Shadowsocks 强很多，配置方法参考[3x-ui配置VLESS Reality节点教程](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)。Shadowsocks 更适合对抗封锁要求不高、或者客户端只支持 Shadowsocks 的场景。多种协议混用、不同场景选不同节点，可以参考[3x-ui路由规则配置](https://vpsjq.com/2026/08/29/3x-ui-routing/)，把不同协议的节点通过路由规则分配给不同用途。
+实际用下来，IP 被封、端口被封、流量被识别这几种情况都可能发生，不是换个加密方式就能完全避免的。如果对稳定性要求比较高，建议换成 VLESS Reality，不需要域名，伪装成访问真实网站的流量，抗检测能力比 Shadowsocks 强很多，配置方法参考[3x-ui配置VLESS Reality节点教程](https://vpsjq.com/2026/08/27/3x-ui-vless-reality/)。Shadowsocks 更适合对抗封锁要求不高、或者客户端只支持 Shadowsocks 的场景。多种协议混用、不同场景选不同节点，可以参考[3x-ui路由规则配置](https://vpsjq.com/2026/08/29/3x-ui-routing/)，把不同协议的节点通过路由规则分配给不同用途。用S-UI面板的话，加密方式列表里多了2022版这几个新选项，配置细节看[S-UI配置Shadowsocks](https://vpsjq.com/2026/09/30/s-ui-shadowsocks/)。
