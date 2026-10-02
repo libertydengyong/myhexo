@@ -197,3 +197,5 @@ ufw allow 443/udp
 如果想用端口范围做端口跳跃，Hysteria 的 `listen` 支持写端口范围，配法看[Hysteria2端口跳跃配置](https://vpsjq.com/2026/10/02/hysteria2-port-hopping/)，用 S-UI 的话看[S-UI端口跳跃教程](https://vpsjq.com/2026/09/06/s-ui-port-hopping/)。不想手写配置、想要图形界面的话，用面板更省事，对比可以看 [S-UI 搭建 Hysteria2 节点教程](https://vpsjq.com/2026/09/06/S-UI-%E6%90%AD%E5%BB%BA-Hysteria2-%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/)。
 
 服务端跑起来之后，客户端怎么导入、链接里每个参数对应什么，看[Hysteria2客户端导入和连接](https://vpsjq.com/2026/10/02/hysteria2-client-import/)。
+
+Nginx 占着 80 端口、没法申请证书的处理办法，见[Hysteria2 和 Nginx、Cloudflare](https://vpsjq.com/2026/10/02/hysteria2-nginx-cloudflare-443/)。

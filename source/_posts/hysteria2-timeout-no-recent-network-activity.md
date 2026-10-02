@@ -204,3 +204,5 @@ tcpdump -ni any udp port 443
 - "被封"和"被 QoS"是线路层面的问题，官方文档没有给判断方法，我这里也没有可靠的依据去写，所以没有写成结论。
 
 怀疑是线路被限制而不是配置问题，用[对照测试](https://vpsjq.com/2026/10/02/hysteria2-blocked-or-qos/)缩小范围。
+
+域名用了 Cloudflare 的话，注意 Hysteria2 不能套 CDN，见[Nginx、Cloudflare 和 443 端口](https://vpsjq.com/2026/10/02/hysteria2-nginx-cloudflare-443/)。
