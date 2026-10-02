@@ -107,3 +107,4 @@ ufw allow 你的端口号/udp
 - [Hysteria2怎么升级和卸载？官方脚本的版本管理与备份注意事项](https://vpsjq.com/2026/10/02/hysteria2-upgrade-uninstall/)
 - [Hysteria2节点的优点和缺点是什么？和VLESS Reality、TUIC怎么选](https://vpsjq.com/2026/10/02/hysteria2-pros-cons/)
 - [Clash报unsupported proxy type hysteria2怎么办？换mihomo内核和手写节点配置](https://vpsjq.com/2026/10/02/hysteria2-clash-unsupported-proxy-type/)
+- [Hysteria2报错timeout: no recent network activity怎么办？官方排错清单逐条对照](https://vpsjq.com/2026/10/02/hysteria2-timeout-no-recent-network-activity/)

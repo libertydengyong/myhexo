@@ -163,3 +163,5 @@ tls:
 连上之后觉得速度慢，先看[Hysteria2速度慢怎么办](https://vpsjq.com/2026/10/02/hysteria2-slow-speed/)，bandwidth 填得不对反而更慢。
 
 导入时如果 Clash 提示 unsupported proxy type，是内核不认识 hysteria2 的问题，处理方法见[Clash报unsupported proxy type hysteria2怎么办](https://vpsjq.com/2026/10/02/hysteria2-clash-unsupported-proxy-type/)。
+
+连接一直报 timeout: no recent network activity 的话，按[官方排错清单](https://vpsjq.com/2026/10/02/hysteria2-timeout-no-recent-network-activity/)逐条对照。
