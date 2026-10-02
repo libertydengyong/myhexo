@@ -104,3 +104,4 @@ ufw allow 你的端口号/udp
 - [Hysteria2速度慢怎么办？bandwidth设置不当反而更慢](https://vpsjq.com/2026/10/02/hysteria2-slow-speed/)
 - [Hysteria2端口跳跃怎么配？官方脚本版：listen端口范围与客户端hopInterval](https://vpsjq.com/2026/10/02/hysteria2-port-hopping/)
 - [Hysteria2多用户怎么配？userpass认证和流量统计API](https://vpsjq.com/2026/10/02/hysteria2-multi-user/)
+- [Hysteria2怎么升级和卸载？官方脚本的版本管理与备份注意事项](https://vpsjq.com/2026/10/02/hysteria2-upgrade-uninstall/)

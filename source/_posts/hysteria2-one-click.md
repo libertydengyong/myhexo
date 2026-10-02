@@ -98,7 +98,7 @@ systemctl enable --now hysteria-server.service
 journalctl --no-pager -e -u hysteria-server.service
 ```
 
-默认情况下服务以 `hysteria` 这个普通用户运行，如果证书文件权限读不了，可以改成 root 运行：`HYSTERIA_USER=root bash <(curl -fsSL https://get.hy2.sh/)`。卸载用 `bash <(curl -fsSL https://get.hy2.sh/) --remove`，指定版本在命令后面加 `--version 版本号`。
+默认情况下服务以 `hysteria` 这个普通用户运行，如果证书文件权限读不了，可以改成 root 运行：`HYSTERIA_USER=root bash <(curl -fsSL https://get.hy2.sh/)`。卸载用 `bash <(curl -fsSL https://get.hy2.sh/) --remove`，指定版本在命令后面加 `--version 版本号`。升级、备份配置等注意事项看[Hysteria2升级和卸载](https://vpsjq.com/2026/10/02/hysteria2-upgrade-uninstall/)。
 
 ## 菜单式一键脚本
 
