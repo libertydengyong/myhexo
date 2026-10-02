@@ -102,3 +102,4 @@ ufw allow 你的端口号/udp
 - [Hysteria2官方脚本装完起不来？手写config.yaml的最小配置](https://vpsjq.com/2026/10/02/hysteria2-config-yaml/)
 - [Hysteria2客户端怎么导入连接？hy2链接各参数含义和手动填写对照](https://vpsjq.com/2026/10/02/hysteria2-client-import/)
 - [Hysteria2速度慢怎么办？bandwidth设置不当反而更慢](https://vpsjq.com/2026/10/02/hysteria2-slow-speed/)
+- [Hysteria2端口跳跃怎么配？官方脚本版：listen端口范围与客户端hopInterval](https://vpsjq.com/2026/10/02/hysteria2-port-hopping/)

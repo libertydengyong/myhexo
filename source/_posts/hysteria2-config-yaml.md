@@ -194,6 +194,6 @@ ufw allow 443/udp
 3. **证书文件读不了**：官方脚本默认让服务以 `hysteria` 这个普通用户运行，如果证书文件只有 root 能读，服务会起不来。可以改文件权限，或者按[一键安装脚本那篇](https://vpsjq.com/2026/09/02/hysteria2-one-click/)里说的用 `HYSTERIA_USER=root` 重新装。
 4. **端口冲突**：UDP 443 如果被其他程序占用，换一个端口，同时改 `listen` 和防火墙。
 
-如果想用端口范围做端口跳跃，Hysteria 的 `listen` 支持写端口范围，面板里的做法看[S-UI端口跳跃配置教程](https://vpsjq.com/2026/09/06/s-ui-port-hopping/)。不想手写配置、想要图形界面的话，用面板更省事，对比可以看 [S-UI 搭建 Hysteria2 节点教程](https://vpsjq.com/2026/09/06/S-UI-%E6%90%AD%E5%BB%BA-Hysteria2-%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/)。
+如果想用端口范围做端口跳跃，Hysteria 的 `listen` 支持写端口范围，配法看[Hysteria2端口跳跃配置](https://vpsjq.com/2026/10/02/hysteria2-port-hopping/)，用 S-UI 的话看[S-UI端口跳跃教程](https://vpsjq.com/2026/09/06/s-ui-port-hopping/)。不想手写配置、想要图形界面的话，用面板更省事，对比可以看 [S-UI 搭建 Hysteria2 节点教程](https://vpsjq.com/2026/09/06/S-UI-%E6%90%AD%E5%BB%BA-Hysteria2-%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/)。
 
 服务端跑起来之后，客户端怎么导入、链接里每个参数对应什么，看[Hysteria2客户端导入和连接](https://vpsjq.com/2026/10/02/hysteria2-client-import/)。

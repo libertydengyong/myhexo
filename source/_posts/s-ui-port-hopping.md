@@ -117,3 +117,5 @@ netfilter-persistent save
 - **等 S-UI 后续版本更新**：功能请求已经提交，后续版本合并之后大概率会有更省事的面板配置方式，可以关注一下项目更新日志。
 
 面板如果还没装好，可以先参考[S-UI面板搭建教程](https://vpsjq.com/2025/11/17/s-ui面板搭建/)；搭建 Hysteria2 节点本身的步骤如果还没看过，可以先参考 [S-UI 搭建 Hysteria2 节点教程](/2026/09/06/S-UI-%E6%90%AD%E5%BB%BA-Hysteria2-%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B/)，端口跳跃是在节点跑起来之后的一个进阶优化，不是必需项，先把节点跑通再考虑要不要折腾这个。
+
+如果你的 Hysteria2 是用官方脚本单独装的（没有用面板），服务端可以直接在 `listen` 里写端口范围，不用手动配 iptables，看[Hysteria2端口跳跃官方脚本版](https://vpsjq.com/2026/10/02/hysteria2-port-hopping/)。
