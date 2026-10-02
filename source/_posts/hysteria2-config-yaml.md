@@ -160,7 +160,7 @@ obfs:
     password: 另一个密码
 ```
 
-**带宽 `bandwidth`**：可选，限制服务端的上下行速度，单位支持 mbps、gbps 等。不写就是不限制。速度慢的问题通常不在这里，需要的话后面单独写。
+**带宽 `bandwidth`**：可选，限制服务端的上下行速度，单位支持 mbps、gbps 等。不写就是不限制。速度慢的问题通常不在服务端这里，排查顺序看[Hysteria2速度慢怎么办](https://vpsjq.com/2026/10/02/hysteria2-slow-speed/)。
 
 ## 启动、检查、放行端口
 

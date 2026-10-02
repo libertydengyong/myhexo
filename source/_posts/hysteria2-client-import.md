@@ -159,3 +159,5 @@ tls:
 5. **看服务端日志**：`journalctl --no-pager -e -u hysteria-server.service`，用官方脚本装的话服务名是这个，其他方式安装的以实际为准。
 
 服务端还没装的话，安装方式可以看[Hysteria2一键安装脚本](https://vpsjq.com/2026/09/02/hysteria2-one-click/)。
+
+连上之后觉得速度慢，先看[Hysteria2速度慢怎么办](https://vpsjq.com/2026/10/02/hysteria2-slow-speed/)，bandwidth 填得不对反而更慢。
