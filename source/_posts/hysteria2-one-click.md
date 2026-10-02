@@ -133,3 +133,5 @@ ufw allow 你的端口号/udp
 
 独立脚本安装的 Hysteria2 和通过 3x-ui 面板配置的 Hysteria2 在使用上没有本质区别，区别在于管理方式——独立脚本直接在服务器上管理，3x-ui 面板提供图形界面，多节点多用户的情况下面板更方便管理，参考[3x-ui多用户管理](https://vpsjq.com/2026/08/27/3x-ui-multi-user/)。
 
+
+用 Docker 部署的做法见[Hysteria2 Docker 部署](https://vpsjq.com/2026/10/02/hysteria2-docker/)。

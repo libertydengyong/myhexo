@@ -168,3 +168,5 @@ systemctl status hysteria-server
 4. **客户端和服务端版本差得太多**：客户端也考虑更新到比较新的版本，连接参数怎么对应可以回头看[客户端导入连接](https://vpsjq.com/2026/10/02/hysteria2-client-import/)。
 
 用面板管理节点的话，升级由面板负责，不需要手动处理 Hysteria2 本身，参考[3x-ui配置Hysteria2节点教程](https://vpsjq.com/2026/08/27/3x-ui-hysteria2/)。
+
+习惯用 Docker 管理服务的话，看[Hysteria2 Docker 部署](https://vpsjq.com/2026/10/02/hysteria2-docker/)。
