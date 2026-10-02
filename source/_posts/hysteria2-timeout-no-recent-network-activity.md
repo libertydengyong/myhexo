@@ -1,12 +1,12 @@
 ---
-title: Hysteria2报错timeout: no recent network activity怎么办？官方排错清单逐条对照
+title: "Hysteria2报错timeout: no recent network activity怎么办？官方排错清单逐条对照"
 date: 2026-10-02 17:30:00
 tags:
   - Hysteria2
   - 故障排查
 categories:
   - vps工具
-description: Hysteria2客户端报connect error: timeout: no recent network activity，意思是发出去的包一直没等到服务器回应。这篇按官方排错文档的七种原因逐条排查，再讲怎么用另外两种报错判断UDP其实是通的，以及连上之后又断流该看哪几个参数。
+description: "Hysteria2客户端报connect error: timeout: no recent network activity，意思是发出去的包一直没等到服务器回应。这篇按官方排错文档的七种原因逐条排查，再讲怎么用另外两种报错判断UDP其实是通的，以及连上之后又断流该看哪几个参数。"
 ---
 
 <script type="application/ld+json">
