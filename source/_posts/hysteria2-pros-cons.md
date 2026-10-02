@@ -164,3 +164,5 @@ Hysteria2 是建立在 QUIC 之上的代理协议，官方文档的描述是：�
 Hysteria2 的优点来自 QUIC 和官方做的优化：弱网性能好、能伪装成 HTTP/3、功能齐全、部署简单；缺点也来自 UDP：没有 TCP 退路，网络对 UDP 不友好时就帮不上忙，参数填错还会更慢。它适合 UDP 通路好的环境，不是任何环境下的最优解。准备搭的话，先看[一键安装脚本](https://vpsjq.com/2026/09/02/hysteria2-one-click/)。
 
 协议本身怎么工作，见[Hysteria2是什么协议](https://vpsjq.com/2026/10/02/hysteria2-what-is-and-v1-vs-v2/)。
+
+和 AnyTLS、Trojan、WireGuard、NaiveProxy 的对比见[这篇](https://vpsjq.com/2026/10/02/hysteria2-vs-anytls-trojan-wireguard/)。

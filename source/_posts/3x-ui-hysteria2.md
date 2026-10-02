@@ -115,3 +115,4 @@ ufw allow 你的端口号/udp
 - [Hysteria2能和Nginx共用443端口吗？能套Cloudflare吗？官方文档怎么说](https://vpsjq.com/2026/10/02/hysteria2-nginx-cloudflare-443/)
 - [sing-box和Xray里怎么配Hysteria2？字段、版本要求和userpass的坑](https://vpsjq.com/2026/10/02/hysteria2-singbox-xray/)
 - [Hysteria2服务端怎么分流？outbounds和ACL写法，以及接WARP的思路](https://vpsjq.com/2026/10/02/hysteria2-outbounds-acl-warp/)
+- [Hysteria2和AnyTLS、Trojan、WireGuard、NaiveProxy怎么选？按官方文档对比底层区别](https://vpsjq.com/2026/10/02/hysteria2-vs-anytls-trojan-wireguard/)
