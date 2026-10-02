@@ -147,7 +147,7 @@ openssl req -x509 -nodes -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 \
 
 **监听端口 `listen`**：不写就是默认的 `:443`，注意这是 **UDP** 端口。想换端口就加一行，比如 `listen: :8443`。只想监听 IPv4 写 `0.0.0.0:8443`，只监听 IPv6 写 `[::]:8443`。
 
-**认证 `auth`**：上面用的是 `password` 类型，所有客户端共用一个密码，个人使用够了。多个用户想分开管理，官方还支持 `userpass`（用户名加密码）、`http`、`command` 几种类型。密码随便挑一个够长的随机字符串，`openssl rand -base64 18` 就能生成。
+**认证 `auth`**：上面用的是 `password` 类型，所有客户端共用一个密码，个人使用够了。多个用户想分开管理，官方还支持 `userpass`（用户名加密码）、`http`、`command` 几种类型，多用户的具体配法看[Hysteria2多用户](https://vpsjq.com/2026/10/02/hysteria2-multi-user/)。密码随便挑一个够长的随机字符串，`openssl rand -base64 18` 就能生成。
 
 **伪装 `masquerade`**：别人直接访问你的服务器端口时，Hysteria 会假装成一个正常的 HTTP/3 网站。上面用的 `proxy` 类型会把请求转发到你指定的真实网站，另外还有 `file`（返回本地静态文件）和 `string`（返回固定字符串）两种。如果你不在意抗封锁，这一段可以整个删掉。
 
