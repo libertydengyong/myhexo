@@ -109,3 +109,4 @@ ufw allow 你的端口号/udp
 - [Clash报unsupported proxy type hysteria2怎么办？换mihomo内核和手写节点配置](https://vpsjq.com/2026/10/02/hysteria2-clash-unsupported-proxy-type/)
 - [Hysteria2报错timeout: no recent network activity怎么办？官方排错清单逐条对照](https://vpsjq.com/2026/10/02/hysteria2-timeout-no-recent-network-activity/)
 - [Hysteria2怎么用Docker部署？官方compose示例逐行讲解和三个坑](https://vpsjq.com/2026/10/02/hysteria2-docker/)
+- [Hysteria2客户端怎么选？Windows、Mac、Linux、安卓、iOS和OpenWrt能确认什么](https://vpsjq.com/2026/10/02/hysteria2-platform-clients/)
