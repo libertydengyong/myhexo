@@ -106,3 +106,4 @@ ufw allow 你的端口号/udp
 - [Hysteria2多用户怎么配？userpass认证和流量统计API](https://vpsjq.com/2026/10/02/hysteria2-multi-user/)
 - [Hysteria2怎么升级和卸载？官方脚本的版本管理与备份注意事项](https://vpsjq.com/2026/10/02/hysteria2-upgrade-uninstall/)
 - [Hysteria2节点的优点和缺点是什么？和VLESS Reality、TUIC怎么选](https://vpsjq.com/2026/10/02/hysteria2-pros-cons/)
+- [Clash报unsupported proxy type hysteria2怎么办？换mihomo内核和手写节点配置](https://vpsjq.com/2026/10/02/hysteria2-clash-unsupported-proxy-type/)
