@@ -203,3 +203,5 @@ curl -sSL https://resource.1panel.pro/quick_start.sh -o quick_start.sh && bash q
 - **社区版和专业版的功能差异**：没有核对；
 - **实际安装耗时、占用的内存和磁盘**：没有实测；
 - **应用商店里具体应用的安装和使用**：这篇只讲面板本身。
+
+同类的面板还有 mw 面板（mdserver-web），见[mw面板是什么、怎么安装](https://vpsjq.com/2026/10/03/mw-panel-what-is-install/)。
