@@ -1,5 +1,5 @@
 ---
-title: Hysteria2一键安装脚本：老王工具箱、f佬和223脚本
+title: Hysteria2一键安装脚本：官方脚本、老王工具箱、f佬和233boy
 date: 2026-09-02 12:00:00
 updated: 2026-10-02 12:00:00
 tags:
@@ -7,7 +7,7 @@ tags:
   - 3x-ui
 categories:
   - vps工具
-description: 三个常用的Hysteria2一键安装脚本：老王工具箱、f佬脚本和223脚本，都可以从GitHub找到，也集成在老王工具箱里，安装完看节点速度验证是否生效。
+description: Hysteria2一键安装脚本汇总：官方脚本、老王工具箱、f佬(fscarmen)和233boy的sing-box脚本，说明各自区别和安装后的验证、UDP放行方法。
 ---
 
 <script type="application/ld+json">
@@ -16,8 +16,8 @@ description: 三个常用的Hysteria2一键安装脚本：老王工具箱、f佬
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "Hysteria2一键安装脚本：老王工具箱、f佬和223脚本",
-      "description": "三个常用的Hysteria2一键安装脚本：老王工具箱、f佬脚本和223脚本，都可以从GitHub找到，也集成在老王工具箱里，安装完看节点速度验证是否生效。",
+      "headline": "Hysteria2一键安装脚本：官方脚本、老王工具箱、f佬和233boy",
+      "description": "Hysteria2一键安装脚本汇总：官方脚本、老王工具箱、f佬(fscarmen)和233boy的sing-box脚本，说明各自区别和安装后的验证、UDP放行方法。",
       "datePublished": "2026-09-02T12:00:00+08:00",
       "dateModified": "2026-10-02T12:00:00+08:00",
       "url": "https://vpsjq.com/2026/09/02/hysteria2-one-click/",
@@ -102,13 +102,18 @@ journalctl --no-pager -e -u hysteria-server.service
 
 ## 菜单式一键脚本
 
-不想手写配置的话，可以用第三方整合脚本，老王工具箱、f佬的脚本和 223 的脚本是常见的几个，都能在 GitHub 找到。老王工具箱的安装命令：
+不想手写配置的话，可以用第三方整合脚本，老王工具箱、f佬的脚本和 233boy 的脚本是常见的几个，都能在 GitHub 找到。老王工具箱的安装命令：
 
 ```bash
 wget -qO ssh_tool.sh https://raw.githubusercontent.com/eooce/ssh_tool/main/ssh_tool.sh && chmod +x ssh_tool.sh && ./ssh_tool.sh
 ```
 
-跑完会出现一个菜单，从菜单里选择安装 Hysteria2 的选项，脚本会自动处理依赖安装和配置。f佬和 223 的脚本命令以各自 GitHub 仓库 README 为准，这里不贴，免得过期。第三方脚本的服务名、配置路径可能和官方脚本不同，装完以脚本输出的提示为准。
+跑完会出现一个菜单，从菜单里选择安装 Hysteria2 的选项，脚本会自动处理依赖安装和配置。另外两个脚本都是 sing-box 多协议脚本，Hysteria2 只是其中一个协议：
+
+- **f佬（fscarmen）的 Sing-box 全家桶**：仓库在 [GitHub](https://github.com/fscarmen/sing-box)，作者主页在 [GitLab](https://gitlab.com/fscarmen)。支持 Reality、Hysteria2、TUIC、Trojan、AnyTLS 等一堆协议，不需要域名，还带多客户端订阅。安装命令：`bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)`，装完用 `sb` 命令管理。
+- **233boy 的 sing-box 脚本**：仓库在 [GitHub](https://github.com/233boy/sing-box)，主打"一条命令添加、修改、查看、删除配置"，可以一键添加 Hysteria2、TUIC、Reality 等。安装和用法看作者的[文档页](https://233boy.com/sing-box/sing-box-script/)，命令以文档为准。
+
+第三方脚本的服务名、配置路径可能和官方脚本不同，装完以脚本输出的提示为准。
 
 安装完之后验证 Hysteria2 是否正常运行，最直接的方式是把节点导入客户端测试连接速度，速度正常说明运行没有问题。官方脚本安装的话也可以检查服务状态：
 

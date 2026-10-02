@@ -98,4 +98,4 @@ ufw allow 你的端口号/udp
 
 ## 相关文章
 
-- [Hysteria2一键安装脚本：老王工具箱、f佬和223脚本](https://vpsjq.com/2026/09/02/hysteria2-one-click/)
+- [Hysteria2一键安装脚本：官方脚本、老王工具箱、f佬和233boy](https://vpsjq.com/2026/09/02/hysteria2-one-click/)
