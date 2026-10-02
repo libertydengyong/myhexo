@@ -95,3 +95,5 @@ x-ui uninstall
 卸载后数据库文件不会自动删除，需要手动清理，完整卸载步骤参考[3x-ui卸载方法和数据清理](https://vpsjq.com/2026/08/30/3x-ui-uninstall/)。
 
 这几条命令覆盖了日常维护的大部分场景。面板如果出现问题，先跑 `x-ui status` 看一下服务状态，再跑 `x-ui log` 看日志里有没有报错信息，大部分问题在日志里都能找到线索。面板打不开的其他排查方法可以参考[x-ui面板打不开的常见原因和解决方法](https://vpsjq.com/2026/08/29/xui-panel-not-open/)。
+
+服务起不来时按日志排查，见[x-ui面板启动失败怎么办](https://vpsjq.com/2026/10/02/xui-panel-start-failed/)。
