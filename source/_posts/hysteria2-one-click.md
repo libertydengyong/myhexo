@@ -86,7 +86,7 @@ Hysteria2 是基于 QUIC 的代理协议，在高丢包高延迟的网络环境�
 bash <(curl -fsSL https://get.hy2.sh/)
 ```
 
-需要注意：这个脚本**只负责安装程序并生成示例配置**，装完服务还起不来，必须手动编辑 `/etc/hysteria/config.yaml`，写入监听端口、证书和认证密码，然后再启动：
+需要注意：这个脚本**只负责安装程序并生成示例配置**，装完服务还起不来，必须手动编辑 `/etc/hysteria/config.yaml`，写入监听端口、证书和认证密码（最小配置怎么写看[这篇](https://vpsjq.com/2026/10/02/hysteria2-config-yaml/)），然后再启动：
 
 ```bash
 systemctl enable --now hysteria-server.service
