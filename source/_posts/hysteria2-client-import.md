@@ -167,3 +167,5 @@ tls:
 连接一直报 timeout: no recent network activity 的话，按[官方排错清单](https://vpsjq.com/2026/10/02/hysteria2-timeout-no-recent-network-activity/)逐条对照。
 
 各平台客户端的选择见[Hysteria2客户端怎么选](https://vpsjq.com/2026/10/02/hysteria2-platform-clients/)。
+
+sing-box 和 Xray 里的写法见[sing-box和Xray里怎么配Hysteria2](https://vpsjq.com/2026/10/02/hysteria2-singbox-xray/)。
