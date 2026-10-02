@@ -202,3 +202,5 @@ tcpdump -ni any udp port 443
 
 - 不同客户端（Clash、sing-box、各种图形客户端）自己的报错写法不太一样，Clash 报"不支持的节点类型"是另一个问题，见[Clash 报 unsupported proxy type hysteria2](https://vpsjq.com/2026/10/02/hysteria2-clash-unsupported-proxy-type/)。
 - "被封"和"被 QoS"是线路层面的问题，官方文档没有给判断方法，我这里也没有可靠的依据去写，所以没有写成结论。
+
+怀疑是线路被限制而不是配置问题，用[对照测试](https://vpsjq.com/2026/10/02/hysteria2-blocked-or-qos/)缩小范围。

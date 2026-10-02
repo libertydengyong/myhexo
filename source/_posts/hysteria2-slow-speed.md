@@ -173,3 +173,5 @@ sysctl --system
 3. UDP 缓冲区是否按官方建议设为 16 MB。
 4. 用 TCP 协议和 TUIC 做对照，判断是不是线路问题。
 5. 连不上或者握手失败是另一类问题，对照[客户端导入那篇的排查顺序](https://vpsjq.com/2026/10/02/hysteria2-client-import/)。
+
+高峰期变慢想判断是不是被限速，见[被封还是被QoS](https://vpsjq.com/2026/10/02/hysteria2-blocked-or-qos/)。
