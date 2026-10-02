@@ -139,7 +139,7 @@ ss -lntp | grep :你的面板端口
 /usr/local/x-ui/x-ui setting -port 新端口
 ```
 
-改完重启面板，并在系统防火墙和服务商安全组里放行新端口。端口和访问路径怎么查，用 `x-ui settings`。另外，3x-ui 还支持用环境变量 `XUI_PORT` 覆盖面板端口，`x-ui.service` 里读取了 `/etc/default/x-ui` 这个环境变量文件；如果你或者某个脚本在里面设过，面板实际使用的端口会以它为准，排查端口时要一起看。
+改完重启面板，并在系统防火墙和服务商安全组里放行新端口。端口和访问路径怎么查，用 `x-ui settings`。另外，3x-ui 还支持用环境变量 `XUI_PORT` 覆盖面板端口，服务文件会读取一个环境变量文件（Debian/Ubuntu 一类是 `/etc/default/x-ui`，RHEL 系是 `/etc/sysconfig/x-ui`，Arch 系是 `/etc/conf.d/x-ui`）；如果你或者某个脚本在里面设过，面板实际使用的端口会以它为准，排查端口时要一起看。
 
 ### 类型 2：Error initializing database（数据库问题）
 
@@ -195,3 +195,5 @@ systemctl start x-ui
 - **xray 内核本身启动失败**（面板能开，但节点不通）：我没有在源码里逐项核对，不写。
 - **原版 x-ui（vaxilu）和 3x-ui 以外的分叉版**：没有核对。
 - **各种报错的真实现场输出**：本篇的报错文字来自源码，不是从失败机器上截取的，实际输出以你机器上的为准。
+
+配置文件和数据库的位置见[x-ui和3x-ui的配置文件在哪](https://vpsjq.com/2026/10/02/3x-ui-config-file-location/)。
