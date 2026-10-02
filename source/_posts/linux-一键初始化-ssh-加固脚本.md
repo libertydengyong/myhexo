@@ -87,3 +87,4 @@ Linux 一键初始化 & SSH 加固脚本 curl -fsSL https://raw.githubuserconten
 - [装了Fail2ban，怎么确认它真的在拦截攻击](https://vpsjq.com/2026/08/25/fail2ban-verify-working/)
 - [下载的Linux软件包，怎么确认没被人动过手脚](https://vpsjq.com/2026/08/26/linux-file-integrity-verification/)
 - [SSH 加快连接的几种方法](https://vpsjq.com/2025/07/14/ssh-加快连接的几种方法/)
+- [VPS怎么配置SSH密钥登录？关闭密码登录之前，先做这几步防锁死](https://vpsjq.com/2026/10/02/ssh-key-login-disable-password/)
