@@ -199,3 +199,5 @@ ufw allow 443/udp
 服务端跑起来之后，客户端怎么导入、链接里每个参数对应什么，看[Hysteria2客户端导入和连接](https://vpsjq.com/2026/10/02/hysteria2-client-import/)。
 
 Nginx 占着 80 端口、没法申请证书的处理办法，见[Hysteria2 和 Nginx、Cloudflare](https://vpsjq.com/2026/10/02/hysteria2-nginx-cloudflare-443/)。
+
+服务端分流和屏蔽规则见[outbounds和ACL写法](https://vpsjq.com/2026/10/02/hysteria2-outbounds-acl-warp/)。
