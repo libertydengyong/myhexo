@@ -111,3 +111,4 @@ ufw allow 你的端口号/udp
 - [Hysteria2怎么用Docker部署？官方compose示例逐行讲解和三个坑](https://vpsjq.com/2026/10/02/hysteria2-docker/)
 - [Hysteria2客户端怎么选？Windows、Mac、Linux、安卓、iOS和OpenWrt能确认什么](https://vpsjq.com/2026/10/02/hysteria2-platform-clients/)
 - [Hysteria2被封还是被QoS限速？用对照测试自己判断，不靠猜](https://vpsjq.com/2026/10/02/hysteria2-blocked-or-qos/)
+- [Hysteria2是什么协议？工作原理和Hysteria 1代的区别，官方文档逐条对照](https://vpsjq.com/2026/10/02/hysteria2-what-is-and-v1-vs-v2/)

@@ -135,3 +135,5 @@ ufw allow 你的端口号/udp
 
 
 用 Docker 部署的做法见[Hysteria2 Docker 部署](https://vpsjq.com/2026/10/02/hysteria2-docker/)。
+
+想先了解协议原理和 1 代、2 代的区别，看[Hysteria2是什么协议](https://vpsjq.com/2026/10/02/hysteria2-what-is-and-v1-vs-v2/)。
