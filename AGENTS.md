@@ -49,7 +49,6 @@ npx hexo server          # 本地预览，默认 http://localhost:4000
 
 - 部署平台是 **Vercel**：推送到 `main` 后 Vercel 自动构建（`hexo generate`）并发布到 vpsjq.com。仓库内没有 Vercel 项目 ID 之类的文件，部署设置在 Vercel 后台。
 - `.github/workflows/indexnow.yml`：推送到 `main` 后，等待 90 秒（让 Vercel 部署生效），再在 Actions 里 `npm install && npx hexo generate`，由 `scripts/indexnow.js` 向 IndexNow 提交新链接。
-- 注意：`.github/dependabot.yml` 里实际放的是一份“Daily AI Post Generator”工作流内容（引用了仓库里不存在的 `zd.py`），不是真正的 Dependabot 配置；改动前先和用户确认，不要想当然地“修复”。
 
 ## 写文章约定
 
