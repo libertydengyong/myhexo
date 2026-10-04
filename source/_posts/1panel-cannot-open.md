@@ -221,7 +221,7 @@ description: "1Panel面板打不开，多数时候不是服务挂了，而是安
 
 ## 和 x-ui、3x-ui 面板的区别
 
-1Panel 是一个通用的 Linux 服务器管理面板，管理网站、文件、容器、数据库等，官方 README 的介绍就是这一类。x-ui 和 3x-ui 是管理 xray 代理的专用面板，两者用途不同。如果你要排查的是 x-ui，看[x-ui 面板打不开的常见原因](https://vpsjq.com/2026/08/29/xui-panel-not-open/)和[x-ui 面板启动失败怎么办](https://vpsjq.com/2026/10/02/xui-panel-start-failed/)。
+1Panel 是一个通用的 Linux 服务器管理面板，管理网站、文件、容器、数据库等，官方 README 的介绍就是这一类。x-ui 和 3x-ui 是管理 xray 代理的专用面板，两者用途不同。如果你要排查的是 x-ui，看[3x-ui、x-ui面板打不开的常见原因和解决方法](https://vpsjq.com/2026/08/29/xui-panel-not-open/)和[x-ui 面板启动失败怎么办](https://vpsjq.com/2026/10/02/xui-panel-start-failed/)。
 
 ## 没有覆盖的
 
