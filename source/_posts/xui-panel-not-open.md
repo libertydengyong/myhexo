@@ -1,12 +1,12 @@
 ---
-title: x-ui面板打不开的常见原因和解决方法
+title: 3x-ui、x-ui面板打不开的常见原因和解决方法
 date: 2026-08-29 10:00:00
 tags:
   - 3x-ui
   - x-ui
 categories:
   - vps工具
-description: x-ui面板访问不了的几个常见原因：端口没有放行、服务商安全组限制、访问路径填错，以及对应的排查和解决方法。
+description: 3x-ui、x-ui面板访问不了的几个常见原因：端口没有放行、服务商安全组限制、访问路径填错，以及对应的排查和解决方法。
 ---
 
 <script type="application/ld+json">
@@ -15,7 +15,7 @@ description: x-ui面板访问不了的几个常见原因：端口没有放行、
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "x-ui面板打不开的常见原因和解决方法",
+      "headline": "3x-ui、x-ui面板打不开的常见原因和解决方法",
       "description": "x-ui面板访问不了的几个常见原因：端口没有放行、服务商安全组限制、访问路径填错，以及对应的排查和解决方法。",
       "datePublished": "2026-08-29T10:00:00+08:00",
       "dateModified": "2026-08-29T10:00:00+08:00",
