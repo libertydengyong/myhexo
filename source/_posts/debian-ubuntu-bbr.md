@@ -51,7 +51,7 @@ description: Debian和Ubuntu系统开启BBR的两种方式：手动修改sysctl�
         {
           "@type": "HowToStep",
           "name": "验证是否生效",
-          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出为bbr，再用sysctl net.core.default_qdisc确认输出为fq或fq_codel，两者都对说明配置完整。"
+          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出为bbr，再用sysctl net.core.default_qdisc确认输出为fq（内核推荐的搭配）；输出别的值，BBR一般仍能运行，只是没有按推荐方式配置。"
         }
       ]
     },
@@ -109,7 +109,7 @@ sysctl net.ipv4.tcp_congestion_control
 sysctl net.core.default_qdisc
 ```
 
-输出 `fq` 或者 `fq_codel` 说明配置完整。如果验证结果不对，先确认重启之后配置有没有持久化，有时候 `sysctl -p` 当时生效了但重启后又恢复默认，检查一下 `/etc/sysctl.conf` 里两行有没有正确写入。
+输出 `fq` 说明按推荐方式配置完整了（Linux 内核 `tcp_bbr.c` 的注释推荐 BBR 搭配 fq；输出别的值时 BBR 一般仍能运行，只是没有按推荐方式配置，详见 [BBRplus要不要搭配FQ](https://vpsjq.com/2026/10/04/bbrplus-fq-qdisc/)）。如果验证结果不对，先确认重启之后配置有没有持久化，有时候 `sysctl -p` 当时生效了但重启后又恢复默认，检查一下 `/etc/sysctl.conf` 里两行有没有正确写入。
 
 开启 BBR 之后如果感觉速度提升不明显，不一定是配置有问题，更多时候是线路本身的限制，具体原因可以参考[为什么开了BBR网速却感觉一点没提升](https://vpsjq.com/2026/08/18/bbr-no-improvement/)。如果想进一步优化，可以结合[Linux TCP/IP和BBR参数智能优化脚本](https://vpsjq.com/2025/11/30/linux-tcp-ip-%E5%92%8C-bbr-%E5%8F%82%E6%95%B0%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E8%84%9A%E6%9C%AC/)一起跑，把TCP参数也一并调优。
 

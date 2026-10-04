@@ -89,7 +89,7 @@ Jinwyp这个GitHub作者维护的one_click_script脚本包，是圈子里流传�
 wget --no-check-certificate https://raw.githubusercontent.com/jinwyp/one_click_script/master/install_kernel.sh && chmod +x ./install_kernel.sh && ./install_kernel.sh
 ```
 
-跑起来之后会出现菜单，根据自己的系统选对应的编号：
+跑起来之后会出现菜单，根据自己的系统选对应的编号（注意：菜单编号随脚本版本变化，下面的编号只是写这篇时的情况，请以脚本屏幕上显示的菜单文字为准）：
 
 - **CentOS / AlmaLinux / Rocky Linux**：选31装最新5.16内核，或者选35装LTS 5.10内核（官方建议选这个，稳定性更好）
 - **Debian**：选41装LTS 5.10内核
