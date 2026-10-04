@@ -53,7 +53,7 @@ description: BBR不是万能加速器，它优化的是拥塞控制方式，不�
           "name": "配置了BBR但没生效，还有哪些技术原因？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "常见原因有三个：一是队列调度算法qdisc没有设成fq（或fq_codel），配套没设对BBR效果会打折扣；二是内核版本太旧不支持BBR，sysctl设置时不报错但重启后会变回cubic；三是VPS上同时跑着多条连接，物理带宽已经被瓜分完，单条连接测速自然上不去，这不是BBR的问题。"
+            "text": "常见原因有三个：一是队列调度算法qdisc没有配套设成fq（内核推荐的搭配，不配时内核退回内部pacing，会多占一些资源，是否影响速度未实测）；二是内核版本太旧不支持BBR，sysctl设置时不报错但重启后会变回cubic；三是VPS上同时跑着多条连接，物理带宽已经被瓜分完，单条连接测速自然上不去，这不是BBR的问题。"
           }
         },
         {
@@ -86,13 +86,13 @@ BBR是一种拥塞控制算法，它管的是**数据包在网络出现拥堵时
 
 除了期望值搞错，也有不少是**BBR压根没真正生效**导致的：
 
-`sysctl`设置完`tcp_congestion_control=bbr`，不代表配置全对了，配套的队列调度算法`qdisc`同样得设成`fq`，不然内核实际用的还是默认的`pfifo_fast`，BBR跑起来的效果会打折扣：
+`sysctl`设置完`tcp_congestion_control=bbr`，不代表配置全对了，还要看配套的队列调度算法`qdisc`。Linux内核`tcp_bbr.c`的注释写的是BBR可以搭配fq使用，不配的话TCP协议栈会退回内部pacing，每个连接用一个高精度定时器，可能占用更多资源。所以推荐设成`fq`，但没设也不会让BBR直接失效，对实际速度的影响我没有测过。先看一下当前值：
 
 ```bash
 sysctl net.core.default_qdisc
 ```
 
-确认输出是`fq`（或者较新内核用`fq_codel`），不是别的。
+推荐的输出是`fq`。更详细的搭配和验证方法见[BBRplus要不要搭配FQ](https://vpsjq.com/2026/10/04/bbrplus-fq-qdisc/)。
 
 老内核压根不支持BBR，`sysctl`命令执行时不报错，看着像是设置成功了，重启之后拿命令一验证，发现又悄悄变回了`cubic`：
 
