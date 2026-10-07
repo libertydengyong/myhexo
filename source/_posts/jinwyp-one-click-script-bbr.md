@@ -1,6 +1,7 @@
 ---
 title: Jinwyp一键脚本安装BBR和BBRplus内核教程
 date: 2026-09-06 21:00:00
+updated: 2026-10-08 21:00:00
 tags:
   - Jinwyp
   - BBR加速
@@ -19,7 +20,7 @@ description: Jinwyp的one_click_script脚本安装BBR和BBRplus的完整步骤�
       "headline": "Jinwyp一键脚本安装BBR和BBRplus内核教程",
       "description": "Jinwyp的one_click_script脚本安装BBR和BBRplus的完整步骤，包括CentOS/Debian/Ubuntu各系统对应的菜单选项和安装后启用的方法。",
       "datePublished": "2026-09-06T21:00:00+08:00",
-      "dateModified": "2026-09-06T21:00:00+08:00",
+      "dateModified": "2026-10-08T21:00:00+08:00",
       "url": "https://vpsjq.com/2026/09/06/jinwyp-one-click-script-bbr/",
       "author": {
         "@type": "Organization",
@@ -42,12 +43,12 @@ description: Jinwyp的one_click_script脚本安装BBR和BBRplus的完整步骤�
         {
           "@type": "HowToStep",
           "name": "按系统选择内核编号",
-          "text": "CentOS/AlmaLinux/Rocky选31装5.16内核或35装LTS 5.10内核，Debian选41装LTS 5.10内核，Ubuntu选45装LTS 5.10内核，装内核过程会重启两次属于正常现象。"
+          "text": "按我读到的脚本（头部日期2025-06-12，读取于2026-10-08）：CentOS系选36装5.10 LTS内核（Teddysun编译，菜单标注推荐安装），Debian 10/11选41装5.10 LTS内核，Ubuntu选46装5.10 LTS内核。编号随脚本版本变化，以屏幕菜单文字为准。装内核过程会重启两次属于正常现象。"
         },
         {
           "@type": "HowToStep",
           "name": "重新运行脚本启用加速算法",
-          "text": "内核装完后重新运行同一个脚本，选2启用BBR（会询问是否搭配Cake或FQ，官方推荐Cake），如果之前选的是BBRplus内核编号（61或66），则选3启用BBRplus。"
+          "text": "内核装完后重新运行同一个脚本，选2启用BBR（会让你选队列算法：FQ、FQ-Codel、FQ-PIE或CAKE，选CAKE要求内核在5.5以上），如果之前选的是BBRplus内核编号（61到68），则选3启用BBRplus。"
         },
         {
           "@type": "HowToStep",
@@ -72,7 +73,7 @@ description: Jinwyp的one_click_script脚本安装BBR和BBRplus的完整步骤�
           "name": "想用XanMod内核搭配BBR2怎么操作？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "脚本里选51装XanMod LTS 5.10内核，重启完成后重新运行脚本选2启用BBR2；如果只想用XanMod自带的BBR3方案，可以直接参考XanMod内核搭配BBR3使用教程，不需要跑这个脚本。"
+            "text": "我读到的当前脚本里，51装的是XanMod 6.6 LTS，52装的是XanMod 6.11。这两个版本的XanMod里没有bbr2模块，算法名bbr的就是BBR3，所以不需要也无法再开bbr2，具体见BBR2脚本怎么用那篇；只想用XanMod自带的BBR3，可以直接参考XanMod内核搭配BBR3使用教程。"
           }
         }
       ]
@@ -91,15 +92,17 @@ wget --no-check-certificate https://raw.githubusercontent.com/jinwyp/one_click_s
 
 跑起来之后会出现菜单，根据自己的系统选对应的编号（注意：菜单编号随脚本版本变化，下面的编号只是写这篇时的情况，请以脚本屏幕上显示的菜单文字为准）：
 
-- **CentOS / AlmaLinux / Rocky Linux**：选31装最新5.16内核，或者选35装LTS 5.10内核（官方建议选这个，稳定性更好）
-- **Debian**：选41装LTS 5.10内核
-- **Ubuntu**：选45装LTS 5.10内核
+- **CentOS / AlmaLinux / Rocky Linux**：我读到的菜单里，31 是 elrepo 的 6.1 内核，32 和 35 是 5.4 LTS，36 是 Teddysun 编译的 5.10 LTS（标注“推荐安装”），37 到 39 是 5.15、6.1、6.6 LTS，40 是 elrepo 的 6.11
+- **Debian**：Debian 10 和 11 选 41 装 5.10 LTS（官方源）；Debian 11 还有 42（5.19）和 43（6.1 或更高）；Debian 12 菜单里只有 43（6.1 LTS）
+- **Ubuntu**：44 到 49 依次是 4.19、5.4、5.10、5.15、5.19、6.1（来自 Ubuntu kernel mainline），想要 5.10 选 46
+
+这些编号是我对着脚本头部日期 2025-06-12 的版本读出来的，旧教程里常见的“31 装 5.16、35 装 5.10、45 装 5.10”已经对不上了，一定以你屏幕上的菜单文字为准。
 
 装内核这一步过程中会重启两次，属于正常现象，不用担心。重启过程中如果出现警告界面提示删除旧内核，选"No"继续，不要中断。
 
-内核装完之后，重新运行一次同一个脚本，这时候菜单里选2，就能启用BBR拥塞控制算法（会问你要不要搭配Cake或者FQ，官方推荐Cake）。如果想用BBRplus而不是普通BBR，装内核那一步就要选不一样的编号：选61装BBRplus 4.14.129内核，或者选66装BBRplus 5.10 LTS内核，同样会重启两次，装完后重新运行脚本选3来启用BBRplus。
+内核装完之后，重新运行一次同一个脚本，这时候菜单里选2，就能启用BBR拥塞控制算法（会让你选队列算法：FQ、FQ-Codel、FQ-PIE或CAKE，选CAKE要求内核在5.5以上；脚本注释里说优质线路用cake带宽跑得更足，这是作者的经验，我没有测过）。如果想用BBRplus而不是普通BBR，装内核那一步就要选不一样的编号：选61装BBRplus 4.14.129内核，或者选64装BBRplus 5.10 LTS内核（62到68依次是UJX6N编译的4.14、4.19、5.10、5.15、6.1、6.6，以及“6.7或更高”，我读到的菜单里66是6.1 LTS），同样会重启两次，装完后重新运行脚本选3来启用BBRplus。
 
-如果想用XanMod内核搭配BBR2，脚本里也有对应选项：选51装XanMod LTS 5.10内核，重启完成后重新运行脚本选2启用BBR2。这个跟单独装XanMod的思路是一致的，如果只想用XanMod自带的BBR3方案，可以直接参考[XanMod内核搭配BBR3使用教程](https://vpsjq.com/2026/08/27/xanmod-bbr3/)，不需要额外跑这个脚本。
+脚本里也有XanMod选项：我读到的菜单里，51装XanMod 6.6 LTS，52装XanMod 6.11（仅Debian/Ubuntu类系统显示）。注意这两个版本的XanMod里没有bbr2模块，算法名bbr的就是BBR3，菜单第2项虽然写着“BBR或BBR2”，在这种内核上开出来的是bbr，原因见[BBR2脚本怎么用](https://vpsjq.com/2026/10/04/bbr2-script-xanmod/)。如果只想用XanMod自带的BBR3方案，可以直接参考[XanMod内核搭配BBR3使用教程](https://vpsjq.com/2026/08/27/xanmod-bbr3/)，不需要额外跑这个脚本。
 
 装完不管选的哪种加速方式，验证有没有生效的方法都一样：
 

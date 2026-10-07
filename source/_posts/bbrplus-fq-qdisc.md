@@ -127,7 +127,7 @@ BBRplus 是第三方内核里的算法，我没有读过它的源码，不确定
 我没有做过对比测试，下面只列出来源明确的信息：
 
 - **fq**：内核 BBR 源码注释里点名的搭配，也是脚本里 BBR 和 BBRplus 两种算法都提供的选项，没有特殊需求就选它。
-- **fq_pie、cake**：脚本只给原版 BBR 提供了这两个选项。我之前在 [Jinwyp一键脚本安装BBR和BBRplus内核教程](https://vpsjq.com/2026/09/06/jinwyp-one-click-script-bbr/)里记录过，Jinwyp 脚本启用 BBR 时会问"搭配 Cake 还是 FQ"，并推荐 Cake。这是该脚本的建议，不是我实测的结论。
+- **fq_pie、cake**：脚本只给原版 BBR 提供了这两个选项。我之前在 [Jinwyp一键脚本安装BBR和BBRplus内核教程](https://vpsjq.com/2026/09/06/jinwyp-one-click-script-bbr/)里记录过，Jinwyp 脚本启用 BBR 时会让你选队列算法（FQ、FQ-Codel、FQ-PIE、CAKE，选 CAKE 要求内核 5.5 以上），脚本注释里是作者的经验之谈（优质线路 cake 带宽跑得更足）。这不是我实测的结论。
 
 所以比较稳妥的做法是：BBRplus 就选脚本给的 BBRplus+FQ；原版 BBR 默认选 fq，想试 cake 的话，先确认内核有 `sch_cake` 模块，再换一次对比，别只听一面之词。
 
