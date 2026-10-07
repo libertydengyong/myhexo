@@ -95,6 +95,8 @@ Linux 内核里 BBR 的源码 `net/ipv4/tcp_bbr.c` 有一段注释，大意是�
 
 BBRplus 是第三方内核里的算法，我没有读过它的源码，不确定它是否有和原版 BBR 一样的 pacing 行为，所以"BBRplus 不配 fq 会怎样"这一点我没有核对，只能说脚本给 BBRplus 配的默认搭配是 fq。
 
+补充（后来读到的）：UJX6N 的 [bbrplus-6.x_stable](https://github.com/UJX6N/bbrplus-6.x_stable) 仓库 README 写明，在它编译的内核里，`fq` 是**唯一推荐**的队列调度器，**不要用 `fq_codel`、`fq_pie`、`cake` 等**，无论是用 `bbrplus` 还是用官方的 `bbr`。所以用这类内核时，别再按下面的思路去试 cake 或 fq_pie。BBRplus 的来历和这个仓库的情况见 [BBRplus是什么](https://vpsjq.com/2026/10/07/bbrplus-what-is/)。
+
 ## tcpx.sh 菜单里这几项分别是什么
 
 我读到的 `tcpx.sh` 里，"加速启用"这一组菜单是：
