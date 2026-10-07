@@ -1,6 +1,7 @@
 ---
 title: XanMod内核搭配BBR3使用教程
 date: 2026-08-27 14:00:00
+updated: 2026-10-08 20:00:00
 tags:
   - XanMod内核
   - BBR加速
@@ -18,7 +19,7 @@ description: XanMod内核安装后开启BBR3的完整流程，包括版本选择
       "headline": "XanMod内核搭配BBR3使用教程",
       "description": "XanMod内核安装后开启BBR3的完整流程，包括版本选择、安装后内核验证和BBR3启用方法。",
       "datePublished": "2026-08-27T14:00:00+08:00",
-      "dateModified": "2026-08-27T14:00:00+08:00",
+      "dateModified": "2026-10-08T20:00:00+08:00",
       "url": "https://vpsjq.com/2026/08/27/xanmod-bbr3/",
       "author": {
         "@type": "Organization",
@@ -51,7 +52,7 @@ description: XanMod内核安装后开启BBR3的完整流程，包括版本选择
         {
           "@type": "HowToStep",
           "name": "确认BBR3是否生效",
-          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出为bbr，再结合内核版本判断是否为BBR3，如果没有自动启用可以手动写入sysctl配置开启。"
+          "text": "用sysctl net.ipv4.tcp_congestion_control确认输出为bbr，再看内核版本：XanMod的6.6和6.18分支里的bbr是BBR3，5.15分支不是；如果没有自动启用可以手动写入sysctl配置开启。"
         }
       ]
     },
@@ -63,7 +64,7 @@ description: XanMod内核安装后开启BBR3的完整流程，包括版本选择
           "name": "怎么确认跑的是BBR3而不是普通BBR？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "用sysctl net.ipv4.tcp_available_congestion_control查看，如果输出里有bbr并且内核版本在6.x以上，跑的基本就是BBR3。"
+            "text": "用sysctl net.ipv4.tcp_available_congestion_control查看，如果输出里有bbr，并且uname -r显示的是XanMod的6.6或6.18系列，跑的就是BBR3。"
           }
         }
       ]
@@ -98,13 +99,13 @@ uname -r
 sysctl net.ipv4.tcp_congestion_control
 ```
 
-输出 `net.ipv4.tcp_congestion_control = bbr` 说明 BBR 已经在跑了。XanMod 装好后 BBR 通常会自动启用，但不一定是 BBR3，取决于内核版本。确认是不是 BBR3 可以用这条命令：
+输出 `net.ipv4.tcp_congestion_control = bbr` 说明 BBR 已经在跑了。XanMod 装好后 BBR 通常会自动启用。我读了 XanMod 官方 GitLab 的源码：6.6 和 6.18 分支的 `tcp_bbr.c` 是 BBR v3（有 `BBR_VERSION 3`），算法名仍叫 `bbr`，内核默认就是它；5.15 分支的不是 v3。所以先确认内核版本，再看算法是否可用：
 
 ```bash
 sysctl net.ipv4.tcp_available_congestion_control
 ```
 
-如果输出里有 `bbr` 并且内核版本在 6.x 以上，跑的基本就是 BBR3。如果 BBR 没有自动启用，手动开启：
+如果输出里有 `bbr`，并且 `uname -r` 显示的是 XanMod 的 6.6 或 6.18 系列，跑的就是 BBR3。我没有在运行中的系统里找到比看内核版本更直接的确认方法。XanMod 的 BBR 和 BBRplus 的区别见 [XanMod和BBRplus怎么选](https://vpsjq.com/2026/10/08/xanmod-vs-bbrplus/)。如果 BBR 没有自动启用，手动开启：
 
 ```bash
 echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
