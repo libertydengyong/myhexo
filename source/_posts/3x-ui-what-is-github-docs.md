@@ -63,7 +63,7 @@ description: 3x-ui是MHSanaei基于x-ui做的Xray管理面板。依据官方READ
 }
 </script>
 
-搜"3x-ui"的人，一般想先弄清楚三件事：它到底是什么、官方仓库和文档在哪、值不值得用。这篇依据官方 README 把这几件事讲清楚，再说说用之前要注意什么。
+搜"3x-ui"（也有人直接写成"3xui"）的人，一般想先弄清楚三件事：它到底是什么、官方仓库和文档在哪、值不值得用。这篇依据官方 README 把这几件事讲清楚，再说说用之前要注意什么。
 
 先说明：下面内容来自 [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui) 仓库的 README 和 LICENSE，以及 `x-ui.sh` 源码。官方文档站 docs.sanaei.dev 我这里访问不了，没读到里面的内容，所以文档站只说"README 里给出了这个入口"，不转述它的具体内容。GitHub 上的最新版本号、星标数这些实时信息我也没法查，文中不写。
 
